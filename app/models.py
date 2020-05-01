@@ -14,7 +14,7 @@ class Item(models.Model):
 
     # サンプル項目1 文字列
     sample_1 = models.CharField(
-        verbose_name='サンプル項目1 文字列',
+        verbose_name='レストラン名',
         max_length=20,
         blank=True,
         null=True,
@@ -22,14 +22,14 @@ class Item(models.Model):
 
     # サンプル項目2 メモ
     sample_2 = models.TextField(
-        verbose_name='サンプル項目2 メモ',
+        verbose_name='レストランのここがいい！',
         blank=True,
         null=True,
     )
 
     # サンプル項目3 整数
-    sample_3 = models.IntegerField(
-        verbose_name='サンプル項目3 整数',
+    sample_3 = models.TextField(
+        verbose_name='住所',
         blank=True,
         null=True,
     )
