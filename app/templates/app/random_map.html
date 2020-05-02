@@ -1,0 +1,147 @@
+{% load static %}
+<link href="{% static "app/css/cssV2/sp-ja.css" %}" rel="stylesheet">
+<link href="{% static "app/css/cssV2/common-ja.css" %}" rel="stylesheet">
+<link href="{% static "app/css/cssV2/base.css" %}" rel="stylesheet">
+
+<script src="{% static "app/js/plugins/show-map.js" %}"></script>
+
+<!-- フォントサイズ切替　-->
+
+<!-- /フォントサイズ切替　-->
+
+<script>
+    function set(img) {
+        console.log("hello");
+        console.log(img)
+        document.getElementById('map-img').src = img;
+    }
+    function restoreMap() {
+        console.log("hlooo");
+        document.getElementById('map-img').src = "{% static 'app/images/map.png' %}";
+    }
+    function goMainPage(cityCode) {
+
+        //alert(url);
+        console.log("HELOO");
+        var langType = '0';
+        var url = '/Sodai/V2Main/' + cityCode + '/0';
+
+        //url = '/Sodai/V2RecMail/13121/' + langType +'/0/0/-';
+        window.location.href = url;
+    }
+</script>
+
+
+<!--================== ▼ main ▼ ==================-->
+<div id="main" class="clearfix">
+    <div class="contents">
+        <section>
+            <h2 class="alignC">23区から探そう！</h2>
+            <p class="alignC mb20 pc">区をクリックするとそのページに飛びます</p>
+            <div id="map">
+                <img src="{% static 'app/images/map.png' %}" id="map-img" usemap="$map" alt="" onmouseover="this.src='{% static 'app/images/map/adachi.png' %}'" onMouseOut="    restoreMap();"/>
+                <map name="map">
+                    <area shape="rect" alt="足立区" onmouseover="this.src='{% static 'app/images/map/adachi.png' %}'" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="671,70,813,220" href="javascript:goMainPage(13122);" alt="葛飾区" onMouseOver="set('/media/images/map/katsushika.png');" onMouseOut="    restoreMap();" />
+                    <area shape="rect" coords="700,231,812,401" href="javascript:goMainPage(13123);" alt="江戸川区" onMouseOver="set('/media/images/map/edogawa.png');" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="511,170,663,221" href="javascript:goMainPage(13118);" alt="荒川区" onMouseOver="set('/media/images/map/arakawa.png');" onMouseOut="    restoreMap();" />
+                    <area shape="rect" coords="510,231,622,279" href="javascript:goMainPage(13106);" alt="台東区" onMouseOver="set('/media/images/map/taito.png');" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="632,232,690,231,690,331,602,331,602,292,630,291,631,232,631,232" href="javascript:goMainPage(13107);" alt="墨田区" onMouseOver="set('/media/images/map/sumida.png');" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="540,290,588,290,588,390,501,390,501,341,540,339,541,292,541,292" href="javascript:goMainPage(13102);" alt="中央区" onMouseOver="set('/media/images/map/chuo.png');" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="600,341,691,441" href="javascript:goMainPage(13108);" alt="江東区" onMouseOver="set('/media/images/map/koto.png');" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="420,40,497,40,497,179,441,179,441,150,420,148,420,41,420,41" href="javascript:goMainPage(13117);" alt="北区" onMouseOver="set('/media/images/map/kita.png');" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="440,190,498,191,499,280,390,278,391,230,440,230,441,191,441,191" href="javascript:goMainPage(13105);" alt="文京区" onMouseOver="set('/media/images/map/bunkyo.png');" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="410,290,532,330" href="javascript:goMainPage(13101);" alt="千代田区" onMouseOver="set('/media/images/map/chiyoda.png');" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="411,341,492,432" href="javascript:goMainPage(13103);" alt="港区" onMouseOver="set('/media/images/map/minato.png');" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="391,440,493,542" href="javascript:goMainPage(0);" alt="-" onMouseOver="restoreMap();" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="290,522,378,522,379,551,529,552,528,638,291,635,292,522,292,522" href="javascript:goMainPage(13111);" alt="大田区" onMouseOver="set('/media/images/map/ota.png');" onMouseOut="    restoreMap();" />
+                    <area shape="poly" coords="262,40,409,41,410,149,341,149,341,100,260,97,260,97" href="javascript:goMainPage(13119);" alt="板橋区" onMouseOver="set('/media/images/map/itabashi.png');" onMouseOut="    restoreMap();" />
+                    <area shape="poly" coords="340,160,428,160,428,219,380,218,377,279,341,279,341,279" href="javascript:goMainPage(13116);" alt="豊島区" onMouseOver="set('/media/images/map/toshima.png');" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="290,290,402,340" href="javascript:goMainPage(13104);" alt="新宿区" onMouseOver="set('/media/images/map/shinjuku.png');" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="290,351,399,352,399,430,360,430,358,390,290,389,290,389" href="javascript:goMainPage(13113);" alt="渋谷区" onMouseOver="set('/media/images/map/shibuya.png');" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="292,401,349,400,349,441,379,441,379,511,291,508,291,508" href="javascript:goMainPage(0);" alt="-" onMouseOver="restoreMap();" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="110,110,328,111,331,219,228,221,228,250,110,250,110,250" href="javascript:goMainPage(0);" alt="-" onMouseOver="restoreMap();" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="129,260,228,261,228,369,111,369,111,321,129,320,130,261" href="javascript:goMainPage(13115);" alt="杉並区" onMouseOver="set('/media/images/map/suginami.png');" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="240,230,328,230,328,280,281,280,279,369,240,367,240,367" href="javascript:goMainPage(13114);" alt="中野区" onMouseOver="set('/media/images/map/nakano.png');" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="110,381,282,550" href="javascript:goMainPage(0);" alt="-" onMouseOver="restoreMap();" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="1,150,104,252" href="javascript:goMainPage(0);" alt="-" onMouseOver="restoreMap();" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="0,260,122,312" href="javascript:goMainPage(0);" alt="-" onMouseOver="restoreMap();" onMouseOut="restoreMap();" />
+                    <area shape="rect" coords="2,322,104,390" href="javascript:goMainPage(0);" alt="-" onMouseOver="restoreMap();" onMouseOut="restoreMap();" />
+                    <area shape="poly" coords="1,401,100,402,99,460,49,460,49,490,1,487,1,487" href="javascript:goMainPage(13208);" alt="調布市" onMouseOver="set('/media/images/map/chofu.png');" onMouseOut="restoreMap();" />
+                </map>
+                
+
+
+            </div>
+
+                <ul class="area-select">
+                        <li>
+                            <a href='javascript:goMainPage(13121);' class="icon-adachi">足立区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13118);' class="icon-arakawa">荒川区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13119);' class="icon-itabashi">板橋区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13123);' class="icon-edogawa">江戸川区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13111);' class="icon-ota">大田区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13122);' class="icon-katsushika">葛飾区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13117);' class="icon-kita">北区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13108);' class="icon-koto">江東区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13113);' class="icon-shibuya">渋谷区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13104);' class="icon-shinjuku">新宿区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13115);' class="icon-suginami">杉並区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13107);' class="icon-sumida">墨田区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13106);' class="icon-taito">台東区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13102);' class="icon-chuo">中央区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13208);' class="icon-chofu">調布市</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13101);' class="icon-chiyoda">千代田区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13116);' class="icon-toshima">豊島区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13114);' class="icon-nakano">中野区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13105);' class="icon-bunkyo">文京区</a>
+                        </li>
+                        <li>
+                            <a href='javascript:goMainPage(13103);' class="icon-minato">港区</a>
+                        </li>
+                </ul>
+            
+
+        </section>
+        <br />
+        <p class="alignC">このページは東京都内（一部の地域を除く）からレストランを探すためのものです。</p>
+        <br class="clear" />
+    </div>
+</div>
+<!--================== ▲ main ▲ ==================-->
