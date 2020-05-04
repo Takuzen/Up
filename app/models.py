@@ -12,73 +12,74 @@ class Item(models.Model):
     https://docs.djangoproject.com/ja/2.1/ref/models/fields/
     """
 
-    # サンプル項目1 文字列
-    sample_1 = models.CharField(
-        verbose_name='サンプル項目1 文字列',
+    # レストラン名 文字列
+    restaurant_name = models.CharField(
+        verbose_name='レストラン名',
         max_length=20,
         blank=True,
         null=True,
     )
 
-    # サンプル項目2 メモ
-    sample_2 = models.TextField(
-        verbose_name='サンプル項目2 メモ',
+    # レストランのメモ 大きめのテキストエリア
+    restaurant_memo = models.TextField(
+        verbose_name='レストランのここがいい！',
         blank=True,
         null=True,
     )
 
-    # サンプル項目3 整数
-    sample_3 = models.IntegerField(
-        verbose_name='サンプル項目3 整数',
+    # 23区の選択
+    ward_choice = (
+        ('千代田区', '千代田区'),
+        ('中央区', '中央区'),
+        ('港区', '港区'),
+        ('新宿区', '新宿区'),
+        ('文京区', '文京区'),
+        ('台東区', '台東区'),
+        ('墨田区', '墨田区'),
+        ('江東区', '江東区'),
+        ('品川区', '品川区'),
+        ('目黒区', '目黒区'),
+        ('大田区', '大田区'),
+        ('世田谷区', '世田谷区'),
+        ('渋谷区', '渋谷区'),
+        ('中野区', '中野区'),
+        ('杉並区', '杉並区'),
+        ('豊島区', '豊島区'),
+        ('北区', '北区'),
+        ('荒川区', '荒川区'),
+        ('板橋区', '板橋区'),
+        ('練馬区', '練馬区'),
+        ('足立区', '足立区'),
+        ('葛飾区', '葛飾区'),
+        ('江戸川区', '江戸川区'),
+    )
+
+    # 23区のプルダウン
+    ward_address = models.CharField(
+        verbose_name='住所（区）',
+        choices=ward_choice,
+        max_length=20,
         blank=True,
         null=True,
     )
 
-    # サンプル項目4 浮動小数点
-    sample_4 = models.FloatField(
-        verbose_name='サンプル項目4 浮動小数点',
-        blank=True,
-        null=True,
+
+    # テイクアウト ブール値
+    bool_takeout = models.BooleanField(
+        verbose_name='テイクアウトOK',
     )
 
-    # サンプル項目5 固定小数点
-    sample_5 = models.DecimalField(
-        verbose_name='サンプル項目5 固定小数点',
-        max_digits=5,
-        decimal_places=2,
-        blank=True,
-        null=True,
+    # 価格帯 選択肢
+    price_range_choice = (
+        (1, '~500'),
+        (2, '~1000'),
+        (3, '~2000'),
     )
 
-    # サンプル項目6 ブール値
-    sample_6 = models.BooleanField(
-        verbose_name='サンプル項目6 ブール値',
-    )
-
-    # サンプル項目7 日付
-    sample_7 = models.DateField(
-        verbose_name='サンプル項目7 日付',
-        blank=True,
-        null=True,
-    )
-
-    # サンプル項目8 日時
-    sample_8 = models.DateTimeField(
-        verbose_name='サンプル項目8 日時',
-        blank=True,
-        null=True,
-    )
-
-    # サンプル項目9 選択肢（固定）
-    sample_9_choice = (
-        (1, '選択１'),
-        (2, '選択２'),
-        (3, '選択３'),
-    )
-
-    sample_9 = models.IntegerField(
-        verbose_name='サンプル項目9_選択肢（固定）',
-        choices=sample_9_choice,
+    # 価格帯 プルダウン
+    price_range = models.IntegerField(
+        verbose_name='予算',
+        choices=price_range_choice,
         blank=True,
         null=True,
     )
