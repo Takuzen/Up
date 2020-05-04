@@ -12,22 +12,23 @@ class Item(models.Model):
     https://docs.djangoproject.com/ja/2.1/ref/models/fields/
     """
 
-    # サンプル項目1 文字列
-    sample_1 = models.CharField(
+    # レストラン名 文字列
+    restaurant_name = models.CharField(
         verbose_name='レストラン名',
         max_length=20,
         blank=True,
         null=True,
     )
 
-    # サンプル項目2 メモ
-    sample_2 = models.TextField(
+    # レストランのメモ 大きめのテキストエリア
+    restaurant_memo = models.TextField(
         verbose_name='レストランのここがいい！',
         blank=True,
         null=True,
     )
 
-    sample_3_choice = (
+    # 23区の選択
+    ward_choice = (
         ('千代田区', '千代田区'),
         ('中央区', '中央区'),
         ('港区', '港区'),
@@ -53,30 +54,32 @@ class Item(models.Model):
         ('江戸川区', '江戸川区'),
     )
 
-    sample_3 = models.CharField(
-        verbose_name='住所',
-        choices=sample_3_choice,
+    # 23区のプルダウン
+    ward_address = models.CharField(
+        verbose_name='住所（区）',
+        choices=ward_choice,
         max_length=20,
         blank=True,
         null=True,
     )
 
 
-    # サンプル項目6 ブール値
-    sample_6 = models.BooleanField(
+    # テイクアウト ブール値
+    bool_takeout = models.BooleanField(
         verbose_name='テイクアウトOK',
     )
 
-    # サンプル項目9 選択肢（固定）
-    sample_9_choice = (
+    # 価格帯 選択肢
+    price_range_choice = (
         (1, '~500'),
         (2, '~1000'),
         (3, '~2000'),
     )
 
-    sample_9 = models.IntegerField(
+    # 価格帯 プルダウン
+    price_range = models.IntegerField(
         verbose_name='予算',
-        choices=sample_9_choice,
+        choices=price_range_choice,
         blank=True,
         null=True,
     )

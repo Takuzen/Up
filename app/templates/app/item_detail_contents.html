@@ -3,7 +3,7 @@
         <p>レストラン名</p>
     </div>
     <div class="col-7 col-sm-9">
-        <p>{{  item.sample_1|default_if_none:"未入力"  }}</p>
+        <p>{{  item.restaurant_name|default_if_none:"未入力"  }}</p>
     </div>
 </div>
 <div class="row">
@@ -16,10 +16,10 @@
 </div>
 <div class="row">
     <div class="col-5 col-sm-3">
-        <p>住所</p>
+        <p>住所（区）</p>
     </div>
     <div class="col-7 col-sm-9">
-        <p>{{  item.sample_3|default_if_none:"未入力" }}</p>
+        <p>{{  item.ward_address|default_if_none:"未入力" }}</p>
     </div>
 </div>
 <div class="row">
@@ -43,7 +43,7 @@
         <p>6_ブール値</p>
     </div>
     <div class="col-7 col-sm-9">
-        <p>{{ item.sample_6|yesno:"はい,いいえ" }}</p>
+        <p>{{ item.bool_takeout|yesno:"はい,いいえ" }}</p>
     </div>
 </div>
 <div class="row">
@@ -67,7 +67,7 @@
         <p>9_選択肢（固定）</p>
     </div>
     <div class="col-7 col-sm-9">
-        <p>{{ item.get_sample_9_display|default_if_none:"未入力" }}</p>
+        <p>{{ item.price_range|default_if_none:"未入力" }}</p>
     </div>
 </div>
 <div class="row">
