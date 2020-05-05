@@ -24,23 +24,7 @@
 </div>
 <div class="row">
     <div class="col-5 col-sm-3">
-        <p>4_浮動小数点</p>
-    </div>
-    <div class="col-7 col-sm-9">
-        <p>{{  item.sample_4|default_if_none:"未入力" }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-5 col-sm-3">
-        <p>5_固定小数点</p>
-    </div>
-    <div class="col-7 col-sm-9">
-        <p>{{  item.sample_5|default_if_none:"未入力" }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-5 col-sm-3">
-        <p>6_ブール値</p>
+        <p>テイクアウト可能か</p>
     </div>
     <div class="col-7 col-sm-9">
         <p>{{ item.bool_takeout|yesno:"はい,いいえ" }}</p>
@@ -48,42 +32,10 @@
 </div>
 <div class="row">
     <div class="col-5 col-sm-3">
-        <p>7_日付</p>
-    </div>
-    <div class="col-7 col-sm-9">
-        <p>{{ item.sample_7|date:"Y年m月d日" }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-5 col-sm-3">
-        <p>8_日時</p>
-    </div>
-    <div class="col-7 col-sm-9">
-        <p>{{ item.sample_8|date:"Y年m月d日 G時i分s秒" }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-5 col-sm-3">
-        <p>9_選択肢（固定）</p>
+        <p>価格帯</p>
     </div>
     <div class="col-7 col-sm-9">
         <p>{{ item.price_range|default_if_none:"未入力" }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-5 col-sm-3">
-        <p>10_選択肢（マスタ連動）</p>
-    </div>
-    <div class="col-7 col-sm-9">
-        <p>{{ item.sample_10.get_full_name|default_if_none:"未入力" }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-5 col-sm-3">
-        <p>作成者</p>
-    </div>
-    <div class="col-7 col-sm-9">
-        <p>{{ item.created_by.get_full_name }}</p>
     </div>
 </div>
 <div class="row">
@@ -92,14 +44,6 @@
     </div>
     <div class="col-7 col-sm-9">
         <p>{{ item.created_at|date:"Y/m/d G:i:s" }}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-5 col-sm-3">
-        <p>更新者</p>
-    </div>
-    <div class="col-7 col-sm-9">
-        <p>{{ item.updated_by.get_full_name }}</p>
     </div>
 </div>
 <div class="row">
