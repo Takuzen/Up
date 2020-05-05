@@ -138,7 +138,7 @@ class Item(models.Model):
         """
         リストボックスや管理画面での表示
         """
-        return self.sample_1
+        return self.restaurant_name
 
     class Meta:
         """
