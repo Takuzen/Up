@@ -46,6 +46,11 @@
                     <ul class="list-group">
                         <li class="list-group-item">
                             {# item_detail_contents.html を参考に必要な項目を追加してください #}
+                            {% if item.image %}
+                                <div class ="image">
+                                    <img src="/{{ item.image.url }}" style="width:300px;height:auto">
+                                </div>
+                            {% endif %}
                             <div class="row">
                                 <div class="col-5 col-sm-3">
                                     <p>レストラン名</p>
