@@ -54,3 +54,11 @@
         <p>{{ item.updated_at|date:"Y/m/d G:i:s" }}</p>
     </div>
 </div>
+
+{% if item.image %}
+    <div class="row">
+        <div class ="image">
+            <img src="/{{ item.image.url }}" style="width:300px;height:auto">
+        </div>
+    </div>
+{% endif %}
