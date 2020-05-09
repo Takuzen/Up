@@ -15,9 +15,11 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
     <link href="{% static "app/css/app.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
 </head>
 
 <body>
+<!--
 <nav class="navbar navbar-expand-md navbar-light bg-light ">
     <a class="navbar-brand" href="#">サンプルアプリ</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber"
@@ -38,8 +40,41 @@
         </ul>
     </div>
 </nav>
-{% block content %}
-{% endblock %}
+-->
+<div class="sidebar-wrapper">
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Up</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="#">千代田区</a>
+            </li>
+            <li>
+                <a href="#">港区</a>
+            </li>
+            <li>
+                <a href="#">渋谷区</a>
+            </li>
+            <li>
+                <a href="#">新宿区</a>
+            </li>
+            <li>
+                <a href="#">文京区</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>  
+
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
