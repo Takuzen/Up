@@ -16,11 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from account.views import Top #Account認証トップページhary
+
+
 # ルーティング設定
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app.urls')),
-    #path('', Top.as_view(), name='top'),
+    path('app/', include('app.urls')),
+    path('', Top.as_view(), name='top'),                               #haru
+    path('accounts/', include('account.urls')),                        #haru
+    path('accounts/', include('django.contrib.auth.urls')),            #haru
+ 
 ]
 
 # 管理サイトの見出しを変更可能

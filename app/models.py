@@ -1,7 +1,7 @@
 from django.db import models
 
-from users.models import User
-
+#from users.models import User
+from account.models import User        #haru
 
 class Item(models.Model):
     """
