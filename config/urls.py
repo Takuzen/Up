@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from account.views import Top #Account認証トップページhary
+
+
 # ルーティング設定
 urlpatterns = [
     path('admin/', admin.site.urls),

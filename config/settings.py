@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'users.apps.UsersConfig',
+#    'users.apps.UsersConfig',       #haru
     'app.apps.AppConfig',
     'register.apps.RegisterConfig',
     'debug_toolbar',
@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 
 # カスタムユーザーモデルの使用
 # https://docs.djangoproject.com/ja/2.1/topics/auth/customizing/#substituting-a-custom-user-model
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'account.User'
 
 # 管理サイトのログイン機能を通常のログイン機能として使う
 # https://docs.djangoproject.com/ja/2.1/ref/settings/#login-url
