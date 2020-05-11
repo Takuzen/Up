@@ -20,6 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
+    #path('', Top.as_view(), name='top'),
 ]
 
 # 管理サイトの見出しを変更可能
