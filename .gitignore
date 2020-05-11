@@ -14,3 +14,4 @@ app/static/app/images/
 images/
 app/migrations/
 dump.json
+django_env

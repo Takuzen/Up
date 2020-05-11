@@ -16,7 +16,7 @@ from .models import Item
 # LoginRequiredMixin：未ログインのユーザーをログイン画面に誘導するMixin
 # 参考：https://docs.djangoproject.com/ja/2.1/topics/auth/default/#the-loginrequired-mixin
 
-class ItemFilterView(LoginRequiredMixin, FilterView):
+class ItemFilterView(FilterView):
     """
     ビュー：一覧表示画面
 
@@ -68,7 +68,7 @@ class ItemFilterView(LoginRequiredMixin, FilterView):
         return super().get_context_data(object_list=object_list, **kwargs)
 
 
-class ItemDetailView(LoginRequiredMixin, DetailView):
+class ItemDetailView(DetailView):
     """
     ビュー：詳細画面
     """

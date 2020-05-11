@@ -35,11 +35,18 @@
                 </div>
             </div>
         </div>
+        <ul class="navbar-nav float-right mt-3">
+            <li class="nav-item">
+                <a class="nav-link btn btn-outline-dark" href="{% url 'admin:logout' %}">ログアウト</a>
+            </li>
+        </ul>
+        <!--
         <div class="row mt-3">
             <div class="col-10 mx-auto">
                 {% include "./_pagination.html" %}
             </div>
         </div>
+        -->
         <div class="row">
             {% for item in item_list %}
                 <div class="col-5">
