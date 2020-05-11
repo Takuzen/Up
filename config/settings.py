@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'users.apps.UsersConfig',
     'app.apps.AppConfig',
+    'register.apps.RegisterConfig',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -188,3 +191,6 @@ LOGGING = {
 
 IMAGE_ROOT = os.path.join(BASE_DIR, 'images')
 IMAGE_URL = '/images/'
+
+
+INTERNAL_IPS = ['127.0.0.1']
