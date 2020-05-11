@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -17,3 +17,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
+    import debug_toolbar
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
