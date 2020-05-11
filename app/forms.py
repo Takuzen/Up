@@ -1,6 +1,7 @@
 from django import forms
 
 from .models import Item
+from users.models import User
 
 
 class ItemForm(forms.ModelForm):
@@ -19,3 +20,9 @@ class ItemForm(forms.ModelForm):
         # auto_now=True
         # auto_now_add=Ture
         # editable=False
+
+
+class SignUpForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email']
