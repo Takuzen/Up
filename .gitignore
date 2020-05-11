@@ -10,4 +10,7 @@ local_settings.py
 db.sqlite3
 env
 media
-
+app/static/app/images/
+images/
+app/migrations/
+dump.json
