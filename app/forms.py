@@ -23,6 +23,21 @@ class ItemForm(forms.ModelForm):
 
 
 class SignUpForm(forms.ModelForm):
+
+    password = forms.CharField(widget=forms.PasswordInput)
+    def clean_password2(self):
+        # Check that the two password entries match
+        password = self.cleaned_data.get("password")
+        return password
+
+    def save(self, commit=True):
+        # Save the provided password in hashed format
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password"])
+        if commit:
+            user.save()
+        return user
+
     class Meta:
         model = User
         fields = ['username', 'password', 'email']
