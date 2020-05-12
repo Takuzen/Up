@@ -1,0 +1,11 @@
+{% extends "app/_base.html" %}
+
+{% block title %}Create an account {% endblock %}
+
+{% block content %}
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class="btn btn-success">Join</button>
+    </form>>
+{% endblock %}

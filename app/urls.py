@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 from .models import Item
 from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView
 
+from register import views as register_view
+
 # アプリケーションのルーティング設定
 
 urlpatterns = [
@@ -13,6 +15,7 @@ urlpatterns = [
     path('update/<int:pk>/', ItemUpdateView.as_view(), name='update'),
     path('delete/<int:pk>/', ItemDeleteView.as_view(), name='delete'),
     path('', ItemFilterView.as_view(), name='index'),
+    path('register/', register_view.register, name='register')
 ]
 
 if settings.DEBUG:
