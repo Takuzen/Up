@@ -3,6 +3,10 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth import get_user_model
 
 from app.forms import SignUpForm
+from django.contrib.auth.views import (
+    LoginView, LogoutView
+)
+from .forms import LoginForm
 
 
 # Create your views here.
@@ -17,3 +21,9 @@ def register(response):
     else:
         form = SignUpForm()
     return render(response, "register/register.html", {"form": form})
+
+
+class Login(LoginView):
+    """ログインページ"""
+    form_class = LoginForm
+    template_name = 'register/login.html'

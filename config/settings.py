@@ -128,6 +128,7 @@ AUTH_USER_MODEL = 'users.User'
 # https://docs.djangoproject.com/ja/2.1/ref/settings/#login-url
 LOGIN_URL = 'admin:login'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
 
 # django-crispy-forms
 # https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
