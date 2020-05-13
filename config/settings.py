@@ -127,7 +127,7 @@ AUTH_USER_MODEL = 'users.User'
 # 管理サイトのログイン機能を通常のログイン機能として使う
 # https://docs.djangoproject.com/ja/2.1/ref/settings/#login-url
 LOGIN_URL = 'admin:login'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
 
 # django-crispy-forms

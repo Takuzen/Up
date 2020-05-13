@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth import get_user_model
 
 from app.forms import SignUpForm
@@ -26,4 +26,9 @@ def register(response):
 class Login(LoginView):
     """ログインページ"""
     form_class = LoginForm
+    template_name = 'register/login.html'
+
+
+class Logout(LogoutView):
+    """ログアウトページ"""
     template_name = 'register/login.html'
