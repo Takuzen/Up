@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'users.apps.UsersConfig',
     'app.apps.AppConfig',
     'register.apps.RegisterConfig',
     'debug_toolbar',
@@ -122,7 +121,7 @@ STATIC_URL = '/static/'
 
 # カスタムユーザーモデルの使用
 # https://docs.djangoproject.com/ja/2.1/topics/auth/customizing/#substituting-a-custom-user-model
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'account.User'
 
 # 管理サイトのログイン機能を通常のログイン機能として使う
 # https://docs.djangoproject.com/ja/2.1/ref/settings/#login-url
@@ -134,7 +133,8 @@ LOGIN_REDIRECT_URL = '/'
 # https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+#ユーザー認証用メールアドレスバックエンド設定(haru)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # django-filter
 # https://django-filter.readthedocs.io/en/latest/ref/settings.html#filters-verbose-lookups
 # 検索フォームのラベル表示の修正。英語の説明を消す。
