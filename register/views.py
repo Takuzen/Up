@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth import get_user_model
-
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from app.forms import SignUpForm
 from django.contrib.auth.views import (
     LoginView, LogoutView
@@ -17,6 +18,8 @@ def register(response):
         if form.is_valid():
             form.save()
             print("saved")
+            username = form.cleaned_data.get('username')
+            messages.success(response, f'{username}さんのアカウントが登録されました!')
         return redirect("/")
     else:
         form = SignUpForm()
@@ -32,3 +35,7 @@ class Login(LoginView):
 class Logout(LogoutView):
     """ログアウトページ"""
     template_name = 'register/login.html'
+
+@login_required
+def profile(response):
+    return render(response, 'register/profile.html')

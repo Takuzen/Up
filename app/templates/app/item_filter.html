@@ -39,6 +39,7 @@
                 <li class="nav-item">
                     {% if user.is_authenticated %}
                         <p>Welcome {{ user.username }}</p>
+                        <a class="nav-link btn btn-outline-dark" href="{% url 'profile' %}">マイページ</a>
                         <a class="nav-link btn btn-outline-dark" href="{% url 'logout' %}">ログアウト</a>
                     {% else %}
                         <a class="nav-link btn btn-outline-dark" href="{% url 'login' %}">ログイン</a>

@@ -18,10 +18,12 @@ urlpatterns = [
     path('register/', register_view.register, name='register'),
     path('login/', register_view.Login.as_view(), name='login'),
     path('logout/', register_view.Logout.as_view(), name='logout'),
+    path('profile/', register_view.profile, name='profile'),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     import debug_toolbar
     urlpatterns += [
         path('__debug__/', include(debug_toolbar.urls)),
