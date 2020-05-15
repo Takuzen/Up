@@ -38,15 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-#    'users.apps.UsersConfig',       #haru
+    'users.apps.UsersConfig',
     'app.apps.AppConfig',
-<<<<<<< HEAD
     'register.apps.RegisterConfig',
     'debug_toolbar',
-=======
-    'account.apps.AccountConfig',    #haru
-    'bootstrap4'
->>>>>>> dbbe5f7... try commmit
 ]
 
 MIDDLEWARE = [
@@ -127,20 +122,13 @@ STATIC_URL = '/static/'
 
 # カスタムユーザーモデルの使用
 # https://docs.djangoproject.com/ja/2.1/topics/auth/customizing/#substituting-a-custom-user-model
-AUTH_USER_MODEL = 'account.User'
+AUTH_USER_MODEL = 'users.User'
 
 # 管理サイトのログイン機能を通常のログイン機能として使う
 # https://docs.djangoproject.com/ja/2.1/ref/settings/#login-url
-<<<<<<< HEAD
 LOGIN_URL = 'admin:login'
 LOGOUT_REDIRECT_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
-=======
-#LOGIN_URL = 'admin:login'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
->>>>>>> 6ca6bd3... マイグレーションできないので変更
-
 # django-crispy-forms
 # https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
