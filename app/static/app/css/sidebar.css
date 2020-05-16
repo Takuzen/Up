@@ -2,16 +2,7 @@
     display: flex;
     width: 100%;
     align-items: stretch;
-}
-
-.sidebar-wrapper {
-    display: flex;
-    align-items: stretch;
-}
-
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    padding-top: 100px;
 }
 
 #sidebar.active {
@@ -41,6 +32,7 @@ a[data-toggle="collapse"] {
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+    padding-top: 100px;
 }
 
 p {
@@ -66,11 +58,13 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
+    padding-top: 100px;
     background: #6d7fcc;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
+    padding-top: 100px;
     border-bottom: 1px solid #47748b;
 }
 
@@ -81,6 +75,7 @@ a, a:hover, a:focus {
 
 #sidebar ul li a {
     padding: 10px;
+    padding-top: 100px;
     font-size: 1.1em;
     display: block;
 }
@@ -96,6 +91,7 @@ a, a:hover, a:focus {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
+    padding-top: 100px;
     background: #6d7fcc;
 }
 
