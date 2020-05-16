@@ -11,36 +11,63 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <link href="{% static "app/css/topNavigation.css" %}" rel="stylesheet">
     <link href="{% static "app/css/app.css" %}" rel="stylesheet">
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
 </head>
 
 <body>
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"></div>
-<!--
-<nav class="navbar navbar-expand-md navbar-light bg-light ">
-    <a class="navbar-brand" href="#">UP</a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber"
-            aria-expanded="false"
-            aria-label="ナビゲーションの切替">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="Navber">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:index' %}">管理画面</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:logout' %}">ログアウト</a>
-            </li>
-        </ul>
-    </div>
-</nav>
--->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h1 class="my-0 mr-md-auto font-weight-normal">
+        <p>Eat Well Live Well </p>
+    </h1>
+
+    {% if user.is_authenticated %}
+        {% if user.profile.image %} 
+            <div class="rounded-circle account-img ">
+                <img src="/{{ user.profile.image.url }}" style="width:50px;height:auto">
+            </div>
+        {% endif %}
+    {% endif %}
+    
+    <ul class="navbar-nav float-right mt-5">
+        <li class="nav-item">
+            {% if user.is_authenticated %}
+                <p class="my-0 mr-md-auto font-weight-normal btn-lg">Welcome {{ user.username }}</p>
+
+                <a class="nav-link btn btn-outline-dark btn-md" href="{% url 'profile' %}">マイページ</a>
+                <a class="nav-link btn btn-outline-dark btn-md" href="{% url 'logout' %}">ログアウト</a>
+            {% else %}
+                <a class="nav-link btn btn-outline-dark btn-md" href="{% url 'login' %}">ログイン</a>
+                <a class="nav-link btn btn-outline-dark btn-md" href="{% url 'register' %}">サインアップ</a>
+                {% endif %}
+        </li>
+    </ul>
+</div>
+    
+    <!--
+    <nav class="navbar navbar-expand-md navbar-light bg-light ">
+        <a class="navbar-brand" href="#">UP</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber"
+                aria-expanded="false"
+                aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="Navber">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'admin:index' %}">管理画面</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'admin:logout' %}">ログアウト</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    -->
 <div class="sidebar-wrapper">
 
     <!-- Sidebar -->
@@ -89,6 +116,8 @@
     </div>
 
 </div>  
+
+
 
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
