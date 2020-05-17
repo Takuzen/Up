@@ -35,17 +35,19 @@
                 </div>
             </div>
         </div>
-        <ul class="navbar-nav float-right mt-3">
-                <li class="nav-item">
-                    {% if user.is_authenticated %}
-                        <p>Welcome {{ user.username }}</p>
-                        <a class="nav-link btn btn-outline-dark" href="{% url 'logout' %}">ログアウト</a>
-                    {% else %}
-                        <a class="nav-link btn btn-outline-dark" href="{% url 'login' %}">ログイン</a>
-                        <a class="nav-link btn btn-outline-dark" href="{% url 'register' %}">サインアップ</a>
-                    {% endif %}
-                </li>
-        </ul>
+        <!--
+            <ul class="navbar-nav float-right mt-3">
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                            <p>Welcome {{ user.username }}</p>
+                            <a class="nav-link btn btn-outline-dark" href="{% url 'logout' %}">ログアウト</a>
+                        {% else %}
+                            <a class="nav-link btn btn-outline-dark" href="{% url 'login' %}">ログイン</a>
+                            <a class="nav-link btn btn-outline-dark" href="{% url 'register' %}">サインアップ</a>
+                        {% endif %}
+                    </li>
+            </ul>
+        -->
         <div class="row">
             {% for item in item_list %}
                 <div class="col-5">
