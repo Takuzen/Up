@@ -46,13 +46,6 @@
                     {% endif %}
                 </li>
         </ul>
-        <!--
-        <div class="row mt-3">
-            <div class="col-10 mx-auto">
-                {% include "./_pagination.html" %}
-            </div>
-        </div>
-        -->
         <div class="row">
             {% for item in item_list %}
                 <div class="col-5">
@@ -65,18 +58,18 @@
                                 </div>
                             {% endif %}
                             <div class="row">
-                                <div class="col-5 col-sm-3">
+                                <div class="col-5 col-sm-5">
                                     <p>レストラン名</p>
                                 </div>
-                                <div class="col-7 col-sm-9">
+                                <div class="col-7 col-sm-7">
                                     <p>{{ item.restaurant_name|default_if_none:"未入力" }}</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-5 col-sm-3">
+                                <div class="col-5 col-sm-5">
                                     <p>レストランのここがいい！</p>
                                 </div>
-                                <div class="col-7 col-sm-9">
+                                <div class="col-7 col-sm-7">
                                     <p>{{ item.sample_2|default_if_none:"未入力" }}</p>
                                 </div>
                             </div>
@@ -97,11 +90,11 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-5 col-sm-3">
+                                <div class="col-5 col-sm-4">
                                     <p>作成時間</p>
                                 </div>
-                                <div class="col-7 col-sm-9">
-                                    <p>{{ item.created_at|date:"Y/m/d G:i:s" }}</p>
+                                <div class="col-7 col-sm-8">
+                                    <p>{{ item.created_at|date:"Y/m/d" }}</p>
                                 </div>
                             </div>
                             <div class="row">
