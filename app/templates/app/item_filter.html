@@ -50,13 +50,17 @@
         -->
         <div class="row">
             {% for item in item_list %}
-                <div class="col-5">
+                <div class="col-5" style="margin: 10px">
                     <ul class="list-group">
                         <li class="list-group-item">
                             {# item_detail_contents.html を参考に必要な項目を追加してください #}
                             {% if item.image %}
                                 <div class ="image">
-                                    <img src="/{{ item.image.url }}" style="width:300px;height:auto">
+                                    <img src="/{{ item.image.url }}" style="width:100%;height:300px">
+                                </div>
+                            {% else %}
+                                <div class ="image">
+                                    <img src="/images/1280x1024-dark-gray-solid-color-background.jpg" style="width:100%;height:300px">
                                 </div>
                             {% endif %}
                             <div class="row">
