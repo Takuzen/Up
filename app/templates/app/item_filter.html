@@ -56,7 +56,7 @@
                             {# item_detail_contents.html を参考に必要な項目を追加してください #}
                             {% if item.image %}
                                 <div class ="image">
-                                    <img src="/{{ item.image.url }}" style="width:100%;height:300px">
+                                    <img src="/{{ item.image.url }}" style="width:100%; height:300px; object-fit:cover;">
                                 </div>
                             {% else %}
                                 <div class ="image">
