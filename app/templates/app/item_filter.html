@@ -5,11 +5,11 @@
 {% block content %}
     {% load crispy_forms_tags %}
     <div class="container">
-        <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">検索条件</h5>
+                        <h5 class="modal-title">絞り込み条件</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -21,17 +21,17 @@
                     </form>
                     <div class="modal-footer">
                         <a class="btn btn-outline-dark" data-dismiss="modal">戻る</a>
-                        <button type="submit" class="btn btn-outline-dark" form="filter">検索</button>
+                        <button type="submit" class="btn btn-outline-dark" form="filter">絞り込む</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <a class="btn btn-secondary filtered" style="visibility:hidden" href="/?page=1">検索を解除</a>
+                <a class="btn btn-outline-dark" style="visibility:hidden" href="/?page=1">絞り込みを解除</a>
                 <div class="float-right mt-1">
                     <a class="btn btn-outline-dark" href="{% url 'create' %}">新規</a>
-                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#">検索</a>
+                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#">絞り込み</a>
                 </div>
             </div>
         </div>
@@ -122,6 +122,8 @@
                 {% include "./_pagination.html" %}
             </div>
         </div>
+
+        <!--
         <div class="row">
             <div class="col-12">
                 <div class="float-right mt-1 mb-3">
@@ -130,5 +132,8 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
+    
+
 {% endblock %}
