@@ -19,6 +19,8 @@
 </head>
 
 <body>
+
+<!-- Header -->
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}">Up</a></h5>
 
@@ -31,6 +33,7 @@
     {% endif %}
     </nav>
 </div>
+
 <div class="sidebar-wrapper">
 
     <!-- Sidebar -->
@@ -43,6 +46,7 @@
         </ul>
     </nav>
 
+    <!-- feed -->
     <div id="content">
         {% block content %}
         {% endblock %}
@@ -51,16 +55,19 @@
 </div>  
 
 
-<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<!-- jQuery first, then Tether, then Bootstrap JS. 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"
-        charset="UTF-8">></script>
+        charset="UTF-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js"></script>
-<script src="{% static "app/js/plugins/responsive-paginate.js" %}"></script>
 <script src="{% static "app/js/app.js" %}"></script>
+
+<!-- Pagination 
+    <script src="{% static "app/js/plugins/responsive-paginate.js" %}"></script> --> 
+
 </body>
 
 </html>

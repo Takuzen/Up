@@ -48,59 +48,45 @@
                     </li>
             </ul>
         -->
+
+        <!-- feed -->
         <div class="row">
-            {% for item in item_list %}
-                <div class="col-5" style="margin: 10px">
-                    <ul class="list-group">
-                        <li class="list-group-item">
+            <div class="row infinite-cotainer">
+                {% for item in item_list %}
+                <div class="col-lg-9 infinite-item" style="margin: 10px">
+                    <div class="card mb-4 shadow-sm">
                             {# item_detail_contents.html を参考に必要な項目を追加してください #}
                             {% if item.image %}
                                 <div class ="image">
-                                    <img src="/{{ item.image.url }}" style="width:100%; height:300px; object-fit:cover;">
+                                    <img src="/{{ item.image.url }}" style="width:100%; height:600px; object-fit:cover;">
                                 </div>
                             {% else %}
                                 <div class ="image">
-                                    <img src="/images/1280x1024-dark-gray-solid-color-background.jpg" style="width:100%;height:300px">
+                                    <img src="/images/1280x1024-dark-gray-solid-color-background.jpg" style="width:100%;height:600px">
                                 </div>
                             {% endif %}
-                            <div class="row">
-                                <div class="col-5 col-sm-5">
+                            
+                            <div class="card-body">
                                     <p>レストラン名</p>
-                                </div>
-                                <div class="col-7 col-sm-7">
                                     <p>{{ item.restaurant_name|default_if_none:"未入力" }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5 col-sm-5">
+                            
+                                    <p>作成者</p>
+                                    <p>{{ item.created_by.get_full_name }}</p>
+                            
+                                    <p>作成時間</p>
+                                    <p>{{ item.created_at|date:"Y/m/d" }}</p>
+                                
                                     <p>レストランのここがいい！</p>
-                                </div>
-                                <div class="col-7 col-sm-7">
                                     <p>{{ item.sample_2|default_if_none:"未入力" }}</p>
-                                </div>
                             </div>
+
+                            <!--
                             <div class="row">
                                 <div class="col-5 col-sm-3">
                                     <p>住所</p>
                                 </div>
                                 <div class="col-7 col-sm-9">
                                     <p>{{ item.ward_address|default_if_none:"未入力" }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5 col-sm-3">
-                                    <p>作成者</p>
-                                </div>
-                                <div class="col-7 col-sm-9">
-                                    <p>{{ item.created_by.get_full_name }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5 col-sm-4">
-                                    <p>作成時間</p>
-                                </div>
-                                <div class="col-7 col-sm-8">
-                                    <p>{{ item.created_at|date:"Y/m/d" }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -112,16 +98,46 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
+                            -->
+                        </div>
                 </div>
-            {% endfor %}
-        </div>
-        <div class="row mt-3">
-            <div class="col-10 mx-auto">
-                {% include "./_pagination.html" %}
+                {% endfor %}
             </div>
         </div>
+        {% if page_obj.has_next %}
+        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+        {% endif %}
+        <div class="d-flex justify-content-center" style="display:none;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        </div>
+
+        <script src="/static/js/jquery-2.2.4.min.js"></script>
+        <script src="/path/to/lib/jquery.waypoints.min.js"></script>
+        <script src="/path/to/shortcuts/infinite.min.js"></script>
+        <script>
+        var infinite = new Waypoint.Infinite({
+        element: $('.infinite-container')[0],
+        handler: function(direction) {
+        
+        },
+        offset: 'bottom-in-view',
+
+        onBeforePageLoad: function () {
+        $('.spinner-border').show();
+        },
+        onAfterPageLoad: function () {
+        $('.spinner-border').hide();
+        }
+        
+        });
+
+        </script>
+
+        <!--
         <div class="row">
             <div class="col-12">
                 <div class="float-right mt-1 mb-3">
@@ -129,6 +145,8 @@
                     <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#">検索</a>
                 </div>
             </div>
-        </div>
+        </div> 
+        -->
     </div>
+
 {% endblock %}

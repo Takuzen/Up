@@ -68,6 +68,7 @@ class Item(models.Model):
     # テイクアウト ブール値
     bool_takeout = models.BooleanField(
         verbose_name='テイクアウトOK',
+        default=False
     )
 
     # 価格帯 選択肢
