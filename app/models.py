@@ -63,7 +63,7 @@ class Item(models.Model):
         null=True,
     )
 
-    image = models.ImageField(upload_to='images',blank=True, null=True)
+    image = models.ImageField(upload_to='images/restaurant_posts', blank=True, null=True)
 
     # テイクアウト ブール値
     bool_takeout = models.BooleanField(
