@@ -46,6 +46,7 @@ class ItemFilterView(FilterView):
         # 詳細画面・登録画面からの遷移(GETクエリはない)ならクエリを復元する
         else:
             request.GET = request.GET.copy()
+            request.session['query']['page'] = 1
             if 'query' in request.session.keys():
                 for key in request.session['query'].keys():
                     request.GET[key] = request.session['query'][key]

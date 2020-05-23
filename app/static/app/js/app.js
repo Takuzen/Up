@@ -53,9 +53,4 @@ $(function () {
             $('.filtered').css('visibility', 'visible');
         }
     })
-
-    // ページネーションのレスポンシブ対応
-    // jQuery Plugin rPageを利用
-    // https://auxiliary.github.io/rpage/
-    $(".pagination").rPage();
 });

@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <a class="btn btn-outline-dark" style="visibility:hidden" href="/?page=1">絞り込みを解除</a>
+                <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
                 <div class="float-right mt-1">
                     <a class="btn btn-outline-dark" href="{% url 'create' %}">新規</a>
                     <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#">絞り込み</a>
@@ -48,9 +48,9 @@
                     </li>
             </ul>
         -->
-        <div class="row">
+        <div class="row infinite-container">
             {% for item in item_list %}
-                <div class="col-5" style="margin: 10px">
+                <div class="col-5 infinite-item" style="margin: 10px">
                     <ul class="list-group">
                         <li class="list-group-item">
                             {# item_detail_contents.html を参考に必要な項目を追加してください #}
@@ -88,22 +88,6 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-5 col-sm-3">
-                                    <p>作成者</p>
-                                </div>
-                                <div class="col-7 col-sm-9">
-                                    <p>{{ item.created_by.get_full_name }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5 col-sm-4">
-                                    <p>作成時間</p>
-                                </div>
-                                <div class="col-7 col-sm-8">
-                                    <p>{{ item.created_at|date:"Y/m/d" }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-12">
                                     <div class="float-right">
                                         <a class="btn btn-outline-dark " href="{% url 'detail' item.pk %}">詳細</a>
@@ -119,21 +103,35 @@
         </div>
         <div class="row mt-3">
             <div class="col-10 mx-auto">
-                {% include "./_pagination.html" %}
+                {% if page_obj.has_next %}
+                    <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+                {% endif %}
+                <div class="d-flex justify-content-center" style="display:none;">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>           
             </div>
         </div>
-
-        <!--
-        <div class="row">
-            <div class="col-12">
-                <div class="float-right mt-1 mb-3">
-                    <a class="btn btn-outline-dark" href="{% url 'create' %}">新規</a>
-                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#">検索</a>
-                </div>
-            </div>
-        </div>
-        -->
     </div>
-    
+    	
+    <script src="/static/app/js/jquery-2.2.4.min.js"></script>
+    <script src="/static/app/js/jquery.waypoints.min.js"></script>
+    <script src="/static/app/js/infinite.min.js"></script>
+    <script>
+    var infinite = new Waypoint.Infinite({
+        element: $('.infinite-container')[0],
+        handler: function(direction) {},
+        offset: 'bottom-in-view',
+
+        onBeforePageLoad: function () {
+            $('.spinner-border').show();
+        },
+        onAfterPageLoad: function () {
+            $('.spinner-border').hide();
+        }
+    });
+
+    </script>
 
 {% endblock %}
