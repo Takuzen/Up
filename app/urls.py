@@ -18,6 +18,7 @@ urlpatterns = [
     path('register/', register_view.register, name='register'),
     path('login/', register_view.Login.as_view(), name='login'),
     path('logout/', register_view.Logout.as_view(), name='logout'),
+    path('profile/', register_view.profile, name='profile'),
 ]
 
 if settings.DEBUG:
