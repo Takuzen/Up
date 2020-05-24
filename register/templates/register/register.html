@@ -1,11 +1,11 @@
 {% extends "app/_base.html" %}
-
+{% load crispy_forms_tags %}
 {% block title %}Create an account {% endblock %}
 
 {% block content %}
     <form method="POST" class="form-group">
         {% csrf_token %}
-        {{form}}
+        {{form|crispy}}
         <button type="submit" class="btn btn-success">Join</button>
-    </form>>
+    </form>
 {% endblock %}
