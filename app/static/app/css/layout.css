@@ -1,0 +1,29 @@
+
+
+/*
+@media以外の所は全てのサイズで読み込まれます。
+*/
+#top-page-container {
+    margin: 0px 0px;
+}
+
+@media screen and (min-width:480px) { 
+    /*　画面サイズが480pxからはここを読み込む　*/
+    #top-page-container {
+        margin: 0px 5%;
+    }
+}
+
+@media screen and (min-width:768px) and ( max-width:1024px) {
+    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+    #top-page-container {
+        margin: 0px 10%;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    /*　画面サイズが1024pxからはここを読み込む　*/
+    #top-page-container {
+        margin: 0px 15%;
+    }
+}
