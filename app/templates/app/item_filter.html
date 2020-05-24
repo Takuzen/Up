@@ -4,7 +4,7 @@
 
 {% block content %}
     {% load crispy_forms_tags %}
-    <div class="top-page-container" style="margin: 0px 400px">
+    <div class="top-page-container" id="top-page-container">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -69,14 +69,6 @@
                                 </div>
                                 <div class="col-7 col-sm-7">
                                     <p>{{ item.restaurant_name|default_if_none:"未入力" }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5 col-sm-5">
-                                    <p>レストランのここがいい！</p>
-                                </div>
-                                <div class="col-7 col-sm-7">
-                                    <p>{{ item.sample_2|default_if_none:"未入力" }}</p>
                                 </div>
                             </div>
                             <div class="row">
