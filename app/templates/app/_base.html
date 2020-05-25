@@ -5,7 +5,7 @@
 <head>
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Up</title>
     <!-- Bootstrap CSS -->
@@ -14,94 +14,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
     <link href="{% static "app/css/topNavigation.css" %}" rel="stylesheet">
     <link href="{% static "app/css/app.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/button.css" %}" rel="stylesheet">
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/button.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/layout.css" %}" rel="stylesheet">
 </head>
 
 <body>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h1 class="my-0 mr-md-auto font-weight-normal">
-        <p>Eat Well Live Well </p>
-    </h1>
+    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}">Up</a></h5>
 
+    <nav class="my-2 my-md-0 mr-md-3">
     {% if user.is_authenticated %}
-        {% if user.profile.image %} 
-            <div class="rounded-circle account-img ">
-                <img src="/{{ user.profile.image.url }}" style="width:50px;height:auto">
-            </div>
-        {% endif %}
+        <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'profile' %}">マイページ</a>
+    {% else %}
+        <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'login' %}">ログイン</a>
+        <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">入会</a>
     {% endif %}
-    
-    <ul class="navbar-nav float-right mt-5">
-        <li class="nav-item">
-            {% if user.is_authenticated %}
-                <p class="my-0 mr-md-auto font-weight-normal btn-lg">Welcome {{ user.username }}</p>
-
-                <a class="nav-link btn btn-outline-dark btn-md" href="{% url 'profile' %}">マイページ</a>
-                <a class="nav-link btn btn-outline-dark btn-md" href="{% url 'logout' %}">ログアウト</a>
-            {% else %}
-                <a class="nav-link btn btn-outline-dark btn-md" href="{% url 'login' %}">ログイン</a>
-                <a class="nav-link btn btn-outline-dark btn-md" href="{% url 'register' %}">サインアップ</a>
-                {% endif %}
-        </li>
-    </ul>
-</div>
-    
-    <!--
-    <nav class="navbar navbar-expand-md navbar-light bg-light ">
-        <a class="navbar-brand" href="#">UP</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber"
-                aria-expanded="false"
-                aria-label="ナビゲーションの切替">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="Navber">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin:index' %}">管理画面</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin:logout' %}">ログアウト</a>
-                </li>
-            </ul>
-        </div>
     </nav>
-    -->
+</div>
+
 <div class="sidebar-wrapper">
 
-    <!-- Sidebar -->
+    <!-- Sidebar
     <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Up</h3>
-        </div>
-
         <ul class="list-unstyled components">  
             <li>
                 <a href="#">最新レストラン特集</a>
             </li>
 
-            <!--
-            <li>
-                <a href="#">千代田区</a>
-            </li>
-            <li>
-                <a href="#">港区</a>
-            </li>
-            <li>
-                <a href="#">渋谷区</a>
-            </li>
-            <li>
-                <a href="#">新宿区</a>
-            </li>
-            <li>
-                <a href="#">文京区</a>
-            </li>
-            -->
-
         </ul>
     </nav>
-
+-->
     <!--サインアップ時にメッセージ発信-->
     <div id="content">
         {% if messages %}
@@ -119,7 +63,6 @@
 
 
 
-
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -129,10 +72,12 @@
         crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"
-        charset="UTF-8">></script>
+        charset="UTF-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js"></script>
-<script src="{% static "app/js/plugins/responsive-paginate.js" %}"></script>
 <script src="{% static "app/js/app.js" %}"></script>
+<script src="{% static "app/js/infinite.min.js" %}"></script>
+<script src="{% static "app/js/jquery.waypoints.min.js" %}"></script>
+<script src="{% static "app/js/noframework.waypoints.min.js" %}"></script>
 </body>
 
 </html>
