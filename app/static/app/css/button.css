@@ -44,7 +44,6 @@
   .btn-square-soft:hover {
     opacity: 0.8;
   }
-
   .btn-square-soft:active {
     /*押したとき*/
     -webkit-transform: translateY(2px);
