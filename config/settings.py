@@ -131,9 +131,15 @@ AUTH_USER_MODEL = 'account.User'
 
 # 管理サイトのログイン機能を通常のログイン機能として使う
 # https://docs.djangoproject.com/ja/2.1/ref/settings/#login-url
+<<<<<<< HEAD
 LOGIN_URL = 'admin:login'
 LOGOUT_REDIRECT_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
+=======
+#LOGIN_URL = 'admin:login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+>>>>>>> 6ca6bd3... マイグレーションできないので変更
 
 # django-crispy-forms
 # https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
