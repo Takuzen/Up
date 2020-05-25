@@ -24,12 +24,7 @@ def register(response):
     else:
         form = SignUpForm()
     return render(response, "register/register.html", {"form": form})
-
-
-def profile(response):
-    return render(response, 'register/profile.html')
-
-
+    
 class Login(LoginView):
     """ログインページ"""
     form_class = LoginForm
