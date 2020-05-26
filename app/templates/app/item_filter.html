@@ -3,6 +3,7 @@
 
 
 {% block content %}
+    <!-- 絞り込みフォーム -->
     {% load crispy_forms_tags %}
     <div class="top-page-container" id="top-page-container">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
@@ -30,8 +31,7 @@
             <div class="col-12">
                 <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
                 <div class="float-right mt-1">
-                    <a class="btn btn-square-soft" href="{% url 'create' %}"> + </a>
-                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#">絞り込み</a>
+                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#"><img src="media/images/sort-ascending-2x.png" alt="sort-ascending-2x"></a>
                 </div>
             </div>
         </div>
@@ -48,38 +48,31 @@
                     </li>
             </ul>
         -->
+    <!-- feed -->
+    <div class="container">
         <div class="row infinite-container">
             {% for item in item_list %}
-                <div class="col-md-4 infinite-item"></div>
-                <div class="col-md-4 infinite-item" style="margin: 10px 0">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            {# item_detail_contents.html を参考に必要な項目を追加してください #}
-                            {% if item.image %}
-                                <div class ="image">
-                                    <img src="/{{ item.image.url }}" style="width:100%; height:300px; object-fit:cover;">
-                                </div>
-                            {% else %}
-                                <div class ="image">
-                                    <img src="/images/1280x1024-dark-gray-solid-color-background.jpg" style="width:100%;height:300px">
-                                </div>
-                            {% endif %}
-                            <div class="row">
-                                <div class="col-5 col-sm-5">
-                                    <p>レストラン名</p>
-                                </div>
-                                <div class="col-7 col-sm-7">
-                                    <p>{{ item.restaurant_name|default_if_none:"未入力" }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5 col-sm-3">
-                                    <p>住所</p>
-                                </div>
-                                <div class="col-7 col-sm-9">
-                                    <p>{{ item.ward_address|default_if_none:"未入力" }}</p>
-                                </div>
-                            </div>
+                <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 400px;">   
+                    <div id="card-header">
+                        <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm"><img src="/media/images/person.svg" alt="person"></span></button>
+                            <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
+                    </div>
+                    <div id="card-body">
+                        {% if item.image %}
+                        <div id="image">
+                            <img src="/{{ item.image.url }}" style="width:100%; height:300px; object-fit:cover;">
+                        </div>
+                        {% else %}
+                        <div id="image">
+                            <img src="/images/1280x1024-dark-gray-solid-color-background.jpg" style="width:100%;height:300px">
+                        </div>
+                        {% endif %}
+                        <div id="text">
+                            <p>{{ item.restaurant_name|default_if_none:"未入力" }} </p>
+                            <p>{{ item.ward_address|default_if_none:"未入力" }}</p>
+                        </div>
+                    </div>
+                            <!-- 
                             <div class="row">
                                 <div class="col-12">
                                     <div class="float-right">
@@ -89,12 +82,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
+                            -->
                 </div>
-                <div class="col-md-4 infinite-item"></div>
             {% endfor %}
+            </div>  
         </div>
+
         <div class="row mt-3">
             <div class="col-10 mx-auto">
                 {% if page_obj.has_next %}
