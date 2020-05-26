@@ -21,6 +21,18 @@
 </head>
 
 <body>
+<!-- header -->
+<style>
+    #card {
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 1%;
+        border-color: gray;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+   
+</style>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}">Up</a></h5>
 
@@ -33,18 +45,17 @@
     {% endif %}
     </nav>
 </div>
-<div class="sidebar-wrapper">
+<!-- content-->
+<div class="wrapper">
 
-    <!-- Sidebar
     <nav id="sidebar">
         <ul class="list-unstyled components">  
             <li>
-                <a href="#">最新レストラン特集</a>
+                <a class="btn btn-square-soft" href="{% url 'create' %}"> + </a>
             </li>
-
         </ul>
     </nav>
-    -->
+ 
     <div id="content">
         {% if messages %}
             {% for message in messages %}
@@ -57,7 +68,8 @@
         {% endblock %}
     </div>
 
-</div>  
+</div> 
+
 
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
