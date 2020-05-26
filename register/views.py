@@ -8,6 +8,11 @@ from django.contrib.auth.views import (
 )
 from .forms import LoginForm
 
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
+from app.models import Item
+
 
 # Create your views here.
 def register(response):
@@ -16,15 +21,17 @@ def register(response):
         form = SignUpForm(response.POST)
         if form.is_valid():
             form.save()
-            print("saved")
+            username = form.cleaned_data.get('username')
+            messages.success(response, f'{username}さんのアカウントが登録されました!')
         return redirect("/")
     else:
         form = SignUpForm()
     return render(response, "register/register.html", {"form": form})
 
-
-def profile(response):
-    return render(response, 'register/profile.html')
+@login_required
+def profile(request):
+    user_posts = Item.objects.filter(created_by_id = request.user.id)
+    return render(request, 'register/profile.html', {'user_posts': user_posts})
 
 
 class Login(LoginView):

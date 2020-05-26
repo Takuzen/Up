@@ -11,5 +11,13 @@
         </div>
     <!-- FORM HERE -->
      </div>
+     {% for post in user_posts %}
+        <div class="row">
+            <div class="col-md-4 infinite-item" style="margin: 10px 0">
+                <p>{{  post.restaurant_name }}</p>
+                <img src="/{{ post.image.url }}" style="width:100%; height:300px; object-fit:cover;">
+            </div>
+        </div>
+     {% endfor %}
 
 {% endblock %}
