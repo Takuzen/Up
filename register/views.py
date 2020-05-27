@@ -23,6 +23,11 @@ def register(response):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(response, f'{username}さんのアカウントが登録されました!')
+            new_user = authenticate(
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password'],
+            )
+            login(response, new_user)
         return redirect("/")
     else:
         form = SignUpForm()
@@ -30,7 +35,7 @@ def register(response):
 
 @login_required
 def profile(request):
-    user_posts = Item.objects.filter(created_by_id = request.user.id)
+    user_posts = Item.objects.filter(created_by_id = request.user.id).order_by('-created_at')
     return render(request, 'register/profile.html', {'user_posts': user_posts})
 
 
