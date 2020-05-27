@@ -31,11 +31,8 @@
     display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
+        display:none;
     }
 }
