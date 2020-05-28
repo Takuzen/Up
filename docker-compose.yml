@@ -1,0 +1,34 @@
+version: '3'
+services:
+  mysql:
+    image: mysql
+    env_file: ./mysql/.env_sample
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    networks:
+      app_net:
+        ipv4_address: 172.20.0.3
+    depends_on:
+      - django
+
+  django:
+    build: ./django
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./up:/code
+    networks:
+      app_net:
+        ipv4_address: 172.20.0.2
+    tty: true
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/24
+volumes:
+  est-data:
