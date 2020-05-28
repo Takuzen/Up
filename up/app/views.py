@@ -10,6 +10,7 @@ from .filters import ItemFilterSet
 from .forms import ItemForm
 from .models import Item
 
+from django.contrib.auth.decorators import login_required
 
 # 未ログインのユーザーにアクセスを許可する場合は、LoginRequiredMixinを継承から外してください。
 #
