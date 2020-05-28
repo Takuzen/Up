@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME' : 'Up', #←.env_sampleで指定したMYSQL_DATABASE
+        'USER' : 'db_user', #←.env_sampleで指定したMYSQL_USER
+        'PASSWORD' : 'password', #←.env_sampleで指定したMYSQL_PASSWORD
+        'HOST' : '172.20.0.3', #←docker-compose.ymlに指定したmysqlのIPAddress
+        'PORT': '3306',
     }
 }
 
