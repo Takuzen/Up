@@ -1,0 +1,18 @@
+{% extends "app/_base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Create an account {% endblock %}
+
+{% block content %}
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        <div class="form-row" style="margin: 0% 10%">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.username|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.email|as_crispy_field }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success" style="margin: 0% 10%">Save</button>
+    </form>
+{% endblock %}
