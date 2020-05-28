@@ -49,5 +49,11 @@ code# python manage.py migrate
 code# python manage.py runserver 0.0.0.0:8000
 ```
 
+シャットダウン方法
+
+```
+docker-compose down
+```
+
 
 参考にしたサイト：[docker-composeでDjangoコンテナ + MySQLコンテナの環境構築 〜 マイグレーションでテーブル作成および管理ツールで確認するまで）。](https://qiita.com/Butterthon/items/e85825d3eff6559a1cf1)
