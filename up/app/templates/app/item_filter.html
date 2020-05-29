@@ -31,7 +31,7 @@
             <div class="col-12">
                 <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
                 <div class="float-right mt-1">
-                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#"><img src="media/images/sort-ascending-2x.png" alt="sort-ascending-2x"></a>
+                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#"><img src="/media/images/sort-ascending-2x.png" alt="sort-ascending-2x"></a>
                 </div>
             </div>
         </div>
@@ -68,8 +68,7 @@
                         </div>
                         {% endif %}
                         <div id="text">
-                            <p>{{ item.restaurant_name|default_if_none:"未入力" }} </p>
-                            <p>{{ item.ward_address|default_if_none:"未入力" }}</p>
+                            <p><button type="button" class="btn btn-default btn-sm"><img src="/media/images/location-icon.png"></button>{{ item.restaurant_name|default_if_none:"未入力" }}</p>
                         </div>
                     </div>
                             <!-- 
