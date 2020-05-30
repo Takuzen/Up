@@ -65,11 +65,6 @@ class Item(models.Model):
 
     image = models.ImageField(upload_to='images/restaurant_posts', blank=True, null=True)
 
-    # テイクアウト ブール値
-    bool_takeout = models.BooleanField(
-        verbose_name='テイクアウトOK',
-    )
-
     # 価格帯 選択肢
     price_range_choice = (
         (1, '~500'),

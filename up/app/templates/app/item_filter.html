@@ -1,9 +1,11 @@
 {% extends "./_base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
     <!-- 新規投稿モーダル -->
+    {{ form.certifications.errors }}
     <div class="modal" id="post-modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content" style="width: 600px; height: 400px;">
@@ -13,19 +15,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p><input role="textbox" placeholder="みんなに共有する..."></p>
-                    <p><input type="file" accept=".jpeg, .png" multiple></p>
+                    <form method="post" id="myform" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% crispy form %}
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">下書き保存</button>
-                    <button type="button" class="btn btn-primary">投稿する</button>
+                    <button class="btn btn-outline-dark save">保存</button>
                 </div>
             
             </div>
         </div>
     </div>
     <!-- 絞り込みモーダル -->
-    {% load crispy_forms_tags %}
     <div class="top-page-container" id="top-page-container">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
             <div class="modal-dialog" role="document">
@@ -52,7 +55,7 @@
             <div class="col-12">
                 <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
                 <div class="float-right mt-1">
-                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#"><img src="/media/images/sort-ascending-8x.png" alt="sort-ascending-8x" width="20px" height="20px"></a>
+                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#"><img src="/media/images/sort-ascending-2x.png" alt="sort-ascending-8x" width="20px" height="20px"></a>
                 </div>
             </div>
         </div>
@@ -139,6 +142,23 @@
             $('.spinner-border').hide();
         }
     });
+
+    $(function () {
+
+            // 入力フォームでリターンキー押下時の送信を無効化
+        // ※フィールド１個の時は無効
+        $('#myform').on('sumbit', function (e) {
+            e.preventDefault();
+        })
+
+        // 送信ボタンの２度押しを防止
+        $('.save').on('click', function (e) {
+            //$('.save').addClass('disabled');
+            console.log("hi");
+            console.log($('#myform'));
+            //$('#myform').submit();
+        })
+    })
 
     </script>
 
