@@ -48,4 +48,4 @@ class ItemFilterSet(django_filters.FilterSet):
                 },
             },
         }
-        fields = ("restaurant_name", "restaurant_memo", "ward_address", "bool_takeout", "price_range")
+        fields = ("restaurant_name", "restaurant_memo", "ward_address", "price_range")

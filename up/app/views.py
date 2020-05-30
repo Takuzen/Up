@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from .filters import ItemFilterSet
-from .forms import ItemForm
+from .forms import ItemForm, PostForm
 from .models import Item
 
 from django.contrib.auth.decorators import login_required
@@ -26,6 +26,7 @@ class ItemFilterView(FilterView):
     https://django-filter.readthedocs.io/en/master/
     """
     model = Item
+    form_class = PostForm
 
     # django-filter 設定
     filterset_class = ItemFilterSet
@@ -66,7 +67,26 @@ class ItemFilterView(FilterView):
         """
         # 表示データを追加したい場合は、ここでキーを追加しテンプレート上で表示する
         # 例：kwargs['sample'] = 'sample'
-        return super().get_context_data(object_list=object_list, **kwargs)
+        context_data = super().get_context_data(object_list=object_list, **kwargs)
+        context_data.update({'form': PostForm})
+        return context_data
+
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            # <process form cleaned data>
+            item = form.save(commit=False)
+            item.created_by = self.request.user
+            item.created_at = timezone.now()
+            item.updated_by = self.request.user
+            item.updated_at = timezone.now()
+            item.save()
+
+            return HttpResponseRedirect("/")
+
+        return render(request, self.template_name, {'form': form})
+
 
 
 class ItemDetailView(DetailView):
