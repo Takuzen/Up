@@ -1,54 +1,24 @@
-.btn-circle-3d-emboss {
-    display: inline-block;
-    text-decoration: none;
-    background: #ffba78;
-    color: #ffba78;
-    width: 80px;
-    height: 80px;
-    font-size: 50px;
-    line-height: 80px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    font-weight: bold;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-    border-bottom: solid 3px #e97a12;
-    text-shadow: -1px -1px rgba(255, 255, 255, 0.43), 1px 1px rgba(0, 0, 0, 0.49);
-    transition: .4s;
-  }
-  .btn-circle-3d-emboss:active {
-    -webkit-transform: translateY(2px);
-    transform: translateY(2px);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
-    border-bottom: none;
-  }
-
   .btn-square-soft {
     display: inline-block;
     position: relative;
-    text-decoration: none;
     width: 210px;
     height: 50px;
-    padding:10px;
-    font-size: 40px;
-    line-height: 50px;
-    border-radius: 5px;
+    font-size: 17px;
+    line-height: 48px; /* 行間の広さ→もっと良いボタンのmiddleに位置させる方法があるはず */
+    padding: 0;
+    border-radius: 50px;
     text-align: center;
-    color:rgba(0, 0, 0, 0.35)
-    overflow: hidden;
     font-weight: bold;
-    background: linear-gradient(#fed6e3 0%, #FFA76D 100%);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
-  }
-  .btn-square-soft:hover {
-    opacity: 0.8;
+    background: #ffa76d;
   }
 
-  .btn-square-soft:active {
-    /*押したとき*/
-    -webkit-transform: translateY(2px);
-    transform: translateY(2px);/*沈むように*/
+  .btn-square-soft:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+  }
+
+  .btn-square-soft:active { /* 押したとき */
+    transform: translateY(2px); /* 沈むように */
     box-shadow: 0 0 1px rgba(5, 1, 1, 0.15);
-    background-image: linear-gradient(#fed6e3 0%, #FFA76D 100%);/*グラデーションを明るく*/
+    transition-duration: 0.3s;
   }

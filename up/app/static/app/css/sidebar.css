@@ -14,21 +14,8 @@
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
     /* どういう規則で分けてる？ */
-    background: #fff;
     color: #fff;
-    transition: all 0.3s;
     padding: 20px;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
 }
 
 @media (max-width: 1200px) {
