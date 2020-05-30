@@ -35,6 +35,7 @@ class ItemFilterView(FilterView):
 
     # 1ページの表示
     paginate_by = 10
+    success_url = reverse_lazy('index')
 
     def get(self, request, **kwargs):
         """
@@ -77,16 +78,16 @@ class ItemFilterView(FilterView):
         if form.is_valid():
             # <process form cleaned data>
             item = form.save(commit=False)
+            item.image = request.FILES['image']
             item.created_by = self.request.user
             item.created_at = timezone.now()
             item.updated_by = self.request.user
             item.updated_at = timezone.now()
             item.save()
 
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect(self.success_url)
 
         return render(request, self.template_name, {'form': form})
-
 
 
 class ItemDetailView(DetailView):

@@ -16,18 +16,19 @@
                 </div>
                 <div class="modal-body">
                     <form method="post" id="myform" enctype="multipart/form-data">
+                        {% csrf_token %}
                         {% crispy form %}
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">下書き保存</button>
-                    <a class="btn btn-outline-dark save" href="#">保存</a>
+                    <button class="btn btn-outline-dark save">保存</button>
                 </div>
             
             </div>
         </div>
     </div>
-    <!-- 絞り込みモーダル -->å
+    <!-- 絞り込みモーダル -->
     <div class="top-page-container" id="top-page-container">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
             <div class="modal-dialog" role="document">
@@ -152,9 +153,10 @@
 
         // 送信ボタンの２度押しを防止
         $('.save').on('click', function (e) {
-            $('.save').addClass('disabled');
+            //$('.save').addClass('disabled');
             console.log("hi");
-            $('#myform').submit();
+            console.log($('#myform'));
+            //$('#myform').submit();
         })
     })
 
