@@ -6,7 +6,7 @@ from app.forms import SignUpForm
 from django.contrib.auth.views import (
     LoginView, LogoutView
 )
-from .forms import LoginForm
+from .forms import LoginForm, UpdateProfile
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -48,3 +48,19 @@ class Login(LoginView):
 class Logout(LogoutView):
     """ログアウトページ"""
     template_name = 'register/login.html'
+
+
+def update_profile(request):
+    args = {}
+
+    if request.method == 'POST':
+        form = UpdateProfile(request.POST, instance=request.user)
+        form.actual_user = request.user
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('update_profile_success'))
+    else:
+        form = UpdateProfile()
+
+    args['form'] = form
+    return render(request, 'register/update_profile.html', args)
