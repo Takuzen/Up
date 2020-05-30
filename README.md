@@ -27,14 +27,15 @@ docker ps
 
 ```
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES
-d2377d0bfb51        mysql               "docker-entrypoint.s…"   34 minutes ago      Up 34 minutes       0.0.0.0:3306->3306/tcp, 33060/tcp   up_project_mysql_1
-c25f33877ed8        up_project_django   "python3"                34 minutes ago      Up 34 minutes       0.0.0.0:8000->8000/tcp              up_project_django_1
+4b5a9a62c503        mysql               "docker-entrypoint.s…"   6 minutes ago       Up 6 minutes        0.0.0.0:3306->3306/tcp, 33060/tcp   up_mysql_1
+c846a1d071d3        up_django           "python3"                6 minutes ago       Up 6 minutes        0.0.0.0:8000->8000/tcp              up_django_1
+
 ```
 
 以下からdjangoコンテナに入る。
 
 ```
-docker exec -it up_project_django_1 /bin/bash
+docker exec -it up_django_1 /bin/bash
 ```
 
 初回はマイグレーションしないといけない。
