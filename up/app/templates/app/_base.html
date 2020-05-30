@@ -63,7 +63,7 @@
         <ul class="list-unstyled components" style="text-align: center;">  
             <li id="post_button">
                 {% if user.is_authenticated %}
-                    <a class="btn btn-square-soft" href="{% url 'create' %}">投稿</a>
+                    <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
                 {% else %}
                     <a class="btn btn-square-soft" href="{% url 'login' %}">投稿</a>
                 {% endif %}
