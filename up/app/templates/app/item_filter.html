@@ -31,7 +31,7 @@
             <div class="col-12">
                 <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
                 <div class="float-right mt-1">
-                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#"><img src="media/images/sort-ascending-2x.png" alt="sort-ascending-2x"></a>
+                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#"><img src="/media/images/sort-ascending-8x.png" alt="sort-ascending-8x" width="20px" height="20px"></a>
                 </div>
             </div>
         </div>
@@ -49,12 +49,12 @@
             </ul>
         -->
     <!-- feed -->
-    <div class="container">
+    <div class="container">　
         <div class="row infinite-container">
             {% for item in item_list %}
                 <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 400px;">   
                     <div id="card-header">
-                        <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm"><img src="/media/images/person.svg" alt="person"></span></button>
+                        <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm" style="background: white;"><img src="/media/images/person.svg" alt="person"></span></button>
                             <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
                     </div>
                     <div id="card-body">
@@ -68,8 +68,8 @@
                         </div>
                         {% endif %}
                         <div id="text">
-                            <p>{{ item.restaurant_name|default_if_none:"未入力" }} </p>
-                            <p>{{ item.ward_address|default_if_none:"未入力" }}</p>
+                            <p><button type="button" class="btn btn-default btn-sm" style="object-fit: cover; background: white;"><img src="/media/images/location-icon.png" alt="location-icon" width="20px" height="20px"></button>
+                                <span style="vertical-align: middle;">{{ item.restaurant_name|default_if_none:"未入力" }}</span></p>
                         </div>
                     </div>
                             <!-- 

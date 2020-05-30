@@ -7,12 +7,10 @@ __pycache__
 *.pyc
 *.py[co]
 local_settings.py
-db.sqlite3
 env
 app/static/app/images/
 app/migrations/
 dump.json
 django_env
-up_env
 *.jpeg
 *.png
