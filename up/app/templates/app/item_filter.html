@@ -17,7 +17,18 @@
                 <div class="modal-body">
                     <form method="post" id="myform" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% crispy form %}
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.restaurant_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            <label>
+                                <span class="filelabel" title="ファイルを選択">
+                                    <img src="/media/images/camera-orange-rev.png" width="32" height="26" alt="＋画像">
+                                    選択
+                                </span>
+                                <input type="file" name="image" accept="image/*" class="clearablefileinput" id="id_image" style="display:none">
+                            </label>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
