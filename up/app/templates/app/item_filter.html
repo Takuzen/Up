@@ -17,7 +17,19 @@
                 <div class="modal-body">
                     <form method="post" id="myform" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% crispy form %}
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.restaurant_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            <label>
+                                <span class="filelabel" title="ファイルを選択">
+                                    <img src="/media/images/camera-orange-rev.png" width="32" height="26" alt="＋画像">
+                                    選択
+                                </span>
+                                <input type="file" name="image" accept="image/*" class="clearablefileinput" id="post_restaurant_image" style="display:none">
+                                <span id="image_preview_span"></span>
+                            </label>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -158,6 +170,30 @@
             console.log($('#myform'));
             //$('#myform').submit();
         })
+
+        $('#post_restaurant_image').after('<span></span>');
+
+        // アップロードするファイルを選択
+        $('#post_restaurant_image').change(function() {
+            var file = $(this).prop('files')[0];
+
+            // 画像以外は処理を停止
+            if (! file.type.match('image.*')) {
+                // クリア
+                $(this).val('');
+                $('#image_preview_span').html('');
+                return;
+            }
+
+            // 画像表示
+            var reader = new FileReader();
+            reader.onload = function() {
+                var img_src = $('<img>').attr({'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover'});
+                $('#image_preview_span').html(img_src);
+            }
+            reader.readAsDataURL(file);
+        });
+
     })
 
     </script>
