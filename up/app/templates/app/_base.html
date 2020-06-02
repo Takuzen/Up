@@ -14,38 +14,16 @@
           crossorigin="anonymous">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
-    <link href="{% static "app/css/app.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/style_main.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/card.css" %}" rel="stylesheet">
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
-    <link href="{% static "app/css/button.css" %}" rel="stylesheet">
-    <link href="{% static "app/css/layout.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/button.css" %}" rel="stylesheet">   
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
 </head>
 
 <body>
 <!-- header -->
-<style>
-    #card {
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 1%;
-        border-color: #979797;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        
-    }
-    #card-header p {
-        margin: 5px 5px 5px 5px;
-    }
-    #card-body p {
-        margin: 5px 5px 5px 5px;
-    }  
-    #post_button a {
-        text-decoration: none;
-        color: white;
-    }
-</style>
-<!-- header -->
-<div class="header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+<header class="header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}" style="text-decoration: none; color: black;">Up</a></h5>
 
     <nav class="my-2 my-md-0 mr-md-3">
@@ -56,42 +34,95 @@
         <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">入会</a>
     {% endif %}
     </nav>
-</div>
+</header>
 <!-- content-->
-<div class="wrapper">
-
-    <nav id="sidebar">
-        <ul class="list-unstyled components" style="text-align: center;">  
-            <li id="post_button">
-                {% if user.is_authenticated %}
-                    <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
-                {% else %}
-                    <a class="btn btn-square-soft" href="{% url 'login' %}">投稿</a>
-                {% endif %}
-            </li>
-        </ul>
+<div id="content">
+    <nav id="left">
+        本日のおすすめ？
     </nav>
- 
-    <div id="content">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags}}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
+    <main id="center" style="width:200px">
         {% block content %}
         {% endblock %}
-    </div>
-
-</div> 
-
-
+    </main>
+    <aside id="right">
+        <div>
+            <ul class="list-unstyled components" style="text-align: center;">  
+                <li id="post_button">
+                    {% if user.is_authenticated %}
+                        <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
+                    {% else %}
+                        <a class="btn btn-square-soft" href="{% url 'login' %}">投稿</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </aside>
+</div>
+<footer></footer>
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+        <script src="/static/app/js/jquery-2.2.4.min.js"></script>
+        <script src="/static/app/js/jquery.waypoints.min.js"></script>
+        <script src="/static/app/js/infinite.min.js"></script>
+        <script>
+        var infinite = new Waypoint.Infinite({
+            element: $('.infinite-container')[0],
+            handler: function(direction) {},
+            offset: 'bottom-in-view',
+    
+            onBeforePageLoad: function () {
+                $('.spinner-border').show();
+            },
+            onAfterPageLoad: function () {
+                $('.spinner-border').hide();
+            }
+        });
+    
+        $(function () {
+    
+                // 入力フォームでリターンキー押下時の送信を無効化
+            // ※フィールド１個の時は無効
+            $('#myform').on('sumbit', function (e) {
+                e.preventDefault();
+            })
+    
+            // 送信ボタンの２度押しを防止
+            $('.save').on('click', function (e) {
+                //$('.save').addClass('disabled');
+                console.log("hi");
+                console.log($('#myform'));
+                //$('#myform').submit();
+            })
+    
+            $('#post_restaurant_image').after('<span></span>');
+    
+            // アップロードするファイルを選択
+            $('#post_restaurant_image').change(function() {
+                var file = $(this).prop('files')[0];
+    
+                // 画像以外は処理を停止
+                if (! file.type.match('image.*')) {
+                    // クリア
+                    $(this).val('');
+                    $('#image_preview_span').html('');
+                    return;
+                }
+    
+                // 画像表示
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var img_src = $('<img>').attr({'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover'});
+                    $('#image_preview_span').html(img_src);
+                }
+                reader.readAsDataURL(file);
+            });
+    
+        })
+    
+        </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"
         charset="UTF-8"></script>
@@ -99,6 +130,6 @@
 <script src="{% static "app/js/app.js" %}"></script>
 <script src="{% static "app/js/infinite.min.js" %}"></script>
 <script src="{% static "app/js/jquery.waypoints.min.js" %}"></script>
-</body>
 
+</body>
 </html>
