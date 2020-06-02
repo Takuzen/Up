@@ -24,7 +24,6 @@
 <body>
 <!-- header -->
 <header class="header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    header
     <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}" style="text-decoration: none; color: black;">Up</a></h5>
 
     <nav class="my-2 my-md-0 mr-md-3">
@@ -38,34 +37,28 @@
 </header>
 <!-- content-->
 <div id="content">
-    <aside id="left">
-        left
-    </aside>
-    <nav id="right">
-        right
-        <ul class="list-unstyled components" style="text-align: center;">  
-            <li id="post_button">
-                {% if user.is_authenticated %}
-                    <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
-                {% else %}
-                    <a class="btn btn-square-soft" href="{% url 'login' %}">投稿</a>
-                {% endif %}
-            </li>
-        </ul>
+    <nav id="left">
+        本日のおすすめ？
     </nav>
-    <main id="center">
-        center
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags}}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
+    <main id="center" style="width:200px">
         {% block content %}
         {% endblock %}
     </main>
+    <aside id="right">
+        <div>
+            <ul class="list-unstyled components" style="text-align: center;">  
+                <li id="post_button">
+                    {% if user.is_authenticated %}
+                        <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
+                    {% else %}
+                        <a class="btn btn-square-soft" href="{% url 'login' %}">投稿</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </aside>
 </div>
+<footer></footer>
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
