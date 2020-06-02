@@ -19,6 +19,7 @@
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
     <link href="{% static "app/css/button.css" %}" rel="stylesheet">   
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
@@ -41,6 +42,13 @@
         本日のおすすめ？
     </nav>
     <main id="center" style="width:200px">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags}}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>
@@ -109,7 +117,14 @@
                     var img_src = $('<img>').attr({'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover'});
                     $('#image_preview_span').html(img_src);
                 }
+                $('#cancel-cross').show()
                 reader.readAsDataURL(file);
+            });
+
+            $('#cancel-cross').click(function() {
+                $('#image_preview_span').html('');
+                $('input[type=file]').val('');
+                $(this).hide();
             });
     
         })
