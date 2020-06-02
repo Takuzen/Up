@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <!-- 絞り込みモーダル -->
+    <!-- 絞り込みモーダル 
     <div class="top-page-container" id="top-page-container">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
             <div class="modal-dialog" role="document">
@@ -63,6 +63,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-12">
                 <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
@@ -71,7 +72,8 @@
                 </div>
             </div>
         </div>
-        <!--
+    -->
+    <!--
             <ul class="navbar-nav float-right mt-3">
                     <li class="nav-item">
                         {% if user.is_authenticated %}
@@ -83,7 +85,7 @@
                         {% endif %}
                     </li>
             </ul>
-        -->
+    -->
     <!-- feed -->
     <div class="container">　
         <div class="row infinite-container">
@@ -122,9 +124,9 @@
                 </div>
             {% endfor %}
             </div>  
-        </div>
+    </div>
 
-        <div class="row mt-3">
+    <div class="row mt-3">
             <div class="col-10 mx-auto">
                 {% if page_obj.has_next %}
                     <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
@@ -135,67 +137,6 @@
                     </div>
                 </div>           
             </div>
-        </div>
     </div>
-    	
-    <script src="/static/app/js/jquery-2.2.4.min.js"></script>
-    <script src="/static/app/js/jquery.waypoints.min.js"></script>
-    <script src="/static/app/js/infinite.min.js"></script>
-    <script>
-    var infinite = new Waypoint.Infinite({
-        element: $('.infinite-container')[0],
-        handler: function(direction) {},
-        offset: 'bottom-in-view',
-
-        onBeforePageLoad: function () {
-            $('.spinner-border').show();
-        },
-        onAfterPageLoad: function () {
-            $('.spinner-border').hide();
-        }
-    });
-
-    $(function () {
-
-            // 入力フォームでリターンキー押下時の送信を無効化
-        // ※フィールド１個の時は無効
-        $('#myform').on('sumbit', function (e) {
-            e.preventDefault();
-        })
-
-        // 送信ボタンの２度押しを防止
-        $('.save').on('click', function (e) {
-            //$('.save').addClass('disabled');
-            console.log("hi");
-            console.log($('#myform'));
-            //$('#myform').submit();
-        })
-
-        $('#post_restaurant_image').after('<span></span>');
-
-        // アップロードするファイルを選択
-        $('#post_restaurant_image').change(function() {
-            var file = $(this).prop('files')[0];
-
-            // 画像以外は処理を停止
-            if (! file.type.match('image.*')) {
-                // クリア
-                $(this).val('');
-                $('#image_preview_span').html('');
-                return;
-            }
-
-            // 画像表示
-            var reader = new FileReader();
-            reader.onload = function() {
-                var img_src = $('<img>').attr({'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover'});
-                $('#image_preview_span').html(img_src);
-            }
-            reader.readAsDataURL(file);
-        });
-
-    })
-
-    </script>
-
+    </div>
 {% endblock %}
