@@ -27,7 +27,10 @@ $(function () {
     // 送信ボタンの２度押しを防止
     $('.save').on('click', function (e) {
         $('.save').addClass('disabled');
-        $('#myform').submit();
+        if (!$('.save').is(':disabled')) {
+            console.log("can submit if is disabled");
+            $('#myform').submit();
+        }
     })
 
     // 削除ボタンの２度押しを防止
