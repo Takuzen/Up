@@ -123,8 +123,9 @@
 
             $('#cancel-cross').click(function() {
                 $('#image_preview_span').html('');
-                $('input[type=file]').val('');
+                $('#post_restaurant_image').val('');
                 $(this).hide();
+                return;
             });
     
         })
