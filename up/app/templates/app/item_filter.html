@@ -26,15 +26,20 @@
                                     <img src="/media/images/camera-orange-rev.png" width="32" height="26" alt="＋画像">
                                     選択
                                 </span>
-                                <input type="file" name="image" accept="image/*" class="clearablefileinput" id="post_restaurant_image" style="display:none">
-                                <span id="image_preview_span"></span>
+                                <input type="file" name="image" accept="image/*" class="clearablefileinput" id="post_restaurant_image" style="display:none" value="">
+                                <div style="position:relative" id="removable-div">
+                                    <span id="image_preview_span"></span>
+                                    <div>
+                                        <img src="/media/images/2147847-200.png" width="32" height="26" id="cancel-cross" style="display:none; position:absolute; top: 0; left: 0;">
+                                    </div>
+                                </div>
                             </label>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">下書き保存</button>
-                    <button class="btn btn-outline-dark save">保存</button>
+                    <button class="btn btn-outline-dark save" id="save">保存</button>
                 </div>
             
             </div>

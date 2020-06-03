@@ -19,6 +19,7 @@
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
     <link href="{% static "app/css/button.css" %}" rel="stylesheet">   
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
@@ -38,13 +39,23 @@
 <!-- content-->
 <div id="content">
     <nav id="left">
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' %}
         本日のおすすめ？
+        {% endif %}
     </nav>
     <main id="center" style="width:200px">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags}}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>
     <aside id="right">
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' %}
         <div>
             <ul class="list-unstyled components" style="text-align: center;">  
                 <li id="post_button">
@@ -56,6 +67,7 @@
                 </li>
             </ul>
         </div>
+        {% endif %}
     </aside>
 </div>
 <footer></footer>
@@ -89,14 +101,6 @@
                 e.preventDefault();
             })
     
-            // 送信ボタンの２度押しを防止
-            $('.save').on('click', function (e) {
-                //$('.save').addClass('disabled');
-                console.log("hi");
-                console.log($('#myform'));
-                //$('#myform').submit();
-            })
-    
             $('#post_restaurant_image').after('<span></span>');
     
             // アップロードするファイルを選択
@@ -117,7 +121,15 @@
                     var img_src = $('<img>').attr({'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover'});
                     $('#image_preview_span').html(img_src);
                 }
+                $('#cancel-cross').show()
                 reader.readAsDataURL(file);
+            });
+
+            $('#cancel-cross').click(function() {
+                $('#image_preview_span').html('');
+                $('#post_restaurant_image').val('');
+                $(this).hide();
+                return;
             });
     
         })

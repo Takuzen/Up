@@ -3,8 +3,8 @@
 {% block content %}
     <div class="content-section">
         <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-            <div class="media-body">
+            <div class="media-body" style="text-align: center;">
+                <img class="rounded-circle account-img" src="/media/images/person.svg">
                 <h2 class="account-heading">{{ user.username }}</h2>
                 <p class="text-secondary">{{ user.email }}</p>
                 <a href="{% url 'update_profile' %}">Update Profile</a>
@@ -14,8 +14,8 @@
      </div>
      {% for post in user_posts %}
         <div class="row" style="margin: 10px 0">
-            <div class="col-4">
-            <div class="col-md-4 infinite-item">
+            <div class="col-3"></div>
+            <div class="col-6 infinite-item">
                 <p>{{  post.restaurant_name }}</p>
                 {% if post.image %}
                     <div id="image">
@@ -27,6 +27,7 @@
                     </div>
                 {% endif %}
             </div>
+            <div class="col-3"></div>
         </div>
      {% endfor %}
 
