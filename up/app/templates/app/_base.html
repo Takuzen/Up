@@ -54,7 +54,7 @@
     <aside id="right">
         {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' %}
         <div>
-            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 25px;">  
+            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 50px;">  
                 <li id="post_button">
                     {% if user.is_authenticated %}
                         <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
