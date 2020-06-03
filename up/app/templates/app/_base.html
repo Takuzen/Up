@@ -39,7 +39,9 @@
 <!-- content-->
 <div id="content">
     <nav id="left">
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' %}
         本日のおすすめ？
+        {% endif %}
     </nav>
     <main id="center" style="width:200px">
         {% if messages %}
@@ -53,6 +55,7 @@
         {% endblock %}
     </main>
     <aside id="right">
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' %}
         <div>
             <ul class="list-unstyled components" style="text-align: center;">  
                 <li id="post_button">
@@ -64,6 +67,7 @@
                 </li>
             </ul>
         </div>
+        {% endif %}
     </aside>
 </div>
 <footer></footer>
