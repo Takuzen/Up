@@ -3,31 +3,16 @@
     border-width: 1px;
     border-radius: 1%;
     border-color: #979797;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     
 }
-#card-header {
-    height: 60px;
-}
 #card-header p {
-    position: absolute;
-    margin-top: 13px;
-    margin-bottom: 20px;
-}
-#card-header .btn {
-    margin: 0 5px 0 5px;
+    margin: 5px 5px 5px 5px;
 }
 #card-body p {
-    margin: 0 5px 0 5px;
-}
-#card-footer {
-    height: 60px;
-}
-#card-footer p {
-    margin: 15px 0 20px 5px;
-
-}
+    margin: 5px 5px 5px 5px;
+}  
 #post_button a {
     text-decoration: none;
     color: white;

@@ -95,25 +95,25 @@
     <div class="container">　
         <div class="row infinite-container">
             {% for item in item_list %}
-                <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 600px;">   
+                <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 400px;">   
                     <div id="card-header">
-                        <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm" style="background: pink;"><img src="/media/images/person.svg" class="rounded-circle account-img" alt="person"></span></button>
+                        <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm" style="background: white;"><img src="/media/images/person.svg" alt="person"></span></button>
                             <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
                     </div>
                     <div id="card-body">
                         {% if item.image %}
                         <div id="image">
-                            <img src="/{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;">
+                            <img src="/{{ item.image.url }}" style="width:100%; height:300px; object-fit:cover;">
                         </div>
                         {% else %}
                         <div id="image">
-                            <img src="/media/images/108059.jpg" style="width:100%;height:700px">
+                            <img src="/media/images/108059.jpg" style="width:100%;height:300px">
                         </div>
                         {% endif %}
-                    </div>
-                    <div id="card-footer" style="display: inline;">
-                        <p><button class="btn btn-default btn-sm" style="object-fit: cover; background: pink;"><img src="/media/images/location-icon.png" class="rounded-circle account-img" alt="location-icon" width="20px" height="20px"></button>
-                            <span style="vertical-align: middle;">{{ item.restaurant_name|default_if_none:"未入力" }}</span></p>
+                        <div id="text">
+                            <p><button type="button" class="btn btn-default btn-sm" style="object-fit: cover; background: white;"><img src="/media/images/location-icon.png" alt="location-icon" width="20px" height="20px"></button>
+                                <span style="vertical-align: middle;">{{ item.restaurant_name|default_if_none:"未入力" }}</span></p>
+                        </div>
                     </div>
                             <!-- 
                             <div class="row">
