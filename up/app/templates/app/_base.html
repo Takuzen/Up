@@ -19,6 +19,7 @@
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
     <link href="{% static "app/css/button.css" %}" rel="stylesheet">   
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/profile.css" %}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
@@ -29,7 +30,7 @@
 
     <nav class="my-2 my-md-0 mr-md-3">
     {% if user.is_authenticated %}
-        <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'profile' %}">マイページ</a>
+        <a class="btn btn-outline-secondary btn-sm mr-2" href="{% url 'profile' %}">マイページ</a>
     {% else %}
         <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'login' %}">ログイン</a>
         <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">入会</a>
@@ -39,9 +40,12 @@
 <!-- content-->
 <div id="content">
     <nav id="left">
+<<<<<<< HEAD
         {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
         本日のおすすめ？
         {% endif %}
+=======
+>>>>>>> 1121114... change layout
     </nav>
     <main id="center" style="width:200px">
         {% if messages %}
@@ -57,7 +61,7 @@
     <aside id="right">
         {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
         <div>
-            <ul class="list-unstyled components" style="text-align: center;">  
+            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 50px;">  
                 <li id="post_button">
                     {% if user.is_authenticated %}
                         <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>

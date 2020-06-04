@@ -3,6 +3,7 @@
     position: relative;
     width: 210px;
     height: 50px;
+    color: white;
     font-size: 17px;
     line-height: 48px; /* 行間の広さ→もっと良いボタンのmiddleに位置させる方法があるはず */
     padding: 0;
@@ -15,6 +16,7 @@
   .btn-square-soft:hover {
     opacity: 0.6;
     transition-duration: 0.3s;
+    cursor: pointer;
   }
 
   .btn-square-soft:active { /* 押したとき */
