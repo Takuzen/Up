@@ -40,7 +40,7 @@
 <div id="content">
     <nav id="left">
         {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
-        本日のおすすめ？
+            <div></div>
         {% endif %}
     </nav>
     <main id="center" style="width:200px">
@@ -57,7 +57,7 @@
     <aside id="right">
         {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
         <div>
-            <ul class="list-unstyled components" style="text-align: center;">  
+            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 50px;">  
                 <li id="post_button">
                     {% if user.is_authenticated %}
                         <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
