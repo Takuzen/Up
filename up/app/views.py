@@ -37,6 +37,9 @@ class ItemFilterView(FilterView):
     paginate_by = 10
     success_url = reverse_lazy('index')
 
+    API_KEY = "7fcef725a068a78b7270e0cad04c289b"
+    url = "https://api.gnavi.co.jp/RestSearchAPI/v3/"
+
     def get(self, request, **kwargs):
         """
         リクエスト受付
