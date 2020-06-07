@@ -9,11 +9,11 @@ ALLOWED_HOSTS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ['RDS_Up'],
-        'USER': os.environ['RDS_db_user'],
-        'PASSWORD': os.environ['RDS_password'],
-        'HOST': os.environ['RDS_172.20.0.3'],
-        'PORT': os.environ['RDS_3306'],
+        'NAME': os.environ['RDS_DB_NAME'],
+        'USER': os.environ['RDS_USERNAME'],
+        'PASSWORD': os.environ['RDS_PASSWORD'],
+        'HOST': os.environ['RDS_HOSTNAME'],
+        'PORT': os.environ['RDS_PORT'],
     }
 }
 
