@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -22,11 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 本番運用時は別の値に置き換えること。
 # 生成ツール：https://www.miniwebtool.com/django-secret-key-generator/
 SECRET_KEY = '_(u)&e-3076d7_a(gfhb85*)u-u4vwc%#qt7c7q3-t98%lvp&g'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["0.0.0.0"]
 
 # Application definition
 
@@ -38,9 +33,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'users.apps.UsersConfig',
-    'app.apps.AppConfig',
-    'register.apps.RegisterConfig',
+    'up.users.apps.UsersConfig',
+    'up.app.apps.AppConfig',
+    'up.register.apps.RegisterConfig',
     'debug_toolbar',
 ]
 
@@ -74,20 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME' : 'Up', #←.env_sampleで指定したMYSQL_DATABASE
-        'USER' : 'db_user', #←.env_sampleで指定したMYSQL_USER
-        'PASSWORD' : 'password', #←.env_sampleで指定したMYSQL_PASSWORD
-        'HOST' : '172.20.0.3', #←docker-compose.ymlに指定したmysqlのIPAddress
-        'PORT': '3306',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

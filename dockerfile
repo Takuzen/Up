@@ -1,7 +1,7 @@
-FROM python:3.7.2
+FROM python:3.6
 ENV LANG en_US.utf8
+EXPOSE 80
 WORKDIR /code
 ADD requirements.txt /code
-RUN apt-get update
 RUN pip install -r requirements.txt
-RUN apt-get install -y mysql-client
+RUN apt-get update && apt-get install -y default-mysql-client

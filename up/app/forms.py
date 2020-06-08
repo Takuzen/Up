@@ -1,7 +1,7 @@
 from django import forms
 
 from .models import Item
-from users.models import User
+from ..users.models import User
 
 
 class ItemForm(forms.ModelForm):

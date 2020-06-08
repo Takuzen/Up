@@ -6,5 +6,5 @@ class AppConfig(AppConfig):
     アプリケーション構成クラス
     管理画面での表示名を指定する
     """
-    name = 'app'
+    name = 'up.app'
     verbose_name = 'Up'

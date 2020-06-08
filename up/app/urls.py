@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from .models import Item
 from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView
 
-from register import views as register_view
+from ..register import views as register_view
 
 # アプリケーションのルーティング設定
 

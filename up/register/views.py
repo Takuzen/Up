@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth import get_user_model
 
-from app.forms import SignUpForm
+from ..app.forms import SignUpForm
 from django.contrib.auth.views import (
     LoginView, LogoutView
 )
@@ -11,7 +11,7 @@ from .forms import LoginForm, UpdateProfile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from app.models import Item
+from ..app.models import Item
 
 
 # Create your views here.
