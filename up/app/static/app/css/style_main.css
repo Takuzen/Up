@@ -9,10 +9,6 @@ header {
     height: 60px;
 }
 
-header h5 {
-    margin-left: 395px;
-}
-
 #content {
     display: flex;
     flex: 1;
