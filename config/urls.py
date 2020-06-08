@@ -19,7 +19,7 @@ from django.urls import path, include
 # ルーティング設定
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app.urls')),
+    path('', include('up.app.urls')),
 ]
 
 # 管理サイトの見出しを変更可能
