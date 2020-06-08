@@ -31,7 +31,7 @@ class User(AbstractUser):
         if self.full_name:
             return self.full_name
         else:
-            return self.username
+            return self.username + '（氏名未登録）'
 
     # 選択リストでの表示
     def __str__(self):
