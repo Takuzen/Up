@@ -17,4 +17,4 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'up', 'static')
