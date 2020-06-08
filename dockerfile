@@ -4,4 +4,4 @@ EXPOSE 80
 WORKDIR /code
 ADD requirements.txt /code
 RUN pip install -r requirements.txt
-RUN apt-get update && apt-get install -y mysql-client
+RUN apt-get update && apt-get install -y default-mysql-client

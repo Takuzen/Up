@@ -13,11 +13,11 @@ services:
       - django
 
   django:
-    build: ./django
+    build: ./
     ports:
       - "8000:8000"
     volumes:
-      - ./up:/code
+      - ./:/code
     networks:
       app_net:
         ipv4_address: 172.20.0.2
