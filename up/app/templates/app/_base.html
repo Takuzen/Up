@@ -19,7 +19,12 @@
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
     <link href="{% static "app/css/button.css" %}" rel="stylesheet">   
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
+<<<<<<< HEAD
     <link href="{% static "app/css/profile.css" %}" rel="stylesheet">
+=======
+>>>>>>> 51e3af2a205b7cc6792a811577d383fc940b8bc1
+    <link href="{% static "app/css/login.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/signup.css" %}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
@@ -39,10 +44,10 @@
 </header>
 <!-- content-->
 <div id="content">
+    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
     <nav id="left">
-        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
-        {% endif %}
     </nav>
+    {% endif %}
     <main id="center" style="width:200px">
         {% if messages %}
             {% for message in messages %}
@@ -54,10 +59,10 @@
         {% block content %}
         {% endblock %}
     </main>
+    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
     <aside id="right">
-        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
         <div>
-            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 50px;">  
+            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 25px;">  
                 <li id="post_button">
                     {% if user.is_authenticated %}
                         <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
@@ -67,8 +72,8 @@
                 </li>
             </ul>
         </div>
-        {% endif %}
     </aside>
+    {% endif %}
 </div>
 <footer></footer>
 
