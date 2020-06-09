@@ -41,10 +41,10 @@
 </header>
 <!-- content-->
 <div id="content">
+    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
     <nav id="left">
-        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
-        {% endif %}
     </nav>
+    {% endif %}
     <main id="center" style="width:200px">
         {% if messages %}
             {% for message in messages %}
@@ -56,8 +56,8 @@
         {% block content %}
         {% endblock %}
     </main>
+    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
     <aside id="right">
-        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
         <div>
             <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 25px;">  
                 <li id="post_button">
@@ -69,8 +69,8 @@
                 </li>
             </ul>
         </div>
-        {% endif %}
     </aside>
+    {% endif %}
 </div>
 <footer></footer>
 

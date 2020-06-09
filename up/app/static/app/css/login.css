@@ -1,0 +1,12 @@
+.container #login {
+    display: flex;
+    width: 100%;
+    margin-top: 10%;
+    align-items: center;
+}
+
+#welcome-back-message{
+}
+
+.form-group {
+}
