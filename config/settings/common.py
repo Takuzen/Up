@@ -174,7 +174,7 @@ LOGGING = {
     }
 }
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'up/media')
+MEDIA_URL = 'up/media/'
 
 INTERNAL_IPS = ['127.0.0.1']

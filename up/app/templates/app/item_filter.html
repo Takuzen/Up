@@ -23,7 +23,7 @@
                         <div class="form-group col-md-6 mb-0">
                             <label>
                                 <span class="filelabel" title="ファイルを選択">
-                                    <img src="/media/images/camera-orange-rev.png" width="32" height="26" alt="＋画像">
+                                    <img src="up/media/images/camera-orange-rev.png" width="32" height="26" alt="＋画像">
                                     選択
                                 </span>
                                 <input type="file" name="image" accept="image/*" class="clearablefileinput" id="post_restaurant_image" style="display:none" value="">
@@ -97,7 +97,7 @@
             {% for item in item_list %}
                 <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 600px;">   
                     <div id="card-header">
-                        <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm" style="background: pink;"><img src="/media/images/person.svg" class="rounded-circle account-img" alt="person"></span></button>
+                        <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm" style="background: pink;"><img src="../up/media/images/person.svg" class="rounded-circle account-img" alt="person"></span></button>
                             <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
                     </div>
                     <div id="card-body">
@@ -112,7 +112,7 @@
                         {% endif %}
                     </div>
                     <div id="card-footer" style="display: inline;">
-                        <p><button class="btn btn-default btn-sm" style="object-fit: cover; background: pink;"><img src="/media/images/location-icon.png" class="rounded-circle account-img" alt="location-icon" width="20px" height="20px"></button>
+                        <p><button class="btn btn-default btn-sm" style="object-fit: cover; background: pink;"><img src="../up/media/images/location-icon.png" class="rounded-circle account-img" alt="location-icon" width="20px" height="20px"></button>
                             <span style="vertical-align: middle;">{{ item.restaurant_name|default_if_none:"未入力" }}</span></p>
                     </div>
                             <!-- 
