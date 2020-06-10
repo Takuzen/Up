@@ -4,28 +4,28 @@
     <div class="profile-section">
         <div class="media">
             <div class="media-body">
-                <img class="rounded-circle account-img" src="/media/images/person.svg">
+                <img class="rounded-circle account-img" src="../up/media/images/person.svg">
                 <h2 class="account-heading">{{ user.username }}</h2>
                 <button class="btn btn-secondary" href="{% url 'update_profile' %}">編集</button>
             </div>
         </div>
     <!-- FORM HERE -->
      </div>
+     <div class="container">
      {% for post in user_posts %}
-        <div class="row" style="margin: 10px 0">
-            <div class="col-3"></div>
-            <div class="col-6 infinite-item">
+        <div class="row row-cols-2">
+            <div class="col infinite-item" style="margin: 0 0 10px 40%;">
                 {% if post.image %}
                     <div id="image">
-                        <img src="/media/{{ post.image }}" style="width:100%; height:300px; object-fit:cover;">
+                        <img src="../up/media/{{ post.image }}" style="width: 200px; height:200px; object-fit:cover;">
                     </div>
                 {% else %}
                     <div id="image">
-                        <img src="/media/images/108059.jpg" style="width:100%;height:300px">
+                        <img src="/media/images/108059.jpg" style="width: 200px; height:200px">
                     </div>
                 {% endif %}
             </div>
-            <div class="col-3"></div>
         </div>
      {% endfor %}
+    </div>
 {% endblock %}
