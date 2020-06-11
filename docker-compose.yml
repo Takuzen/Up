@@ -3,6 +3,8 @@ services:
   mysql:
     image: mysql
     env_file: ./mysql/.env_sample
+    volumes: # 上の階層で指定した db_data を使いますよ
+       - db_data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3306:3306"
@@ -32,3 +34,4 @@ networks:
         - subnet: 172.20.0.0/24
 volumes:
   est-data:
+  db_data:
