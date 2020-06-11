@@ -7,10 +7,8 @@ __pycache__
 *.pyc
 *.py[co]
 local_settings.py
-env
 app/static/app/images/
 app/migrations/
 dump.json
-django_env
 *.jpeg
 *.png
