@@ -3,7 +3,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from .models import Item
+<<<<<<< HEAD
 from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, FeedbackPageView, CardDetailPageView
+=======
+from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, FeedbackPageView
+>>>>>>> 15d5aea... added feedback button and page, using django's templateview
 
 from ..register import views as register_view
 
@@ -20,7 +24,10 @@ urlpatterns = [
     path('logout/', register_view.Logout.as_view(), name='logout'),
     path('profile/', register_view.profile, name='profile'),
     path('update_profile/', register_view.update_profile, name='update_profile'),
+<<<<<<< HEAD
     path('card_detail/<int:pk>/', CardDetailPageView.as_view(), name='card_detail'),
+=======
+>>>>>>> 15d5aea... added feedback button and page, using django's templateview
     path('feedback/', FeedbackPageView.as_view(), name='feedback'),
 ]
 

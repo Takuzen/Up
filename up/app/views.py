@@ -169,6 +169,7 @@ class ItemDeleteView(LoginRequiredMixin, DeleteView):
 
         return HttpResponseRedirect(self.success_url)
 
+<<<<<<< HEAD
 
 class CardDetailPageView(DetailView):
     model = Item
@@ -185,3 +186,7 @@ class CardDetailPageView(DetailView):
 
 class FeedbackPageView(TemplateView):
     template_name = "app/feedback.html"
+=======
+class FeedbackPageView(TemplateView):
+    template_name = "app/feedback.html"
+>>>>>>> 15d5aea... added feedback button and page, using django's templateview
