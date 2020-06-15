@@ -175,12 +175,7 @@ LOGGING = {
     }
 }
 
-<<<<<<< HEAD
-MEDIA_ROOT = os.path.join(BASE_DIR, 'up/media')
-MEDIA_URL = 'up/media/'
-=======
 MEDIA_ROOT = os.path.join(BASE_DIR, 'up', 'media')
 MEDIA_URL = 'media/'
->>>>>>> a54b2e8... fixed MEDIA_ROOT in common.py and added STSTATICFILES_DIRS in production.py
 
 INTERNAL_IPS = ['127.0.0.1']
