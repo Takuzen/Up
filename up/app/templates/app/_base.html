@@ -16,7 +16,10 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+<<<<<<< HEAD
     <!-- CSS Files -->
+=======
+>>>>>>> 15d5aea... added feedback button and page, using django's templateview
     <link href="{% static "app/css/style_main.css" %}" rel="stylesheet">
     <link href="{% static "app/css/card.css" %}" rel="stylesheet">
     <link href="{% static "app/css/card_detail.css" %}" rel="stylesheet">
@@ -52,8 +55,18 @@
     </header>
     <!-- content-->
     <div id="content">
+<<<<<<< HEAD
         {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
         <nav id="left">
+=======
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/feedback/' %}
+        <nav id="left">
+            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 80vh;">
+                <li>
+                    <a id="feedback-button" class="btn btn-secondary" href="{% url 'feedback' %}">フィードバック</a>
+                </li>
+            </ul>
+>>>>>>> 15d5aea... added feedback button and page, using django's templateview
         </nav>
         {% endif %}
         <main id="center" style="width: 100%;">
@@ -67,7 +80,11 @@
             {% block content %}
             {% endblock %}
         </main>
+<<<<<<< HEAD
         {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
+=======
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/feedback/'  %}
+>>>>>>> 15d5aea... added feedback button and page, using django's templateview
         <aside id="right">
             {% if request.path != '/card_detail/' %}
             <div>

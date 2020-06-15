@@ -181,3 +181,7 @@ class CardDetailPageView(DetailView):
         # 表示データの追加はここで 例：
         # kwargs['sample'] = 'sample'
         return super().get_context_data(**kwargs)
+
+
+class FeedbackPageView(TemplateView):
+    template_name = "app/feedback.html"
