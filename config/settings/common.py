@@ -175,11 +175,7 @@ LOGGING = {
     }
 }
 
-<<<<<<< HEAD
 MEDIA_ROOT = os.path.join(BASE_DIR, 'up/app/media')
-=======
-MEDIA_ROOT = os.path.join(BASE_DIR, 'up', 'media')
->>>>>>> fix/mediaroot-and-collectstaticsource
 MEDIA_URL = 'media/'
 
 INTERNAL_IPS = ['127.0.0.1']
