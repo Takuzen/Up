@@ -18,3 +18,6 @@ DATABASES = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'up', 'static')
+STSTATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'up', 'media'),
+]
