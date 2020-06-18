@@ -4,48 +4,50 @@
 
 
 {% block content %}
-    <!-- 新規投稿モーダル -->
-    {{ form.certifications.errors }}
-    <div class="modal" id="post-modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width: 600px; height: 500px;">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" id="myform" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.restaurant_name|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            <label>
-                                <span class="filelabel" title="ファイルを選択">
-                                    <img src="up/media/images/camera-orange-rev.png" width="32" height="26" alt="＋画像">
-                                    選択
-                                </span>
-                                <input type="file" name="image" accept="image/*" class="clearablefileinput" id="post_restaurant_image" style="display:none" value="">
-                                <div style="position:relative" id="removable-div">
-                                    <span id="image_preview_span"></span>
-                                    <div>
-                                        <img src="up/media/images/closed.png" width="32" height="26" id="cancel-cross" style="display:none; position:absolute; top: 0; left: 0;">
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">下書き保存</button>
-                    <button class="btn btn-outline-dark save" id="save">保存</button>
-                </div>
-            
+<!-- 新規投稿モーダル -->
+{{ form.certifications.errors }}
+<div class="modal" id="post-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 600px; height: 500px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form method="post" id="myform" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.restaurant_name|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        <label>
+                            <span class="filelabel" title="ファイルを選択">
+                                <img src="../static/images/icons/photo-upload.png" width="32" height="26"
+                                    alt="photo-upload">
+                            </span>
+                            <input type="file" name="image" accept="image/*" class="clearablefileinput"
+                                id="post_restaurant_image" style="display:none" value="">
+                            <div style="position:relative" id="removable-div">
+                                <span id="image_preview_span"></span>
+                                <div>
+                                    <img src="../static/images/icons/cancel-cross.png" width="32" height="26"
+                                        id="cancel-cross" style="display:none; position:absolute; top: 0; left: 0;">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">下書き保存</button>
+                <button class="btn btn-outline-dark save" id="save">保存</button>
+            </div>
+
         </div>
     </div>
-    <!-- 絞り込みモーダル 
+</div>
+<!-- 絞り込みモーダル 
     <div class="top-page-container" id="top-page-container">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
             <div class="modal-dialog" role="document">
@@ -78,7 +80,7 @@
             </div>
         </div>
     -->
-    <!--
+<!--
             <ul class="navbar-nav float-right mt-3">
                     <li class="nav-item">
                         {% if user.is_authenticated %}
@@ -91,31 +93,35 @@
                     </li>
             </ul>
     -->
-    <!-- feed -->
-    <div class="container">　
-        <div class="row infinite-container">
-            {% for item in item_list %}
-                <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 600px;">   
-                    <div id="card-header">
-                        <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm" style="background: pink;"><img src="../up/media/images/person.svg" class="rounded-circle account-img" alt="person"></span></button>
-                            <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
-                    </div>
-                    <div id="card-body">
-                        {% if item.image %}
-                        <div id="image">
-                            <img src="/{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;">
-                        </div>
-                        {% else %}
-                        <div id="image">
-                            <img src="/media/images/108059.jpg" style="width:100%;height:700px">
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div id="card-footer" style="display: inline;">
-                        <p><button class="btn btn-default btn-sm" style="object-fit: cover; background: pink;"><img src="../up/media/images/location-icon.png" class="rounded-circle account-img" alt="location-icon" width="20px" height="20px"></button>
-                            <span style="vertical-align: middle;">{{ item.restaurant_name|default_if_none:"未入力" }}</span></p>
-                    </div>
-                            <!-- 
+<!-- feed -->
+<div class="container">　
+    <div class="row infinite-container">
+        {% for item in item_list %}
+        <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 600px;">
+            <div id="card-header">
+                <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm"
+                            style="background: pink;"><img src="../static/images/icons/person.svg"
+                                class="rounded-circle account-img" alt="person"></span></button>
+                    <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
+            </div>
+            <div id="card-body">
+                {% if item.image %}
+                <div id="image">
+                    <img src="/{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;">
+                </div>
+                {% else %}
+                <div id="image">
+                    <img src="../media/images/restaurant_posts/if-photo-is-nil.jpg" style="width:100%;height:600px">
+                </div>
+                {% endif %}
+            </div>
+            <div id="card-footer" style="display: inline;">
+                <p><button class="btn btn-default btn-sm" style="object-fit: cover;"><img
+                            src="../static/images/icons/location-pin.png" class="rounded-circle account-img"
+                            alt="location-icon" width="20px" height="20px"></button>
+                    <span style="vertical-align: middle;">{{ item.restaurant_name|default_if_none:"未入力" }}</span></p>
+            </div>
+            <!-- 
                             <div class="row">
                                 <div class="col-12">
                                     <div class="float-right">
@@ -126,21 +132,21 @@
                                 </div>
                             </div>
                             -->
-                </div>
-            {% endfor %}
-            </div>  
+        </div>
+        {% endfor %}
     </div>
+</div>
 
-    <div class="row mt-3">
-        <div class="col-10 mx-auto">
-            {% if page_obj.has_next %}
-                <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
-            {% endif %}
-            <div class="d-flex justify-content-center" style="display:none;">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>           
+<div class="row mt-3">
+    <div class="col-10 mx-auto">
+        {% if page_obj.has_next %}
+        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+        {% endif %}
+        <div class="d-flex justify-content-center" style="display:none;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
     </div>
+</div>
 {% endblock %}

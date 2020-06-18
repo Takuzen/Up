@@ -1,31 +1,31 @@
 {% extends "app/_base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="profile-section">
-        <div class="media">
-            <div class="media-body">
-                <img class="rounded-circle account-img" src="../up/media/images/person.svg">
-                <h2 class="account-heading">{{ user.username }}</h2>
-                <button class="btn btn-secondary" href="{% url 'update_profile' %}">編集</button>
-            </div>
+<div class="profile-section">
+    <div class="media">
+        <div class="media-body">
+            <img class="rounded-circle account-img" src="../../app/static/images/icons/person.svg">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <button class="btn btn-secondary" href="{% url 'update_profile' %}">編集</button>
         </div>
-    <!-- FORM HERE -->
-     </div>
-     <div class="container">
-     {% for post in user_posts %}
-        <div class="row row-cols-2">
-            <div class="col infinite-item" style="margin: 0 0 10px 40%;">
-                {% if post.image %}
-                    <div id="image">
-                        <img src="../up/media/{{ post.image }}" style="width: 200px; height:200px; object-fit:cover;">
-                    </div>
-                {% else %}
-                    <div id="image">
-                        <img src="/media/images/108059.jpg" style="width: 200px; height:200px">
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-     {% endfor %}
     </div>
+    <!-- FORM HERE -->
+</div>
+<div class="container">
+    {% for post in user_posts %}
+    <div class="row row-cols-2">
+        <div class="col infinite-item" style="margin: 0 0 10px 40%;">
+            {% if post.image %}
+            <div id="image">
+                <img src="../../media/{{ post.image }}" style="width: 200px; height:200px; object-fit:cover;">
+            </div>
+            {% else %}
+            <div id="image">
+                <img src="../../media/images/restaurant_posts/if-photo-is-nil.jpg" style="width: 200px; height:200px">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
