@@ -7,86 +7,91 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static "../static/images/icons/favicon/up-arrow.png" %}">
+    <!-- Title -->
     <title>Up</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <!-- CSS Files -->
     <link href="{% static "app/css/style_main.css" %}" rel="stylesheet">
     <link href="{% static "app/css/card.css" %}" rel="stylesheet">
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
-    <link href="{% static "app/css/button.css" %}" rel="stylesheet">   
+    <link href="{% static "app/css/button.css" %}" rel="stylesheet">
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
     <link href="{% static "app/css/profile.css" %}" rel="stylesheet">
     <link href="{% static "app/css/login.css" %}" rel="stylesheet">
     <link href="{% static "app/css/signup.css" %}" rel="stylesheet">
+    <!-- Fontawesome (fonts and Icons) -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
-<!-- header -->
-<header class="header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}" style="text-decoration: none; color: black;">Up</a></h5>
+    <!-- header -->
+    <header
+        class="header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}"
+                style="text-decoration: none; color: black;">Up</a></h5>
 
-    <nav class="my-2 my-md-0 mr-md-3">
-    {% if user.is_authenticated %}
-        <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'profile' %}">マイページ</a>
-    {% else %}
-        <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'login' %}">ログイン</a>
-        <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">入会</a>
-    {% endif %}
-    </nav>
-</header>
-<!-- content-->
-<div id="content">
-    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
-    <nav id="left">
-    </nav>
-    {% endif %}
-    <main id="center" style="width:200px">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags}}">
-                    {{ message }}
-                </div>
-            {% endfor %}
+        <nav class="my-2 my-md-0 mr-md-3">
+            {% if user.is_authenticated %}
+            <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'profile' %}">マイページ</a>
+            {% else %}
+            <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'login' %}">ログイン</a>
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">入会</a>
+            {% endif %}
+        </nav>
+    </header>
+    <!-- content-->
+    <div id="content">
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
+        <nav id="left">
+        </nav>
         {% endif %}
-        {% block content %}
-        {% endblock %}
-    </main>
-    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
-    <aside id="right">
-        <div>
-            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 25px;">  
-                <li id="post_button">
-                    {% if user.is_authenticated %}
+        <main id="center" style="width:200px">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags}}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% block content %}
+            {% endblock %}
+        </main>
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
+        <aside id="right">
+            <div>
+                <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 25px;">
+                    <li id="post_button">
+                        {% if user.is_authenticated %}
                         <button class="btn btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿</button>
-                    {% else %}
+                        {% else %}
                         <a class="btn btn-square-soft" href="{% url 'login' %}">投稿</a>
-                    {% endif %}
-                </li>
-            </ul>
-        </div>
-    </aside>
-    {% endif %}
-</div>
-<footer></footer>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        {% endif %}
+    </div>
+    <footer></footer>
 
-<!-- jQuery first, then Tether, then Bootstrap JS. -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-        <script src="/static/app/js/jquery-2.2.4.min.js"></script>
-        <script src="/static/app/js/jquery.waypoints.min.js"></script>
-        <script src="/static/app/js/infinite.min.js"></script>
-        <script>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="/static/app/js/jquery-2.2.4.min.js"></script>
+    <script src="/static/app/js/jquery.waypoints.min.js"></script>
+    <script src="/static/app/js/infinite.min.js"></script>
+    <script>
         var infinite = new Waypoint.Infinite({
             element: $('.infinite-container')[0],
-            handler: function(direction) {},
+            handler: function (direction) { },
             offset: 'bottom-in-view',
-    
+
             onBeforePageLoad: function () {
                 $('.spinner-border').show();
             },
@@ -94,56 +99,58 @@
                 $('.spinner-border').hide();
             }
         });
-    
+
         $(function () {
-    
-                // 入力フォームでリターンキー押下時の送信を無効化
+
+            // 入力フォームでリターンキー押下時の送信を無効化
             // ※フィールド１個の時は無効
             $('#myform').on('sumbit', function (e) {
                 e.preventDefault();
             })
-    
+
             $('#post_restaurant_image').after('<span></span>');
-    
+
             // アップロードするファイルを選択
-            $('#post_restaurant_image').change(function() {
+            $('#post_restaurant_image').change(function () {
                 var file = $(this).prop('files')[0];
-    
+
                 // 画像以外は処理を停止
-                if (! file.type.match('image.*')) {
+                if (!file.type.match('image.*')) {
                     // クリア
                     $(this).val('');
                     $('#image_preview_span').html('');
                     return;
                 }
-    
+
                 // 画像表示
                 var reader = new FileReader();
-                reader.onload = function() {
-                    var img_src = $('<img>').attr({'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover'});
+                reader.onload = function () {
+                    var img_src = $('<img>').attr({ 'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover' });
                     $('#image_preview_span').html(img_src);
                 }
                 $('#cancel-cross').show()
                 reader.readAsDataURL(file);
             });
 
-            $('#cancel-cross').click(function() {
+            $('#cancel-cross').click(function () {
                 $('#image_preview_span').html('');
                 $('#post_restaurant_image').val('');
                 $(this).hide();
                 return;
             });
-    
+
         })
-    
-        </script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"
+
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"
         charset="UTF-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js"></script>
-<script src="{% static "app/js/app.js" %}"></script>
-<script src="{% static "app/js/infinite.min.js" %}"></script>
-<script src="{% static "app/js/jquery.waypoints.min.js" %}"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js"></script>
+    <script src="{% static "app/js/app.js" %}"></script>
+    <script src="{% static "app/js/infinite.min.js" %}"></script>
+    <script src="{% static "app/js/jquery.waypoints.min.js" %}"></script>
 
 </body>
+
 </html>
