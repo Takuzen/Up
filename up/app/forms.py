@@ -25,6 +25,8 @@ class ItemForm(forms.ModelForm):
 class SignUpForm(forms.ModelForm):
 
     password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField()
+
     def clean_password2(self):
         # Check that the two password entries match
         password = self.cleaned_data.get("password")
