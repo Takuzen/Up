@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'up.app.apps.AppConfig',
     'up.register.apps.RegisterConfig',
     'debug_toolbar',
+    'storages',
 ]
 
 MIDDLEWARE = [
