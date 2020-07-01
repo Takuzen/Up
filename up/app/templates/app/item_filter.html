@@ -115,11 +115,9 @@
                 </div>
                 {% endif %}
             </div>
-            <div id="card-footer" style="display: inline;">
-                <p><button class="btn btn-default btn-sm" style="object-fit: cover;"><img
-                            src="../static/images/icons/location-pin.png" class="rounded-circle account-img"
-                            alt="location-icon" width="20px" height="20px"></button>
-                    <span style="vertical-align: middle;">{{ item.restaurant_name|default_if_none:"未入力" }}</span></p>
+            <div id="card-footer">
+                <p><span>{{ item.restaurant_memo|default_if_none:"restaurant_memo" }}</span>
+                </p>
             </div>
             <!-- 
                             <div class="row">
