@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 # ルーティング設定
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('up.app.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # 管理サイトの見出しを変更可能
 #  タイトル；タイトルタグで使用
