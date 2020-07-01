@@ -23,7 +23,8 @@
                     <div class="form-group col-md-6 mb-0">
                         <label>
                             <span class="filelabel" title="ファイルを選択">
-                                <img src="../static/images/icons/photo-upload.png" width="32" height="26"
+                                {% load static %}
+                                <img src="{% static '/images/icons/photo-upload.jpg' %}" width="32" height="26"
                                     alt="photo-upload">
                             </span>
                             <input type="file" name="image" accept="image/*" class="clearablefileinput"
