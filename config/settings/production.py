@@ -17,4 +17,14 @@ DATABASES = {
     }
 }
 
+AWS_ACCESS_KEY_ID = 'AKIA4FE4J7NTC37VQI7X'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'elasticbeanstalk-us-east-1-835698948966'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',  # 1日はそのキャッシュを使う
+}
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
+
+DEFAULT_FILE_STORAGE = 'project.backends.MediaStorage'
