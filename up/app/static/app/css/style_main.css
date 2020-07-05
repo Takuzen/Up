@@ -5,9 +5,32 @@ body {
     flex-direction: column;
 }
 
+/* 
+* {border:  red 1px solid;  *で全クラス選択　ボーダー付けてはみ出し確認！
+} */
+
 header {
     height: 60px;
+    justify-content: space-between;
 }
+
+.desktop-only{
+    display: block;
+}
+
+.mobile-only{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-only{
+        display: none;
+    }
+    .mobile-only{
+        display: block;
+    }
+}
+
 
 /*
 header h5 {
