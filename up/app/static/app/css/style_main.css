@@ -14,24 +14,6 @@ header {
     justify-content: space-between;
 }
 
-.desktop-only{
-    display: block;
-}
-
-.mobile-only{
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .desktop-only{
-        display: none;
-    }
-    .mobile-only{
-        display: block;
-    }
-}
-
-
 /*
 header h5 {
     margin-left: 395px;
@@ -55,19 +37,34 @@ header h5 {
     width: 400px;
 }
 
-@media (max-width: 1200px) {
-    #sidebar {
-        display:none;
+#top-page-container {
+    margin: 0px 0px;
+}
+
+#infinite-link {
+    width: 100%;
+}
+
+.desktop-only{
+    display: block;
+}
+
+.mobile-only{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-only{
+        display: none;
+    }
+    .mobile-only{
+        display: block;
     }
 }
 
 /*
 @media以外の所は全てのサイズで読み込まれます。
 */
-
-#top-page-container {
-    margin: 0px 0px;
-}
 
 @media screen and (min-width:200px) and (max-width: 800px){ 
     /*　画面サイズが480pxからはここを読み込む　*/
