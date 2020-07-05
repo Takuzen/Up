@@ -22,12 +22,18 @@
     margin: 0 5px 0 5px;
 }
 #card-footer {
+    display: inline-block;
     height: 60px;
     text-overflow: ellipsis;
 }
 #card-footer p {
+    width: 600px;
+    padding: 10px;
     margin: 0;
+}
 
+#card-footer i {
+    float: right;
 }
 #post_button a {
     text-decoration: none;

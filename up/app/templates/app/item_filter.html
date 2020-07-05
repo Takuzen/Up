@@ -117,6 +117,7 @@
                 {% endif %}
             </div>
             <div id="card-footer">
+                <p>{{ item.restaurant_name|default_if_none:"restaurant_name" }}<i class="far fa-copy"></i></p>
                 <p><span>{{ item.restaurant_memo|default_if_none:"restaurant_memo" }}</span>
                 </p>
             </div>
