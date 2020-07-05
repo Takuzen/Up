@@ -27,7 +27,7 @@
     text-overflow: ellipsis;
 }
 #card-footer p {
-    width: 600px;
+    width: 100%;
     padding: 10px;
     margin: 0;
 }
