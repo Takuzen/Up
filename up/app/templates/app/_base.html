@@ -53,7 +53,7 @@
         <nav id="left">
         </nav>
         {% endif %}
-        <main id="center" style="width:200px">
+        <main id="center" style="width: 100%;">
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{ message.tags}}">
@@ -80,9 +80,11 @@
         </aside>
         {% endif %}
     </div>
-    <!-- plus-button -->
+    <!-- plus-button-->
+    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
     <button id="plus-button" data-toggle="modal" data-target="#post-modal"><img id="plus-button-img" class="mobile-only"
             src="../static/images/icons/plus-button.png" alt="plus-button-img"></button>
+    {% endif %}
 
     <footer></footer>
 

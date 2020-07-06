@@ -54,20 +54,11 @@ header h5 {
     display: none;
 }
 
-@media (max-width: 768px) {
-    .desktop-only{
-        display: none;
-    }
-    .mobile-only{
-        display: block;
-    }
-}
-
 /*
 @media以外の所は全てのサイズで読み込まれます。
 */
 
-@media screen and (min-width:200px) and (max-width: 800px){ 
+@media screen and (min-width:200px) and (max-width: 768px){ 
     /*　画面サイズが480pxからはここを読み込む　*/
     #top-page-container {
         margin: 0px 5%;
@@ -78,11 +69,17 @@ header h5 {
     #right {
         display: none;
     }
+    .desktop-only{
+        display: none;
+    }
+    .mobile-only{
+        display: block;
+    }
 }
 
 
-@media screen and (min-width:800px) and (max-width: 1120px){ 
-    /*　画面サイズが480pxからはここを読み込む　*/
+@media screen and (min-width:768px) and (max-width: 1120px){ 
+    /*　画面サイズが768pxからはここを読み込む　*/
     #top-page-container {
         margin: 0px 5%;
     }
@@ -93,7 +90,7 @@ header h5 {
 
 
 @media screen and (min-width:1120px) {
-    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+    /*　画面サイズが1120pxまではここを読み込む　*/
     #top-page-container {
         margin: 0px 10%;
     }
