@@ -1,11 +1,15 @@
-.media-body {
-    margin: 50px 350px 50px 350px;
-    padding: 30px 30px 30px 30px;
-    box-shadow: 1px 1px 1px 1px rgb(235, 235, 235);
+@media screen and (max-width: 768px) {
+    
 }
 
+.profile-section {
+    display: block;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+
 .profile-section img {
-    float: left;
     width: 50px;
     height: 50px;
     border: 1px black solid;
@@ -13,19 +17,23 @@
 }
 
 .profile-section h2 {
-    float: left;
-    text-align: center;
-    width: 50px;
     height: 30px;
-    margin: 15px 0 0 30px;
 }
 
 .profile-section button {
-    float: right;
     margin: 15px 0 0 0;
 
 }
 
-.col-6 infinite-item {
-    display: inline;
+.divider {
+    border: 1px solid lightgray;
+    margin: 0 10vw;
+}
+
+.past-post {
+    text-align: center;
+}
+
+.row {
+    margin: 3vh;
 }

@@ -1,21 +1,18 @@
 {% extends "app/_base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
 <div class="profile-section">
-    <div class="media">
-        <div class="media-body">
-            {% load static %}
-            <img class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}">
-            <h2 class="account-heading">{{ user.username }}</h2>
-            <button class="btn btn-secondary" href="{% url 'update_profile' %}">編集</button>
-        </div>
-    </div>
+    <img class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}">
+    <h2 class="account-heading">{{ user.username }}</h2>
+    <button class="btn btn-secondary" href="{% url 'update_profile' %}">編集</button>
     <!-- FORM HERE -->
 </div>
-<div class="container">
+<div class="divider"></div>
+<div class="past-post">
     {% for post in user_posts %}
     <div class="row row-cols-2">
-        <div class="col infinite-item" style="margin: 0 0 10px 40%;">
+        <div class="col infinite-item">
             {% if post.image %}
             <div id="image">
                 <img src="{{ post.image.url }}" style="width: 200px; height:200px; object-fit:cover;">
