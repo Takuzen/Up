@@ -54,7 +54,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Item
-        fields = ['restaurant_name', 'image']
+        fields = ['restaurant_name', 'restaurant_memo', 'image']
 
         # 以下のフィールド以外が入力フォームに表示される
         # AutoField
