@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 
 from ..users.models import User
@@ -14,17 +15,19 @@ class Item(models.Model):
 
     # レストラン名 文字列
     restaurant_name = models.CharField(
-        verbose_name='レストラン名',
+        verbose_name='',
         max_length=20,
         blank=True,
         null=True,
+        help_text='タイトルはズバリ...！',
     )
 
     # レストランのメモ 大きめのテキストエリア
     restaurant_memo = models.TextField(
-        verbose_name='レストランのここがいい！',
+        verbose_name='',
         blank=True,
         null=True,
+        help_text='もっと詳しく聞かせて...（写真も忘れずにね）',
     )
 
     # 23区の選択
@@ -63,7 +66,8 @@ class Item(models.Model):
         null=True,
     )
 
-    image = models.ImageField(upload_to='images/restaurant_posts', blank=True, null=True)
+    image = models.ImageField(
+        upload_to='images/restaurant_posts', blank=True, null=True)
 
     # 価格帯 選択肢
     price_range_choice = (

@@ -136,11 +136,11 @@
                     var img_src = $('<img>').attr({ 'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover' });
                     $('#image_preview_span').html(img_src);
                 }
-                $('#cancel-cross').show()
+                $('#close-button').show()
                 reader.readAsDataURL(file);
             });
 
-            $('#cancel-cross').click(function () {
+            $('#close-button').click(function () {
                 $('#image_preview_span').html('');
                 $('#post_restaurant_image').val('');
                 $(this).hide();
