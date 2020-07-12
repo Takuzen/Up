@@ -13,9 +13,9 @@ $(function () {
         autoclose: true,
         todayHighlight: true,
     });
-    $('.dateinput').attr('placeholder','YYYY-MM-DD');
+    $('.dateinput').attr('placeholder', 'YYYY-MM-DD');
 
-    $('.datetimeinput').attr('placeholder','YYYY-MM-DD HH:MM:SS');
+    $('.datetimeinput').attr('placeholder', 'YYYY-MM-DD HH:MM:SS');
 
 
     // 入力フォームでリターンキー押下時の送信を無効化
