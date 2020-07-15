@@ -25,6 +25,52 @@
     transition-duration: 0.3s;
   }
 
+  .btn-vegetarian {
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    margin: 0 2.5px;
+  }
+
+  .btn-vegan {
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: lightgrey;
+    color: white;
+    margin: 0 2.5px;
+  }
+
+  .btn-sort {
+    position: relative;
+    top: -3px;
+    width: 35px;
+    height: 35px;
+    padding: 4px;
+    margin-left: auto;
+}
+
+  .btn-sort:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+
+  .btn-sort img {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+  }
+
+  .btn-sort img:hover {
+    opacity: 0.8;
+  }
+
 #plus-button {
     position: fixed;
     right: 3vw;

@@ -77,22 +77,9 @@
             </div>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-12">
-            <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
-            <div class="float-right mt-1">
-                <a class="btn btn-outline-dark disabled" data-toggle="modal" data-target="#myModal" href="#"><img
-                        src="../static/images/icons/filter.png" width="20px" height="20px"></a>
-            </div>
-            <div class="float-left mt-1">
-                <a class="btn btn-success"><span style="color: white; font-weight: bold;">ベジタリアン</span></a>
-                <a class="btn btn-secondary">ヴィーガン</a>
-            </div>
-        </div>
-    </div>
-
-    <!--
+<!--
             <ul class="navbar-nav float-right mt-3">
                     <li class="nav-item">
                         {% if user.is_authenticated %}
@@ -105,60 +92,59 @@
                     </li>
             </ul>
     -->
-    <!-- feed -->
-    <div class="container">　
-        <div class="row infinite-container">
-            {% for item in item_list %}
-            <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 100%;">
 
-                <!-- card-header 
-            <div id="card-header">
+<div class="container">　
+    <!-- filter buttons-->
+    <div class="filters">
+        <!-- 
+        <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
+        -->
+        <button class="btn-vegetarian">ベジタリアン</button>
+        <button class="btn-vegan">ヴィーガン</button>
+
+
+        <a class="btn-sort rounded-circle accountimg disabled" data-toggle="modal" data-target="#myModal" href="#"><img
+                src="../static/images/icons/triangle.png"></a>
+    </div>
+    <!-- feed -->
+    <div class="row infinite-container">
+        {% for item in item_list %}
+        <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 100%;">
+
+            <!-- card-header 
+                <div id="card-header">
                 <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm"
                             style="background: pink;"><img src="../static/images/icons/person.svg"
                                 class="rounded-circle account-img" alt="person"></span></button>
                     <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
-            </div>
-            -->
-
-                <div id="card-body">
-                    {% if item.image %}
-                    <div id="image">
-                        <img src="{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;">
-                    </div>
-                    <div id="card-body">
-                        {% if item.image %}
-                        <div id="image">
-                            <img src="/{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;">
-                        </div>
-                        {% else %}
-                        <div id="image">
-                            <img src="../media/images/restaurant_posts/if-photo-is-nil.jpg"
-                                style="width:100%;height:600px">
-                        </div>
-                        {% endif %}
-                    </div>
-                    <<<<<<< HEAD {% endif %} </div>
-                        <div id="card-footer">
-                            <p id="first-p">{{ item.restaurant_memo|default_if_none:"restaurant_memo" }}</p>
-                            <p id="second-p"><span style="vertical-align: middle;"><img
-                                        src="../static/images/icons/person.svg"
-                                        style="border: black 1px solid; position: relative; top: -1px;"
-                                        class="rounded-circle account-img" alt="person"></span>
-                                <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
-                            <p id="third-p"><img id="location-pin" src="../static/images/icons/location-pin.png"
-                                    alt="location-pin"><span
-                                    id="restaurant_name_on_card_footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span><button
-                                    id="copy-button"><img id="copy-img" src="../static/images/icons/copy.png"
-                                        alt="copy-img"></button></p>
-                        </div>
-                        <!-- 
-=======
-                <div id="card-footer">
-                    <p><span>{{ item.restaurant_memo|default_if_none:"restaurant_memo" }}</span>
-                    </p>
                 </div>
-                <!-- 
->>>>>>> 07e6a54... put back filter button and add vegetarian/vegan button on toppage which does not work yet
+                -->
+
+            <div id="card-body">
+                {% if item.image %}
+                <div id="image">
+                    <img src="{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;">
+                </div>
+                {% else %}
+                <div id="image">
+                    <img src="../media/images/restaurant_posts/if-photo-is-nil.jpg" style="width:100%;height:600px">
+                </div>
+                {% endif %}
+            </div>
+
+            <div id="card-footer">
+                <p id="first-p">{{ item.restaurant_memo|default_if_none:"restaurant_memo" }}</p>
+                <p id="second-p"><span style="vertical-align: middle;"><img src="../static/images/icons/person.svg"
+                            style="border: black 1px solid; position: relative; top: -1px;"
+                            class="rounded-circle account-img" alt="person"></span>
+                    <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
+                <p id="third-p"><img id="location-pin" src="../static/images/icons/location-pin.png"
+                        alt="location-pin"><span
+                        id="restaurant_name_on_card_footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span><button
+                        id="copy-button"><img id="copy-img" src="../static/images/icons/copy.png"
+                            alt="copy-img"></button></p>
+            </div>
+            <!-- 
                             <div class="row">
                                 <div class="col-12">
                                     <div class="float-right">
@@ -168,33 +154,18 @@
                                     </div>
                                 </div>
                             </div>
-                            -->
-                </div>
-                {% endfor %}
-            </div>
+                        -->
         </div>
+        {% endfor %}
+    </div>
+</div>
 
-        <<<<<<< HEAD <div class="row mt-3" style="width: 100%;">
-            <div class="col-10 mx-auto">
-                {% if page_obj.has_next %}
-                <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
-                {% endif %}
-                <div class="d-flex justify-content-center" style="display:none;">
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
-                        =======
-                        <div class="row mt-3">
-                            <div class="col-10 mx-auto">
-                                {% if page_obj.has_next %}
-                                <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
-                                {% endif %}
-                                <div class="d-flex justify-content-center" style="display:none;">
-                                    <div class="spinner-border" role="status">
-                                        <span class="sr-only">Loading...</span>
-                                    </div>
-                                    >>>>>>> 07e6a54... put back filter button and add vegetarian/vegan button on toppage
-                                    which does not work yet
-                                </div>
-                            </div>
-                        </div>
-                        {% endblock %}
+<div class="row mt-3" style="width: 100%;">
+    <div class="col-10 mx-auto">
+        {% if page_obj.has_next %}
+        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+        {% endif %}
+        <div class="d-flex justify-content-center" style="display:none;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+                {% endblock %}

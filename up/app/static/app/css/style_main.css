@@ -21,6 +21,14 @@ header h5 {
 }
 */
 
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+}
+
 #content {
     display: flex;
     flex: 1;
