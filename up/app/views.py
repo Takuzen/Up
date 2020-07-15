@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views.generic import DetailView
+from django.views.generic import DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
@@ -16,6 +16,7 @@ from django.contrib.auth.decorators import login_required
 #
 # LoginRequiredMixin：未ログインのユーザーをログイン画面に誘導するMixin
 # 参考：https://docs.djangoproject.com/ja/2.1/topics/auth/default/#the-loginrequired-mixin
+
 
 class ItemFilterView(FilterView):
     """
@@ -55,7 +56,8 @@ class ItemFilterView(FilterView):
             if 'query' in request.session:
                 if isinstance(request.session['query'], dict):
                     if 'page' in request.session['query'].keys():
-                        request.session['query'] = request.session['query'].pop('page')
+                        request.session['query'] = request.session['query'].pop(
+                            'page')
         return super().get(request, **kwargs)
 
     def get_queryset(self):
@@ -74,7 +76,6 @@ class ItemFilterView(FilterView):
         context_data = super().get_context_data(object_list=object_list, **kwargs)
         context_data.update({'form': PostForm})
         return context_data
-
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -165,3 +166,7 @@ class ItemDeleteView(LoginRequiredMixin, DeleteView):
         item.delete()
 
         return HttpResponseRedirect(self.success_url)
+
+
+class CardDetailPageView(TemplateView):
+    template_name = "app/card_detail.html"
