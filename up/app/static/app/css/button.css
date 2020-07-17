@@ -48,7 +48,7 @@
 
   .btn-sort {
     position: relative;
-    top: -3px;
+    top: -2px;
     width: 35px;
     height: 35px;
     padding: 4px;
@@ -62,8 +62,7 @@
   }
 
   .btn-sort img {
-    width: 15px;
-    height: 15px;
+    width: 25px;
     object-fit: contain;
   }
 

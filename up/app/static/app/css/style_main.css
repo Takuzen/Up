@@ -25,8 +25,7 @@ header h5 {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    flex-wrap: nowrap;
-    
+    flex-wrap: nowrap;   
 }
 
 #content {
