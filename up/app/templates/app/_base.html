@@ -19,6 +19,7 @@
     <!-- CSS Files -->
     <link href="{% static "app/css/style_main.css" %}" rel="stylesheet">
     <link href="{% static "app/css/card.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/card_detail.css" %}" rel="stylesheet">
     <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
     <link href="{% static "app/css/button.css" %}" rel="stylesheet">
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
@@ -49,7 +50,7 @@
     </header>
     <!-- content-->
     <div id="content">
-        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
         <nav id="left">
         </nav>
         {% endif %}
@@ -64,7 +65,7 @@
             {% block content %}
             {% endblock %}
         </main>
-        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
         <aside id="right">
             <div>
                 <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 25px;">

@@ -1,5 +1,4 @@
 {% extends "./_base.html" %}
-{% load static %}
 {% load crispy_forms_tags %}
 
 
@@ -101,8 +100,6 @@
         -->
         <button class="btn-vegetarian">ベジタリアン</button>
         <button class="btn-vegan">ヴィーガン</button>
-
-
         <a class="btn-sort rounded-circle accountimg disabled" data-toggle="modal" data-target="#myModal" href="#"><img
                 src="../static/images/icons/triangle.png"></a>
     </div>
@@ -134,16 +131,14 @@
             </div>
 
             <div id="card-footer">
-                <p id="first-p">{{ item.restaurant_memo|default_if_none:"restaurant_memo" }}</p>
+                <p id="first-p">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
                 <p id="second-p"><span style="vertical-align: middle;"><img src="../static/images/icons/person.svg"
                             style="border: black 1px solid; position: relative; top: -1px;"
                             class="rounded-circle account-img" alt="person"></span>
                     <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
                 <p id="third-p"><img id="location-pin" src="../static/images/icons/location-pin.png"
                         alt="location-pin"><span
-                        id="restaurant_name_on_card_footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span><button
-                        id="copy-button"><img id="copy-img" src="../static/images/icons/copy.png"
-                            alt="copy-img"></button>
+                        id="restaurant_name_on_card_footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span>
                 </p>
             </div>
             <!-- 
