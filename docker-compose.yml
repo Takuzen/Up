@@ -24,6 +24,7 @@ services:
       app_net:
         ipv4_address: 172.20.0.2
     tty: true
+    command: python manage.py runserver 0.0.0.0:8000
 
 networks:
   app_net:
