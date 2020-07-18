@@ -10,12 +10,13 @@
 ### build
 
 docker-compose.ymlがあるディレクトリにて以下のコマンドを叩く。
+これでウェブサーバーも同時に立ち上がる。
 
 ```
 docker-compose up --build -d
 ```
 
-### webサーバーの立ち上げ
+### マイグレーション
 
 以下のコマンドでイメージ名を探す。
 
@@ -44,13 +45,8 @@ docker exec -it up_django_1 /bin/bash
 code# python manage.py migrate
 ```
 
-マイグレーションが完了したら以下のコマンドでUpが立ち上がるはず。
 
-```
-code# python manage.py runserver 0.0.0.0:8000
-```
-
-シャットダウン方法
+### シャットダウン方法
 
 ```
 docker-compose down
