@@ -50,7 +50,7 @@
     </header>
     <!-- content-->
     <div id="content">
-        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
         <nav id="left">
         </nav>
         {% endif %}
@@ -65,8 +65,9 @@
             {% block content %}
             {% endblock %}
         </main>
-        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
+        {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
         <aside id="right">
+            {% if request.path != '/card_detail/' %}
             <div>
                 <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 25px;">
                     <li id="post_button">
@@ -78,11 +79,12 @@
                     </li>
                 </ul>
             </div>
+            {% endif %}
         </aside>
         {% endif %}
     </div>
     <!-- plus-button-->
-    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' %}
+    {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
     <button id="plus-button" data-toggle="modal" data-target="#post-modal"><img id="plus-button-img" class="mobile-only"
             src="../static/images/icons/plus-button.png" alt="plus-button-img"></button>
     {% endif %}
