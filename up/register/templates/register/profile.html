@@ -3,9 +3,9 @@
 {% load static %}
 {% block content %}
 <div class="profile-section">
-    <img class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}">
+    <a href="#"><img class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"></a>
     <h2 class="account-heading">{{ user.username }}</h2>
-    <button class="btn btn-secondary" href="{% url 'update_profile' %}">編集</button>
+    <a class="edit-profile-btn" href="{% url 'update_profile' %}">編集</a>
     <!-- FORM HERE -->
 </div>
 <div class="divider"></div>

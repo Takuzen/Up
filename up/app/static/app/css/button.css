@@ -94,3 +94,28 @@
   box-shadow: 0 0 1px rgba(5, 1, 1, 0.15);
   transition-duration: 0.3s;
 }
+
+.edit-profile-btn {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 9px;
+  position: relative;
+  background: transparent;
+  color: black;
+  margin: 10px 41vw;
+}
+
+.edit-profile-btn:hover {
+  text-decoration: none;
+  color: black;
+  background: lightgray;
+  opacity: 0.6;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.edit-profile-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 1px rgba(5, 1, 1, 0.15);
+    transition-duration: 0.3s;
+}
