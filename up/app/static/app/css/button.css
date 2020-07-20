@@ -1,6 +1,7 @@
   .btn-square-soft {
     display: inline-block;
     position: absolute;
+    right: 10vw;
     width: 210px;
     height: 50px;
     color: white;
