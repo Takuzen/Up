@@ -8,6 +8,7 @@
     font-size: 17px;
     line-height: 48px; /* 行間の広さ→もっと良いボタンのmiddleに位置させる方法があるはず */
     padding: 0;
+    border: none;
     border-radius: 50px;
     text-align: center;
     font-weight: bold;
@@ -15,15 +16,11 @@
   }
 
   .btn-square-soft:hover {
+    text-decoration: none;
+    color: white;
     opacity: 0.6;
     transition-duration: 0.3s;
     cursor: pointer;
-  }
-
-  .btn-square-soft:active { /* 押したとき */
-    transform: translateY(2px); /* 沈むように */
-    box-shadow: 0 0 1px rgba(5, 1, 1, 0.15);
-    transition-duration: 0.3s;
   }
 
   .btn-vegetarian {
@@ -90,12 +87,6 @@
   cursor: pointer;
 } 
 
-#plus-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 0 1px rgba(5, 1, 1, 0.15);
-  transition-duration: 0.3s;
-}
-
 .edit-profile-btn {
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -115,8 +106,12 @@
   cursor: pointer;
 }
 
-.edit-profile-btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 0 1px rgba(5, 1, 1, 0.15);
-    transition-duration: 0.3s;
+#mypage-btn-mobile {
+  margin-right: 5px;
+}
+
+#mypage-btn-mobile:hover {
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.6;
 }

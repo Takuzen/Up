@@ -17,10 +17,10 @@
                 <form method="post" id="myform" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-group col-md-12 mb-0" style="overflow: scroll;">
-                        {{ form.restaurant_name|as_crispy_field }}
+                        {{ form.restaurant_memo|as_crispy_field }}
                     </div>
                     <div class="form-group col-md-12 mb-0" style="overflow: scroll;">
-                        {{ form.restaurant_memo|as_crispy_field }}
+                        {{ form.restaurant_name|as_crispy_field }}
                     </div>
                     <div class="form-group col-md-12 mb-0" style="position: relative;
                     top: -3vh;">
@@ -102,7 +102,7 @@
         <button class="btn-vegan">ヴィーガン</button>
         <!-- modal修正完了したら　data-target="#myModal" に戻す -->
         <a class="btn-sort rounded-circle account-img" data-toggle="modal" data-target="#"><img
-                src="../static/images/icons/filter.png"></a>
+                src="../static/images/icons/filter-no-circle.png"></a>
     </div>
     <!-- feed -->
     <div class="row infinite-container">
@@ -137,11 +137,8 @@
                             style="border: black 1px solid; position: relative; top: -1px;"
                             class="rounded-circle account-img" alt="person"></span>
                     <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
-                <p id="third-p"><img id="location-pin" src="../static/images/icons/location-pin.png"
-                        alt="location-pin"><span
-                        id="restaurant_name_on_card_footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span>
-                </p>
             </div>
+
             <!-- 
                             <div class="row">
                                 <div class="col-12">

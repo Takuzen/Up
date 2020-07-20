@@ -53,11 +53,11 @@ header h5 {
     width: 100%;
 }
 
-.desktop-only{
+.desktop-only {
     display: block;
 }
 
-.mobile-only{
+.mobile-only {
     display: none;
 }
 

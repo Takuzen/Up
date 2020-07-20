@@ -56,13 +56,6 @@
     padding-bottom: 3px;
 }
 
-#third-p {
-    position: relative;
-    left: -7px;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
 #copy-img {
     width: 15px;
     object-fit: cover;
