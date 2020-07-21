@@ -4,6 +4,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'up-env.eba-aesibyxa.us-east-1.elasticbeanstalk.com',
+    'www.uplife.link',
 ]
 
 DATABASES = {
