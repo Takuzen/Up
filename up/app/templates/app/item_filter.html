@@ -30,7 +30,7 @@
                                 <img src="{% static '../static/images/icons/photo-plus.png' %}" alt="photo">
                             </span>
                             <input type="file" name="image" accept="image/*" class="clearablefileinput"
-                                id="post_restaurant_image" style="display:none;" value="">
+                                id="post_restaurant_image" value="" required>
                             <div style="position:relative;" id="removable-div">
                                 <span id="image_preview_span"></span>
                                 <div>
@@ -40,13 +40,10 @@
                             </div>
                         </label>
                     </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="test1" value="投稿する" class="post-button-on-modal">
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <!--
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">下書き保存</button>
-                -->
-                <button class="post-button-on-modal save" id="save">投稿する</button>
             </div>
 
         </div>

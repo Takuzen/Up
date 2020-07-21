@@ -9,7 +9,7 @@ from django_filters.views import FilterView
 from .filters import ItemFilterSet
 from .forms import ItemForm, PostForm
 from .models import Item
-
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 # 未ログインのユーザーにアクセスを許可する場合は、LoginRequiredMixinを継承から外してください。
@@ -83,15 +83,17 @@ class ItemFilterView(FilterView):
             # <process form cleaned data>
             item = form.save(commit=False)
             item.image = request.FILES['image']
+            item.restaurant_memo = request.POST['restaurant_memo']
+            item.restaurant_name = request.POST['restaurant_name']
             item.created_by = self.request.user
             item.created_at = timezone.now()
             item.updated_by = self.request.user
             item.updated_at = timezone.now()
             item.save()
-
+            messages.success(request, f'投稿ありがとうございます!')
             return HttpResponseRedirect(self.success_url)
 
-        return render(request, self.template_name, {'form': form})
+        return render(request, "/", {'form': form})
 
 
 class ItemDetailView(DetailView):
