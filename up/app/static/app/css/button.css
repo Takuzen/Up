@@ -45,6 +45,7 @@
     font-size: 17px;
     line-height: 48px; /* 行間の広さ→もっと良いボタンのmiddleに位置させる方法があるはず */
     padding: 0;
+    outline: none;
     border: none;
     border-radius: 50px;
     outline: none;
@@ -131,6 +132,7 @@
     border: none;
     outline: none;
     background: none;
+    outline: none;
 }
 
 #plus-btn:focus {
