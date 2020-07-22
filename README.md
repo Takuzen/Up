@@ -54,3 +54,14 @@ docker-compose down
 
 
 参考にしたサイト：[docker-composeでDjangoコンテナ + MySQLコンテナの環境構築 〜 マイグレーションでテーブル作成および管理ツールで確認するまで）。](https://qiita.com/Butterthon/items/e85825d3eff6559a1cf1)
+
+
+## Deployment
+
+ルートディレクトリにて、以下のコマンドでzip ファイルを作成する。
+
+```
+zip ../myapp.zip -r * .ebextensions
+```
+
+これで `.ebextensions` も含むようにzipファイルを作成してくれる。あとは、この `myapp.zip`をAWSのelastic beanstalkにアップロードする。
