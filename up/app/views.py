@@ -170,5 +170,14 @@ class ItemDeleteView(LoginRequiredMixin, DeleteView):
         return HttpResponseRedirect(self.success_url)
 
 
-class CardDetailPageView(TemplateView):
+class CardDetailPageView(DetailView):
+    model = Item
     template_name = "app/card_detail.html"
+
+    def get_context_data(self, **kwargs):
+        """
+        表示データの設定
+        """
+        # 表示データの追加はここで 例：
+        # kwargs['sample'] = 'sample'
+        return super().get_context_data(**kwargs)

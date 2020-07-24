@@ -20,7 +20,7 @@ urlpatterns = [
     path('logout/', register_view.Logout.as_view(), name='logout'),
     path('profile/', register_view.profile, name='profile'),
     path('update_profile/', register_view.update_profile, name='update_profile'),
-    path('card_detail/', CardDetailPageView.as_view(), name='card_detail'),
+    path('card_detail/<int:pk>/', CardDetailPageView.as_view(), name='card_detail'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

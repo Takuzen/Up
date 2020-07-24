@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Favicon -->
-    <link rel="icon" href="{% static "../static/images/icons/favicon/up-arrow.png" %}">
+    <link rel="icon" href="{% static 'images/icons/favicon/up-arrow.png' %}">
     <!-- Title -->
     <title>Up</title>
     <!-- Bootstrap CSS -->
@@ -20,7 +20,6 @@
     <link href="{% static "app/css/style_main.css" %}" rel="stylesheet">
     <link href="{% static "app/css/card.css" %}" rel="stylesheet">
     <link href="{% static "app/css/card_detail.css" %}" rel="stylesheet">
-    <link href="{% static "app/css/sidebar.css" %}" rel="stylesheet">
     <link href="{% static "app/css/button.css" %}" rel="stylesheet">
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
     <link href="{% static "app/css/profile.css" %}" rel="stylesheet">
@@ -41,7 +40,7 @@
             {% if user.is_authenticated %}
             {% if request.path != '/profile/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
             <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-mobile"
-                    class="rounded-circle account-img" src="../static/images/icons/person.svg" alt="person-icon"></a>
+                    class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
             {% endif %}
             <!-- css add justify-content: space-between; -->
             <a class="mbile-ony" href="{% url 'profile' %}"></a>
@@ -90,10 +89,10 @@
     {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
     {% if user.is_authenticated %}
     <button id="plus-button" data-toggle="modal" data-target="#post-modal"><img id="plus-button-img" class="mobile-only"
-            src="../static/images/icons/plus-button.png" alt="plus-button-img"></button>
+            src="{% static 'images/icons/plus-button.png' %}" alt="plus-button-img"></button>
     {% else %}
     <a id="plus-button" href="{% url 'login' %}"><img id="plus-button-img" class="mobile-only"
-            src="../static/images/icons/plus-button.png" alt="plus-button-img"></a>
+            src="{% static 'images/icons/plus-button.png' %}" alt="plus-button-img"></a>
     {% endif %}
     {% endif %}
 
@@ -102,9 +101,9 @@
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="/static/app/js/jquery-2.2.4.min.js"></script>
-    <script src="/static/app/js/jquery.waypoints.min.js"></script>
-    <script src="/static/app/js/infinite.min.js"></script>
+    <script src="{% static '/app/js/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static '/app/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'app/js/infinite.min.js' %}"></script>
     <script>
         var infinite = new Waypoint.Infinite({
             element: $('.infinite-container')[0],
@@ -166,9 +165,9 @@
         charset="UTF-8"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js"></script>
-    <script src="{% static "app/js/app.js" %}"></script>
-    <script src="{% static "app/js/infinite.min.js" %}"></script>
-    <script src="{% static "app/js/jquery.waypoints.min.js" %}"></script>
+    <script src="{% static 'app/js/app.js' %}"></script>
+    <script src="{% static 'app/js/infinite.min.js' %}"></script>
+    <script src="{% static 'app/js/jquery.waypoins.min.js' %}"></script>
 
 </body>
 
