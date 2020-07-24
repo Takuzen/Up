@@ -58,6 +58,58 @@ docker-compose down
 
 ## Deployment
 
+### awsebcliを使う形式
+
+brewでawsebcliをインストール（pipだと失敗）
+
+```
+$ brew install awsebcli
+```
+
+eb initで初期化
+
+```
+$ eb init
+```
+
+default regionの選択：N. Virginia
+
+```
+Select a default region
+// US East (N. Virginia)us-east-1 を選択
+```
+
+aws-access-id と aws-secret-keyを入力。
+
+```
+You have not yet set up your credentials or your credentials are incorrect
+You must provide your credentials.
+(aws-access-id): hoge (aws consoleからとってきてください)
+(aws-secret-key): hoge（aws consoleからとってきてください）
+```
+
+applicationはupを選択。
+
+```
+Select an application to use
+// upを選択
+```
+
+code commitはとりあえずN。
+
+```
+Do you wish to continue with CodeCommit? (y/N) (default is n): n（defaultのまま）
+```
+
+deploy
+
+```
+//root directoryにて
+$ eb deploy
+```
+
+### zip 形式
+
 ルートディレクトリにて、以下のコマンドでzip ファイルを作成する。
 
 ```
