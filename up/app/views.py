@@ -2,20 +2,21 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views.generic import DetailView
+from django.views.generic import DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from .filters import ItemFilterSet
 from .forms import ItemForm, PostForm
 from .models import Item
-
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 # 未ログインのユーザーにアクセスを許可する場合は、LoginRequiredMixinを継承から外してください。
 #
 # LoginRequiredMixin：未ログインのユーザーをログイン画面に誘導するMixin
 # 参考：https://docs.djangoproject.com/ja/2.1/topics/auth/default/#the-loginrequired-mixin
+
 
 class ItemFilterView(FilterView):
     """
@@ -55,7 +56,8 @@ class ItemFilterView(FilterView):
             if 'query' in request.session:
                 if isinstance(request.session['query'], dict):
                     if 'page' in request.session['query'].keys():
-                        request.session['query'] = request.session['query'].pop('page')
+                        request.session['query'] = request.session['query'].pop(
+                            'page')
         return super().get(request, **kwargs)
 
     def get_queryset(self):
@@ -75,22 +77,23 @@ class ItemFilterView(FilterView):
         context_data.update({'form': PostForm})
         return context_data
 
-
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
             # <process form cleaned data>
             item = form.save(commit=False)
             item.image = request.FILES['image']
+            item.restaurant_memo = request.POST['restaurant_memo']
+            item.restaurant_name = request.POST['restaurant_name']
             item.created_by = self.request.user
             item.created_at = timezone.now()
             item.updated_by = self.request.user
             item.updated_at = timezone.now()
             item.save()
-
+            messages.success(request, f'投稿ありがとうございます!')
             return HttpResponseRedirect(self.success_url)
 
-        return render(request, self.template_name, {'form': form})
+        return render(request, "/", {'form': form})
 
 
 class ItemDetailView(DetailView):
@@ -165,3 +168,16 @@ class ItemDeleteView(LoginRequiredMixin, DeleteView):
         item.delete()
 
         return HttpResponseRedirect(self.success_url)
+
+
+class CardDetailPageView(DetailView):
+    model = Item
+    template_name = "app/card_detail.html"
+
+    def get_context_data(self, **kwargs):
+        """
+        表示データの設定
+        """
+        # 表示データの追加はここで 例：
+        # kwargs['sample'] = 'sample'
+        return super().get_context_data(**kwargs)

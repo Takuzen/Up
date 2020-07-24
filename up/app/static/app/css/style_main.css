@@ -21,6 +21,13 @@ header h5 {
 }
 */
 
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;   
+}
+
 #content {
     display: flex;
     flex: 1;
@@ -46,11 +53,11 @@ header h5 {
     width: 100%;
 }
 
-.desktop-only{
+.desktop-only {
     display: block;
 }
 
-.mobile-only{
+.mobile-only {
     display: none;
 }
 

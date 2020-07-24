@@ -3,9 +3,9 @@
     margin-left: 1vw;  
 }
 .filelabel img {
-    position: absolute;
-    top: -50px;
-    right: 30px;
+    position: relative;
+    top: -157px;
+    left: 30px;
     width: 20px;
     height: 20px;
 }
@@ -14,6 +14,18 @@
     opacity: 0.6;
     transition-duration: 0.3s;
 }
+
+.clearablefileinput {
+    position: relative;
+    top: -155px;
+    left: 25px;
+    width: 0.5px;
+    outline: none;
+}
+
+.clearablefileinput::-webkit-file-upload-button {
+    visibility: hidden;
+  }
 
 #close-button {
     display:none;

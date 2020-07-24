@@ -1,5 +1,4 @@
 {% extends "./_base.html" %}
-{% load static %}
 {% load crispy_forms_tags %}
 
 
@@ -18,106 +17,94 @@
                 <form method="post" id="myform" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-group col-md-12 mb-0" style="overflow: scroll;">
-                        {{ form.restaurant_name|as_crispy_field }}
-                    </div>
-                    <div class="form-group col-md-12 mb-0" style="overflow: scroll;">
                         {{ form.restaurant_memo|as_crispy_field }}
                     </div>
+                    <div class="form-group col-md-12 mb-0" style="overflow: scroll;">
+                        {{ form.restaurant_name|as_crispy_field }}
+                    </div>
+                    <label>
+                        <span class="filelabel" title="ファイルを選択">
+                            {% load static %}
+                            <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
+                        </span>
+                        <input type="file" name="image" title=" " accept="image/*" class="clearablefileinput"
+                            id="post_restaurant_image" value="" required>
+                    </label>
                     <div class="form-group col-md-12 mb-0" style="position: relative;
                     top: -3vh;">
-                        <label>
-                            <span class="filelabel" title="ファイルを選択">
-                                {% load static %}
-                                <img src="{% static '../static/images/icons/photo.png' %}" alt="photo">
-                            </span>
-                            <input type="file" name="image" accept="image/*" class="clearablefileinput"
-                                id="post_restaurant_image" style="display:none;" value="">
-                            <div style="position:relative;" id="removable-div">
-                                <span id="image_preview_span"></span>
-                                <div>
-                                    <img id="close-button" src="../static/images/icons/close-button.png"
-                                        alt="close-button">
-                                </div>
+                        <div style="position:relative;" id="removable-div">
+                            <span id="image_preview_span"></span>
+                            <div>
+                                <img id="close-button" src="{% static '/images/icons/close-button.png' %}" alt="close-button">
                             </div>
-                        </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="test1" value="投稿する" class="post-button-on-modal">
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <!--
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">下書き保存</button>
-                -->
-                <button class="post-button-on-modal save" id="save">投稿する</button>
             </div>
 
         </div>
     </div>
 </div>
-<!-- 絞り込みモーダル 
-    <div class="top-page-container" id="top-page-container">
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">絞り込み条件</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+<!-- 絞り込みモーダル -->
+<div class="top-page-container" id="top-page-container">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"
+        data-backdrop="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">絞り込み条件</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="filter" method="get">
+                    <div class="modal-body">
+                        {{ filter.form|crispy }}
                     </div>
-                    <form id="filter" method="get">
-                        <div class="modal-body">
-                            {{ filter.form|crispy }}
-                        </div>
-                    </form>
-                    <div class="modal-footer">
-                        <a class="btn btn-outline-dark" data-dismiss="modal">戻る</a>
-                        <button type="submit" class="btn btn-outline-dark" form="filter">絞り込む</button>
-                    </div>
+                </form>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-dark" data-dismiss="modal">戻る</a>
+                    <button type="submit" class="btn btn-outline-dark" form="filter">絞り込む</button>
                 </div>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-12">
-                <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
-                <div class="float-right mt-1">
-                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#"><img src="/media/images/sort-ascending-2x.png" alt="sort-ascending-8x" width="20px" height="20px"></a>
-                </div>
-            </div>
-        </div>
-    -->
-<!--
-            <ul class="navbar-nav float-right mt-3">
-                    <li class="nav-item">
-                        {% if user.is_authenticated %}
-                            <p>Welcome {{ user.username }}</p>
-                            <a class="nav-link btn btn-outline-dark" href="{% url 'logout' %}">ログアウト</a>
-                        {% else %}
-                            <a class="nav-link btn btn-outline-dark" href="{% url 'login' %}">ログイン</a>
-                            <a class="nav-link btn btn-outline-dark" href="{% url 'register' %}">サインアップ</a>
-                        {% endif %}
-                    </li>
-            </ul>
-    -->
-<!-- feed -->
+    </div>
+</div>
+
 <div class="container">　
+    <!-- filter buttons-->
+    <div class="filters">
+        <!-- 
+        <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
+        -->
+        <button class="btn-vegetarian">ベジタリアン</button>
+        <button class="btn-vegan">ヴィーガン</button>
+        <!-- modal修正完了したら　data-target="#myModal" に戻す -->
+        <a class="btn-sort rounded-circle account-img" data-toggle="modal" data-target="#"><img
+                src="{% static '/images/icons/filter-no-circle.png' %}"></a>
+    </div>
+    <!-- feed -->
     <div class="row infinite-container">
         {% for item in item_list %}
         <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 100%;">
 
             <!-- card-header 
-            <div id="card-header">
+                <div id="card-header">
                 <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm"
                             style="background: pink;"><img src="../static/images/icons/person.svg"
                                 class="rounded-circle account-img" alt="person"></span></button>
                     <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
-            </div>
-            -->
+                </div>
+                -->
 
             <div id="card-body">
                 {% if item.image %}
                 <div id="image">
-                    <img src="{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;">
+                    <a id="card-detail-btn" class="#" href="{% url 'card_detail' item.pk %}"><img src="{{ item.image.url }}"
+                            style="width:100%;height:600px; object-fit:cover;"></a>
                 </div>
                 {% else %}
                 <div id="image">
@@ -125,18 +112,15 @@
                 </div>
                 {% endif %}
             </div>
+
             <div id="card-footer">
-                <p id="first-p">{{ item.restaurant_memo|default_if_none:"restaurant_memo" }}</p>
-                <p id="second-p"><span style="vertical-align: middle;"><img src="../static/images/icons/person.svg"
+                <p id="first-p">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
+                <p id="second-p"><span style="vertical-align: middle;"><img src="{% static 'images/icons/person.svg' %}"
                             style="border: black 1px solid; position: relative; top: -1px;"
                             class="rounded-circle account-img" alt="person"></span>
                     <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
-                <p id="third-p"><img id="location-pin" src="../static/images/icons/location-pin.png"
-                        alt="location-pin"><span
-                        id="restaurant_name_on_card_footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span><button
-                        id="copy-button"><img id="copy-img" src="../static/images/icons/copy.png"
-                            alt="copy-img"></button></p>
             </div>
+
             <!-- 
                             <div class="row">
                                 <div class="col-12">
@@ -147,7 +131,7 @@
                                     </div>
                                 </div>
                             </div>
-                            -->
+                        -->
         </div>
         {% endfor %}
     </div>

@@ -1,0 +1,50 @@
+.card-detail-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#back-btn {
+    border: none;
+    background: white;
+    position: relative;
+    top: -6px;
+    margin: 0 10px;
+}
+
+#card-detail-back-arrow-img {
+    width: 15px;
+    object-fit: contain;
+}
+
+#card-detail-profile-img {
+    border: solid 2px;
+    position: relative;
+    top: -7px;
+    margin: 0 5px;
+}
+
+#card-detail-username {
+    margin-left: 5px;
+}
+
+.card-detail-footer {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#restaurant-memo {
+    margin: 1vh 3vw;
+}
+
+#location {
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    margin: 1vh 2vw;
+    padding: 10px;
+    box-shadow: 1px 1px 1px 1px lightgray;
+}

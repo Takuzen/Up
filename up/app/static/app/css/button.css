@@ -1,12 +1,14 @@
   .btn-square-soft {
     display: inline-block;
     position: absolute;
+    right: 10vw;
     width: 210px;
     height: 50px;
     color: white;
     font-size: 17px;
     line-height: 48px; /* 行間の広さ→もっと良いボタンのmiddleに位置させる方法があるはず */
     padding: 0;
+    border: none;
     border-radius: 50px;
     text-align: center;
     font-weight: bold;
@@ -14,15 +16,56 @@
   }
 
   .btn-square-soft:hover {
+    text-decoration: none;
+    color: white;
     opacity: 0.6;
     transition-duration: 0.3s;
     cursor: pointer;
   }
 
-  .btn-square-soft:active { /* 押したとき */
-    transform: translateY(2px); /* 沈むように */
-    box-shadow: 0 0 1px rgba(5, 1, 1, 0.15);
+  .btn-vegetarian {
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    margin: 0 2.5px;
+  }
+
+  .btn-vegan {
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: lightgrey;
+    color: white;
+    margin: 0 2.5px;
+  }
+
+  .btn-sort {
+    position: relative;
+    top: -2px;
+    width: 35px;
+    height: 35px;
+    padding: 4px;
+    margin-left: auto;
+}
+
+  .btn-sort:hover {
+    opacity: 0.6;
     transition-duration: 0.3s;
+    cursor: pointer;
+  }
+
+  .btn-sort img {
+    width: 25px;
+    object-fit: contain;
+  }
+
+  .btn-sort img:hover {
+    opacity: 0.8;
   }
 
 #plus-button {
@@ -44,8 +87,31 @@
   cursor: pointer;
 } 
 
-#plus-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 0 1px rgba(5, 1, 1, 0.15);
+.edit-profile-btn {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 9px;
+  position: relative;
+  background: transparent;
+  color: black;
+  margin: 10px 41vw;
+}
+
+.edit-profile-btn:hover {
+  text-decoration: none;
+  color: black;
+  background: lightgray;
+  opacity: 0.6;
   transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+#mypage-btn-mobile {
+  margin-right: 5px;
+}
+
+#mypage-btn-mobile:hover {
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.6;
 }
