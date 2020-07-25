@@ -10,6 +10,7 @@
     padding: 0;
     border: none;
     border-radius: 50px;
+    outline: none;
     text-align: center;
     font-weight: bold;
     background: #ffa76d;
@@ -21,6 +22,18 @@
     opacity: 0.6;
     transition-duration: 0.3s;
     cursor: pointer;
+  }
+
+  .btn-square-soft:focus {
+    outline: none;
+  }
+
+  #feedback-btn {
+    margin-left: 10px;
+  }
+
+  #feedback-img {
+    width: 25px;
   }
 
   .btn-vegetarian {
@@ -68,20 +81,25 @@
     opacity: 0.8;
   }
 
-#plus-button {
+#plus-btn {
     position: fixed;
     right: 3vw;
     bottom: 5vh;
     border: none;
+    outline: none;
     background: none;
 }
 
-#plus-button-img {
+#plus-btn:focus {
+  outline: none;
+}
+
+#plus-btn-img {
   width: 50px;
   height: 50px;
 }
 
-#plus-button:hover {
+#plus-btn:hover {
   opacity: 0.6;
   transition-duration: 0.3s;
   cursor: pointer;

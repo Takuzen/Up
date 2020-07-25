@@ -38,16 +38,24 @@
 
         <nav class="my-2 my-md-0 mr-md-3">
             {% if user.is_authenticated %}
+
             {% if request.path != '/profile/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
             <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-mobile"
                     class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
                     alt="person-icon"></a>
             {% endif %}
-            <!-- css add justify-content: space-between; -->
+
             <a class="mbile-ony" href="{% url 'profile' %}"></a>
+            {% if request.path !=　'/feedback/' %}
+            <a id="feedback-btn" href="{% url 'feedback' %}"><img id="feedback-img"
+                    src="{% static 'images/icons/feedback.png' %}" alt="feedback-img"></a>
+            {% endif %}
+
             {% else %}
+
             <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'login' %}">ログイン</a>
             <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">入会</a>
+
             {% endif %}
         </nav>
     </header>
@@ -56,11 +64,6 @@
     <div id="content">
         {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/feedback/' %}
         <nav id="left">
-            <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 80vh;">
-                <li>
-                    <a id="feedback-button" class="btn btn-secondary" href="{% url 'feedback' %}">フィードバック</a>
-                </li>
-            </ul>
         </nav>
         {% endif %}
 
@@ -98,11 +101,11 @@
     <!-- plus-button-->
     {% if request.path != '/profile/' and request.path != '/login/' and request.path != '/register/' and request.path != '/update_profile/' and request.path != '/card_detail/' %}
     {% if user.is_authenticated %}
-    <button id="plus-button" data-toggle="modal" data-target="#post-modal"><img id="plus-button-img" class="mobile-only"
-            src="{% static 'images/icons/plus-button.png' %}" alt="plus-button-img"></button>
+    <button id="plus-btn" data-toggle="modal" data-target="#post-modal"><img id="plus-btn-img" class="mobile-only"
+            src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></button>
     {% else %}
-    <a id="plus-button" href="{% url 'login' %}"><img id="plus-button-img" class="mobile-only"
-            src="{% static 'images/icons/plus-button.png' %}" alt="plus-button-img"></a>
+    <a id="plus-btn" href="{% url 'login' %}"><img id="plus-btn-img" class="mobile-only"
+            src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></a>
     {% endif %}
     {% endif %}
 

@@ -12,7 +12,7 @@ body {
 
 header {
     height: 60px;
-    justify-content: space-between;
+    justify-content: space-between; /* アイコンを右寄せ */
 }
 
 /*

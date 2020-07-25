@@ -6,9 +6,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from .models import Item
-<< << << < HEAD
-== == == =
->>>>>> > 15d5aea... added feedback button and page, using django's templateview
 
 
 # アプリケーションのルーティング設定
