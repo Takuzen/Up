@@ -93,20 +93,11 @@
         {% for item in item_list %}
         <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 100%;">
 
-            <!-- card-header 
-                <div id="card-header">
-                <p><span style="vertical-align: middle;"><button type="button" class="btn btn-default btn-sm"
-                            style="background: pink;"><img src="../static/images/icons/person.svg"
-                                class="rounded-circle account-img" alt="person"></span></button>
-                    <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
-                </div>
-                -->
-
             <div id="card-body">
                 {% if item.image %}
                 <div>
                     <a id="card-detail-btn" class="#" href="{% url 'card_detail' item.pk %}"><img id="card-img"
-                            src="{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;"></a>
+                            src="{{ item.image.url }}"></a>
                 </div>
                 {% else %}
                 <div>
