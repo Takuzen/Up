@@ -78,6 +78,8 @@ class ItemFilterView(FilterView):
         context_data["show_profile_icon"] = True
         context_data["show_left"] = True
         context_data["show_right"] = True
+        context_data["show_postbutton"] = True
+        context_data["show_plus_button"] = True
         return context_data
 
     def post(self, request, *args, **kwargs):
