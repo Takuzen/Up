@@ -191,7 +191,7 @@ class CardDetailPageView(DetailView):
         context["show_profile_icon"] = False
         context["show_left"] = True
         context["show_right"] = True
-        context["show_plus_button"] = True
+        context["show_plus_button"] = False
         return context
 
 
