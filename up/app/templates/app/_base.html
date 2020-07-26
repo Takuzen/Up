@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Favicon -->
-    <link rel="icon" href="{% static 'images/icons/favicon/up-arrow.png' %}">
+    <link rel="icon" href="{% static 'images/icons/favicon/up-logo.png' %}">
     <!-- Title -->
     <title>Up</title>
     <!-- Bootstrap CSS -->
@@ -38,24 +38,34 @@
 
         <nav class="my-2 my-md-0 mr-md-3">
             {% if user.is_authenticated %}
-            {% if show_profile_icon %}
-            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-mobile"
-                    class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
-            {% endif %}
-            <!-- css add justify-content: space-between; -->
+                {% if show_profile_icon %}
+                <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-mobile"
+                        class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
+                        alt="person-icon"></a>
+                {% endif %}
+
             <a class="mbile-ony" href="{% url 'profile' %}"></a>
+            {% if request.path !=　'/feedback/' %}
+            <a id="feedback-btn" href="{% url 'feedback' %}"><img id="feedback-img"
+                    src="{% static 'images/icons/feedback-mono.png' %}" alt="feedback-img"></a>
+            {% endif %}
+
             {% else %}
+
             <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'login' %}">ログイン</a>
             <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">入会</a>
+
             {% endif %}
         </nav>
     </header>
+
     <!-- content-->
     <div id="content">
         {% if show_left %}
         <nav id="left">
         </nav>
         {% endif %}
+
         <main id="center" style="width: 100%;">
             {% if messages %}
             {% for message in messages %}
@@ -85,14 +95,15 @@
         </aside>
         {% endif %}
     </div>
+
     <!-- plus-button-->
     {% if show_plus_button %}
     {% if user.is_authenticated %}
-    <button id="plus-button" data-toggle="modal" data-target="#post-modal"><img id="plus-button-img" class="mobile-only"
-            src="{% static 'images/icons/plus-button.png' %}" alt="plus-button-img"></button>
+    <button id="plus-btn" data-toggle="modal" data-target="#post-modal"><img id="plus-btn-img" class="mobile-only"
+            src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></button>
     {% else %}
-    <a id="plus-button" href="{% url 'login' %}"><img id="plus-button-img" class="mobile-only"
-            src="{% static 'images/icons/plus-button.png' %}" alt="plus-button-img"></a>
+    <a id="plus-btn" href="{% url 'login' %}"><img id="plus-btn-img" class="mobile-only"
+            src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></a>
     {% endif %}
     {% endif %}
 

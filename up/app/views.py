@@ -183,6 +183,7 @@ class CardDetailPageView(DetailView):
         """
         # 表示データの追加はここで 例：
         # kwargs['sample'] = 'sample'
+
         context = super().get_context_data(**kwargs)
         context["show_postbutton"] = False
         context["show_profile_icon"] = False
@@ -190,3 +191,8 @@ class CardDetailPageView(DetailView):
         context["show_right"] = True
         context["show_plus_button"] = True
         return context
+
+
+
+class FeedbackPageView(TemplateView):
+    template_name = "app/feedback.html"
