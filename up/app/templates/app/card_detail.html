@@ -9,21 +9,21 @@
     <p id="card-detail-username">{{ user.username }}</p>
 </div>
 
-<div class="card-detail-img">
+<div>
     {% if item.image %}
-    <div id="image">
-        <img src="{{ item.image.url }}" style="width:100%;height:600px; object-fit:cover;">
+    <div>
+        <img id="card-detail-img" src="{{ item.image.url }}">
     </div>
     {% else %}
-    <div id="image">
+    <div>
         <!-- @fixme ここに差し込む画像を決めたい -->
-        <img src="../../media/images/restaurant_posts/if-photo-is-nil.jpg" style="width:100%;height:600px">
+        <img src="../../media/images/restaurant_posts/if-photo-is-nil.jpg" style="width:100%;height:50vh">
     </div>
     {% endif %}
 </div>
 
 <div class="card-detail-footer">
-    <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}restaurant_memo</p>
+    <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
     <p id="location"><img id="location-pin" src="{% static '/images/icons/location-pin.png' %}" alt="location-pin"><span
             id="restaurant_name_on_card_footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span><button
             id="copy-button"><img id="copy-img" src="{% static '/images/icons/copy.png' %}" alt="copy-img"></button>
