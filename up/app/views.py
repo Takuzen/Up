@@ -75,6 +75,11 @@ class ItemFilterView(FilterView):
         # 例：kwargs['sample'] = 'sample'
         context_data = super().get_context_data(object_list=object_list, **kwargs)
         context_data.update({'form': PostForm})
+        context_data["show_profile_icon"] = True
+        context_data["show_left"] = True
+        context_data["show_right"] = True
+        context_data["show_postbutton"] = True
+        context_data["show_plus_button"] = True
         return context_data
 
     def post(self, request, *args, **kwargs):
@@ -180,7 +185,15 @@ class CardDetailPageView(DetailView):
         """
         # 表示データの追加はここで 例：
         # kwargs['sample'] = 'sample'
-        return super().get_context_data(**kwargs)
+
+        context = super().get_context_data(**kwargs)
+        context["show_postbutton"] = False
+        context["show_profile_icon"] = False
+        context["show_left"] = True
+        context["show_right"] = True
+        context["show_plus_button"] = False
+        return context
+
 
 
 class FeedbackPageView(TemplateView):

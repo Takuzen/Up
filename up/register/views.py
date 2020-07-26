@@ -36,7 +36,7 @@ def register(response):
 @login_required
 def profile(request):
     user_posts = Item.objects.filter(created_by_id = request.user.id).order_by('-created_at')
-    return render(request, 'register/profile.html', {'user_posts': user_posts})
+    return render(request, 'register/profile.html', {'user_posts': user_posts, 'show_profile_icon': False})
 
 
 class Login(LoginView):
@@ -63,4 +63,5 @@ def update_profile(request):
         form = UpdateProfile()
 
     args['form'] = form
+    args['show_profile_icon'] = False
     return render(request, 'register/update_profile.html', args)
