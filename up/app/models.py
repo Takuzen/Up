@@ -19,7 +19,7 @@ class Item(models.Model):
         max_length=20,
         blank=True,
         null=True,
-        help_text='タイトルはズバリ...！',
+        help_text='場所',
     )
 
     # レストランのメモ 大きめのテキストエリア
@@ -27,7 +27,7 @@ class Item(models.Model):
         verbose_name='',
         blank=True,
         null=True,
-        help_text='もっと詳しく聞かせて...（写真も忘れずにね）',
+        help_text='詳しく聞かせて...（写真も忘れずにね！）',
     )
 
     # 23区の選択
