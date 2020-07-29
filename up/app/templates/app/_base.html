@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Favicon -->
-    <link rel="icon" href="{% static 'images/icons/favicon/up-logo.png' %}">
+    <link rel="icon" sizes="180×180" href="{% static 'images/icons/favicon/up-logo.png' %}">
     <!-- Title -->
     <title>Up</title>
     <!-- Bootstrap CSS -->
@@ -25,6 +25,7 @@
     <link href="{% static "app/css/profile.css" %}" rel="stylesheet">
     <link href="{% static "app/css/login.css" %}" rel="stylesheet">
     <link href="{% static "app/css/signup.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/campaign.css" %}" rel="stylesheet">
     <!-- Fontawesome (fonts and Icons) -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
@@ -38,11 +39,11 @@
 
         <nav class="my-2 my-md-0 mr-md-3">
             {% if user.is_authenticated %}
-                {% if show_profile_icon %}
-                <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-mobile"
-                        class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
-                        alt="person-icon"></a>
-                {% endif %}
+            {% if show_profile_icon %}
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-mobile"
+                    class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
+                    alt="person-icon"></a>
+            {% endif %}
 
             <a class="mbile-ony" href="{% url 'profile' %}"></a>
             {% if request.path !=　'/feedback/' %}

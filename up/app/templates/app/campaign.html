@@ -1,0 +1,34 @@
+{% extends "./_base.html" %}
+{% load static %}
+
+{% block content%}
+
+<div id="campaign-content">
+
+    <div id="campaign-welcome-message">
+        <h5 id="ようこそ">ようこそ</h5>
+        <h5 id="美味野菜発掘隊へ">美味野菜発掘隊へ</h5>
+    </div>
+
+    <h5>今回のミッション</h5>
+    <p style="border-bottom: solid 10px yellow; padding-bottom: 5px !important;">日本中の美味しい野菜料理を発掘せよ</p>
+
+    <h5>条件</h5>
+    <ul>
+        <li>植物性食品（野菜、果物、穀物など）が主役のものであること。</li>
+        <li>場所をご記入の上、必ず写真をつけて投稿すること。</li>
+    </ul>
+
+    <h5>報酬</h5>
+    <p>5枚ご投稿頂いた方から順に、数量限定で、厳選した農家さんから直接ご自宅まで旬のお野菜を一つでお届けします。<br>内容は届いてからのお楽しみ！</p>
+    <div id="reward-img-box">
+        <img id="campaign-reward-img" src="{% static 'images/icons/anzai-corn-img.png' %}">
+        <p style="margin: 0; padding: 0; position: relative; left: 25px;">イメージ</p>
+    </div>
+
+    <h5>その他</h5>
+    <p>ご不明な点がございましたら、右上の吹き出しボタンを押して、お問い合わせフォームよりお知らせください。</p>
+
+</div>
+
+{% endblock %}

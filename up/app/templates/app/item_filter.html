@@ -83,6 +83,7 @@
         <button class="btn-vegetarian">ベジタリアン</button>
         <button class="btn-vegan">ヴィーガン</button>
         -->
+        <a id="campaign-banner" href="{% url 'campaign' %}">美味野菜発掘ミッション開催中！</a>
 
         <!-- modal修正完了したら　data-target="#myModal" に戻す -->
         <a class="btn-sort rounded-circle account-img" data-toggle="modal" data-target="#"><img
@@ -108,8 +109,9 @@
 
             <div id="card-footer">
                 <p id="first-p">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
-                <p id="second-p"><span style="vertical-align: middle;"><img src="{% static 'images/icons/person.svg' %}"
-                            style="border: black 1px solid; position: relative; top: -1px;"
+                <p id="second-p"><span style="vertical-align: middle; position: relative; top: -5px; left: 17px; "><img
+                            src="{% static 'images/icons/person.svg' %}"
+                            style="border: black 1px solid; position: relative; top: 4px; left: -19px;"
                             class="rounded-circle account-img" alt="person"></span>
                     <span style="vertical-align: middle;">{{ item.created_by }}</span></p>
             </div>

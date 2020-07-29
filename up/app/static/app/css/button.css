@@ -1,3 +1,22 @@
+  #campaign-banner {
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    background: #2CBD3E;
+    position: relative;
+    top: -5px;
+    box-shadow: 0 2px 5px lightgrey;
+    text-decoration: none;
+  }
+
+  #campaign-banner:hover {
+    text-decoration: none;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+
   .btn-square-soft {
     display: inline-block;
     position: absolute;
