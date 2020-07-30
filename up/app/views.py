@@ -195,9 +195,5 @@ class CardDetailPageView(DetailView):
         return context
 
 
-class FeedbackPageView(TemplateView):
-    template_name = "app/feedback.html"
-
-
 class CampaignPageView(TemplateView):
     template_name = "app/campaign.html"
