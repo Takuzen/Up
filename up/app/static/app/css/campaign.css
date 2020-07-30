@@ -6,7 +6,7 @@
 
 #campaign-welcome-message {
     border-radius: 10px;
-    padding: 20px 60px;
+    padding: 20px 20%;
     box-shadow: 0 2px 5px lightgrey;
 }
 
@@ -15,7 +15,7 @@
     font-weight: bold;
     margin-top: 8px;
     position: relative;
-    right: -15px;
+    right: -54px;
 }
 
 #Up自炊隊へ {
