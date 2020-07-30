@@ -37,7 +37,7 @@
     <p>ご不明な点がございましたら、右上の吹き出しボタンを押して、お問い合わせフォームよりお知らせください。</p>
 
     {% if user.is_authenticated %}
-    <a id=" start-campaign-btn" data-toggle="modal" data-target="#campaign-participation-msg-modal">早速ミッションに参加する</a>
+    <a id="start-campaign-btn" data-toggle="modal" data-target="#campaign-participation-msg-modal">早速ミッションに参加する</a>
     {% else %}
     <a id="start-campaign-btn" href="{% url 'register' %}">早速ミッションに参加する</a>
     {% endif %}
