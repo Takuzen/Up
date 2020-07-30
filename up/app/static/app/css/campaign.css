@@ -15,12 +15,14 @@
     font-weight: bold;
     margin-top: 8px;
     position: relative;
-    right: -40px;
+    right: -15px;
 }
 
-#美味野菜発掘隊へ {
+#Up自炊隊へ {
     color: #2cbd3e;
     font-weight: bold;
+    position: relative;
+    left: 6px;
 }
 
 #campaign-content > h5 {
