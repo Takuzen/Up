@@ -36,10 +36,10 @@
     margin-bottom: 0 !important;
 }
 
-#location-pin {
+#dish-img {
     width: 30px;
     object-fit: cover;
-    padding-bottom: 3px;
+    padding: 3px;
 }
 
 #copy-img {
