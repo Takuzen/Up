@@ -36,6 +36,12 @@
     margin-bottom: 0 !important;
 }
 
+#location-pin {
+    width: 30px;
+    object-fit: cover;
+    padding-bottom: 3px;
+}
+
 #copy-img {
     width: 15px;
     object-fit: cover;
