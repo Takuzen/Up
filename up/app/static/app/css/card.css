@@ -34,15 +34,6 @@
 
 #second-p {
     margin-bottom: 0 !important;
-    position: relative;
-    top: -5px;
-    left: 17px;
-}
-
-#location-pin {
-    width: 30px;
-    object-fit: cover;
-    padding-bottom: 3px;
 }
 
 #copy-img {
