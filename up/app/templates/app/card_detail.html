@@ -25,8 +25,9 @@
 <div class="card-detail-footer">
     <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
     <p id="location"><img id="location-pin" src="{% static '/images/icons/location-pin.png' %}" alt="location-pin"><span
-            id="restaurant_name_on_card_footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span><button
-            id="copy-button"><img id="copy-img" src="{% static '/images/icons/copy.png' %}" alt="copy-img"></button>
+            id="restaurant-name-on-card-footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span>
+        <!-- copy機能実装出来次第 display:none を消す --><button style="display: none;" id="copy-button"><img id="copy-img"
+                src="{% static '/images/icons/copy.png' %}" alt="copy-img"></button>
     </p>
 </div>
 

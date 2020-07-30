@@ -54,3 +54,7 @@
     padding: 10px;
     box-shadow: 1px 1px 1px 1px lightgray;
 }
+
+#restaurant-name-on-card-footer {
+    margin-left: 5px;
+}

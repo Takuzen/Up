@@ -1,0 +1,67 @@
+{% extends "./_base.html" %}
+{% load static %}
+
+<head>
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Up キャンペーン">
+    <meta property="og:image" content="{% static 'images/ogp/campaign-img.png' %}" />
+    <meta property="og:url" content="http://www.uplife.link/campaign/" />
+</head>
+
+{% block content%}
+
+<div id="campaign-content">
+
+    <div id="campaign-welcome-message">
+        <h5 id="ようこそ">ようこそ</h5>
+        <h5 id="美味野菜発掘隊へ">美味野菜発掘隊へ</h5>
+    </div>
+
+    <h5>今回のミッション</h5>
+    <p style="border-bottom: solid 10px yellow; padding-bottom: 5px !important;">日本中の美味しい野菜料理を発掘せよ</p>
+
+    <h5>条件</h5>
+    <ul>
+        <li>植物性食品（野菜、果物、穀物など）が主役の料理であること。</li>
+        <li>場所をご記入の上、必ず写真をつけて投稿すること。</li>
+    </ul>
+
+    <h5>報酬</h5>
+    <p>5枚ご投稿頂いた方から順に、数量限定で、厳選した農家さんから直接ご自宅まで旬のお野菜を一つでお届けします。<br>内容は届いてからのお楽しみ！</p>
+    <div id="reward-img-box">
+        <img id="campaign-reward-img" src="{% static 'images/icons/anzai-corn-img.png' %}">
+        <p style="margin: 0;">イメージ</p>
+    </div>
+
+    <h5>その他</h5>
+    <p>ご不明な点がございましたら、右上の吹き出しボタンを押して、お問い合わせフォームよりお知らせください。</p>
+
+    {% if user.is_authenticated %}
+    <a id=" start-campaign-btn" data-toggle="modal" data-target="#campaign-participation-msg-modal">早速ミッションに参加する</a>
+    {% else %}
+    <a id="start-campaign-btn" href="{% url 'register' %}">早速ミッションに参加する</a>
+    {% endif %}
+
+    <div class="modal" id="campaign-participation-msg-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 100%; overflow-y: auto;">
+                <div class="modal-body" style="display: flex;
+                padding-bottom: 0;
+                justify-content: center;">
+                    <p style="font-weight: bold;
+                    color: #f38577;
+                    margin-top: 5px;">ミッションに参加しました！</p>
+                </div>
+                <div style="display: flex;
+                justify-content: center;
+                margin-bottom: 15px;">
+                    <a href="{% url 'index' %}" style="color: gray;
+                    padding: 5px; text-decoration: none">ホームへ戻る</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
