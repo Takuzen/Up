@@ -8,12 +8,31 @@
     top: -5px;
     box-shadow: 0 2px 5px lightgrey;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   #campaign-banner:hover {
     text-decoration: none;
     opacity: 0.6;
     transition-duration: 0.3s;
+    cursor: pointer;
+  }
+
+  #start-campaign-btn {
+    background-color: #f38577;
+    color: white;
+    margin: 5vh auto;
+    box-shadow: 0 2px 5px lightgrey;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1.3rem;
+    font-family: monospace;
+  }
+
+  #start-campaign-btn:hover {
+    text-decoration: none;
+    opacity: 0.6;
+    transition-duration: 0.4s;
     cursor: pointer;
   }
 
