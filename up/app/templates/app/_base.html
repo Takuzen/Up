@@ -7,7 +7,7 @@
 
     <!-- OGP Declaration -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{% static 'images/ogp/campaign-img.png' %}" />
+    <meta property="og:image" content="{% static 'images/ogp/up-challenge-img.png' %}" />
     <meta property="og:title" content="Up" />
     <meta property="og:description" content="" />
     <meta property="og:url" content="http://www.uplife.link/" />
@@ -55,8 +55,9 @@
 
             <a class="mbile-ony" href="{% url 'profile' %}"></a>
             {% if request.path !=　'/feedback/' %}
-            <a target="_blank" id="feedback-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeD4UYQStWSLZz7rmZTESJC0Cht3NyzshWvc_pgqjZVdQ1MwA/viewform?usp=sf_link"><img id="feedback-img"
-                    src="{% static 'images/icons/feedback-mono.png' %}" alt="feedback-img"></a>
+            <a target="_blank" id="feedback-btn"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeD4UYQStWSLZz7rmZTESJC0Cht3NyzshWvc_pgqjZVdQ1MwA/viewform?usp=sf_link"><img
+                    id="feedback-img" src="{% static 'images/icons/feedback-mono.png' %}" alt="feedback-img"></a>
             {% endif %}
 
             {% else %}

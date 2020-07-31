@@ -33,12 +33,12 @@
     <h5>報酬</h5>
     <p>5枚ご投稿頂いた方から順に<br>数量限定で、厳選した農家さんから直接ご自宅まで旬のお野菜を一つお届けします。<br>内容は届いてからのお楽しみ！</p>
     <div id="reward-img-box">
-        <img id="campaign-reward-img" src="{% static 'images/icons/anzai-corn-img.png' %}">
+        <img id="campaign-reward-img" src="{% static 'images/anzai-corn-img.png' %}">
         <p style="margin: 0;">イメージ</p>
     </div>
 
     <h5>その他</h5>
-    <p>ご不明な点がございましたら、右上の吹き出しボタンを押して、お問い合わせフォームよりお知らせください。</p>
+    <p>ご不明な点がございましたら、右上の吹き出しボタンを押して、お問い合わせフォームよりお知らせください。(ユーザ登録が必要です。)</p>
 
     {% if user.is_authenticated %}
     <a id="start-campaign-btn" data-toggle="modal" data-target="#campaign-participation-msg-modal">早速ミッションに参加する</a>
