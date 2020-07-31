@@ -45,6 +45,7 @@
 
 #restaurant-memo {
     margin: 1vh 3vw;
+    white-space: pre-wrap;
 }
 
 #location {
