@@ -1,6 +1,6 @@
 from ..register import views as register_view
-from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, FeedbackPageView
-from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, FeedbackPageView, CardDetailPageView, CampaignPageView
+from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView
+from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -22,7 +22,6 @@ urlpatterns = [
     path('profile/', register_view.profile, name='profile'),
     path('update_profile/', register_view.update_profile, name='update_profile'),
     path('card_detail/<int:pk>/', CardDetailPageView.as_view(), name='card_detail'),
-    path('feedback/', FeedbackPageView.as_view(), name='feedback'),
     path('campaign/', CampaignPageView.as_view(), name='campaign'),
 ]
 
