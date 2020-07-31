@@ -149,6 +149,25 @@
 } 
 
 .edit-profile-btn {
+  position: relative;
+  background: transparent;
+  color: lightgray;
+  margin: 10px 41vw;
+  padding: 9px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: default;
+}
+
+.edit-profile-btn:hover {
+  text-decoration: none;
+  color: lightgray;
+  cursor: default;
+}
+
+/* comment out until modification completed 
+.edit-profile-btn {
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 9px;
@@ -158,6 +177,7 @@
   margin: 10px 41vw;
 }
 
+
 .edit-profile-btn:hover {
   text-decoration: none;
   color: black;
@@ -166,6 +186,7 @@
   transition-duration: 0.3s;
   cursor: pointer;
 }
+*/
 
 #mypage-btn-mobile {
   margin-right: 5px;

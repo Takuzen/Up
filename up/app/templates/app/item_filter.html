@@ -16,10 +16,10 @@
             <div class="modal-body">
                 <form method="post" id="myform" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="form-group col-md-12 mb-0" style="overflow: scroll;">
+                    <div class="form-group col-md-12 mb-0" style="overflow: hidden;">
                         {{ form.restaurant_memo|as_crispy_field }}
                     </div>
-                    <div class="form-group col-md-12 mb-0" style="overflow: scroll;">
+                    <div class="form-group col-md-12 mb-0" style="overflow: hidden;">
                         {{ form.restaurant_name|as_crispy_field }}
                     </div>
                     <label>
