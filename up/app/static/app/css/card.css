@@ -1,4 +1,14 @@
+#card-infinite-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 8px;
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
 #card {
+    width: 48%;
     border: solid 1px #979797;
     border-radius: 3px;
     margin-top: 30px;
@@ -35,6 +45,22 @@
 #second-p {
     margin-bottom: 0 !important;
 }
+
+#card-footer-person-img {
+    border: black 1px solid;
+    width: 15px;
+    position: relative;
+    left: 13px;
+    top: -3px;
+}
+
+#card-footer-account-name {
+    vertical-align: middle;
+    position: relative;
+    top: -3px;
+    left: 13px;
+}
+
 
 #dish-img {
     width: 30px;

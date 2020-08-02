@@ -75,7 +75,7 @@
     </div>
 </div>
 
-<div class="container">　
+<div>　
     <!-- filter buttons-->
     <div class="filters">
         <!-- 
@@ -90,9 +90,9 @@
             style="display: none;"><img src="{% static '/images/icons/filter-no-circle.png' %}"></a>
     </div>
     <!-- feed -->
-    <div class="row infinite-container">
+    <div id="card-infinite-container" class="infinite-container">
         {% for item in item_list %}
-        <div class="col-smb-4 infinite-item" id="card" style="margin-left: auto; margin-right: auto; width: 100%;">
+        <div class="infinite-item" id="card">
 
             <div id="card-body">
                 {% if item.image %}
@@ -109,9 +109,8 @@
 
             <div id="card-footer">
                 <p id="first-p">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
-                <p id="second-p"><span style="vertical-align: middle;position: relative; top: -6px; left: 17px;"><img
-                            src="{% static 'images/icons/person.svg' %}" style="border: black 1px solid;"
-                            class="rounded-circle account-img" alt="person"></span>
+                <p id="second-p"><span><img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
+                            class="rounded-circle account-img" alt="person-img"></span>
                     <span
                         style="vertical-align: middle; position: relative; top: -5px; left: 17px;">{{ item.created_by }}</span>
                 </p>
