@@ -1,3 +1,7 @@
+.modal-header .close {
+    margin: -1rem -1rem -1rem 0;
+}
+
 .filelabel {
     background-color: none;  /* 背景色 */   
     margin-left: 1vw;  
