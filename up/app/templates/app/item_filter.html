@@ -108,11 +108,13 @@
             </div>
 
             <div id="card-footer">
-                <p id="first-p">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
+                <a href="{% url 'card_detail' item.pk %}" style="text-decoration: none;">
+                    <p id="first-p">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
+                </a>
                 <p id="second-p"><span><img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
                             class="rounded-circle account-img" alt="person-img"></span>
                     <span
-                        style="vertical-align: middle; position: relative; top: -5px; left: 17px;">{{ item.created_by }}</span>
+                        style="vertical-align: middle; position: relative; top: -3px; left: 15px;">{{ item.created_by }}</span>
                 </p>
             </div>
 

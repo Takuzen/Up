@@ -26,7 +26,7 @@
     margin: 0 5px 0 5px;
 }
 
-.modal-footer {
+.modal-footer { /* モーダルのCSS */
     position: relative;
     top: 12px;
     width: 100%;
@@ -40,6 +40,7 @@
     height: 2em;
     overflow: hidden;
     margin: 3%;
+    color: black;
 }
 
 #second-p {
@@ -53,14 +54,6 @@
     left: 13px;
     top: -3px;
 }
-
-#card-footer-account-name {
-    vertical-align: middle;
-    position: relative;
-    top: -3px;
-    left: 13px;
-}
-
 
 #dish-img {
     width: 30px;
