@@ -1,8 +1,28 @@
-#card-infinite-container {
-    column-count: 2;
-    column-gap: 0.3em;
-    width: 98%;
-    margin: auto;
+@media only screen and (max-width:479px) {
+    #card-infinite-container {
+        column-count: 2;
+        column-gap: 0.3em;
+        width: 98%;
+        margin: auto;
+    }
+}
+
+@media print, screen and (min-width: 480px) and (max-width:768px) {
+    #card-infinite-container {
+        column-count: 4;
+        column-gap: 1em;
+        width: 90%;
+        margin: auto;
+    }
+}
+
+@media print, screen and (min-width:769px) {
+    #card-infinite-container {
+        column-count: 5;
+        column-gap: 1.5em;
+        width: 90%;
+        margin: auto;
+    }
 }
 
 #card {
