@@ -33,4 +33,19 @@
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+
+<hr id="hr-comment"> <!-- comments following -->
+{% for comment in post.comments.all %}
+<div class="comment">
+    <div class="date">{{ comment.created_date }}</div>
+    <strong>{{ comment.author }}</strong>
+    <p>{{ comment.text|linebreaks }}</p>
+</div>
+{% empty %}
+<p>まだコメントはありません。</p>
+{% endfor %}
+<a href="{% url 'index' %}" class="btn btn-outline-secondary">コメントする...</a>
+>>>>>>> d6194d3... added comment-counter on card and made comment field on 'card_detail'(not able to post comment yet), during the process I added Comment-class to models.py and CommentForm to forms.py
 {% endblock %}

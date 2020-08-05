@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from .filters import ItemFilterSet
-from .forms import ItemForm, PostForm
+from .forms import ItemForm, PostForm, CommentForm
 from .models import Item
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required

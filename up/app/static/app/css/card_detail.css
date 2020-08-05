@@ -212,9 +212,18 @@
         border-radius: 5px;
     }
 
+<<<<<<< HEAD
     #restaurant-name-on-card-footer {
         margin-left: 5px;
         position: relative;
         top: 2px;
     }
+=======
+#restaurant-name-on-card-footer {
+    margin-left: 5px;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+>>>>>>> d6194d3... added comment-counter on card and made comment field on 'card_detail'(not able to post comment yet), during the process I added Comment-class to models.py and CommentForm to forms.py
 }

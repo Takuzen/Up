@@ -13,12 +13,14 @@
         column-gap: 0.3em;
         width: 98%;
     }
+
     #card {
         width: 100%;
         border-radius: 5px;
         margin: 3px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
+
     #card-footer-person-img {
         border: black 1px solid;
         width: 10px;
@@ -34,12 +36,14 @@
         column-count: 2;
         width: 495px;
     }
+
     #card {
         width: 240px;
         border-radius: 5px;
         margin: 8px 0;
         box-shadow: 0 1px 3px lightgrey;
     }
+
     #card-footer-person-img {
         border: black 1px solid;
         width: 10px;
@@ -54,12 +58,14 @@
         column-count: 3;
         width: 750px;
     }
+
     #card {
         width: 240px;
         border-radius: 5px;
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
+
     #card-footer-person-img {
         border: black 1px solid;
         width: 10px;
@@ -72,14 +78,16 @@
 @media screen and (min-width: 1025px) and (max-width: 1286px) {
     #card-infinite-container {
         column-count: 4;
-        width: 1004px;   
+        width: 1004px;
     }
+
     #card {
         width: 240px;
         border-radius: 5px;
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
+
     #card-footer-person-img {
         border: black 1px solid;
         width: 10px;
@@ -94,12 +102,14 @@
         column-count: 5;
         width: 1264px;
     }
+
     #card {
         width: 240px;
         border-radius: 5px;
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
+
     #card-footer-person-img {
         border: black 1px solid;
         width: 10px;
@@ -121,7 +131,8 @@
     margin: 0 5px 0 5px;
 }
 
-.modal-footer { /* モーダルのCSS */
+.modal-footer {
+    /* モーダルのCSS */
     position: relative;
     top: 12px;
     width: 100%;
@@ -168,4 +179,25 @@
     opacity: 0.6;
     transition-duration: 0.3s;
     cursor: pointer;
+}
+
+#comment-img-link {
+    float: right;
+    position: relative;
+    right: 15px;
+    top: -28px;
+    text-decoration: none;
+}
+
+#comment-img {
+    width: 15px;
+}
+
+#comment-number {
+    position: relative;
+    top: 1px;
+    text-decoration: none;
+    margin-left: 5px;
+    color: black;
+    font-weight: 200;
 }
