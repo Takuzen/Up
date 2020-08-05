@@ -76,7 +76,7 @@ class ItemFilterView(FilterView):
         context_data = super().get_context_data(object_list=object_list, **kwargs)
         context_data.update({'form': PostForm})
         context_data["show_profile_icon"] = True
-        context_data["show_left"] = True
+        context_data["show_left"] = False
         context_data["show_right"] = True
         context_data["show_postbutton"] = True
         context_data["show_plus_button"] = True
