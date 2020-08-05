@@ -108,7 +108,7 @@
             </div>
 
             <div id="card-footer">
-                <a href="{% url 'card_detail' item.pk %}" style="text-decoration: none;">
+                <a href="{% url 'card_detail' item.pk %}" id="first-p-link">
                     <p id="first-p">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
                 </a>
                 <p id="second-p"><span><img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"

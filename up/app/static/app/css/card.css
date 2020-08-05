@@ -61,6 +61,11 @@
     color: black;
 }
 
+#first-p-link {
+    text-decoration: none;
+    color: black;
+}
+
 #second-p {
     margin-bottom: 0 !important;
 }
