@@ -111,7 +111,7 @@
     <!-- plus-button-->
     {% if show_plus_button %}
     {% if user.is_authenticated %}
-    <button id="plus-btn" data-toggle="modal" data-target="#post-modal"><img id="plus-btn-img" class="mobile-only"
+    <button id="plus-btn" data-toggle="modal" data-target="#post-modal"><img id="plus-btn-img"
             src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></button>
     {% else %}
     <a id="plus-btn" href="{% url 'login' %}"><img id="plus-btn-img" class="mobile-only"
