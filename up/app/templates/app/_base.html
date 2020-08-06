@@ -50,17 +50,14 @@
         <nav class="my-2 my-md-0 mr-md-3">
             {% if user.is_authenticated %}
             {% if show_profile_icon %}
-            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-mobile"
-                    class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
-                    alt="person-icon"></a>
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
+                    src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
             {% endif %}
 
-            <a class="mbile-ony" href="{% url 'profile' %}"></a>
-            {% if request.path !=　'/feedback/' %}
+            <i class="far fa-bell"></i>
             <a target="_blank" id="feedback-btn"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeWFaXBtDHuyPljR8jLjVLOowi1FdbpN64n7iEoARf2ThF8rg/viewform?usp=sf_link"><img
                     id="feedback-img" src="{% static 'images/icons/feedback-mono.png' %}" alt="feedback-img"></a>
-            {% endif %}
 
             {% else %}
 
