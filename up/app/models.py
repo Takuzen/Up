@@ -153,7 +153,9 @@ class Comment(models.Model):
     comment = models.ForeignKey(
         'app.Item', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=200)
-    text = models.TextField()
+    text = models.TextField(
+        blank=True,
+        null=True,)
     commented_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 

@@ -24,9 +24,14 @@ $(function () {
         e.preventDefault();
     })
 
+    $('#comment-form').on('submit', function (e) {
+        e.preventDefault();
+    })
+
     // 送信ボタンの２度押しを防止
     $('.save').on('click', function (e) {
         $('#myform').submit();
+        $('#comment-form').submit();
         $('#save').prop('disabled', true);
     })
 

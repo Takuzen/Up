@@ -1,5 +1,7 @@
 {% extends "./_base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 <div id="card-detail-container">
     <div class="card-detail-header">
@@ -33,8 +35,6 @@
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
     </div>
 </div>
-<<<<<<< HEAD
-=======
 
 <hr id="hr-comment"> <!-- comments following -->
 {% for comment in post.comments.all %}
@@ -46,6 +46,36 @@
 {% empty %}
 <p>まだコメントはありません。</p>
 {% endfor %}
+
 <a href="{% url 'index' %}" class="btn btn-outline-secondary">コメントする...</a>
->>>>>>> d6194d3... added comment-counter on card and made comment field on 'card_detail'(not able to post comment yet), during the process I added Comment-class to models.py and CommentForm to forms.py
+
+<!-- コメント投稿モーダル -->
+{{ form.certifications.errors }}
+<div class="modal" id="comment-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 100%; overflow-y: auto;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="comment-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- テキストフィールド -->
+                    <!-- 写真 -->
+                    <div class="modal-footer">
+                        <input type="submit" name="test1" value="コメントする" class="submit-comment-btn">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- コメント投稿トリガーボタン -->
+<button id=" plus-btn" data-toggle="modal" data-target="#comment-modal"><img id="plus-btn-img"
+        src="{% static 'images/icons/plus-button.png' %}" alt="comment-btn-img"></button>
+
 {% endblock %}
