@@ -200,7 +200,6 @@ class CardDetailPageView(DetailView):
         # kwargs['sample'] = 'sample'
 
         context = super().get_context_data(**kwargs)
-        print(context[('object')].id)
         context["show_postbutton"] = False
         context["show_profile_icon"] = False
         context["show_left"] = False
@@ -217,13 +216,13 @@ class CardDetailPageView(DetailView):
         if form.is_valid():
             comment_item = form.save(commit=False)
             comment_item.item_id = request.POST['item_id']
-            comment_item.comment_text = request.POST['comment_text']
+            comment_item.comment_text = regex_format_space(request.POST['comment_text'])
             comment_item.author = self.request.user
             comment_item.commented_date = timezone.now()
             comment_item.approved_comment = True
             comment_item.save()
             messages.success(request, f'コメント投稿ありがとうございます!')
-            return HttpResponseRedirect(self.success_url)
+            return HttpResponseRedirect(request.path)
 
         return render(request, "/", {'form': form})
 
