@@ -150,10 +150,10 @@ class Item(models.Model):
 
 
 class Comment(models.Model):
-    comment = models.ForeignKey(
-        'app.Item', on_delete=models.CASCADE, related_name='comments')
+    item = models.ForeignKey(
+        'Item', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=200)
-    text = models.TextField(
+    comment_text = models.TextField(
         blank=True,
         null=True,)
     commented_date = models.DateTimeField(default=timezone.now)
@@ -164,4 +164,4 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
-        return self.text
+        return self.comment_text

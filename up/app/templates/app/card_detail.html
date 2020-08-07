@@ -60,9 +60,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" id="comment-form" enctype="multipart/form-data">
-                    {% csrf_token %}
+                <form method="post" id="comment-form" enctype="multipart/form-data" action="{% url 'card_detail' item.id %}">
                     <!-- テキストフィールド -->
+                    {{ comment_form.comment_text|as_crispy_field }}
                     <!-- 写真 -->
                     <div class="modal-footer">
                         <input type="submit" name="test1" value="コメントする" class="submit-comment-btn">
