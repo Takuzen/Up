@@ -200,6 +200,7 @@ class CardDetailPageView(DetailView):
         # kwargs['sample'] = 'sample'
 
         context = super().get_context_data(**kwargs)
+        print(context[('object')].id)
         context["show_postbutton"] = False
         context["show_profile_icon"] = False
         context["show_left"] = False
@@ -207,7 +208,7 @@ class CardDetailPageView(DetailView):
         context["show_plus_button"] = False
         form = CommentForm(initial={"item": context["object"].id})
         context["comment_form"] = form
-        context["comments"] = Comment.objects.all()
+        context["comments"] = Comment.objects.filter(item_id=context['object'].id).order_by('commented_date').reverse()
         return context
 
 

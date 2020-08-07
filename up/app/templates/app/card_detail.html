@@ -37,11 +37,11 @@
 </div>
 
 <hr id="hr-comment"> <!-- comments following -->
-{% for comment in post.comments.all %}
+{% for comment in comments %}
 <div class="comment">
-    <div class="date">{{ comment.created_date }}</div>
+    <div class="date">{{ comment.commented_date }}</div>
     <strong>{{ comment.author }}</strong>
-    <p>{{ comment.text|linebreaks }}</p>
+    <p>{{ comment.comment_text|linebreaks }}</p>
 </div>
 {% empty %}
 <p>まだコメントはありません。</p>
@@ -64,7 +64,7 @@
                     {% csrf_token %}
                     <!-- テキストフィールド -->
                     {{ comment_form.comment_text|as_crispy_field }}
-                    <input type="text" name="item_id" size="18" maxlength="20"value="{{item.id}}">
+                    <input type="hidden" name="item_id" size="18" maxlength="20"value="{{item.id}}">
                     <!-- 写真 -->
                     <div class="modal-footer">
                         <input type="submit" name="test1" value="Comment!" class="submit-comment-btn">
