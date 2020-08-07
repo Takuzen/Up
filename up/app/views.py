@@ -186,6 +186,7 @@ class CardDetailPageView(DetailView):
     model = Item
     template_name = "app/card_detail.html"
     form_class = CommentForm
+    success_url = reverse_lazy('index')
 
     def get(self, request, **kwargs):
         return super().get(request, **kwargs)
@@ -204,28 +205,23 @@ class CardDetailPageView(DetailView):
         context["show_left"] = False
         context["show_right"] = False
         context["show_plus_button"] = False
-        context["comment_form"] = CommentForm
+        form = CommentForm(initial={"item": context["object"].id})
+        context["comment_form"] = form
         context["comments"] = Comment.objects.all()
-        print(context["comment_form"])
-        print(CommentForm)
         return context
 
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        print("posting comment")
         if form.is_valid():
-            # <process form cleaned data>
-            item = form.save(commit=False)
-            item.image = request.FILES['image']
-            item.restaurant_memo = request.POST['restaurant_memo']
-            item.restaurant_name = request.POST['restaurant_name']
-            item.created_by = self.request.user
-            item.created_at = timezone.now()
-            item.updated_by = self.request.user
-            item.updated_at = timezone.now()
-            item.save()
-            messages.success(request, f'投稿ありがとうございます!')
+            comment_item = form.save(commit=False)
+            comment_item.item_id = request.POST['item_id']
+            comment_item.comment_text = request.POST['comment_text']
+            comment_item.author = self.request.user
+            comment_item.commented_date = timezone.now()
+            comment_item.approved_comment = True
+            comment_item.save()
+            messages.success(request, f'コメント投稿ありがとうございます!')
             return HttpResponseRedirect(self.success_url)
 
         return render(request, "/", {'form': form})

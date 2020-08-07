@@ -60,12 +60,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" id="comment-form" enctype="multipart/form-data" action="{% url 'card_detail' item.id %}">
+                <form method="post" id="comment-forms" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
                     <!-- テキストフィールド -->
                     {{ comment_form.comment_text|as_crispy_field }}
+                    <input type="text" name="item_id" size="18" maxlength="20"value="{{item.id}}">
                     <!-- 写真 -->
                     <div class="modal-footer">
-                        <input type="submit" name="test1" value="コメントする" class="submit-comment-btn">
+                        <input type="submit" name="test1" value="Comment!" class="submit-comment-btn">
                     </div>
                 </form>
             </div>
