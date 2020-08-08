@@ -64,10 +64,10 @@
                     {% csrf_token %}
                     <!-- テキストフィールド -->
                     {{ comment_form.comment_text|as_crispy_field }}
-                    <input type="hidden" name="item_id" size="18" maxlength="20"value="{{item.id}}">
-                    <!-- 写真 -->
+                    <input type="hidden" name="item_id" size="18" maxlength="20" value="{{item.id}}">
+
                     <div class="modal-footer">
-                        <input type="submit" name="test1" value="Comment!" class="submit-comment-btn">
+                        <input type="submit" name="test1" value="送信する" class="submit-comment-btn">
                     </div>
                 </form>
             </div>
@@ -77,7 +77,11 @@
 </div>
 
 <!-- コメント投稿トリガーボタン -->
-<button id=" plus-btn" data-toggle="modal" data-target="#comment-modal"><img id="plus-btn-img"
-        src="{% static 'images/icons/plus-button.png' %}" alt="comment-btn-img"></button>
-
+<div id="comment-trigger-row">
+    <!-- 各自プロフィール画像を設定できるようになったら、挿入する
+    <img id="comment-profile-img" class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
+        alt="person-icon">
+        -->
+    <button id="comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする</button>
+</div>
 {% endblock %}

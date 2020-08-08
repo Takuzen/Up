@@ -7,7 +7,7 @@
         flex-direction: row;
         flex-wrap: nowrap;
     }
-    
+
     #back-btn {
         border: none;
         background: white;
@@ -15,29 +15,29 @@
         top: -6px;
         margin: 0 10px;
     }
-    
+
     #card-detail-back-arrow-img {
         width: 15px;
         object-fit: contain;
     }
-    
+
     #card-detail-profile-img {
         border: solid 2px;
         position: relative;
         top: -7px;
         margin: 0 5px;
     }
-    
+
     #card-detail-username {
         margin-left: 5px;
     }
-    
+
     #card-detail-img {
         width: 100%;
         height: 50vh;
         object-fit: cover;
     }
-    
+
     .card-detail-footer {
         display: flex;
         justify-content: flex-start;
@@ -49,22 +49,22 @@
         display: none;
     }
 
-    #back-btn-on-card-detail-footer{
+    #back-btn-on-card-detail-footer {
         display: none;
     }
-    
+
     #restaurant-memo {
         margin: 1vh 3vw;
         white-space: pre-wrap;
     }
-    
+
     #location {
         border: solid 1px lightgray;
         border-radius: 5px;
         margin: 1vh 2vw;
         padding: 10px;
     }
-    
+
     #restaurant-name-on-card-footer {
         margin-left: 5px;
         position: relative;
@@ -80,7 +80,7 @@
         border-radius: 5px;
         box-shadow: 1px 1px 1px 1px lightgray;
     }
-    
+
     .card-detail-header {
         display: flex;
         justify-content: flex-start;
@@ -89,7 +89,7 @@
         flex-wrap: nowrap;
         padding-top: 15px;
     }
-    
+
     #back-btn {
         border: none;
         background: white;
@@ -97,19 +97,19 @@
         top: -6px;
         margin: 0 10px;
     }
-    
+
     #card-detail-back-arrow-img {
         width: 15px;
         object-fit: contain;
     }
-    
+
     #card-detail-profile-img {
         border: solid 2px;
         position: relative;
         top: -7px;
         margin: 0 5px;
     }
-    
+
     #card-detail-username {
         margin-left: 5px;
     }
@@ -124,7 +124,7 @@
         display: none;
     }
 
-    #back-btn-on-card-detail-footer{
+    #back-btn-on-card-detail-footer {
         display: none;
     }
 
@@ -134,12 +134,12 @@
         flex-direction: column;
         flex-wrap: nowrap;
     }
-    
+
     #restaurant-memo {
         margin: 1vh 3vw;
         white-space: pre-wrap;
     }
-    
+
     #location {
         border: solid 1px lightgray;
         border-radius: 5px;
@@ -147,7 +147,7 @@
         width: 460px;
         padding: 10px;
     }
-    
+
     #restaurant-name-on-card-footer {
         margin-left: 5px;
         position: relative;
@@ -169,12 +169,12 @@
     .card-detail-header {
         display: none;
     }
-    
+
     #card-detail-back-arrow-img {
         width: 15px;
         object-fit: contain;
     }
-    
+
     #card-detail-img {
         width: 600px;
         height: 600px;
@@ -212,18 +212,63 @@
         border-radius: 5px;
     }
 
-<<<<<<< HEAD
     #restaurant-name-on-card-footer {
         margin-left: 5px;
         position: relative;
         top: 2px;
     }
-=======
-#restaurant-name-on-card-footer {
-    margin-left: 5px;
 }
 
 .comment {
     margin: 20px 0px 20px 20px;
->>>>>>> d6194d3... added comment-counter on card and made comment field on 'card_detail'(not able to post comment yet), during the process I added Comment-class to models.py and CommentForm to forms.py
+}
+
+#comment-trigger-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+#comment-profile-img {
+    border: solid 2px;
+    position: relative;
+    top: -7px;
+    margin: 0 5px;
+}
+
+#comment-btn {
+    outline: none;
+    border: solid 1px black;
+    background-color: seashell;
+    color: black;
+    margin-left: auto;
+    border-radius: 50px;
+    padding: 5px 10px 5px 10px;
+    font-size: 0.8rem;
+    position: relative;
+    right: 20px;
+}
+
+#comment-btn:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+.submit-comment-btn {
+    position: relative;
+    left: 10px;
+    top: 2px;
+    background-color: seashell;
+    border-radius: 50px;
+    border: solid 1px black;
+    padding: 5px 22px 5px 25px;
+
+}
+
+.submit-comment-btn:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
 }
