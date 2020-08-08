@@ -260,10 +260,11 @@
     position: relative;
     left: 10px;
     top: 2px;
+    font-size: 0.8rem;
     background-color: seashell;
     border-radius: 50px;
     border: solid 1px black;
-    padding: 5px 22px 5px 25px;
+    padding: 5px 15px 5px 15px;
 
 }
 
