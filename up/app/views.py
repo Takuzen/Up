@@ -11,11 +11,16 @@ from .forms import ItemForm, PostForm
 from .models import Item
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+import re
 
 # 未ログインのユーザーにアクセスを許可する場合は、LoginRequiredMixinを継承から外してください。
 #
 # LoginRequiredMixin：未ログインのユーザーをログイン画面に誘導するMixin
 # 参考：https://docs.djangoproject.com/ja/2.1/topics/auth/default/#the-loginrequired-mixin
+
+
+def regex_format_space(incl_space_string):
+    return re.sub(r"\u3000", " ", incl_space_string)
 
 
 class ItemFilterView(FilterView):
@@ -88,8 +93,8 @@ class ItemFilterView(FilterView):
             # <process form cleaned data>
             item = form.save(commit=False)
             item.image = request.FILES['image']
-            item.restaurant_memo = request.POST['restaurant_memo']
-            item.restaurant_name = request.POST['restaurant_name']
+            item.restaurant_memo = regex_format_space(request.POST['restaurant_memo'])
+            item.restaurant_name = regex_format_space(request.POST['restaurant_name'])
             item.created_by = self.request.user
             item.created_at = timezone.now()
             item.updated_by = self.request.user
