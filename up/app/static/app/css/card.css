@@ -1,13 +1,19 @@
+#card {
+    display: inline-block;
+}
+
+#card-infinite-container {
+    margin: auto;
+}
+
 /* モバイル */
 @media only screen and (max-width:479px) {
     #card-infinite-container {
         column-count: 2;
         column-gap: 0.3em;
         width: 98%;
-        margin: auto;
     }
     #card {
-        display: inline-block;
         width: 100%;
         border-radius: 5px;
         margin: 3px 0px;
@@ -19,12 +25,9 @@
 @media screen and (min-width: 480px) and (max-width: 799px) {
     #card-infinite-container {
         column-count: 2;
-        column-gap: 1em;
         width: 495px;
-        margin: auto;
     }
     #card {
-        display: inline-block;
         width: 240px;
         border-radius: 5px;
         margin: 8px 0;
@@ -36,10 +39,8 @@
     #card-infinite-container {
         column-count: 3;
         width: 750px;
-        margin: auto;
     }
     #card {
-        display: inline-block;
         width: 240px;
         border-radius: 5px;
         margin: 8px 0px;
@@ -50,11 +51,9 @@
 @media screen and (min-width: 1025px) and (max-width: 1286px) {
     #card-infinite-container {
         column-count: 4;
-        width: 1004px;
-        margin: auto;
+        width: 1004px;   
     }
     #card {
-        display: inline-block;
         width: 240px;
         border-radius: 5px;
         margin: 8px 0px;
@@ -66,10 +65,8 @@
     #card-infinite-container {
         column-count: 5;
         width: 1264px;
-        margin: auto;
     }
     #card {
-        display: inline-block;
         width: 240px;
         border-radius: 5px;
         margin: 8px 0px;
