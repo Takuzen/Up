@@ -1,3 +1,4 @@
+/* モバイル */
 @media only screen and (max-width:479px) {
     #card-infinite-container {
         column-count: 2;
@@ -5,37 +6,81 @@
         width: 98%;
         margin: auto;
     }
+    #card {
+        display: inline-block;
+        width: 100%;
+        border-radius: 5px;
+        margin: 3px 0px;
+        box-shadow: 0 1px 3px lightgrey
+    }
 }
 
-@media print, screen and (min-width: 480px) and (max-width:768px) {
+/* デスクトップ */
+@media screen and (min-width: 480px) and (max-width: 799px) {
+    #card-infinite-container {
+        column-count: 2;
+        column-gap: 1em;
+        width: 495px;
+        margin: auto;
+    }
+    #card {
+        display: inline-block;
+        width: 240px;
+        border-radius: 5px;
+        margin: 8px 0;
+        box-shadow: 0 1px 3px lightgrey;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+    #card-infinite-container {
+        column-count: 3;
+        width: 750px;
+        margin: auto;
+    }
+    #card {
+        display: inline-block;
+        width: 240px;
+        border-radius: 5px;
+        margin: 8px 0px;
+        box-shadow: 0 1px 3px lightgrey
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1286px) {
     #card-infinite-container {
         column-count: 4;
-        column-gap: 1em;
-        width: 90%;
+        width: 1004px;
         margin: auto;
+    }
+    #card {
+        display: inline-block;
+        width: 240px;
+        border-radius: 5px;
+        margin: 8px 0px;
+        box-shadow: 0 1px 3px lightgrey
     }
 }
 
-@media print, screen and (min-width:769px) {
+@media screen and (min-width:1287px) {
     #card-infinite-container {
         column-count: 5;
-        column-gap: 1.5em;
-        width: 90%;
+        width: 1264px;
         margin: auto;
     }
-}
-
-#card {
-    display: inline-block;
-    width: 100%;
-    border-radius: 3px;
-    margin: 5px 0px;
-    box-shadow: 0 1px 3px lightgrey
+    #card {
+        display: inline-block;
+        width: 240px;
+        border-radius: 5px;
+        margin: 8px 0px;
+        box-shadow: 0 1px 3px lightgrey
+    }
 }
 
 #card-img {
     width: 100%;
     min-height: 180px;
+    max-height: 450px;
     object-fit: cover;
     border-radius: 2px;
 }
