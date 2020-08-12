@@ -40,6 +40,13 @@
         margin: 8px 0;
         box-shadow: 0 1px 3px lightgrey;
     }
+    #card-footer-person-img {
+        border: black 1px solid;
+        width: 10px;
+        position: relative;
+        left: 14px;
+        top: -4px;
+    }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1024px) {
@@ -53,6 +60,13 @@
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
+    #card-footer-person-img {
+        border: black 1px solid;
+        width: 10px;
+        position: relative;
+        left: 14px;
+        top: -4px;
+    }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1286px) {
@@ -65,6 +79,13 @@
         border-radius: 5px;
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
+    }
+    #card-footer-person-img {
+        border: black 1px solid;
+        width: 10px;
+        position: relative;
+        left: 14px;
+        top: -4px;
     }
 }
 
