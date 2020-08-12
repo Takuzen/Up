@@ -36,9 +36,10 @@
     </div>
 </div>
 
-<hr id="hr-comment"> <!-- comments following -->
+<h2 style="text-align:center;">Comments</h1>
+<hr id="hr-comment" align="center"> <!-- comments following -->
 {% for comment in comments %}
-<div class="comment">
+<div class="comment" style="text-align:center;">
     <div class="date">{{ comment.commented_date }}</div>
     <strong>{{ comment.author }}</strong>
     <p>{{ comment.comment_text|linebreaks }}</p>
