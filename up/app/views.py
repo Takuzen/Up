@@ -93,8 +93,10 @@ class ItemFilterView(FilterView):
             # <process form cleaned data>
             item = form.save(commit=False)
             item.image = request.FILES['image']
-            item.restaurant_memo = regex_format_space(request.POST['restaurant_memo'])
-            item.restaurant_name = regex_format_space(request.POST['restaurant_name'])
+            item.restaurant_memo = regex_format_space(
+                request.POST['restaurant_memo'])
+            item.restaurant_name = regex_format_space(
+                request.POST['restaurant_name'])
             item.created_by = self.request.user
             item.created_at = timezone.now()
             item.updated_by = self.request.user
@@ -194,8 +196,8 @@ class CardDetailPageView(DetailView):
         context = super().get_context_data(**kwargs)
         context["show_postbutton"] = False
         context["show_profile_icon"] = False
-        context["show_left"] = True
-        context["show_right"] = True
+        context["show_left"] = False
+        context["show_right"] = False
         context["show_plus_button"] = False
         return context
 

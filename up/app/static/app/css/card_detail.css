@@ -1,61 +1,219 @@
-.card-detail-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
+/* モバイル */
+@media only screen and (max-width: 479px) {
+    .card-detail-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    
+    #back-btn {
+        border: none;
+        background: white;
+        position: relative;
+        top: -6px;
+        margin: 0 10px;
+    }
+    
+    #card-detail-back-arrow-img {
+        width: 15px;
+        object-fit: contain;
+    }
+    
+    #card-detail-profile-img {
+        border: solid 2px;
+        position: relative;
+        top: -7px;
+        margin: 0 5px;
+    }
+    
+    #card-detail-username {
+        margin-left: 5px;
+    }
+    
+    #card-detail-img {
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+    }
+    
+    .card-detail-footer {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    #user-info-on-card-detail {
+        display: none;
+    }
+
+    #back-btn-on-card-detail-footer{
+        display: none;
+    }
+    
+    #restaurant-memo {
+        margin: 1vh 3vw;
+        white-space: pre-wrap;
+    }
+    
+    #location {
+        border: solid 1px lightgray;
+        border-radius: 5px;
+        margin: 1vh 2vw;
+        padding: 10px;
+    }
+    
+    #restaurant-name-on-card-footer {
+        margin-left: 5px;
+        position: relative;
+        top: 2px;
+    }
 }
 
-#back-btn {
-    border: none;
-    background: white;
-    position: relative;
-    top: -6px;
-    margin: 0 10px;
+/* デスクトップ(~1036px) */
+@media only screen and (min-width: 480px) and (max-width: 1036px) {
+    #card-detail-container {
+        width: 480px;
+        margin: auto;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px 1px lightgray;
+    }
+    
+    .card-detail-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding-top: 15px;
+    }
+    
+    #back-btn {
+        border: none;
+        background: white;
+        position: relative;
+        top: -6px;
+        margin: 0 10px;
+    }
+    
+    #card-detail-back-arrow-img {
+        width: 15px;
+        object-fit: contain;
+    }
+    
+    #card-detail-profile-img {
+        border: solid 2px;
+        position: relative;
+        top: -7px;
+        margin: 0 5px;
+    }
+    
+    #card-detail-username {
+        margin-left: 5px;
+    }
+
+    #card-detail-img {
+        width: 480px;
+        height: 600px;
+        object-fit: cover;
+    }
+
+    #user-info-on-card-detail {
+        display: none;
+    }
+
+    #back-btn-on-card-detail-footer{
+        display: none;
+    }
+
+    .card-detail-footer {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    
+    #restaurant-memo {
+        margin: 1vh 3vw;
+        white-space: pre-wrap;
+    }
+    
+    #location {
+        border: solid 1px lightgray;
+        border-radius: 5px;
+        margin: 15px auto;
+        width: 460px;
+        padding: 10px;
+    }
+    
+    #restaurant-name-on-card-footer {
+        margin-left: 5px;
+        position: relative;
+        top: 2px;
+    }
 }
 
-#card-detail-back-arrow-img {
-    width: 15px;
-    object-fit: contain;
-}
+/* デスクトップ(1037px~) */
+@media only screen and (min-width: 1037px) {
+    #card-detail-container {
+        display: flex;
+        flex-direction: row;
+        width: 1017px;
+        margin: 50px auto;
+        box-shadow: 1px 1px 1px 1px lightgray;
+        border-radius: 5px;
+    }
 
-#card-detail-profile-img {
-    border: solid 2px;
-    position: relative;
-    top: -7px;
-    margin: 0 5px;
-}
+    .card-detail-header {
+        display: none;
+    }
+    
+    #card-detail-back-arrow-img {
+        width: 15px;
+        object-fit: contain;
+    }
+    
+    #card-detail-img {
+        width: 600px;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
 
-#card-detail-username {
-    margin-left: 5px;
-}
+    #back-btn-on-card-detail-footer {
+        position: absolute;
+        top: 100px;
+        left: 40px;
+    }
 
-#card-detail-img {
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
-}
+    #user-info-on-card-detail {
+        display: flex;
+        margin: 30px 50px 0 50px
+    }
 
-.card-detail-footer {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
+    #card-detail-username {
+        position: relative;
+        top: 8px;
+        left: 8px;
+    }
 
-#restaurant-memo {
-    margin: 1vh 3vw;
-    white-space: pre-wrap;
-}
+    #restaurant-memo {
+        margin: 10px 50px 0 50px;
+    }
 
-#location {
-    border: solid 1px lightgray;
-    border-radius: 5px;
-    margin: 1vh 2vw;
-    padding: 10px;
-    box-shadow: 1px 1px 1px 1px lightgray;
-}
+    #location {
+        width: 320px;
+        margin: 15px 50px 15px 50px;
+        padding: 8px;
+        border: solid 1px lightgray;
+        border-radius: 5px;
+    }
 
-#restaurant-name-on-card-footer {
-    margin-left: 5px;
+    #restaurant-name-on-card-footer {
+        margin-left: 5px;
+        position: relative;
+        top: 2px;
+    }
 }
