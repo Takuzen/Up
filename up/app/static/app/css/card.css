@@ -19,6 +19,13 @@
         margin: 3px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
+    #card-footer-person-img {
+        border: black 1px solid;
+        width: 10px;
+        position: relative;
+        left: 14px;
+        top: -6px;
+    }
 }
 
 /* デスクトップ */
@@ -72,6 +79,13 @@
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
+    #card-footer-person-img {
+        border: black 1px solid;
+        width: 10px;
+        position: relative;
+        left: 14px;
+        top: -4px;
+    }
 }
 
 #card-img {
@@ -94,12 +108,12 @@
 }
 
 #first-p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
-    line-height: 1em;
-    height: 2em;
+    line-height: 1.2em;
+    height: 2.4em;
     overflow: hidden;
-    margin: 3%;
+    margin: 5%;
     color: black;
 }
 
@@ -110,14 +124,6 @@
 
 #second-p {
     margin-bottom: 0 !important;
-}
-
-#card-footer-person-img {
-    border: black 1px solid;
-    width: 15px;
-    position: relative;
-    left: 13px;
-    top: -3px;
 }
 
 #dish-img {
