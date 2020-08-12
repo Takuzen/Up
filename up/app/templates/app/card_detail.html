@@ -1,34 +1,42 @@
 {% extends "./_base.html" %}
 {% load static %}
 {% block content %}
-<div class="card-detail-header">
-    <a id="back-btn" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
-            src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
-    <img id="card-detail-profile-img" src="{% static '/images/icons/person.svg' %}" class="rounded-circle account-img"
-        alt="person-icon">
-    <p id="card-detail-username">{{ item.created_by }}</p>
-</div>
-
-<div>
-    {% if item.image %}
-    <div>
-        <img id="card-detail-img" src="{{ item.image.url }}">
+<div id="card-detail-container">
+    <div class="card-detail-header">
+        <a id="back-btn" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
+                src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
+        <img id="card-detail-profile-img" src="{% static '/images/icons/person.svg' %}"
+            class="rounded-circle account-img" alt="person-icon">
+        <p id="card-detail-username">{{ item.created_by }}</p>
     </div>
-    {% else %}
-    <div>
-        <!-- @fixme ここに差し込む画像を決めたい -->
-        <img src="../../media/images/restaurant_posts/if-photo-is-nil.jpg" style="width:100%;height:50vh">
+
+    <div id="card-detail-img-container">
+        {% if item.image %}
+        <div>
+            <img id="card-detail-img" src="{{ item.image.url }}">
+        </div>
+        {% else %}
+        <div>
+            <!-- @fixme ここに差し込む画像を決めたい -->
+            <img src="../../media/images/restaurant_posts/if-photo-is-nil.jpg" style="width:100%;height:50vh">
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
 
-<div class="card-detail-footer">
-    <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
-    <p id="location"><img id="dish-img" src="{% static '/images/icons/dish-img.png' %}" alt="dish-img"><span
-            id="restaurant-name-on-card-footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span>
-        <!-- copy機能実装出来次第 display:none を消す --><button style="display: none;" id="copy-button"><img id="copy-img"
-                src="{% static '/images/icons/copy.png' %}" alt="copy-img"></button>
-    </p>
+    <div class="card-detail-footer">
+        <a id="back-btn-on-card-detail-footer" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
+                src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
+        <div id="user-info-on-card-detail">
+            <img id="card-detail-profile-img" src="{% static '/images/icons/person.svg' %}"
+                class="rounded-circle account-img" alt="person-icon">
+            <p id="card-detail-username">{{ item.created_by }}</p>
+        </div>
+        <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
+        <p id="location"><img id="dish-img" src="{% static '/images/icons/dish-img.png' %}" alt="dish-img"><span
+                id="restaurant-name-on-card-footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span>
+            <!-- copy機能実装出来次第 display:none を消す --><button style="display: none;" id="copy-button"><img id="copy-img"
+                    src="{% static '/images/icons/copy.png' %}" alt="copy-img"></button>
+        </p>
+    </div>
 </div>
-
 {% endblock %}
