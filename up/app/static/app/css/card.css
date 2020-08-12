@@ -1,41 +1,97 @@
+#card {
+    display: inline-block;
+}
+
+#card-infinite-container {
+    margin: auto;
+}
+
+/* モバイル */
 @media only screen and (max-width:479px) {
     #card-infinite-container {
         column-count: 2;
         column-gap: 0.3em;
         width: 98%;
-        margin: auto;
+    }
+    #card {
+        width: 100%;
+        border-radius: 5px;
+        margin: 3px 0px;
+        box-shadow: 0 1px 3px lightgrey
+    }
+    #card-footer-person-img {
+        border: black 1px solid;
+        width: 10px;
+        position: relative;
+        left: 14px;
+        top: -6px;
     }
 }
 
-@media print, screen and (min-width: 480px) and (max-width:768px) {
+/* デスクトップ */
+@media screen and (min-width: 480px) and (max-width: 799px) {
+    #card-infinite-container {
+        column-count: 2;
+        width: 495px;
+    }
+    #card {
+        width: 240px;
+        border-radius: 5px;
+        margin: 8px 0;
+        box-shadow: 0 1px 3px lightgrey;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+    #card-infinite-container {
+        column-count: 3;
+        width: 750px;
+    }
+    #card {
+        width: 240px;
+        border-radius: 5px;
+        margin: 8px 0px;
+        box-shadow: 0 1px 3px lightgrey
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1286px) {
     #card-infinite-container {
         column-count: 4;
-        column-gap: 1em;
-        width: 90%;
-        margin: auto;
+        width: 1004px;   
+    }
+    #card {
+        width: 240px;
+        border-radius: 5px;
+        margin: 8px 0px;
+        box-shadow: 0 1px 3px lightgrey
     }
 }
 
-@media print, screen and (min-width:769px) {
+@media screen and (min-width:1287px) {
     #card-infinite-container {
         column-count: 5;
-        column-gap: 1.5em;
-        width: 90%;
-        margin: auto;
+        width: 1264px;
     }
-}
-
-#card {
-    display: inline-block;
-    width: 100%;
-    border-radius: 3px;
-    margin: 5px 0px;
-    box-shadow: 0 1px 3px lightgrey
+    #card {
+        width: 240px;
+        border-radius: 5px;
+        margin: 8px 0px;
+        box-shadow: 0 1px 3px lightgrey
+    }
+    #card-footer-person-img {
+        border: black 1px solid;
+        width: 10px;
+        position: relative;
+        left: 14px;
+        top: -4px;
+    }
 }
 
 #card-img {
     width: 100%;
     min-height: 180px;
+    max-height: 450px;
     object-fit: cover;
     border-radius: 2px;
 }
@@ -52,12 +108,12 @@
 }
 
 #first-p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
-    line-height: 1em;
-    height: 2em;
+    line-height: 1.2em;
+    height: 2.4em;
     overflow: hidden;
-    margin: 3%;
+    margin: 5%;
     color: black;
 }
 
@@ -68,14 +124,6 @@
 
 #second-p {
     margin-bottom: 0 !important;
-}
-
-#card-footer-person-img {
-    border: black 1px solid;
-    width: 15px;
-    position: relative;
-    left: 13px;
-    top: -3px;
 }
 
 #dish-img {

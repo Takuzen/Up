@@ -109,12 +109,12 @@
 
             <div id="card-footer">
                 <a href="{% url 'card_detail' item.pk %}" id="first-p-link">
-                    <p id="first-p">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
+                    <p id="first-p">{{ item.restaurant_name|default_if_none:"未記入" }}</p>
                 </a>
                 <p id="second-p"><span><img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
                             class="rounded-circle account-img" alt="person-img"></span>
                     <span
-                        style="vertical-align: middle; position: relative; top: -3px; left: 15px;">{{ item.created_by }}</span>
+                        style="vertical-align: middle; font-size: 0.8em; position: relative; top: -5px; left: 15px;">{{ item.created_by }}</span>
                 </p>
             </div>
 
