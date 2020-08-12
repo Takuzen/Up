@@ -21,6 +21,12 @@ header h5 {
 }
 */
 
+.far fa-bell {
+    margin-left: 7px;
+    font-weight: bold;
+    position: relative;
+}
+
 .filters {
     display: flex;
     justify-content: flex-start;
