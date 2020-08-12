@@ -108,12 +108,72 @@ deploy
 $ eb deploy
 ```
 
-### zip 形式
+## EC2のインスタンスに接続して、DBを変更する方法
 
-ルートディレクトリにて、以下のコマンドでzip ファイルを作成する。
+`rds_read_keypairs.pem`をメンバーから渡してもらう。
+
+コマンドラインで、pemファイルが存在するディレクトリにて以下のコマンドをたたく。そうすると、以下のように出てログインできるはず。初回はいろいろ聞かれるが、`y`で答える。
 
 ```
-zip ../myapp.zip -r * .ebextensions
+$ ssh -i "rds_read_keypairs.pem" ec2-user@ec2-52-90-226-189.compute-1.amazonaws.com
+
+Last login: Fri Aug  7 11:42:05 2020 from p57cabd.tokynt01.ap.so-net.ne.jp
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+4 package(s) needed for security, out of 8 available
+Run "sudo yum update" to apply all updates.
+-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
+[ec2-user@ip-172-31-47-99 ~]$
 ```
 
-これで `.ebextensions` も含むようにzipファイルを作成してくれる。あとは、この `myapp.zip`をAWSのelastic beanstalkにアップロードする。
+以下のコマンドをたたく。`tkz`というユーザ名でRDSに入る。
+**もし今後このレポジトリをオープンにする場合は以下のコマンドは消してください**
+
+```
+[ec2-user@ip-172-31-47-99 ~]$ mysql -h aa7ju5mn5ddy15.c6mwbzjablk2.us-east-1.rds.amazonaws.com -P 3306 -u tkz -p
+password: 19960430
+```
+
+以下のように示されたらOK
+
+```
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18846
+Server version: 5.7.22-log Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]>
+```
+
+ここから `ebdb`に入る。
+
+```
+MySQL [(none)]> use ebdb;
+MySQL [ebdb]> show tables;
++-----------------------------+
+| Tables_in_ebdb              |
++-----------------------------+
+| app_item                    |
+| auth_group                  |
+| auth_group_permissions      |
+| auth_permission             |
+| django_admin_log            |
+| django_content_type         |
+| django_migrations           |
+| django_session              |
+| register_profile            |
+| users_user                  |
+| users_user_groups           |
+| users_user_user_permissions |
++-----------------------------+
+12 rows in set (0.00 sec)
+```
+
+これで`app_item`などをsql文でいじることが可能。
