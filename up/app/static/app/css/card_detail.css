@@ -201,6 +201,7 @@
 
     #restaurant-memo {
         margin: 10px 50px 0 50px;
+        white-space: pre-line;
     }
 
     #location {
