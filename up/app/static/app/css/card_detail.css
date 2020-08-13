@@ -71,10 +71,6 @@
         top: 2px;
     }
 
-    .comment-section-for-vertical-card-detail {
-        
-    }
-
     .comment-section-for-horizontal-card-detail {
         display: none;
     }
@@ -161,10 +157,6 @@
         margin-left: 5px;
         position: relative;
         top: 2px;
-    }
-
-    .comment-section-for-vertical-card-detail {
-        
     }
 
     .comment-section-for-horizontal-card-detail {
