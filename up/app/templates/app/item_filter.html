@@ -111,18 +111,15 @@
                 <a href="{% url 'card_detail' item.pk %}" id="first-p-link">
                     <p id="first-p">{{ item.restaurant_name|default_if_none:"未記入" }}</p>
                 </a>
+
                 <p id="second-p"><span><img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
                             class="rounded-circle account-img" alt="person-img"></span>
                     <span
-<<<<<<< HEAD
                         style="vertical-align: middle; font-size: 0.8em; position: relative; top: -6px; left: 15px;">{{ item.created_by }}</span>
-=======
-                        style="vertical-align: middle; position: relative; top: -4px; left: 15px;">{{ item.created_by }}</span>
->>>>>>> d6194d3... added comment-counter on card and made comment field on 'card_detail'(not able to post comment yet), during the process I added Comment-class to models.py and CommentForm to forms.py
                 </p>
 
                 <a id="comment-img-link" href="{% url 'card_detail' item.pk %}"><img id="comment-img"
-                        src="{% static 'images/icons/comment-img.png' %}" alt="comment-img"><span
+                        src="{% static 'images/icons/comment.png' %}" alt="comment-img"><span
                         id="comment-number">{{ item.comments.count }}</span></a>
             </div>
 
