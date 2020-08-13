@@ -34,19 +34,26 @@
         </div>
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
     </div>
+
 </div>
 
-<h2 style="text-align:center;">Comments</h1>
-<hr id="hr-comment" align="center"> <!-- comments following -->
-{% for comment in comments %}
-<div class="comment" style="text-align:center;">
+<div class="comment-section-for-horizontal-card-detail">
+
+    <p style="text-align: center; font-size: 21px;">コメント</p>
+
+    <!-- コメント投稿トリガーボタン -->
+    <button id="comment-btn-for-horizontal-card-detail" data-toggle="modal"
+        data-target="#comment-modal">コメントする...</button>
+
+    {% for comment in comments %}
     <div class="date">{{ comment.commented_date }}</div>
     <strong>{{ comment.author }}</strong>
     <p>{{ comment.comment_text|linebreaks }}</p>
+    {% empty %}
+    <p style="text-align: center;"></p>
+    {% endfor %}
+
 </div>
-{% empty %}
-<p>まだコメントはありません。</p>
-{% endfor %}
 
 <a href="{% url 'index' %}" class="btn btn-outline-secondary">コメントする...</a>
 
@@ -75,14 +82,5 @@
 
         </div>
     </div>
-</div>
-
-<!-- コメント投稿トリガーボタン -->
-<div id="comment-trigger-row">
-    <!-- 各自プロフィール画像を設定できるようになったら、挿入する
-    <img id="comment-profile-img" class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
-        alt="person-icon">
-        -->
-    <button id="comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする</button>
 </div>
 {% endblock %}

@@ -70,6 +70,15 @@
         position: relative;
         top: 2px;
     }
+
+    .comment-section-for-vertical-card-detail {
+        
+    }
+
+    .comment-section-for-horizontal-card-detail {
+        display: none;
+    }
+    
 }
 
 /* デスクトップ(~1036px) */
@@ -153,6 +162,14 @@
         position: relative;
         top: 2px;
     }
+
+    .comment-section-for-vertical-card-detail {
+        
+    }
+
+    .comment-section-for-horizontal-card-detail {
+        display: none;
+    }
 }
 
 /* デスクトップ(1037px~) */
@@ -161,7 +178,7 @@
         display: flex;
         flex-direction: row;
         width: 1017px;
-        margin: 50px auto;
+        margin: 35px auto;
         box-shadow: 1px 1px 1px 1px lightgray;
         border-radius: 5px;
     }
@@ -183,9 +200,8 @@
     }
 
     #back-btn-on-card-detail-footer {
-        position: absolute;
-        top: 100px;
-        left: 40px;
+        position: relative;
+        left: -660px;    
     }
 
     #user-info-on-card-detail {
@@ -219,6 +235,7 @@
     }
 }
 
+<<<<<<< HEAD
 .comment {
     margin: 20px 0px 20px 20px;
 }
@@ -251,11 +268,45 @@
 }
 
 #comment-btn:hover {
+=======
+    #restaurant-name-on-card-footer {
+        margin-left: 5px;
+    }
+
+    .comment-section-for-vertical-card-detail {
+        display: none;   
+    }
+
+    .comment-section-for-horizontal-card-detail {
+        width: 1017px;
+        margin: auto;
+    }
+}
+
+/* 共通 */
+#comments {
+    margin: 10px 0 0 15px;
+}
+
+#comment-btn-for-horizontal-card-detail {
+    outline: none;
+    border: none;
+    background-color: whitesmoke;
+    color: gray;
+    border-radius: 50px;
+    padding: 10px 20px 10px 20px;
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+}
+
+#comment-btn-for-horizontal-card-detail:hover {
+>>>>>>> 0c4f107... adjust layout for the new card/card-detail
     cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
 }
 
+<<<<<<< HEAD
 .submit-comment-btn {
     position: relative;
     left: 10px;
@@ -266,6 +317,36 @@
     border: solid 1px black;
     padding: 5px 15px 5px 15px;
 
+=======
+#comment-btn-for-vertical-card-detail {
+    outline: none;
+    border: none;
+    font-size: 0.8em;
+    padding: 10px 20px 10px 20px;
+    border-radius: 50px;
+    background: whitesmoke;
+    color: gray;
+    margin: 8px 0 8px 10px;
+}
+
+#comment-btn-for-vertical-card-detail:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+.submit-comment-btn {
+    position: relative;
+    left: 10px;
+    top: 2px;
+    font-size: 0.8rem;
+    background-color: #FFA76C;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    padding: 10px 20px 10px 20px;
+>>>>>>> 0c4f107... adjust layout for the new card/card-detail
 }
 
 .submit-comment-btn:hover {
