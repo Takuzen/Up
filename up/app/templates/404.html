@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <img src="{% static 'images/ogp/up-img.png' %}" alt="up-img">
+    <h1>お探しのページが見つかりません。<br>運営チームにお気軽にお問い合わせください。</h1>
+    <a target="_blank"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeWFaXBtDHuyPljR8jLjVLOowi1FdbpN64n7iEoARf2ThF8rg/viewform?usp=sf_link"><img
+            src="{% static 'images/icons/feedback-mono.png' %}" alt="feedback-img"></a>
+    <a href="{% url 'index' %}">ホームへ</a>
+</body>
+
+</html>
