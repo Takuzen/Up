@@ -1,34 +1,35 @@
-@media screen and (max-width: 768px) {
-    
-}
+@media screen and (max-width: 768px) {}
 
 .profile-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
+    justify-content: center;
     margin-bottom: 1vh;
 }
 
+#profile-photo {
+    margin: 0px 20px 0 0;
+    padding: 5px;
+}
 
-.profile-section img {
-    width: 40px;
+#profile-photo img {
+    width: 50px;
+    height: 50px;
     object-fit: contain;
     border: 1px black solid;
     margin: 10px 10px 10px 10px;
 }
 
-.profile-section h2 {
-    height: 30px;
+.profile-textarea {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
 }
 
 .profile-section button {
     margin: 15px 0 0 0;
-
-}
-
-.divider {
-    border: 1px solid lightgray;
-    margin: 0 10vw;
 }
 
 .past-post {

@@ -3,13 +3,18 @@
 {% load static %}
 {% block content %}
 <div class="profile-section">
-    <a href="#"><img class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"></a>
-    <h2 class="account-heading">{{ user.username }}</h2>
-    <!-- disabled until modification completed -->
+    <a id="profile-photo" href="#"><img class="rounded-circle account-img"
+            src="{% static 'images/icons/person.svg' %}"></a>
+    <div class="profile-textarea">
+        <h2 class="profile-username">{{ user.username }}</h2>
+        <p id="profile-content">Hello, I'm from Shanghai!</p>
+    </div>
+    <!-- disabled until modification completed
     <a class="edit-profile-btn" href="#">編集</a>
+     -->
     <!-- FORM HERE -->
 </div>
-<div class="divider"></div>
+
 <div class="past-post">
     {% for post in user_posts %}
     <div class="row row-cols-2" style="margin: 3vh;">

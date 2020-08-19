@@ -129,7 +129,7 @@
     <script>
         var infinite = new Waypoint.Infinite({
             element: $('.infinite-container')[0],
-            handler: function (direction) { },
+            handler: function (direction) {},
             offset: 'bottom-in-view',
 
             onBeforePageLoad: function () {
@@ -165,7 +165,12 @@
                 // 画像表示
                 var reader = new FileReader();
                 reader.onload = function () {
-                    var img_src = $('<img>').attr({ 'src': reader.result, 'id': "upload_image", 'height': 120, 'object-fit': 'cover' });
+                    var img_src = $('<img>').attr({
+                        'src': reader.result,
+                        'id': "upload_image",
+                        'height': 120,
+                        'object-fit': 'cover'
+                    });
                     $('#image_preview_span').html(img_src);
                 }
                 $('#close-button').show()
@@ -180,13 +185,13 @@
             });
 
         })
-
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"
         charset="UTF-8"></script>
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js">
+    </script>
     <script src="{% static 'app/js/app.js' %}"></script>
     <script src="{% static 'app/js/infinite.min.js' %}"></script>
     <script src="{% static 'app/js/jquery.waypoints.min.js' %}"></script>
