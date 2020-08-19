@@ -15,7 +15,25 @@
     <!-- FORM HERE -->
 </div>
 
-<div class="past-post">
+<div class="profile-statistics">
+    <div class="follower-count">
+        <p>フォロワー</p>
+        <p>xx</p>
+    </div>
+    <div class="followee-count">
+        <p>フォロー中</p>
+        <p>xx</p>
+    </div>
+    <div class="post-count">
+        <p>閲覧数</p>
+        <p>xx</p>
+    </div>
+</div>
+
+<div class="user-post-log">
+    <div class="post-category">
+        <p id="post-category-1">投稿</p>
+    </div>
     {% for post in user_posts %}
     <div class="row row-cols-2" style="margin: 3vh;">
         <div class="col infinite-item">
