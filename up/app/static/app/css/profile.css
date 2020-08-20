@@ -37,25 +37,37 @@
     justify-content: space-evenly;
 }
 
-.follower-count {
+.follower-count-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 30%;
 }
 
-.followee-count {
+#follower-count {
+    font-weight: bold;
+}
+
+.followee-count-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 30%;
 }
 
-.post-count {
+#followee-count {
+    font-weight: bold;
+}
+
+.post-count-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 30%;
+}
+
+#post-count {
+    font-weight: bold;
 }
 
 .user-post-log {
