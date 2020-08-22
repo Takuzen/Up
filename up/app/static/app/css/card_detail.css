@@ -74,7 +74,7 @@
     .comment-section-for-horizontal-card-detail {
         display: none;
     }
-    
+
 }
 
 /* デスクトップ(~1036px) */
@@ -193,7 +193,7 @@
 
     #back-btn-on-card-detail-footer {
         position: relative;
-        left: -660px;    
+        left: -660px;
     }
 
     #user-info-on-card-detail {
@@ -266,7 +266,7 @@
     }
 
     .comment-section-for-vertical-card-detail {
-        display: none;   
+        display: none;
     }
 
     .comment-section-for-horizontal-card-detail {
@@ -345,4 +345,17 @@
     cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
+}
+
+.comment-date {
+    font-size: 0.8em;
+}
+
+.commenter-username {
+    font-size: 0.8em;
+}
+
+.comment-text {
+    position: relative;
+    top: 3px;
 }
