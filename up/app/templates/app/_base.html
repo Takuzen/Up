@@ -127,6 +127,22 @@
     <script src="{% static '/app/js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'app/js/infinite.min.js' %}"></script>
     <script>
+
+        $('#myform input[type=file]').on('change invalid', function() {
+            var textfield = $(this).get(0);
+            
+            // 'setCustomValidity not only sets the message, but also marks
+            // the field as invalid. In order to see whether the field really is
+            // invalid, we have to remove the message first
+            textfield.setCustomValidity('');
+            
+            if (!textfield.validity.valid) {
+                textfield.setCustomValidity('画像は添付してね！');  
+            }
+        });
+
+
+
         var infinite = new Waypoint.Infinite({
             element: $('.infinite-container')[0],
             handler: function (direction) { },
