@@ -31,11 +31,6 @@
             <p id="card-detail-username">{{ item.created_by }}</p>
         </div>
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
-        <p id="location"><img id="dish-img" src="{% static '/images/icons/dish-img.png' %}" alt="dish-img"><span
-                id="restaurant-name-on-card-footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span>
-            <!-- copy機能実装出来次第 display:none を消す --><button style="display: none;" id="copy-button"><img id="copy-img"
-                    src="{% static '/images/icons/copy.png' %}" alt="copy-img"></button>
-        </p>
     </div>
 </div>
 {% endblock %}
