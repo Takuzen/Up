@@ -3,6 +3,7 @@ from django.contrib.auth.forms import (
 )
 from django import forms
 from ..users.models import User
+from .models import Profile
 
 
 class LoginForm(AuthenticationForm):
@@ -18,9 +19,10 @@ class LoginForm(AuthenticationForm):
 class UpdateProfile(forms.ModelForm):
     username = forms.CharField(required=False)
     email = forms.EmailField(required=False)
+    image = forms.ImageField(required=False)
 
     class Meta:
-        model = User
+        model = Profile
         fields = ('username', 'email')
 
     def clean_email(self):
