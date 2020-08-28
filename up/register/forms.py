@@ -16,8 +16,8 @@ class LoginForm(AuthenticationForm):
 
 
 class UpdateProfile(forms.ModelForm):
-    username = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
+    username = forms.CharField(required=False)
+    email = forms.EmailField(required=False)
 
     class Meta:
         model = User
@@ -32,7 +32,7 @@ class UpdateProfile(forms.ModelForm):
         return email
 
     def save(self, commit=True):
-        user = super(RegistrationForm, self).save(commit=False)
+        user = super().save(commit=False)
         user.email = self.cleaned_data['email']
 
         if commit:
