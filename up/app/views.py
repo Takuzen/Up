@@ -7,8 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from .filters import ItemFilterSet
-from .forms import ItemForm, PostForm
-from .models import Item
+from .forms import ItemForm, PostForm, CommentForm
+from .models import Item, Comment
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import re
@@ -185,6 +185,12 @@ class ItemDeleteView(LoginRequiredMixin, DeleteView):
 class CardDetailPageView(DetailView):
     model = Item
     template_name = "app/card_detail.html"
+    form_class = CommentForm
+    success_url = reverse_lazy('index')
+
+    def get(self, request, **kwargs):
+        return super().get(request, **kwargs)
+
 
     def get_context_data(self, **kwargs):
         """
@@ -199,7 +205,26 @@ class CardDetailPageView(DetailView):
         context["show_left"] = False
         context["show_right"] = False
         context["show_plus_button"] = False
+        form = CommentForm(initial={"item": context["object"].id})
+        context["comment_form"] = form
+        context["comments"] = Comment.objects.filter(item_id=context['object'].id).order_by('commented_date').reverse()
         return context
+
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            comment_item = form.save(commit=False)
+            comment_item.item_id = request.POST['item_id']
+            comment_item.comment_text = regex_format_space(request.POST['comment_text'])
+            comment_item.author = self.request.user
+            comment_item.commented_date = timezone.now()
+            comment_item.approved_comment = True
+            comment_item.save()
+            messages.success(request, f'コメント投稿ありがとうございます!')
+            return HttpResponseRedirect(request.path)
+
+        return render(request, "/", {'form': form})
 
 
 class CampaignPageView(TemplateView):

@@ -1,5 +1,4 @@
 from ..register import views as register_view
-from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView
 from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView
 from django.urls import path, include
 from django.conf import settings

@@ -111,11 +111,16 @@
                 <a href="{% url 'card_detail' item.pk %}" id="first-p-link">
                     <p id="first-p">{{ item.restaurant_name|default_if_none:"未記入" }}</p>
                 </a>
+
                 <p id="second-p"><span><img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
                             class="rounded-circle account-img" alt="person-img"></span>
                     <span
                         style="vertical-align: middle; font-size: 0.8em; position: relative; top: -6px; left: 15px;">{{ item.created_by }}</span>
                 </p>
+
+                <a id="comment-img-link" href="{% url 'card_detail' item.pk %}"><img id="comment-img"
+                        src="{% static 'images/icons/comment.png' %}" alt="comment-img"><span
+                        id="comment-number">{{ item.comments.count }}</span></a>
             </div>
 
             <!-- 

@@ -1,5 +1,6 @@
 from django import forms
 from django.db import models
+from django.utils import timezone
 
 from ..users.models import User
 
@@ -146,3 +147,22 @@ class Item(models.Model):
         """
         verbose_name = 'サンプル'
         verbose_name_plural = 'サンプル'
+
+
+class Comment(models.Model):
+    item = models.ForeignKey(
+        'Item', on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=200)
+    comment_text = models.CharField(
+        max_length=140,
+        blank=False,
+        null=False,)
+    commented_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def approved(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.comment_text

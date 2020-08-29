@@ -1,5 +1,7 @@
 {% extends "./_base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 <div id="card-detail-container">
     <div class="card-detail-header">
@@ -31,6 +33,67 @@
             <p id="card-detail-username">{{ item.created_by }}</p>
         </div>
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
+
+        <!-- コメント -->
+        <div class="card-sized-comment-section">
+
+            <div class="comments">
+                <button id="comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
+                {% for comment in comments %}
+                <div class="comment-date">{{ comment.commented_date }}</div>
+                <strong class="commenter-username">{{ comment.author }}</strong>
+                <p class="comment-text">{{ comment.comment_text }}</p>
+                {% empty %}
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="full-sized-comment-section">
+
+    <!-- コメント投稿トリガーボタン -->
+    <div id="full-sized-comment-btn-container">
+        <button id="full-sized-comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
+    </div>
+    <div class="full-sized-comments">
+        {% for comment in comments %}
+        <div class="comment-date">{{ comment.commented_date }}</div>
+        <strong class="commenter-username">{{ comment.author }}</strong>
+        <p class="comment-text">{{ comment.comment_text }}</p>
+        {% empty %}
+        {% endfor %}
+    </div>
+
+</div>
+
+<!-- コメント投稿モーダル -->
+{{ form.certifications.errors }}
+<div class="modal" id="comment-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 100%; overflow-y: auto;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="comment-forms" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
+                    <!-- テキストフィールド -->
+                    {{ comment_form.comment_text|as_crispy_field }}
+                    <input type="hidden" name="item_id" size="18" maxlength="20" value="{{item.id}}">
+
+                    <div class="modal-footer">
+                        <input type="submit" name="test1" value="送信する" class="submit-comment-btn">
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
 </div>
 {% endblock %}

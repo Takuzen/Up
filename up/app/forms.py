@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Item
+from .models import Item, Comment
 from ..users.models import User
 
 
@@ -61,3 +61,13 @@ class PostForm(forms.ModelForm):
         # auto_now=True
         # auto_now_add=Ture
         # editable=False
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ['comment_text', ]
+        labels = {
+            "comment_text": ""
+        }

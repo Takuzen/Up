@@ -113,8 +113,8 @@
     <button id="plus-btn" data-toggle="modal" data-target="#post-modal"><img id="plus-btn-img"
             src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></button>
     {% else %}
-    <a id="plus-btn" href="{% url 'login' %}"><img id="plus-btn-img" class="mobile-only"
-            src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></a>
+    <a id="plus-btn" href="{% url 'login' %}"><img id="plus-btn-img" src="{% static 'images/icons/plus-button.png' %}"
+            alt="plus-btn-img"></a>
     {% endif %}
     {% endif %}
 
