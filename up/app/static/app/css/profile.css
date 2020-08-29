@@ -1,36 +1,86 @@
-@media screen and (max-width: 768px) {
-    
-}
+@media screen and (max-width: 768px) {}
 
 .profile-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
-    margin-bottom: 1vh;
+    justify-content: center;
+    margin: 3vh 0;
 }
 
+#profile-photo {
+    margin: 0px 20px 0 0;
+    padding: 5px;
+}
 
-.profile-section img {
-    width: 40px;
+#profile-photo img {
+    width: 50px;
+    height: 50px;
     object-fit: contain;
     border: 1px black solid;
     margin: 10px 10px 10px 10px;
 }
 
-.profile-section h2 {
-    height: 30px;
+.profile-textarea {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
 }
 
 .profile-section button {
     margin: 15px 0 0 0;
-
 }
 
-.divider {
-    border: 1px solid lightgray;
-    margin: 0 10vw;
+.profile-statistics {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.past-post {
+.follower-count-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+#follower-count {
+    font-weight: bold;
+}
+
+.followee-count-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+#followee-count {
+    font-weight: bold;
+}
+
+.post-count-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+#post-count {
+    font-weight: bold;
+}
+
+.user-post-log {
     text-align: center;
+}
+
+.post-category {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#post-category-1 {
+    border-bottom: solid 5px #2CBD3E;
 }
