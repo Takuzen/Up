@@ -33,22 +33,12 @@
             <p id="card-detail-username">{{ item.created_by }}</p>
         </div>
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
-<<<<<<< HEAD
-=======
-        <p id="location"><img id="dish-img" src="{% static '/images/icons/dish-img.png' %}" alt="dish-img"><span
-                id="restaurant-name-on-card-footer">{{ item.restaurant_name|default_if_none:"restaurant_name" }}</span>
-            <!-- copy機能実装出来次第 display:none を消す --><button style="display: none;" id="copy-button"><img id="copy-img"
-                    src="{% static '/images/icons/copy.png' %}" alt="copy-img"></button>
-        </p>
 
         <!-- コメント -->
-        <div class="comment-section-for-vertical-card-detail">
+        <div class="card-sized-comment-section">
 
-            <!-- コメント投稿トリガーボタン -->
-            <button id="comment-btn-for-vertical-card-detail" data-toggle="modal"
-                data-target="#comment-modal">コメントする...</button>
-
-            <div id="comments">
+            <div class="comments">
+                <button id="comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
                 {% for comment in comments %}
                 <div class="comment-date">{{ comment.commented_date }}</div>
                 <strong class="commenter-username">{{ comment.author }}</strong>
@@ -59,29 +49,26 @@
 
         </div>
 
->>>>>>> 0c75bf4... adjusted comment font-size
     </div>
 
 </div>
 
-<div class="comment-section-for-horizontal-card-detail">
-
-    <p style="text-align: center; font-size: 21px;">コメント</p>
+<div class="full-sized-comment-section">
 
     <!-- コメント投稿トリガーボタン -->
-    <button id="comment-btn-for-horizontal-card-detail" data-toggle="modal"
-        data-target="#comment-modal">コメントする...</button>
-
-    {% for comment in comments %}
-    <div class="comment-date">{{ comment.commented_date }}</div>
-    <strong class="commenter-username">{{ comment.author }}</strong>
-    <p class="comment-text">{{ comment.comment_text }}</p>
-    {% empty %}
-    {% endfor %}
+    <div id="full-sized-comment-btn-container">
+        <button id="full-sized-comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
+    </div>
+    <div class="full-sized-comments">
+        {% for comment in comments %}
+        <div class="comment-date">{{ comment.commented_date }}</div>
+        <strong class="commenter-username">{{ comment.author }}</strong>
+        <p class="comment-text">{{ comment.comment_text }}</p>
+        {% empty %}
+        {% endfor %}
+    </div>
 
 </div>
-
-<a href="{% url 'index' %}" class="btn btn-outline-secondary">コメントする...</a>
 
 <!-- コメント投稿モーダル -->
 {{ form.certifications.errors }}
