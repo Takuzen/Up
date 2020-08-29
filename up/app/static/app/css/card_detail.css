@@ -227,7 +227,6 @@
     }
 }
 
-<<<<<<< HEAD
 .comment {
     margin: 20px 0px 20px 20px;
 }
@@ -260,45 +259,11 @@
 }
 
 #comment-btn:hover {
-=======
-    #restaurant-name-on-card-footer {
-        margin-left: 5px;
-    }
-
-    .comment-section-for-vertical-card-detail {
-        display: none;
-    }
-
-    .comment-section-for-horizontal-card-detail {
-        width: 1017px;
-        margin: auto;
-    }
-}
-
-/* 共通 */
-#comments {
-    margin: 10px 0 0 15px;
-}
-
-#comment-btn-for-horizontal-card-detail {
-    outline: none;
-    border: none;
-    background-color: whitesmoke;
-    color: gray;
-    border-radius: 50px;
-    padding: 10px 20px 10px 20px;
-    font-size: 0.8rem;
-    margin-bottom: 30px;
-}
-
-#comment-btn-for-horizontal-card-detail:hover {
->>>>>>> 0c4f107... adjust layout for the new card/card-detail
     cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
 }
 
-<<<<<<< HEAD
 .submit-comment-btn {
     position: relative;
     left: 10px;
@@ -309,53 +274,10 @@
     border: solid 1px black;
     padding: 5px 15px 5px 15px;
 
-=======
-#comment-btn-for-vertical-card-detail {
-    outline: none;
-    border: none;
-    font-size: 0.8em;
-    padding: 10px 20px 10px 20px;
-    border-radius: 50px;
-    background: whitesmoke;
-    color: gray;
-    margin: 8px 0 8px 10px;
-}
-
-#comment-btn-for-vertical-card-detail:hover {
-    cursor: pointer;
-    opacity: 0.6;
-    transition-duration: 0.3s;
-}
-
-.submit-comment-btn {
-    position: relative;
-    left: 10px;
-    top: 2px;
-    font-size: 0.8rem;
-    background-color: #FFA76C;
-    color: white;
-    font-weight: bold;
-    border-radius: 50px;
-    border: none;
-    padding: 10px 20px 10px 20px;
->>>>>>> 0c4f107... adjust layout for the new card/card-detail
 }
 
 .submit-comment-btn:hover {
     cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
-}
-
-.comment-date {
-    font-size: 0.8em;
-}
-
-.commenter-username {
-    font-size: 0.8em;
-}
-
-.comment-text {
-    position: relative;
-    top: 3px;
 }
