@@ -3,11 +3,16 @@
 {% load static %}
 {% block content %}
 <div class="profile-section">
-    <a id="profile-photo" href="#"><img class="rounded-circle account-img"
-            src="{% static 'images/icons/person.svg' %}"></a>
+    {% if user.image %}
+        <a id="profile-photo" href="#"><img class="rounded-circle account-img"
+            src="{{ user.image.url }}"></a>
+    {% else %}
+        <a id="profile-photo" href="#"><img class="rounded-circle account-img"
+                src="{% static 'images/icons/person.svg' %}"></a>
+    {% endif %}
     <div class="profile-textarea">
         <h2 class="profile-username">{{ user.username }}</h2>
-        <p id="profile-content">Hello, I'm from Shanghai!</p>
+        <p id="profile-content">{{ user.bio }}</p>
     </div>
     <!-- disabled until modification completed
     <a class="edit-profile-btn" href="#">編集</a>

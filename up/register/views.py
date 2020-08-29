@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from ..app.models import Item
+from .models import Profile
 
 
 # Create your views here.
@@ -57,10 +58,13 @@ def update_profile(request):
     args = {}
 
     if request.method == 'POST':
+
         form = UpdateProfile(request.POST, instance=request.user)
         form.actual_user = request.user
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            user.image = request.FILES['image']
+            user.save()
             return HttpResponseRedirect(reverse('profile'))
     else:
         form = UpdateProfile()

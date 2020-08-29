@@ -26,6 +26,15 @@ class User(AbstractUser):
         default=True,
     )
 
+    bio = models.TextField(
+        verbose_name = "bio",
+        blank = True,
+        null = True
+    )
+
+    image = models.ImageField(
+        upload_to='images/profile_pictures', blank=True, null=True)
+
     # get_full_name()の変更
     def get_full_name(self):
         if self.full_name:
