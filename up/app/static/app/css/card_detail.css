@@ -304,3 +304,13 @@
     opacity: 0.6;
     transition-duration: 0.3s;
 }
+
+.comment-date {
+    font-size: 0.8em;
+}
+
+.commenter-username {
+    position: relative;
+    top: -3px;
+    font-size: 0.8em;
+}
