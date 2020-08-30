@@ -4,14 +4,13 @@
 {% block content %}
 <div class="profile-section">
     {% if user.image %}
-        <a id="profile-photo" href="#"><img class="rounded-circle account-img"
-            src="{{ user.image.url }}"></a>
+    <a id="profile-photo" href="#"><img class="rounded-circle account-img" src="{{ user.image.url }}"></a>
     {% else %}
-        <a id="profile-photo" href="#"><img class="rounded-circle account-img"
-                src="{% static 'images/icons/person.svg' %}"></a>
+    <a id="profile-photo" href="#"><img class="rounded-circle account-img"
+            src="{% static 'images/icons/person.svg' %}"></a>
     {% endif %}
     <div class="profile-textarea">
-        <h2 class="profile-username">{{ user.username }}</h2>
+        <h4 class="profile-username">{{ user.username }}</h4>
         <p id="profile-content">{{ user.bio }}</p>
     </div>
     <!-- disabled until modification completed
