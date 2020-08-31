@@ -1,24 +1,59 @@
-@media screen and (max-width: 768px) {}
+/* モバイル */
+@media screen and (max-width: 479px) {
 
-.profile-section {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    margin: 3vh 0;
+    .profile-section {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        margin: 0 3vh 3vh 3vh;
+    }
+
+    #profile-photo {
+        margin: 10px;
+    }
+
+    .profile-username {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
-#profile-photo {
-    margin: 0px 20px 0 0;
-    padding: 5px;
+/* デスクトップ */
+@media screen and (min-width: 480px) {
+
+    .profile-section {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 5vh;
+    }
+
+    #profile-photo {
+        margin: 10px 40px 10px 10px;
+    }
+
+    .profile-username {
+        max-width: 40vw;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
 }
+
+/* 共通 */
 
 #profile-photo img {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-    border: 1px black solid;
-    margin: 10px 10px 10px 10px;
+}
+
+.profile-username-row {
+    display: flex;
 }
 
 .profile-textarea {
@@ -26,10 +61,23 @@
     flex-direction: column;
     align-items: flex-start;
     margin-top: 10px;
+    width: 60vw;
 }
 
-.profile-section button {
-    margin: 15px 0 0 0;
+#setting-btn {
+    outline: none;
+    color: black;
+}
+
+#setting-btn:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+#bio {
+    text-align: left;
+    padding-right: 20px;
 }
 
 .profile-statistics {
