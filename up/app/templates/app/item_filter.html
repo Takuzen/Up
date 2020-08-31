@@ -114,8 +114,8 @@
 
                 <p id="second-p">
                     <span>
-                        {% if item.user.image %}
-                            <img src="{{ item.user.image.url }}" id="card-footer-person-img"
+                        {% if item.created_by.image %}
+                            <img src="{{ item.created_by.image.url }}" id="card-footer-person-img"
                                 class="rounded-circle account-img" alt="person-img">
                         {% else %}
                             <img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
