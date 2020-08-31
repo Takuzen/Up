@@ -16,6 +16,10 @@ DATABASES = {
         'PASSWORD': 'password',  # ←.env_sampleで指定したMYSQL_PASSWORD
         'HOST': '172.20.0.3',  # ←docker-compose.ymlに指定したmysqlのIPAddress
         'PORT': '3306',
+        # テスト用にこの行を追加
+        'TEST': {
+            'NAME': 'test_database',
+        },
     }
 }
 
