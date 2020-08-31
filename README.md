@@ -177,3 +177,23 @@ MySQL [ebdb]> show tables;
 ```
 
 これで`app_item`などをsql文でいじることが可能。
+
+## testコードを書くとき
+
+### Preparation
+
+```
+$ docker exec -it up_mysql_1 /bin/bash
+# mysql -u root -p
+
+> GRANT ALL PRIVILEGES ON test_database.* TO 'DB_USER'@'%';
+Query OK, 0 rows affected (0.01 sec)
+````
+
+
+### Executing the test codes
+
+```
+docker exec -it CONTAINER_NAME_DJANGO /bin/bash
+# python manage.py test app
+```
