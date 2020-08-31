@@ -16,6 +16,7 @@ from django.contrib import messages
 
 from ..app.models import Item
 from .models import Profile
+from ..users.models import User
 
 
 # Create your views here.
@@ -58,7 +59,12 @@ def update_profile(request):
     args = {}
 
     if request.method == 'POST':
-
+        user = User.objects.get(id=request.user.id)
+        try:
+            profile_image = request.FILES['image']
+        except:
+            profile_image = user.image
+        request.FILES.update({'image': profile_image})
         form = UpdateProfile(request.POST, instance=request.user)
         form.actual_user = request.user
         if form.is_valid():
@@ -67,7 +73,9 @@ def update_profile(request):
             user.save()
             return HttpResponseRedirect(reverse('profile'))
     else:
-        form = UpdateProfile()
+        form = UpdateProfile(instance=request.user)
+
+        args['image'] = request.user.image
 
     args['form'] = form
     args['show_profile_icon'] = False

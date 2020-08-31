@@ -112,8 +112,16 @@
                     <p id="first-p">{{ item.restaurant_name|default_if_none:"未記入" }}</p>
                 </a>
 
-                <p id="second-p"><span><img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
-                            class="rounded-circle account-img" alt="person-img"></span>
+                <p id="second-p">
+                    <span>
+                        {% if item.user.image %}
+                            <img src="{{ item.user.image.url }}" id="card-footer-person-img"
+                                class="rounded-circle account-img" alt="person-img">
+                        {% else %}
+                            <img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
+                                class="rounded-circle account-img" alt="person-img">
+                        {% endif %}
+                    </span>
                     <span
                         style="vertical-align: middle; font-size: 0.8em; position: relative; top: -6px; left: 15px;">{{ item.created_by }}</span>
                 </p>

@@ -193,6 +193,7 @@
 #mypage-btn {
   position: relative;
   top: -1px;
+  width: 30px;
 }
 
 #mypage-btn:hover {
