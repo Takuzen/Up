@@ -194,6 +194,6 @@ Query OK, 0 rows affected (0.01 sec)
 ### Executing the test codes
 
 ```
-docker exec -it CONTAINER_NAME_DJANGO /bin/bash
+docker exec -it up_django_1 /bin/bash
 # python manage.py test app
 ```
