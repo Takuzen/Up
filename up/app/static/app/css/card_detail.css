@@ -30,6 +30,7 @@
 
     #card-detail-username {
         margin-left: 5px;
+        margin-top: 2px;
     }
 
     #card-detail-img {
@@ -54,7 +55,7 @@
     }
 
     #restaurant-memo {
-        margin: 1vh 3vw;
+        margin: 2vh 3vw;
         white-space: pre-wrap;
     }
 
@@ -117,6 +118,7 @@
 
     #card-detail-username {
         margin-left: 5px;
+        margin-top: 2px;
     }
 
     #card-detail-img {
@@ -141,7 +143,7 @@
     }
 
     #restaurant-memo {
-        margin: 1vh 3vw;
+        margin: 2vh 3vw;
         white-space: pre-wrap;
     }
 
@@ -203,7 +205,7 @@
 
     #card-detail-username {
         position: relative;
-        top: 8px;
+        top: 7.5px;
         left: 8px;
     }
 
@@ -224,6 +226,13 @@
 }
 
 /* 共通 */
+
+#card-detail-profile-img {
+    border: none;
+    width: 25px;
+    object-fit: contain;
+}
+
 .comments {
     margin: 20px 0px 20px 20px;
 }

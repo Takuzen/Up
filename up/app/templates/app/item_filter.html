@@ -112,23 +112,24 @@
                     <p id="first-p">{{ item.restaurant_name|default_if_none:"未記入" }}</p>
                 </a>
 
-                <p id="second-p">
-                    <span>
+                <div id="card-info">
+                    <span id="card-info-profile-img-container">
                         {% if item.created_by.image %}
-                            <img src="{{ item.created_by.image.url }}" id="card-footer-person-img"
-                                class="rounded-circle account-img" alt="person-img">
+                        <img src="{{ item.created_by.image.url }}" id="card-footer-person-img"
+                            class="rounded-circle account-img" alt="person-img">
                         {% else %}
-                            <img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
-                                class="rounded-circle account-img" alt="person-img">
+                        <img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img"
+                            class="rounded-circle account-img" alt="person-img">
                         {% endif %}
                     </span>
-                    <span
-                        style="vertical-align: middle; font-size: 0.8em; position: relative; top: -6px; left: 15px;">{{ item.created_by }}</span>
-                </p>
 
-                <a id="comment-img-link" href="{% url 'card_detail' item.pk %}"><img id="comment-img"
-                        src="{% static 'images/icons/comment.png' %}" alt="comment-img"><span
-                        id="comment-number">{{ item.comments.count }}</span></a>
+                    <span id="card-info-username">{{ item.created_by }}</span>
+
+                    <a id="comment-img-link" href="{% url 'card_detail' item.pk %}"><img id="comment-img"
+                            src="{% static 'images/icons/comment.png' %}" alt="comment-img"><span
+                            id="comment-number">{{ item.comments.count }}</span></a>
+                </div>
+
             </div>
 
             <!-- 
