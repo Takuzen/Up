@@ -39,6 +39,7 @@
     <link href="{% static "app/css/login.css" %}" rel="stylesheet">
     <link href="{% static "app/css/signup.css" %}" rel="stylesheet">
     <link href="{% static "app/css/campaign.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/update_profile.css" %}" rel="stylesheet">
     <!-- Fontawesome (fonts and Icons) -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
@@ -53,13 +54,13 @@
         <nav class="my-2 my-md-0 mr-md-3">
             {% if user.is_authenticated %}
             {% if show_profile_icon %}
-                {% if user.image %}
-                    <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
-                            src="{{ user.image.url }}" alt="person-icon"></a>
-                {% else %}
-                    <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
-                            src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
-                {% endif %}
+            {% if user.image %}
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
+                    src="{{ user.image.url }}" alt="person-icon"></a>
+            {% else %}
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
+                    src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
+            {% endif %}
             {% endif %}
 
             <a target="_blank" id="feedback-btn"
@@ -132,17 +133,16 @@
     <script src="{% static '/app/js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'app/js/infinite.min.js' %}"></script>
     <script>
-
-        $('#myform input[type=file]').on('change invalid', function() {
+        $('#myform input[type=file]').on('change invalid', function () {
             var textfield = $(this).get(0);
-            
+
             // 'setCustomValidity not only sets the message, but also marks
             // the field as invalid. In order to see whether the field really is
             // invalid, we have to remove the message first
             textfield.setCustomValidity('');
-            
+
             if (!textfield.validity.valid) {
-                textfield.setCustomValidity('画像は添付してね！');  
+                textfield.setCustomValidity('画像は添付してね！');
             }
         });
 
