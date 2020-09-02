@@ -209,10 +209,9 @@
 }
 */
 
-  .mypage-btn {
-    position: relative;
-    top: -1px;
+  #mypage-btn-img {
     width: 30px;
+    object-fit: contain;
   }
 
   .mypage-btn:hover {
