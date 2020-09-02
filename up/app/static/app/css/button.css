@@ -1,6 +1,24 @@
+  #go-to-set-profile-btn {
+    float: right;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background: #FBA99E;
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+
+  #go-to-set-profile-btn:hover {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+
   #campaign-banner {
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
     font-weight: bold;
     background: #2CBD3E;
@@ -43,7 +61,8 @@
     height: 50px;
     color: white;
     font-size: 17px;
-    line-height: 48px; /* 行間の広さ→もっと良いボタンのmiddleに位置させる方法があるはず */
+    line-height: 48px;
+    /* 行間の広さ→もっと良いボタンのmiddleに位置させる方法があるはず */
     padding: 0;
     outline: none;
     border: none;
@@ -108,7 +127,7 @@
     height: 35px;
     padding: 4px;
     margin-left: auto;
-}
+  }
 
   .btn-sort:hover {
     opacity: 0.6;
@@ -125,7 +144,7 @@
     opacity: 0.8;
   }
 
-#plus-btn {
+  #plus-btn {
     position: fixed;
     right: 17px;
     bottom: 5vh;
@@ -133,42 +152,42 @@
     outline: none;
     background: none;
     outline: none;
-}
+  }
 
-#plus-btn:focus {
-  outline: none;
-}
+  #plus-btn:focus {
+    outline: none;
+  }
 
-#plus-btn-img {
-  width: 40px;
-  height: 40px;
-}
+  #plus-btn-img {
+    width: 40px;
+    height: 40px;
+  }
 
-#plus-btn:hover {
-  opacity: 0.6;
-  transition-duration: 0.3s;
-  cursor: pointer;
-} 
+  #plus-btn:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
 
-.edit-profile-btn {
-  position: relative;
-  background: transparent;
-  color: lightgray;
-  margin: 10px 41vw;
-  padding: 9px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: default;
-}
+  .edit-profile-btn {
+    position: relative;
+    background: transparent;
+    color: lightgray;
+    margin: 10px 41vw;
+    padding: 9px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: default;
+  }
 
-.edit-profile-btn:hover {
-  text-decoration: none;
-  color: lightgray;
-  cursor: default;
-}
+  .edit-profile-btn:hover {
+    text-decoration: none;
+    color: lightgray;
+    cursor: default;
+  }
 
-/* comment out until modification completed 
+  /* comment out until modification completed 
 .edit-profile-btn {
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -190,14 +209,20 @@
 }
 */
 
-#mypage-btn {
-  position: relative;
-  top: -1px;
-  width: 30px;
-}
+  .mypage-btn {
+    position: relative;
+    top: -1px;
+    width: 30px;
+  }
 
-#mypage-btn:hover {
-  text-decoration: none;
-  cursor: pointer;
-  opacity: 0.6;
-}
+  .mypage-btn:hover {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+
+  .mypage-btn-img-default {
+    position: relative;
+    top: -1px;
+    width: 15px;
+  }

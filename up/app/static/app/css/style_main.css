@@ -7,6 +7,10 @@
     display: none;
 }
 
+#alert-message-container {
+    margin-bottom: 55px;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -16,7 +20,8 @@ body {
 
 header {
     height: 60px;
-    justify-content: space-between; /* アイコンを右寄せ */
+    justify-content: space-between;
+    /* アイコンを右寄せ */
 }
 
 /*
@@ -29,7 +34,7 @@ header h5 {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    flex-wrap: nowrap;   
+    flex-wrap: nowrap;
     margin-left: 5vw;
     margin-bottom: 23px;
 }

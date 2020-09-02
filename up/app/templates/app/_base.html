@@ -55,11 +55,12 @@
             {% if user.is_authenticated %}
             {% if show_profile_icon %}
             {% if user.image %}
-            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img" class="rounded-circle account-img"
                     src="{{ user.image.url }}" alt="person-icon"></a>
             {% else %}
-            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
-                    src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img-default"
+                    class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
+                    alt="person-icon"></a>
             {% endif %}
             {% endif %}
 
@@ -86,8 +87,11 @@
         <main id="center" style="width: 100%;">
             {% if messages %}
             {% for message in messages %}
-            <div class="alert alert-{{ message.tags}}">
-                {{ message }}
+            <div id="alert-message-container">
+                <div class="alert alert-{{ message.tags}}">
+                    {{ message }}
+                </div>
+                <a href="{% url 'update_profile' %}"><button id="go-to-set-profile-btn">続けてプロフィールを入力する →</button></a>
             </div>
             {% endfor %}
             {% endif %}

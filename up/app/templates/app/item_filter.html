@@ -78,16 +78,20 @@
 <div>　
     <!-- filter buttons-->
     <div class="filters">
+
         <!-- 
         <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
         <button class="btn-vegetarian">ベジタリアン</button>
         <button class="btn-vegan">ヴィーガン</button>
         -->
+
+        <!-- キャンペーンボタン -->
         <a id="campaign-banner" href="{% url 'campaign' %}">野菜自炊チャレンジ開催中！</a>
 
         <!-- modal修正完了したら　display:none を消す -->
         <a class="btn-sort rounded-circle account-img" data-toggle="modal" data-target="#myModal"
             style="display: none;"><img src="{% static '/images/icons/filter-no-circle.png' %}"></a>
+
     </div>
     <!-- feed -->
     <div id="card-infinite-container" class="infinite-container">
