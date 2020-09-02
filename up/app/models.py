@@ -156,7 +156,8 @@ class Comment(models.Model):
     comment_text = models.CharField(
         max_length=140,
         blank=False,
-        null=False,)
+        null=False,
+        default="Great Job!")
     commented_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
