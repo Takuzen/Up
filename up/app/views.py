@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import DetailView, TemplateView
@@ -229,3 +229,11 @@ class CardDetailPageView(DetailView):
 
 class CampaignPageView(TemplateView):
     template_name = "app/campaign.html"
+
+
+def test_ajax_response(request):
+    input_text = request.POST.getlist("name_input_text")
+    hoge = "Ajax Response: " + input_text[0]
+    print(input_text)
+
+    return HttpResponse(hoge)

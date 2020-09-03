@@ -205,6 +205,23 @@
                 return;
             });
 
+            $("#ajax-follow-form").submit( function(event) {
+                event.preventDefault();
+                var form = $(this);
+                $.ajax({
+                    url: form.prop("action"),
+                    method: form.prop("method"),
+                    data: form.serialize(),
+                    timeout: 10000,
+                    dataType: "text",
+                })
+                .done( function(data) {
+                    console.log(data);
+                    alert("done");
+                    $("#id_div_ajax_response").text(data);
+                })
+            });
+
         })
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
