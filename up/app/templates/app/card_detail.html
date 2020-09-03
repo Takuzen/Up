@@ -22,11 +22,11 @@
             {% csrf_token %}
             <input type="hidden" name="followee-name" value="{{ item.created_by }}">
             {% if is_following %}
-                <input type="hidden" id="id_div_ajax_response" name="is-follow" value="0">
-                <input class="btn" type="submit" value="Following">
+                <input type="hidden" id="follow-boolean" name="is-follow" value="0">
+                <input class="btn" id="id_div_ajax_response" type="submit" value="Following">
             {% else %}
-                <input type="hidden"  id="id_div_ajax_response" name="is-follow" value="1">
-                <input class="btn" type="submit" value="Follow">
+                <input type="hidden" id="follow-boolean" name="is-follow" value="1">
+                <input class="btn" id="id_div_ajax_response" type="submit" value="Follow">
             {% endif %}
         </form>
 

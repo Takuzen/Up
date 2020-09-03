@@ -245,12 +245,13 @@ def test_ajax_response(request):
     follower_username = request.user
     followee_username = request.POST["followee-name"]
     is_follow = int(request.POST["is-follow"])
-    message = f"You are now following {followee_username}"
     follower = User.objects.filter(username=follower_username).first()
     followee = User.objects.filter(username=followee_username).first()
     if is_follow:
         friendship = FriendShip(follower=follower, followee=followee)
         friendship.save()
+        message = "Following"
     else:
         FriendShip.objects.filter(follower=follower, followee=followee).delete()
+        message = "Follow"
     return HttpResponse(message)

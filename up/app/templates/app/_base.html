@@ -223,9 +223,12 @@
                     dataType: "text",
                 })
                 .done( function(data) {
-                    console.log(data);
-                    alert("done");
-                    $("#id_div_ajax_response").text(data);
+                    $("#id_div_ajax_response").prop('value', data);
+                    if (data=="Follow") {
+                        $("#follow-boolean").prop("value", "1");
+                    } else {
+                        $("#follow-boolean").prop("value", "0");
+                    }
                 })
             });
 
