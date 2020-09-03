@@ -9,6 +9,7 @@ from django_filters.views import FilterView
 from .filters import ItemFilterSet
 from .forms import ItemForm, PostForm, CommentForm
 from .models import Item, Comment
+from ..users.models import User, FriendShip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import re
@@ -232,11 +233,15 @@ class CampaignPageView(TemplateView):
 
 
 def test_ajax_response(request):
-    input_text = request.POST.getlist("name_input_text")
-    hoge = "Ajax Response: " + input_text[0]
+    follower_username = request.user
+    followee_username = request.POST["followee-name"]
+    print(follower_username, "will follow", followee_username)
+    message = f"You are now following {followee_username}"
+    follower = User.objects.filter(username=follower_username).first()
+    followee = User.objects.filter(username=followee_username).first()
+    print(follower)
+    print(followee)
+    friendship = FriendShip(follower=follower, followee=followee)
+    friendship.save()
 
-    follower_user = request.user
-    followee_user = request.POST["followee-name"]
-    print(follower_user, "will follow", followee_user)
-
-    return HttpResponse(hoge)
+    return HttpResponse(message)
