@@ -206,9 +206,18 @@ class CardDetailPageView(DetailView):
         context["show_left"] = False
         context["show_right"] = False
         context["show_plus_button"] = False
-        form = CommentForm(initial={"item": context["object"].id})
+        form = CommentForm(initial={"item": context["object"].id}) # context["object"].id is the id of the item
         context["comment_form"] = form
         context["comments"] = Comment.objects.filter(item_id=context['object'].id).order_by('commented_date').reverse()
+        followee_id = Item.objects.get(id=context["object"].id).created_by_id
+        follower_id = User.objects.get(id=self.request.user.id).id
+        print('follower:', follower_id)
+        print('followee:', followee_id)
+
+        # if is_follow is above 0, it shows that there is a connection between the two
+        is_following = len(FriendShip.objects.filter(followee_id=followee_id, follower_id=follower_id)) > 0
+        context["is_following"] = is_following
+        print(is_following)
         return context
 
 
@@ -235,13 +244,13 @@ class CampaignPageView(TemplateView):
 def test_ajax_response(request):
     follower_username = request.user
     followee_username = request.POST["followee-name"]
-    print(follower_username, "will follow", followee_username)
+    is_follow = int(request.POST["is-follow"])
     message = f"You are now following {followee_username}"
     follower = User.objects.filter(username=follower_username).first()
     followee = User.objects.filter(username=followee_username).first()
-    print(follower)
-    print(followee)
-    friendship = FriendShip(follower=follower, followee=followee)
-    friendship.save()
-
+    if is_follow:
+        friendship = FriendShip(follower=follower, followee=followee)
+        friendship.save()
+    else:
+        FriendShip.objects.filter(follower=follower, followee=followee).delete()
     return HttpResponse(message)

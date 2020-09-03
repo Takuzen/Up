@@ -21,12 +21,15 @@
             <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
             {% csrf_token %}
             <input type="hidden" name="followee-name" value="{{ item.created_by }}">
-            <input class="btn" type="submit" value="Follow"> 
+            {% if is_following %}
+                <input type="hidden" id="id_div_ajax_response" name="is-follow" value="0">
+                <input class="btn" type="submit" value="Following">
+            {% else %}
+                <input type="hidden"  id="id_div_ajax_response" name="is-follow" value="1">
+                <input class="btn" type="submit" value="Follow">
+            {% endif %}
         </form>
-        
-        <span id="id_div_ajax_response">
-            AJAX RESPONSE
-        </span>
+
     </div>
 
     <div id="card-detail-img-container">
