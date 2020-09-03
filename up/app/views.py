@@ -234,6 +234,9 @@ class CampaignPageView(TemplateView):
 def test_ajax_response(request):
     input_text = request.POST.getlist("name_input_text")
     hoge = "Ajax Response: " + input_text[0]
-    print(input_text)
+
+    follower_user = request.user
+    followee_user = request.POST["followee-name"]
+    print(follower_user, "will follow", followee_user)
 
     return HttpResponse(hoge)
