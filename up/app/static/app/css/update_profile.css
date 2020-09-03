@@ -1,0 +1,21 @@
+@media screen and (max-width:479px) {
+    #update-profile-form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 70vw;
+    }
+}
+
+@media screen and (min-width:480px) {
+    #update-profile-form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 50vw;
+    }
+}
+
+#update-profile-img {
+    margin-bottom: 1.5rem;
+}

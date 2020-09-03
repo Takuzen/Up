@@ -46,9 +46,15 @@
 
 /* 共通 */
 
-#profile-photo img {
+#profile-photo-img {
     width: 100px;
     height: 100px;
+    object-fit: contain;
+}
+
+#profile-photo-img-default {
+    width: 50px;
+    border: solid 3px black;
     object-fit: contain;
 }
 
