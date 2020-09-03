@@ -18,10 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Favicon -->
-    <link rel="icon" href="{% static 'images/icons/favicon/up-favicon.ico' %}">
-    <!-- apple-touch-icon -->
-    <link rel="apple-touch-icon" sizes="180×180" href="{% static 'images/icons/favicon/up-apple-touch-icon.ico' %}">
-    <!-- Windows用アイコン(追々必要あれば) -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/icons/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/icons/favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/icons/favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "images/icons/favicon/site.webmanifest" %}">
+    <link rel="mask-icon" href="{% static "images/icons/favicon/safari-pinned-tab.svg" %}" color="#5bbad5">
     <!-- Title -->
     <title>Up</title>
     <!-- Bootstrap CSS -->
@@ -39,6 +42,7 @@
     <link href="{% static "app/css/login.css" %}" rel="stylesheet">
     <link href="{% static "app/css/signup.css" %}" rel="stylesheet">
     <link href="{% static "app/css/campaign.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/update_profile.css" %}" rel="stylesheet">
     <!-- Fontawesome (fonts and Icons) -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
@@ -53,13 +57,14 @@
         <nav class="my-2 my-md-0 mr-md-3">
             {% if user.is_authenticated %}
             {% if show_profile_icon %}
-                {% if user.image %}
-                    <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
-                            src="{{ user.image.url }}" alt="person-icon"></a>
-                {% else %}
-                    <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn" class="rounded-circle account-img"
-                            src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
-                {% endif %}
+            {% if user.image %}
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img" class="rounded-circle account-img"
+                    src="{{ user.image.url }}" alt="person-icon"></a>
+            {% else %}
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img-default"
+                    class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
+                    alt="person-icon"></a>
+            {% endif %}
             {% endif %}
 
             <a target="_blank" id="feedback-btn"
@@ -85,8 +90,11 @@
         <main id="center" style="width: 100%;">
             {% if messages %}
             {% for message in messages %}
-            <div class="alert alert-{{ message.tags}}">
-                {{ message }}
+            <div id="alert-message-container">
+                <div class="alert alert-{{ message.tags}}">
+                    {{ message }}
+                </div>
+                <a href="{% url 'update_profile' %}"><button id="go-to-set-profile-btn">続けてプロフィールを入力する →</button></a>
             </div>
             {% endfor %}
             {% endif %}
@@ -132,17 +140,16 @@
     <script src="{% static '/app/js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'app/js/infinite.min.js' %}"></script>
     <script>
-
-        $('#myform input[type=file]').on('change invalid', function() {
+        $('#myform input[type=file]').on('change invalid', function () {
             var textfield = $(this).get(0);
-            
+
             // 'setCustomValidity not only sets the message, but also marks
             // the field as invalid. In order to see whether the field really is
             // invalid, we have to remove the message first
             textfield.setCustomValidity('');
-            
+
             if (!textfield.validity.valid) {
-                textfield.setCustomValidity('画像は添付してね！');  
+                textfield.setCustomValidity('画像は添付してね！');
             }
         });
 

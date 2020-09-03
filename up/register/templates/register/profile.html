@@ -4,9 +4,10 @@
 {% block content %}
 <div class="profile-section">
     {% if user.image %}
-    <a id="profile-photo" href="#"><img class="rounded-circle account-img" src="{{ user.image.url }}"></a>
+    <a id="profile-photo" href="#"><img id="profile-photo-img" class="rounded-circle account-img"
+            src="{{ user.image.url }}"></a>
     {% else %}
-    <a id="profile-photo" href="#"><img class="rounded-circle account-img"
+    <a id="profile-photo" href="#"><img id="profile-photo-img-default" class="rounded-circle account-img"
             src="{% static 'images/icons/person.svg' %}"></a>
     {% endif %}
     <div class="profile-textarea">
@@ -33,7 +34,7 @@
         <p id="followee-count">xx</p>
     </div>
     <div class="post-count-section">
-        <p>閲覧数</p>
+        <p>投稿数</p>
         <p id="post-count">xx</p>
     </div>
 </div>

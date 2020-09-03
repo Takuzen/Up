@@ -22,11 +22,8 @@
     }
 
     #card-footer-person-img {
-        border: black 1px solid;
-        width: 10px;
-        position: relative;
-        left: 14px;
-        top: -6px;
+        width: 20px;
+        margin-bottom: 2px;
     }
 }
 
@@ -45,11 +42,8 @@
     }
 
     #card-footer-person-img {
-        border: black 1px solid;
-        width: 10px;
-        position: relative;
-        left: 14px;
-        top: -4px;
+        width: 20px;
+        margin-bottom: 2px;
     }
 }
 
@@ -67,11 +61,8 @@
     }
 
     #card-footer-person-img {
-        border: black 1px solid;
-        width: 10px;
-        position: relative;
-        left: 14px;
-        top: -4px;
+        width: 20px;
+        margin-bottom: 2px;
     }
 }
 
@@ -89,11 +80,8 @@
     }
 
     #card-footer-person-img {
-        border: black 1px solid;
-        width: 10px;
-        position: relative;
-        left: 14px;
-        top: -4px;
+        width: 20px;
+        margin-bottom: 2px;
     }
 }
 
@@ -111,11 +99,8 @@
     }
 
     #card-footer-person-img {
-        border: black 1px solid;
-        width: 10px;
-        position: relative;
-        left: 14px;
-        top: -4px;
+        width: 20px;
+        margin-bottom: 2px;
     }
 }
 
@@ -155,39 +140,18 @@
     color: black;
 }
 
-#second-p {
-    display: inline;
+#card-info-profile-img-container {
+    margin-left: 10px;
 }
 
-#dish-img {
-    width: 30px;
-    object-fit: cover;
-    padding: 3px;
-}
-
-#copy-img {
-    width: 15px;
-    object-fit: cover;
-}
-
-#copy-button {
-    float: right;
-    background: none;
-    border: none;
-}
-
-#copy-button:hover {
-    opacity: 0.6;
-    transition-duration: 0.3s;
-    cursor: pointer;
+#card-info-username {
+    font-size: 0.8em;
 }
 
 #comment-img-link {
     float: right;
-    position: relative;
-    right: 15px;
-    top: -6px;
     text-decoration: none;
+    margin: 0 10px 10px 0;
 }
 
 #comment-img {

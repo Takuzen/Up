@@ -7,8 +7,13 @@
     <div class="card-detail-header">
         <a id="back-btn" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
                 src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
-        <img id="card-detail-profile-img" src="{% static '/images/icons/person.svg' %}"
-            class="rounded-circle account-img" alt="person-icon">
+        {% if item.created_by.image %}
+        <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img" class="rounded-circle account-img"
+            alt="person-img">
+        {% else %}
+        <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img"
+            class="rounded-circle account-img" alt="person-img">
+        {% endif %}
         <p id="card-detail-username">{{ item.created_by }}</p>
     </div>
 
@@ -28,8 +33,13 @@
         <a id="back-btn-on-card-detail-footer" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
                 src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
         <div id="user-info-on-card-detail">
-            <img id="card-detail-profile-img" src="{% static '/images/icons/person.svg' %}"
-                class="rounded-circle account-img" alt="person-icon">
+            {% if item.created_by.image %}
+            <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img" class="rounded-circle account-img"
+                alt="person-img">
+            {% else %}
+            <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img"
+                class="rounded-circle account-img" alt="person-img">
+            {% endif %}
             <p id="card-detail-username">{{ item.created_by }}</p>
         </div>
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
