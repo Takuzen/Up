@@ -16,6 +16,18 @@
         {% endif %}
         <p id="card-detail-username">{{ item.created_by }}</p>
     </div>
+    <div>
+        <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form'>
+            <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
+            {% csrf_token %}
+            <input type="hidden" name="followee-name" value="{{ item.created_by }}">
+            <input class="btn" type="submit" value="Follow"> 
+        </form>
+        
+        <span id="id_div_ajax_response">
+            AJAX RESPONSE
+        </span>
+    </div>
 
     <div id="card-detail-img-container">
         {% if item.image %}
@@ -107,16 +119,4 @@
     </div>
 </div>
 
-<div>
-    <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form'>
-        <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
-        {% csrf_token %}
-        <input type="hidden" name="followee-name" value="{{ item.created_by }}">
-        <input class="btn" type="submit" value="Follow"> 
-    </form>
-    
-    <span id="id_div_ajax_response">
-        AJAX RESPONSE
-    </span>
-</div>
 {% endblock %}
