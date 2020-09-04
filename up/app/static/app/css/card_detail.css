@@ -28,6 +28,11 @@
         margin: 0 5px;
     }
 
+    #card-detail-profile-img-default-v {
+        border: solid 1px black;
+        margin: 0 3px 13px 3px;
+    }
+
     #card-detail-username {
         margin-left: 5px;
         margin-top: 2px;
@@ -114,6 +119,11 @@
         position: relative;
         top: -7px;
         margin: 0 5px;
+    }
+
+    #card-detail-profile-img-default-v {
+        border: solid 1px black;
+        margin: 0 3px 13px 3px;
     }
 
     #card-detail-username {
@@ -203,10 +213,13 @@
         margin: 0 50px;
     }
 
+    #card-detail-profile-img-default-h {
+        border: solid 1px black;
+        margin: 13px;
+    }
+
     #card-detail-username {
-        position: relative;
-        top: 7.5px;
-        left: 8px;
+        margin: 9px 0 8px 5px;
     }
 
     #restaurant-memo {
