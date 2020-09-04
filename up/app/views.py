@@ -213,6 +213,9 @@ class CardDetailPageView(DetailView):
         follower_id = User.objects.get(id=self.request.user.id).id
         print('follower:', follower_id)
         print('followee:', followee_id)
+        if follower_id != followee_id:
+            print("different id")
+            context["show_follow_button"] = True
 
         # if is_follow is above 0, it shows that there is a connection between the two
         is_following = len(FriendShip.objects.filter(followee_id=followee_id, follower_id=follower_id)) > 0
