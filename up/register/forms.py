@@ -29,10 +29,11 @@ class UpdateProfile(forms.ModelForm):
                 'placeholder': 'jisuidaisuki@gmail.com'
             }
         ))
-    bio = forms.CharField(required=False, label="自己紹介",
-        widget=forms.TextInput(
+    bio = forms.CharField(required=False, label="自己紹介", max_length=150,
+        widget=forms.Textarea(
             attrs={
-                'placeholder': '自炊大好きです！'
+                'placeholder': '自炊大好きです！',
+                'rows': 4
             }
         ))
     image = forms.ImageField(required=False)

@@ -52,6 +52,20 @@ class PostForm(forms.ModelForm):
     https://docs.djangoproject.com/ja/2.1/topics/forms/modelforms/
     """
 
+    restaurant_name = forms.CharField(required=False, label="",
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': '料理名を書いてね！',
+            }
+        ))
+
+    restaurant_memo = forms.CharField(required=False, label="",
+        widget=forms.Textarea(
+            attrs={
+                'placeholder': '感想・作り方（写真も忘れずにね！）',
+            }
+        ))
+
     class Meta:
         model = Item
         fields = ['restaurant_name', 'restaurant_memo', 'image']
