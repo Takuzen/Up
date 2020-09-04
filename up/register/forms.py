@@ -17,9 +17,24 @@ class LoginForm(AuthenticationForm):
 
 
 class UpdateProfile(forms.ModelForm):
-    username = forms.CharField(required=False)
-    email = forms.EmailField(required=False)
-    bio = forms.CharField(required=False)
+    username = forms.CharField(required=False, label="ユーザーネーム",
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'username'
+            }
+        ))
+    email = forms.EmailField(required=False, label="メールアドレス",
+        widget=forms.EmailInput(
+            attrs={
+                'placeholder': 'jisuidaisuki@gmail.com'
+            }
+        ))
+    bio = forms.CharField(required=False, label="自己紹介",
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': '自炊大好きです！'
+            }
+        ))
     image = forms.ImageField(required=False)
 
     class Meta:
