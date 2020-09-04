@@ -230,3 +230,14 @@
     top: -1px;
     width: 15px;
   }
+
+  .following-button {
+    background-color: #2CBD3E;
+    color: white;
+  }
+
+  .follow-button {
+    background-color: white;
+    color: #2CBD3E;
+    border-color: #2CBD3E;
+  }
