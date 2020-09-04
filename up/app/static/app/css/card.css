@@ -20,11 +20,6 @@
         margin: 3px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
-
-    #card-footer-person-img {
-        width: 20px;
-        margin-bottom: 2px;
-    }
 }
 
 /* デスクトップ */
@@ -40,11 +35,6 @@
         margin: 8px 0;
         box-shadow: 0 1px 3px lightgrey;
     }
-
-    #card-footer-person-img {
-        width: 20px;
-        margin-bottom: 2px;
-    }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1024px) {
@@ -58,11 +48,6 @@
         border-radius: 5px;
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
-    }
-
-    #card-footer-person-img {
-        width: 20px;
-        margin-bottom: 2px;
     }
 }
 
@@ -78,11 +63,6 @@
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
     }
-
-    #card-footer-person-img {
-        width: 20px;
-        margin-bottom: 2px;
-    }
 }
 
 @media screen and (min-width:1287px) {
@@ -96,11 +76,6 @@
         border-radius: 5px;
         margin: 8px 0px;
         box-shadow: 0 1px 3px lightgrey
-    }
-
-    #card-footer-person-img {
-        width: 20px;
-        margin-bottom: 2px;
     }
 }
 
@@ -142,6 +117,17 @@
 
 #card-info-profile-img-container {
     margin-left: 10px;
+}
+
+#card-footer-person-img {
+    width: 20px;
+    margin-bottom: 2px;
+}
+
+#card-footer-person-img-default {
+    width: 13px;
+    border: solid 1px black;
+    margin: 0 3px;
 }
 
 #card-info-username {

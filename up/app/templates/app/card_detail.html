@@ -11,7 +11,7 @@
         <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img" class="rounded-circle account-img"
             alt="person-img">
         {% else %}
-        <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img"
+        <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img-default-v"
             class="rounded-circle account-img" alt="person-img">
         {% endif %}
         <p id="card-detail-username">{{ item.created_by }}</p>
@@ -52,7 +52,7 @@
             <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img" class="rounded-circle account-img"
                 alt="person-img">
             {% else %}
-            <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img"
+            <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img-default-h"
                 class="rounded-circle account-img" alt="person-img">
             {% endif %}
             <p id="card-detail-username">{{ item.created_by }}</p>
