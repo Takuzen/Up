@@ -17,15 +17,11 @@
                     style="margin-left: 10px;"></i></a>
         </div>
         {% if user.bio %}
-            <p id="bio">{{ user.bio }}</p>
+        <p id="bio">{{ user.bio }}</p>
         {% else %}
-            <p id="bio">自己紹介なし</p>
+        <p id="bio">このユーザーはまだ自己紹介を書いてないよ〜</p>
         {% endif %}
     </div>
-    <!-- disabled until modification completed
-    <a class="edit-profile-btn" href="#">編集</a>
-     -->
-    <!-- FORM HERE -->
 </div>
 
 <div class="profile-statistics">

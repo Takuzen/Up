@@ -53,18 +53,18 @@ class PostForm(forms.ModelForm):
     """
 
     restaurant_name = forms.CharField(required=False, label="",
-        widget=forms.TextInput(
-            attrs={
-                'placeholder': '料理名を書いてね！',
-            }
-        ))
+                                      widget=forms.TextInput(
+                                          attrs={
+                                              'placeholder': 'タイトル',
+                                          }
+                                      ))
 
     restaurant_memo = forms.CharField(required=False, label="",
-        widget=forms.Textarea(
-            attrs={
-                'placeholder': '感想・作り方（写真も忘れずにね！）',
-            }
-        ))
+                                      widget=forms.Textarea(
+                                          attrs={
+                                              'placeholder': 'あなたの思いを記録しよう...',
+                                          }
+                                      ))
 
     class Meta:
         model = Item
@@ -78,6 +78,13 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+
+    comment_text = forms.CharField(required=False, label="",
+                                   widget=forms.TextInput(
+                                       attrs={
+                                           'placeholder': 'あなたの気持ちを相手に伝えよう...',
+                                       }
+                                   ))
 
     class Meta:
         model = Comment
