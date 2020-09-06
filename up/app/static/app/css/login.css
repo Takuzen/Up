@@ -1,12 +1,39 @@
-.container #login {
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+#login-form {
     display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 60vw;
+}
+
+#okaeri {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    align-self: center;
+    margin: 5vh;
+}
+
+#login-btn {
     width: 100%;
-    margin-top: 10%;
-    align-items: center;
+    font-weight: bold;
 }
 
-#welcome-back-message{
+@media screen and (max-width:746px) {
+    #login-do-not-have-account-one-line {
+        display: none;
+    }
+
+    #login-do-not-have-account-two-lines {
+        font-size: 0.9rem;
+    }
 }
 
-.form-group {
+@media screen and (min-width:747px) {
+    #login-do-not-have-account-one-line {
+        font-size: 0.9rem;
+    }
+
+    #login-do-not-have-account-two-lines {
+        display: none;
+    }
 }

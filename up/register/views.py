@@ -38,17 +38,21 @@ def register(response):
         form = SignUpForm()
     return render(response, "register/register.html", {"form": form})
 
+
 @login_required
 def profile(request):
-    user_posts = Item.objects.filter(created_by_id=request.user.id).order_by('-created_at')
+    user_posts = Item.objects.filter(
+        created_by_id=request.user.id).order_by('-created_at')
     posts_cnt = len(user_posts)
-    followees_cnt = len(User.objects.filter(id=request.user.id).first().followees.all())
-    followers_cnt = len(User.objects.filter(id=request.user.id).first().followers.all())
+    followees_cnt = len(User.objects.filter(
+        id=request.user.id).first().followees.all())
+    followers_cnt = len(User.objects.filter(
+        id=request.user.id).first().followers.all())
     render_dict = {'user_posts': user_posts,
-                    'show_profile_icon': False,
-                    'posts_cnt': posts_cnt,
-                    'followees_cnt': followees_cnt,
-                    'followers_cnt': followers_cnt}
+                   'show_profile_icon': False,
+                   'posts_cnt': posts_cnt,
+                   'followees_cnt': followees_cnt,
+                   'followers_cnt': followers_cnt}
     return render(request, 'register/profile.html', render_dict)
 
 

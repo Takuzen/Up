@@ -40,7 +40,7 @@
     <link href="{% static "app/css/photo_upload.css" %}" rel="stylesheet">
     <link href="{% static "app/css/profile.css" %}" rel="stylesheet">
     <link href="{% static "app/css/login.css" %}" rel="stylesheet">
-    <link href="{% static "app/css/signup.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/register.css" %}" rel="stylesheet">
     <link href="{% static "app/css/campaign.css" %}" rel="stylesheet">
     <link href="{% static "app/css/update_profile.css" %}" rel="stylesheet">
     <!-- Fontawesome (fonts and Icons) -->
@@ -212,28 +212,28 @@
                 return;
             });
 
-            $("#ajax-follow-form").submit( function(event) {
+            $("#ajax-follow-form").submit(function (event) {
                 event.preventDefault();
                 var form = $(this);
                 $.ajax({
-                    url: form.prop("action"),
-                    method: form.prop("method"),
-                    data: form.serialize(),
-                    timeout: 10000,
-                    dataType: "text",
-                })
-                .done( function(data) {
-                    $("#id-div-ajax-response").prop('value', data);
-                    if (data=="Follow") {
-                        $("#follow-boolean").prop("value", "1");
-                        $("#id-div-ajax-response").removeClass("following-button");
-                        $("#id-div-ajax-response").addClass("follow-button");
-                    } else {
-                        $("#follow-boolean").prop("value", "0");
-                        $("#id-div-ajax-response").addClass("following-button");
-                        $("#id-div-ajax-response").removeClass("follow-button");
-                    }
-                })
+                        url: form.prop("action"),
+                        method: form.prop("method"),
+                        data: form.serialize(),
+                        timeout: 10000,
+                        dataType: "text",
+                    })
+                    .done(function (data) {
+                        $("#id-div-ajax-response").prop('value', data);
+                        if (data == "Follow") {
+                            $("#follow-boolean").prop("value", "1");
+                            $("#id-div-ajax-response").removeClass("following-button");
+                            $("#id-div-ajax-response").addClass("follow-button");
+                        } else {
+                            $("#follow-boolean").prop("value", "0");
+                            $("#id-div-ajax-response").addClass("following-button");
+                            $("#id-div-ajax-response").removeClass("follow-button");
+                        }
+                    })
             });
 
         })
