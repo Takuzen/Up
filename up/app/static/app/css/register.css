@@ -1,0 +1,60 @@
+@media screen and (max-width: 768px) {
+    .signup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 15px;
+    }
+
+    .mission-statement {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 5% 5% 0 5%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .signup-content {
+        display: flex;
+        height: 78vh;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mission-statement {
+        display: block;
+        margin: auto 0 auto 100px;
+    }
+}
+
+/* 共通 */
+
+.signup-content h1 {
+    color: #28a745;
+    margin-bottom: 24px;
+    font-weight: bold;
+}
+
+.signup-content p {
+    line-height: 2;
+    font-feature-settings: "palt";
+}
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+    margin: 10%;
+}
+
+#register-btn {
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#register-already-have-account {
+    font-size: 0.9rem;
+}
