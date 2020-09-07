@@ -247,6 +247,30 @@
                     })
             });
 
+            $("#ajax-follow-form-2").submit(function (event) {
+                event.preventDefault();
+                var form = $(this);
+                $.ajax({
+                        url: form.prop("action"),
+                        method: form.prop("method"),
+                        data: form.serialize(),
+                        timeout: 10000,
+                        dataType: "text",
+                    })
+                    .done(function (data) {
+                        $("#id-div-ajax-response-2").prop('value', data);
+                        if (data == "フォロー") {
+                            $("#follow-boolean-2").prop("value", "1");
+                            $("#id-div-ajax-response-2").removeClass("following-button");
+                            $("#id-div-ajax-response-2").addClass("follow-button");
+                        } else {
+                            $("#follow-boolean-2").prop("value", "0");
+                            $("#id-div-ajax-response-2").addClass("following-button");
+                            $("#id-div-ajax-response-2").removeClass("follow-button");
+                        }
+                    })
+            });
+
         })
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

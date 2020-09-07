@@ -58,7 +58,22 @@
                 class="rounded-circle account-img" alt="person-img">
             {% endif %}
             <p id="card-detail-username">{{ item.created_by }}</p>
-
+            {% if show_follow_button %}
+            <div>
+                <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form-2'>
+                    <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
+                    {% csrf_token %}
+                    <input type="hidden" name="followee-name" value="{{ item.created_by }}">
+                    {% if is_following %}
+                    <input type="hidden" id="follow-boolean-2" name="is-follow" value="0">
+                    <input class="btn following-button" id="id-div-ajax-response-2" type="submit" value="フォロー中">
+                    {% else %}
+                    <input type="hidden" id="follow-boolean-2" name="is-follow" value="1">
+                    <input class="btn follow-button" id="id-div-ajax-response-2" type="submit" value="フォロー">
+                    {% endif %}
+                </form>
+            </div>
+            {% endif %}
         </div>
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
 
