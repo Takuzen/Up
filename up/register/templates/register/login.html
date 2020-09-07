@@ -3,14 +3,14 @@
 {% block content %}
 
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p id="login-error-msg">入力したユーザー名とパスワードに一致するアカウントがありませんでした。<br>もう一度お試しください。</p>
 {% endif %}
 
 {% if next %}
 {% if user.is_authenticated %}
-<p>あなたのアカウントはこのページを見る権利がありません。進むには、その権限を持つアカウントにログインしてください。</p>
+<p id="login-error-msg">あなたのアカウントはこのページを見る権利がありません。進むには、その権限を持つアカウントにログインしてください。</p>
 {% else %}
-<p>このページを見るにはログインをしてください。</p>
+<p id="login-error-msg">このページを見るにはログインをしてください。</p>
 {% endif %}
 {% endif %}
 
@@ -27,11 +27,8 @@
         <div class="form-group">
             <button id="login-btn" type="submit" class="btn btn-success">ログイン</button>
         </div>
-        <div id="login-do-not-have-account-one-line" class="form-group">
-            <a href="{% url 'register' %}">Up のアカウントをお持ちでない場合は、ここから登録しましょう。</a>
-        </div>
-        <div id="login-do-not-have-account-two-lines" class="form-group">
-            <a href="{% url 'register' %}">Up のアカウントをお持ちでない場合は、<br>ここから登録しましょう。</a>
+        <div id="login-do-not-have-account" class="form-group">
+            <a href="{% url 'register' %}">Up のアカウントをお持ちでない方</a>
         </div>
     </div>
 

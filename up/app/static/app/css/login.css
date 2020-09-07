@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
 
+#login-error-msg {
+    display: flex;
+    color: white;
+    margin: 10px auto;
+    font-weight: bold;
+    width: 100%;
+    background: tomato;
+    padding: 15px;
+    text-align: center;
+    justify-content: center;
+}
+
 #login-form {
     display: flex;
     flex-direction: column;
@@ -18,22 +30,6 @@
     font-weight: bold;
 }
 
-@media screen and (max-width:746px) {
-    #login-do-not-have-account-one-line {
-        display: none;
-    }
-
-    #login-do-not-have-account-two-lines {
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (min-width:747px) {
-    #login-do-not-have-account-one-line {
-        font-size: 0.9rem;
-    }
-
-    #login-do-not-have-account-two-lines {
-        display: none;
-    }
+#login-do-not-have-account {
+    font-size: 0.9rem;
 }
