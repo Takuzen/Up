@@ -244,6 +244,7 @@
   .following-button:focus {
     outline: none;
     box-shadow: none;
+    /* box-shadow: none がないと outline は消えない */
   }
 
   .follow-button {
