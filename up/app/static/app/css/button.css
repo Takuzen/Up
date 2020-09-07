@@ -230,3 +230,44 @@
     top: -1px;
     width: 15px;
   }
+
+  .following-button {
+    background-color: #2CBD3E;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin-left: 20px;
+    position: relative;
+    top: -7px;
+  }
+
+  .follow-button {
+    background-color: white;
+    color: #2CBD3E;
+    border-color: #2CBD3E;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin-left: 20px;
+    position: relative;
+    top: -7px;
+  }
+
+  .following-button-h {
+    background-color: #2CBD3E;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin-left: 20px;
+    margin-top: 5px;
+    ;
+  }
+
+  .follow-button-h {
+    background-color: white;
+    color: #2CBD3E;
+    border-color: #2CBD3E;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin-left: 20px;
+    margin-top: 5px;
+  }

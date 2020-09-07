@@ -20,7 +20,6 @@ class Item(models.Model):
         max_length=20,
         blank=True,
         null=True,
-        help_text='料理名',
     )
 
     # レストランのメモ 大きめのテキストエリア
@@ -28,7 +27,6 @@ class Item(models.Model):
         verbose_name='',
         blank=True,
         null=True,
-        help_text='感想・作り方（写真も忘れずにね！）',
     )
 
     # 23区の選択
@@ -156,7 +154,8 @@ class Comment(models.Model):
     comment_text = models.CharField(
         max_length=140,
         blank=False,
-        null=False,)
+        null=False,
+    )
     commented_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 

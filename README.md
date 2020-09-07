@@ -195,5 +195,6 @@ Query OK, 0 rows affected (0.01 sec)
 
 ```
 docker exec -it up_django_1 /bin/bash
-# python manage.py test app
+# python manage.py test up.app.tests
+# python manage.py test up.users.tests
 ```

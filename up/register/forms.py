@@ -13,13 +13,28 @@ class LoginForm(AuthenticationForm):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
             field.widget.attrs['class'] = 'form-control'
-            field.widget.attrs['placeholder'] = field.label 
 
 
 class UpdateProfile(forms.ModelForm):
-    username = forms.CharField(required=False)
-    email = forms.EmailField(required=False)
-    bio = forms.CharField(required=False)
+    username = forms.CharField(required=False, label="ユーザーネーム",
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'username'
+            }
+        ))
+    email = forms.EmailField(required=False, label="メールアドレス",
+        widget=forms.EmailInput(
+            attrs={
+                'placeholder': 'jisuidaisuki@gmail.com'
+            }
+        ))
+    bio = forms.CharField(required=False, label="自己紹介", max_length=150,
+        widget=forms.Textarea(
+            attrs={
+                'placeholder': '自炊大好きです！',
+                'rows': 4
+            }
+        ))
     image = forms.ImageField(required=False)
 
     class Meta:

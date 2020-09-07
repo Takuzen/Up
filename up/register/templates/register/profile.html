@@ -16,26 +16,26 @@
             <a id="setting-btn" href="{% url 'update_profile' %}"><i class="fas fa-cog"
                     style="margin-left: 10px;"></i></a>
         </div>
+        {% if user.bio %}
         <p id="bio">{{ user.bio }}</p>
+        {% else %}
+        <p id="bio">このユーザーはまだ自己紹介を書いてないよ〜</p>
+        {% endif %}
     </div>
-    <!-- disabled until modification completed
-    <a class="edit-profile-btn" href="#">編集</a>
-     -->
-    <!-- FORM HERE -->
 </div>
 
 <div class="profile-statistics">
     <div class="follower-count-section">
         <p>フォロワー</p>
-        <p id="follower-count">xx</p>
+        <p id="follower-count">{{ followers_cnt }}</p>
     </div>
     <div class="followee-count-section">
         <p>フォロー中</p>
-        <p id="followee-count">xx</p>
+        <p id="followee-count">{{ followees_cnt }}</p>
     </div>
     <div class="post-count-section">
         <p>投稿数</p>
-        <p id="post-count">xx</p>
+        <p id="post-count">{{ posts_cnt }}</p>
     </div>
 </div>
 

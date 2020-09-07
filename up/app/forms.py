@@ -24,8 +24,8 @@ class ItemForm(forms.ModelForm):
 
 class SignUpForm(forms.ModelForm):
 
-    password = forms.CharField(widget=forms.PasswordInput)
-    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput, label="パスワード")
+    email = forms.EmailField(label="メールアドレス")
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -52,6 +52,20 @@ class PostForm(forms.ModelForm):
     https://docs.djangoproject.com/ja/2.1/topics/forms/modelforms/
     """
 
+    restaurant_name = forms.CharField(required=False, label="",
+                                      widget=forms.TextInput(
+                                          attrs={
+                                              'placeholder': 'タイトル',
+                                          }
+                                      ))
+
+    restaurant_memo = forms.CharField(required=False, label="",
+                                      widget=forms.Textarea(
+                                          attrs={
+                                              'placeholder': 'あなたの思いを記録しよう...',
+                                          }
+                                      ))
+
     class Meta:
         model = Item
         fields = ['restaurant_name', 'restaurant_memo', 'image']
@@ -64,6 +78,13 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+
+    comment_text = forms.CharField(required=False, label="",
+                                   widget=forms.TextInput(
+                                       attrs={
+                                           'placeholder': 'あなたの気持ちを相手に伝えよう...',
+                                       }
+                                   ))
 
     class Meta:
         model = Comment

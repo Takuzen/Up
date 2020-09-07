@@ -1,35 +1,31 @@
 {% extends "app/_base.html" %}
 {% load crispy_forms_tags %}
-{% block title %}Create an account {% endblock %}
+{% block title %} Create an account {% endblock %}
 
 {% block content %}
 <div class="signup-content">
     <div class="mission-statement">
-        <h1>
-            We offer the community for those who love cooking.<br>
-        </h1>
-        <p>
-            「アップ」は、 みなさんの料理生活を記録・共有するためのサービスです。<br>あなたの心のこもった手料理を周りとシェアして、みんなで日々料理することをもっと楽しもう！
-        </p>
+        <h1>We offer the community for foodies.</h1>
+        <p>「アップ」は、 みなさんが日々の食生活を記録・共有するためのサービスです。<br>気になるあの人が何を食べてるか覗いてみたり、友人や家族とシェアしたり、<br>みんなでフード・ライフをもっと楽しもう！</p>
     </div>
-    <form method="POST" class="form-group">
+    <form id="register-form" method="POST" class="form-group">
         {% csrf_token %}
-        <div class="form-row" style="margin: 0% 10%">
-            <div class="form-group col-md-6 mb-0">
-                {{ form.username|as_crispy_field }}
-            </div>
-            <div class="form-group col-md-6 mb-0">
-                {{ form.email|as_crispy_field }}
-            </div>
+        <div id="register-username" class="form-group">
+            {{ form.username|as_crispy_field }}
         </div>
-        <div class="form-row" style="margin: 0% 10%">
-            <div class="form-group col-md-6 mb-0">
-                {{ form.password|as_crispy_field }}
-            </div>
+
+        <div id="register-email" class="form-group">
+            {{ form.email|as_crispy_field }}
         </div>
-        <button type="submit" class="btn btn-success" style="margin: 0% 10%">Join</button>
-        <div class="form-row" style="margin: 10% 10%">
-            <a href="{% url 'login' %}">Already have an account? Login here</a>
+
+        <div id="register-password" class="form-group">
+            {{ form.password|as_crispy_field }}
+        </div>
+
+        <button id="register-btn" type="submit" class="btn btn-success">登録する</button>
+
+        <div id="register-already-have-account" class="form-group">
+            <a href="{% url 'login' %}">もう既にアカウントをお持ちですか？</a>
         </div>
     </form>
 </div>

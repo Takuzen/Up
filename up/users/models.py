@@ -35,6 +35,16 @@ class User(AbstractUser):
     image = models.ImageField(
         upload_to='images/profile_pictures', blank=True, null=True)
 
+
+    followees = models.ManyToManyField(
+        'User', verbose_name='フォロー中のユーザー', through='FriendShip',
+        related_name='+', through_fields=('follower', 'followee')
+    )
+    followers = models.ManyToManyField(
+        'User', verbose_name='フォローされているユーザー', through='FriendShip', 
+        related_name='+', through_fields=('followee', 'follower')
+    )
+
     # get_full_name()の変更
     def get_full_name(self):
         if self.full_name:
@@ -45,3 +55,11 @@ class User(AbstractUser):
     # 選択リストでの表示
     def __str__(self):
         return self.get_full_name()
+
+
+class FriendShip(models.Model):
+    follower = models.ForeignKey('User', on_delete=models.CASCADE, related_name='followee_friendships')
+    followee = models.ForeignKey('User', on_delete=models.CASCADE, related_name='follower_friendships')
+
+    class Meta:
+        unique_together = ('follower', 'followee')

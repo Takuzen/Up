@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import DetailView, TemplateView
@@ -9,6 +9,7 @@ from django_filters.views import FilterView
 from .filters import ItemFilterSet
 from .forms import ItemForm, PostForm, CommentForm
 from .models import Item, Comment
+from ..users.models import User, FriendShip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import re
@@ -205,9 +206,21 @@ class CardDetailPageView(DetailView):
         context["show_left"] = False
         context["show_right"] = False
         context["show_plus_button"] = False
-        form = CommentForm(initial={"item": context["object"].id})
+        form = CommentForm(initial={"item": context["object"].id}) # context["object"].id is the id of the item
         context["comment_form"] = form
         context["comments"] = Comment.objects.filter(item_id=context['object'].id).order_by('commented_date').reverse()
+        followee_id = Item.objects.get(id=context["object"].id).created_by_id
+        follower_id = User.objects.get(id=self.request.user.id).id
+        print('follower:', follower_id)
+        print('followee:', followee_id)
+        if follower_id != followee_id:
+            print("different id")
+            context["show_follow_button"] = True
+
+        # if is_follow is above 0, it shows that there is a connection between the two
+        is_following = len(FriendShip.objects.filter(followee_id=followee_id, follower_id=follower_id)) > 0
+        context["is_following"] = is_following
+        print(is_following)
         return context
 
 
@@ -229,3 +242,19 @@ class CardDetailPageView(DetailView):
 
 class CampaignPageView(TemplateView):
     template_name = "app/campaign.html"
+
+
+def test_ajax_response(request):
+    follower_username = request.user
+    followee_username = request.POST["followee-name"]
+    is_follow = int(request.POST["is-follow"])
+    follower = User.objects.filter(username=follower_username).first()
+    followee = User.objects.filter(username=followee_username).first()
+    if is_follow:
+        friendship = FriendShip(follower=follower, followee=followee)
+        friendship.save()
+        message = "フォロー中"
+    else:
+        FriendShip.objects.filter(follower=follower, followee=followee).delete()
+        message = "フォロー"
+    return HttpResponse(message)

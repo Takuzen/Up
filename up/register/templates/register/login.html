@@ -7,27 +7,35 @@
 {% endif %}
 
 {% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
+{% if user.is_authenticated %}
+<p>あなたのアカウントはこのページを見る権利がありません。進むには、その権限を持つアカウントにログインしてください。</p>
+{% else %}
+<p>このページを見るにはログインをしてください。</p>
+{% endif %}
 {% endif %}
 
-<form method="POST" class="form-group">
+<form id="login-form" method="POST" class="form-group">
+    <h3 id="okaeri">おかえりなさい</h3>
     {% csrf_token %}
-    <div class="form-row" style="margin: 10% 10%">
-        <div class="form-group col-md-6 mb-0">
+    <div class="form-group">
+        <div id="username-login" class="form-group">
             {{ form.username|as_crispy_field }}
         </div>
-        <div class="form-group col-md-6 mb-0">
+        <div id="password-login" class="form-group">
             {{ form.password|as_crispy_field }}
         </div>
+        <div class="form-group">
+            <button id="login-btn" type="submit" class="btn btn-success">ログイン</button>
+        </div>
+        <div id="login-do-not-have-account-one-line" class="form-group">
+            <a href="{% url 'register' %}">Up のアカウントをお持ちでない場合は、ここから登録しましょう。</a>
+        </div>
+        <div id="login-do-not-have-account-two-lines" class="form-group">
+            <a href="{% url 'register' %}">Up のアカウントをお持ちでない場合は、<br>ここから登録しましょう。</a>
+        </div>
     </div>
-    <button type="submit" class="btn btn-success" style="margin: 0% 10%">Join</button>
-    <div class="form-row" style="margin: 10% 10%">
-        <a href="{% url 'register' %}">Don't have an account? Sign up here</a>
+
+
     </div>
 </form>
 
