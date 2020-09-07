@@ -241,6 +241,11 @@
     top: -7px;
   }
 
+  .following-button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
   .follow-button {
     background-color: white;
     color: #2CBD3E;
@@ -252,17 +257,26 @@
     top: -7px;
   }
 
-  .following-button-h {
+  .follow-button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .following-button-2 {
     background-color: #2CBD3E;
     color: white;
     font-size: 0.8rem;
     padding: 5px 15px;
     margin-left: 20px;
     margin-top: 5px;
-    ;
   }
 
-  .follow-button-h {
+  .following-button-2:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .follow-button-2 {
     background-color: white;
     color: #2CBD3E;
     border-color: #2CBD3E;
@@ -270,4 +284,9 @@
     padding: 5px 15px;
     margin-left: 20px;
     margin-top: 5px;
+  }
+
+  .follow-button-2:focus {
+    outline: none;
+    box-shadow: none;
   }

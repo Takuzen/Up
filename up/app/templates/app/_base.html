@@ -149,11 +149,24 @@
             textfield.setCustomValidity('');
 
             if (!textfield.validity.valid) {
-                textfield.setCustomValidity('画像は添付してね！');
+                textfield.setCustomValidity('画像を添付してね');
             }
         });
 
         $('#login-form input').on('change invalid', function () {
+            var textfield = $(this).get(0);
+
+            // 'setCustomValidity not only sets the message, but also marks
+            // the field as invalid. In order to see whether the field really is
+            // invalid, we have to remove the message first
+            textfield.setCustomValidity('');
+
+            if (!textfield.validity.valid) {
+                textfield.setCustomValidity('こちらの項目は必須です');
+            }
+        });
+
+        $('#register-form input').on('change invalid', function () {
             var textfield = $(this).get(0);
 
             // 'setCustomValidity not only sets the message, but also marks
@@ -261,12 +274,12 @@
                         $("#id-div-ajax-response-2").prop('value', data);
                         if (data == "フォロー") {
                             $("#follow-boolean-2").prop("value", "1");
-                            $("#id-div-ajax-response-2").removeClass("following-button");
-                            $("#id-div-ajax-response-2").addClass("follow-button");
+                            $("#id-div-ajax-response-2").removeClass("following-button-2");
+                            $("#id-div-ajax-response-2").addClass("follow-button-2");
                         } else {
                             $("#follow-boolean-2").prop("value", "0");
-                            $("#id-div-ajax-response-2").addClass("following-button");
-                            $("#id-div-ajax-response-2").removeClass("follow-button");
+                            $("#id-div-ajax-response-2").addClass("following-button-2");
+                            $("#id-div-ajax-response-2").removeClass("follow-button-2");
                         }
                     })
             });
