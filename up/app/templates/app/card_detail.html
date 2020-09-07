@@ -27,7 +27,7 @@
                 <input class="btn following-button" id="id-div-ajax-response" type="submit" value="フォロー中">
                 {% else %}
                 <input type="hidden" id="follow-boolean" name="is-follow" value="1">
-                <input class="btn follow-button" id="id-div-ajax-response" type="submit" value="フォローする">
+                <input class="btn follow-button" id="id-div-ajax-response" type="submit" value="フォロー">
                 {% endif %}
             </form>
         </div>
@@ -59,23 +59,6 @@
             {% endif %}
             <p id="card-detail-username">{{ item.created_by }}</p>
 
-            {% if show_follow_button %}
-            <div>
-                <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form'>
-                    <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
-                    {% csrf_token %}
-                    <input type="hidden" name="followee-name" value="{{ item.created_by }}">
-                    {% if is_following %}
-                    <input type="hidden" id="follow-boolean" name="is-follow" value="0">
-                    <input class="btn following-button-h" id="id-div-ajax-response" type="submit" value="フォロー中">
-                    {% else %}
-                    <input type="hidden" id="follow-boolean" name="is-follow" value="1">
-                    <input class="btn follow-button-h" id="id-div-ajax-response" type="submit" value="フォローする">
-                    {% endif %}
-                </form>
-
-            </div>
-            {% endif %}
         </div>
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
 

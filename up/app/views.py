@@ -253,8 +253,8 @@ def test_ajax_response(request):
     if is_follow:
         friendship = FriendShip(follower=follower, followee=followee)
         friendship.save()
-        message = "Following"
+        message = "フォロー中"
     else:
         FriendShip.objects.filter(follower=follower, followee=followee).delete()
-        message = "Follow"
+        message = "フォロー"
     return HttpResponse(message)
