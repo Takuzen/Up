@@ -306,3 +306,14 @@
       transform: scale(1.0);
     }
   }
+
+  #share-btn-on-card-header {
+    margin: 0px 3vw 15px auto;
+    font-size: large;
+  }
+
+  #share-btn-on-card-header:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
