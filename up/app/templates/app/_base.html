@@ -248,14 +248,21 @@
                     })
                     .done(function (data) {
                         $("#id-div-ajax-response").prop('value', data);
+                        $("#id-div-ajax-response-2").prop('value', data);
                         if (data == "フォロー") {
                             $("#follow-boolean").prop("value", "1");
+                            $("#follow-boolean-2").prop("value", "1");
                             $("#id-div-ajax-response").removeClass("following-button");
                             $("#id-div-ajax-response").addClass("follow-button");
+                            $("#id-div-ajax-response-2").removeClass("following-button");
+                            $("#id-div-ajax-response-2").addClass("follow-button");
                         } else {
                             $("#follow-boolean").prop("value", "0");
+                            $("#follow-boolean-2").prop("value", "0");
                             $("#id-div-ajax-response").addClass("following-button");
                             $("#id-div-ajax-response").removeClass("follow-button");
+                            $("#id-div-ajax-response-2").addClass("following-button");
+                            $("#id-div-ajax-response-2").removeClass("follow-button");
                         }
                     })
             });
@@ -271,15 +278,22 @@
                         dataType: "text",
                     })
                     .done(function (data) {
+                        $("#id-div-ajax-response").prop('value', data);
                         $("#id-div-ajax-response-2").prop('value', data);
                         if (data == "フォロー") {
+                            $("#follow-boolean").prop("value", "1");
                             $("#follow-boolean-2").prop("value", "1");
-                            $("#id-div-ajax-response-2").removeClass("following-button-2");
-                            $("#id-div-ajax-response-2").addClass("follow-button-2");
+                            $("#id-div-ajax-response").removeClass("following-button");
+                            $("#id-div-ajax-response").addClass("follow-button");
+                            $("#id-div-ajax-response-2").removeClass("following-button");
+                            $("#id-div-ajax-response-2").addClass("follow-button");
                         } else {
+                            $("#follow-boolean").prop("value", "0");
                             $("#follow-boolean-2").prop("value", "0");
-                            $("#id-div-ajax-response-2").addClass("following-button-2");
-                            $("#id-div-ajax-response-2").removeClass("follow-button-2");
+                            $("#id-div-ajax-response").addClass("following-button");
+                            $("#id-div-ajax-response").removeClass("follow-button");
+                            $("#id-div-ajax-response-2").addClass("following-button");
+                            $("#id-div-ajax-response-2").removeClass("follow-button");
                         }
                     })
             });
