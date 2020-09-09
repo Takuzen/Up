@@ -268,3 +268,49 @@
     position: initial;
     margin-top: 5px;
   }
+
+  .like-btn {
+    margin: 0 0 0 auto;
+  }
+
+  .LikesIcon-fa-heart {
+    font-size: 15px;
+    margin: 6px 0 10px 0;
+  }
+
+  .LikesIcon-fa-heart.heart {
+    /* heartAnimationアニメーションを200ミリ秒かけて実行する */
+    animation: heartAnimation .2s;
+    /* アイコン色を黒から赤へ変更する */
+    color: #e2264d;
+  }
+
+  /* --- ハートアニメーション --- */
+
+  @keyframes heartAnimation {
+    0% {
+      /* アイコンサイズをもとのより小さくする */
+      transform: scale(0.5);
+    }
+
+    10% {
+      transform: scale(0.7);
+    }
+
+    30% {
+      transform: scale(0.9);
+    }
+
+    50% {
+      transform: scale(1.2);
+    }
+
+    80% {
+      transform: scale(1.5);
+    }
+
+    100% {
+      /* もとのサイズに戻す */
+      transform: scale(1.0);
+    }
+  }

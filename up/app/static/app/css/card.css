@@ -88,6 +88,13 @@
     border-radius: 2px;
 }
 
+
+#card-info {
+    display: flex;
+    flex-direction: row;
+}
+
+
 #card-body p {
     margin: 0 5px 0 5px;
 }
@@ -132,12 +139,15 @@
 
 #card-info-username {
     font-size: 0.8em;
+    margin-top: 4px;
+    margin-left: 5px;
 }
 
 #comment-img-link {
-    float: right;
+    display: none;
+    /* 非表示 */
+    margin: 0 10px 10px auto;
     text-decoration: none;
-    margin: 0 10px 10px 0;
 }
 
 #comment-img {
@@ -145,10 +155,13 @@
 }
 
 #comment-number {
-    position: relative;
-    top: 2px;
     text-decoration: none;
     margin-left: 5px;
     color: black;
     font-weight: 200;
+}
+
+#like-count {
+    font-size: 0.8rem;
+    margin: 4px 10px 0 0;
 }

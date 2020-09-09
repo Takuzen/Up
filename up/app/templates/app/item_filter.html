@@ -132,6 +132,13 @@
                     <a id="comment-img-link" href="{% url 'card_detail' item.pk %}"><img id="comment-img"
                             src="{% static 'images/icons/comment.png' %}" alt="comment-img"><span
                             id="comment-number">{{ item.comments.count }}</span></a>
+
+                    <div class="like-btn" style="display: flex;">
+                        <i class="far fa-heart LikesIcon-fa-heart"></i>
+                    </div>
+
+                    <p id="like-count">12</p>
+
                 </div>
 
             </div>
