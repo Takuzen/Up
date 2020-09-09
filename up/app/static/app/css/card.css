@@ -144,17 +144,10 @@
 }
 
 #comment-img-link {
-    display: none;
-    /* 非表示 */
-    margin: 0 10px 10px auto;
     text-decoration: none;
 }
 
-#comment-img {
-    width: 15px;
-}
-
-#comment-number {
+#comment-count {
     text-decoration: none;
     margin-left: 5px;
     color: black;

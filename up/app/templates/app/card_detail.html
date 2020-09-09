@@ -90,6 +90,12 @@
                 {% endfor %}
             </div>
 
+            {% if item.comments.count == 0 %}
+            <p> コメントはありません</p>
+            {% else %}
+            <p id="comment-count">コメント{{item.comments.count }}件</p>
+            {% endif %}
+
         </div>
 
     </div>
