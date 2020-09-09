@@ -216,7 +216,8 @@
 
   #mypage-btn-img {
     width: 30px;
-    object-fit: contain;
+    object-fit: cover;
+    height: 30px;
   }
 
   .mypage-btn:hover {
