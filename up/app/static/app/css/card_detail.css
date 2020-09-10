@@ -22,10 +22,11 @@
     }
 
     #card-detail-profile-img {
-        border: solid 2px;
-        position: relative;
-        top: -7px;
-        margin: 0 5px;
+        border: none;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-bottom: 12px;
     }
 
     #card-detail-profile-img-default-v {
@@ -60,7 +61,7 @@
     }
 
     #restaurant-memo {
-        margin: 2vh 3vw;
+        margin: 2vh 3vw 0 3vw;
         white-space: pre-wrap;
     }
 
@@ -75,6 +76,10 @@
         margin-left: 5px;
         position: relative;
         top: 2px;
+    }
+
+    .card-sized-comment-section {
+        display: flex;
     }
 
     .full-sized-comment-section {
@@ -115,10 +120,11 @@
     }
 
     #card-detail-profile-img {
-        border: solid 2px;
-        position: relative;
-        top: -7px;
-        margin: 0 5px;
+        border: none;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-bottom: 12px;
     }
 
     #card-detail-profile-img-default-v {
@@ -153,7 +159,7 @@
     }
 
     #restaurant-memo {
-        margin: 2vh 3vw;
+        margin: 2vh 3vw 0 3vw;
         white-space: pre-wrap;
     }
 
@@ -169,6 +175,10 @@
         margin-left: 5px;
         position: relative;
         top: 2px;
+    }
+
+    .card-sized-comment-section {
+        display: flex;
     }
 
     .full-sized-comment-section {
@@ -213,6 +223,14 @@
         margin: 0 50px;
     }
 
+    #card-detail-profile-img {
+        border: none;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-top: 5px;
+    }
+
     #card-detail-profile-img-default-h {
         border: solid 1px black;
         margin: 13px;
@@ -240,14 +258,39 @@
 
 /* 共通 */
 
-#card-detail-profile-img {
-    border: none;
-    width: 25px;
-    object-fit: contain;
+#hr-above-comment {
+    color: #65676B;
+    margin: none;
 }
 
 .comments {
-    margin: 20px 0px 20px 20px;
+    width: 100%;
+    margin: 0 20px 20px 20px;
+}
+
+.comment-input-row {
+    margin-bottom: 10px;
+}
+
+#commenter-profile-img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-right: 3px;
+    margin-bottom: 2px;
+}
+
+#commenter-profile-img-default {
+    width: 25px;
+    border: solid 2px black;
+    margin-right: 3px;
+    margin-bottom: 1px;
+}
+
+#comment-none-text,
+#comment-count-text {
+    font-size: 0.8rem;
+    color: #65676B;
 }
 
 .full-sized-comments {
@@ -273,13 +316,9 @@
     outline: none;
     border: none;
     color: black;
-    margin-left: auto;
     border-radius: 50px;
-    padding: 10px 15px 10px 15px;
+    padding: 8px 15px 8px 15px;
     font-size: 0.8rem;
-    position: relative;
-    right: 5px;
-    top: -14px;
 }
 
 #full-sized-comment-btn-container {

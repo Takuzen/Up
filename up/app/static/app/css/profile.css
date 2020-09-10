@@ -10,7 +10,7 @@
     }
 
     #profile-photo {
-        margin: 10px;
+        margin: 10px 25px 10px 10px;
     }
 
     .profile-username {
@@ -49,13 +49,14 @@
 #profile-photo-img {
     width: 100px;
     height: 100px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 #profile-photo-img-default {
     width: 50px;
     border: solid 3px black;
     object-fit: contain;
+    margin-right: 20px;
 }
 
 .profile-username-row {

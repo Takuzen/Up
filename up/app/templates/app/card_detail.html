@@ -4,6 +4,7 @@
 
 {% block content %}
 <div id="card-detail-container">
+
     <div class="card-detail-header">
         <a id="back-btn" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
                 src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
@@ -81,13 +82,35 @@
         <div class="card-sized-comment-section">
 
             <div class="comments">
-                <button id="comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
+
+                <hr>
+
+                <!-- コメントボタン -->
+                <div class="comment-input-row">
+                    {% if user.image %}
+                    <img id="commenter-profile-img" class="rounded-circle account-img" src="{{ user.image.url }}"
+                        alt="person-icon">
+                    {% else %}
+                    <img id="commenter-profile-img-default" class="rounded-circle account-img"
+                        style="width: 25px; border: solid 2px black;" src="{% static 'images/icons/person.svg' %}"
+                        alt="person-icon"></a>
+                    {% endif %}
+                    <button id="comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
+                </div>
+
+                {% if item.comments.count == 0 %}
+                <p id="comment-none-text">コメントはありません</p>
+                {% else %}
+                <p id="comment-count-text">コメント{{ item.comments.count }}件</p>
+                {% endif %}
+
                 {% for comment in comments %}
                 <div class="comment-date">{{ comment.commented_date }}</div>
                 <strong class="commenter-username">{{ comment.author }}</strong>
                 <p class="comment-text">{{ comment.comment_text }}</p>
                 {% empty %}
                 {% endfor %}
+
             </div>
 
         </div>
@@ -98,7 +121,7 @@
 
 <div class="full-sized-comment-section">
 
-    <!-- コメント投稿トリガーボタン -->
+    <!-- コメントボタン -->
     <div id="full-sized-comment-btn-container">
         <button id="full-sized-comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
     </div>
