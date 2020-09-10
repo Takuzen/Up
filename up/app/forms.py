@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Item, Comment
+from .models import Item, Comment, Images
 from ..users.models import User
 
 
@@ -68,7 +68,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Item
-        fields = ['restaurant_name', 'restaurant_memo', 'image']
+        fields = ['restaurant_name', 'restaurant_memo']
 
         # 以下のフィールド以外が入力フォームに表示される
         # AutoField
@@ -92,3 +92,11 @@ class CommentForm(forms.ModelForm):
         labels = {
             "comment_text": ""
         }
+
+
+class ImageForm(forms.ModelForm):
+    image = forms.ImageField(label='Image')
+    image.widget.attrs.update({'name': 'image', 'class': 'clearablefileinput', 'id': 'post_restaurant_image', 'multiple': True, 'required': True, 'accept': "image/*"})
+    class Meta:
+        model = Images
+        fields = ('image', )

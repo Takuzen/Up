@@ -204,29 +204,35 @@
 
             // アップロードするファイルを選択
             $('#post_restaurant_image').change(function () {
-                var file = $(this).prop('files')[0];
-
-                // 画像以外は処理を停止
-                if (!file.type.match('image.*')) {
-                    // クリア
-                    $(this).val('');
-                    $('#image_preview_span').html('');
-                    return;
+                var files = $(this).prop('files');
+                for (var i=0; i<files.length; i++){
+                    // 画像以外は処理を停止
+                    file = files[i];
+                    if (!file.type.match('image.*')) {
+                        // クリア
+                        $(this).val('');
+                        $('#image_preview_span').html('');
+                        return;
+                    }
                 }
-
-                // 画像表示
-                var reader = new FileReader();
-                reader.onload = function () {
-                    var img_src = $('<img>').attr({
-                        'src': reader.result,
-                        'id': "upload_image",
-                        'height': 120,
-                        'object-fit': 'cover'
-                    });
-                    $('#image_preview_span').html(img_src);
+                var portfolioImageGroup = $('#removable-div');
+                for (var i=0; i<files.length; i++){
+                    file = files[i];
+                    // 画像表示
+                    var reader = new FileReader();
+                    var image_preview_id = '#image_preview_span-' + String(i);
+                    reader.image_preview_id = image_preview_id;
+                    reader.width = 400 / files.length;
+                    reader.onload = function (e) {
+                        console.log(this.image_preview_id);
+                        console.log(this.width);
+                        portfolioImageGroup.append(`
+                            <img class="responsive-img" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
+                            `)
+                    }
+                    $('#close-button').show();
+                    reader.readAsDataURL(file);
                 }
-                $('#close-button').show()
-                reader.readAsDataURL(file);
             });
 
             $('#close-button').click(function () {

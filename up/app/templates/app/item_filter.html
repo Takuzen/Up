@@ -27,8 +27,7 @@
                             {% load static %}
                             <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
                         </span>
-                        <input type="file" name="image" title=" " accept="image/*" class="clearablefileinput"
-                            id="post_restaurant_image" value="" required>
+                        {{ imageform.image }}
                     </label>
                     <div class="form-group col-md-12 mb-0" style="position: relative;
                     top: -3vh;">
@@ -95,24 +94,19 @@
     </div>
     <!-- feed -->
     <div id="card-infinite-container" class="infinite-container">
-        {% for item in item_list %}
+        {% for key, item in image_dict.items %}
         <div class="infinite-item" id="card">
 
             <div id="card-body">
-                {% if item.image %}
-                <div>
-                    <a id="card-detail-btn" class="#" href="{% url 'card_detail' item.pk %}"><img id="card-img"
-                            src="{{ item.image.url }}"></a>
-                </div>
-                {% else %}
-                <div>
-                    <img src="{% static '/images/icons/gray.jpg' %}" style="width:100%;height:600px">
-                </div>
-                {% endif %}
+                {% for photo in item %}
+                    <a id="card-detail-btn" class="#" href="#">
+                        <img id="card-img" src="{{ photo.image.url }}">
+                    </a>
+                {% endfor %}
             </div>
-
+            <!--
             <div id="card-footer">
-                <a href="{% url 'card_detail' item.pk %}" id="first-p-link">
+                <a href="#" id="first-p-link">
                     <p id="first-p">{{ item.restaurant_name|default_if_none:"未記入" }}</p>
                 </a>
 
@@ -138,18 +132,8 @@
                 </div>
 
             </div>
+            -->
 
-            <!-- 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="float-right">
-                                        <a class="btn btn-outline-dark " href="{% url 'detail' item.pk %}">詳細</a>
-                                        <a class="btn btn-outline-dark " href="{% url 'update' item.pk %}">編集</a>
-                                        <a class="btn btn-outline-dark " href="{% url 'delete' item.pk %}">削除</a>
-                                    </div>
-                                </div>
-                            </div>
-                        -->
         </div>
         {% endfor %}
     </div>

@@ -5,10 +5,13 @@ from django.utils import timezone
 from django.views.generic import DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
+from django.forms import modelformset_factory
+from django.shortcuts import render
+from django.db.models.query import QuerySet
 
 from .filters import ItemFilterSet
-from .forms import ItemForm, PostForm, CommentForm
-from .models import Item, Comment
+from .forms import ItemForm, PostForm, CommentForm, ImageForm
+from .models import Item, Comment, Images
 from ..users.models import User, FriendShip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -81,18 +84,38 @@ class ItemFilterView(FilterView):
         # 例：kwargs['sample'] = 'sample'
         context_data = super().get_context_data(object_list=object_list, **kwargs)
         context_data.update({'form': PostForm})
+        context_data.update({'imageform': ImageForm})
         context_data["show_profile_icon"] = True
+        context_data["images"] = Images.objects.all().order_by('-id')
+        all_images = Images.objects.all().order_by('-id')
+        all_images_copy = all_images.query
+        all_images_copy.group_by = ['item_id']
+        result = QuerySet(query=all_images_copy, model=Images)
+
+        image_dict = {}
+        for image in all_images:
+            if image.item_id not in image_dict:
+                image_dict[image.item_id] = [image]
+            else:
+                image_dict[image.item_id].append(image)
+        context_data["image_dict"] = image_dict
         context_data["show_left"] = False
         context_data["show_right"] = False
         context_data["show_postbutton"] = True
         context_data["show_plus_button"] = True
+        context_data["length"] = len(image_dict)
+        for key, value in image_dict.items():
+            print(key, value)
         return context_data
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            # <process form cleaned data>
-            item = form.save(commit=False)
+        postForm = PostForm(request.POST)
+        lis = request.FILES.getlist('image')
+        for i in lis:
+            print(i)
+        image_form = ImageForm(request.FILES)
+        if postForm.is_valid():
+            item = postForm.save(commit=False)
             item.image = request.FILES['image']
             item.restaurant_memo = regex_format_space(
                 request.POST['restaurant_memo'])
@@ -103,10 +126,17 @@ class ItemFilterView(FilterView):
             item.updated_by = self.request.user
             item.updated_at = timezone.now()
             item.save()
+            if image_form.is_valid:
+                for image in lis:
+                    image_instance = Images(
+                        image=image, item=item
+                    )
+                    image_instance.save()
+
             messages.success(request, f'投稿ありがとうございます!')
             return HttpResponseRedirect(self.success_url)
 
-        return render(request, "/", {'form': form})
+        return render(request, "/", {'form': postForm})
 
 
 class ItemDetailView(DetailView):
