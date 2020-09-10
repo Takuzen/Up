@@ -263,31 +263,8 @@
     box-shadow: none;
   }
 
-  .following-button-2 {
-    background-color: #2CBD3E;
-    color: white;
-    font-size: 0.8rem;
-    padding: 5px 15px;
-    margin-left: 20px;
+  #id-div-ajax-response-2 {
+    /* フルサイズカードのfollow/followingボタンの共通要素 */
+    position: initial;
     margin-top: 5px;
-  }
-
-  .following-button-2:focus {
-    outline: none;
-    box-shadow: none;
-  }
-
-  .follow-button-2 {
-    background-color: white;
-    color: #2CBD3E;
-    border-color: #2CBD3E;
-    font-size: 0.8rem;
-    padding: 5px 15px;
-    margin-left: 20px;
-    margin-top: 5px;
-  }
-
-  .follow-button-2:focus {
-    outline: none;
-    box-shadow: none;
   }
