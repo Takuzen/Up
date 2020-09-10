@@ -22,10 +22,11 @@
     }
 
     #card-detail-profile-img {
-        border: solid 2px;
-        position: relative;
-        top: -7px;
-        margin: 0 5px;
+        border: none;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-bottom: 12px;
     }
 
     #card-detail-profile-img-default-v {
@@ -119,10 +120,11 @@
     }
 
     #card-detail-profile-img {
-        border: solid 2px;
-        position: relative;
-        top: -7px;
-        margin: 0 5px;
+        border: none;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-bottom: 12px;
     }
 
     #card-detail-profile-img-default-v {
@@ -221,6 +223,14 @@
         margin: 0 50px;
     }
 
+    #card-detail-profile-img {
+        border: none;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-top: 5px;
+    }
+
     #card-detail-profile-img-default-h {
         border: solid 1px black;
         margin: 13px;
@@ -247,13 +257,6 @@
 }
 
 /* 共通 */
-
-#card-detail-profile-img {
-    border: none;
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-}
 
 #hr-above-comment {
     color: #65676B;
