@@ -228,10 +228,9 @@ class CardDetailPageView(DetailView):
         # kwargs['sample'] = 'sample'
 
         context = super().get_context_data(**kwargs)
-        print("id")
-        print(context["item"].id)
+
         images = Images.objects.filter(item_id=context["item"].id).all()
-        print(images)
+
         context["images"] = images
         context["show_postbutton"] = False
         context["show_profile_icon"] = False
@@ -243,8 +242,7 @@ class CardDetailPageView(DetailView):
         context["comments"] = Comment.objects.filter(item_id=context['object'].id).order_by('commented_date').reverse()
         followee_id = Item.objects.get(id=context["object"].id).created_by_id
         follower_id = User.objects.get(id=self.request.user.id).id
-        print('follower:', follower_id)
-        print('followee:', followee_id)
+
         if follower_id != followee_id:
             print("different id")
             context["show_follow_button"] = True
