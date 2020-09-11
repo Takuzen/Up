@@ -159,6 +159,18 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
     form_class = PostForm
     success_url = reverse_lazy('index')
 
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        """
+        表示データの設定
+        """
+        # 表示データを追加したい場合は、ここでキーを追加しテンプレート上で表示する
+        # 例：kwargs['sample'] = 'sample'
+        context_data = super().get_context_data(object_list=object_list, **kwargs)
+        context_data.update({'imageform': ImageForm})
+        return context_data
+
+
     def form_valid(self, form):
         """
         登録処理

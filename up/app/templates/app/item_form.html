@@ -17,6 +17,23 @@
             <div id="input-title">
                 {{ form.restaurant_name|as_crispy_field }}
             </div>
+            <label>
+                <span class="filelabel" title="ファイルを選択">
+                    {% load static %}
+                    <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
+                </span>
+                {{ imageform.image }}
+            </label>
+            <div class="form-group col-md-12 mb-0" style="position: relative;
+            top: -3vh;">
+                <div style="position:relative;" id="removable-div">
+                    <span id="image_preview_span"></span>
+                    <div>
+                        <img id="close-button" src="{% static '/images/icons/close-button.png' %}"
+                            alt="close-button">
+                    </div>
+                </div>
+            </div>
         </form>
 
     </div>
