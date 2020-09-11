@@ -98,24 +98,23 @@
         <div class="infinite-item" id="card">
 
             <div id="card-body-{{ forloop.counter }}">
-                {% for photo in item %}
-                    <div class="mySlides-{{ forloop.parentloop.counter }}">
-                        <img id="card-img" src="{{ photo.image.url }}">
-                    </div>
+                {% for photo in item.image %}
+                    {% if forloop.first %}
+                        <div class="mySlides-{{ forloop.parentloop.counter }}">
+                            <img id="card-img" src="{{ photo.image.url }}">
+                        </div>
+                    {% endif %}
                 {% endfor %}
-                <a class="prev" onclick="plusSlides(-1, '{{ forloop.counter }}')">&#10094;</a>
-                <a class="next" onclick="plusSlides(1, '{{ forloop.counter }}')">&#10095;</a>
             </div>
-            <!--
             <div id="card-footer">
-                <a href="#" id="first-p-link">
-                    <p id="first-p">{{ item.restaurant_name|default_if_none:"未記入" }}</p>
+                <a href="{% url 'card_detail' item.post.id %}" id="first-p-link">
+                    <p id="first-p">{{ item.post.restaurant_name }}</p>
                 </a>
 
                 <div id="card-info">
                     <span id="card-info-profile-img-container">
-                        {% if item.created_by.image %}
-                        <img src="{{ item.created_by.image.url }}" id="card-footer-person-img"
+                        {% if item.post.created_by.image %}
+                        <img src="{{ item.post.created_by.image.url }}" id="card-footer-person-img"
                             class="rounded-circle account-img" alt="person-img">
                         {% else %}
                         <img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img-default"
@@ -123,7 +122,7 @@
                         {% endif %}
                     </span>
 
-                    <span id="card-info-username">{{ item.created_by }}</span>
+                    <span id="card-info-username">{{ item.post.created_by }}</span>
 
                     <div class="like-btn" style="display: flex;">
                         <i class="far fa-heart LikesIcon-fa-heart"></i>
@@ -134,7 +133,6 @@
                 </div>
 
             </div>
-            -->
 
         </div>
         {% endfor %}

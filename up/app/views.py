@@ -88,24 +88,21 @@ class ItemFilterView(FilterView):
         context_data["show_profile_icon"] = True
         context_data["images"] = Images.objects.all().order_by('-id')
         all_images = Images.objects.all().order_by('-id')
-        all_images_copy = all_images.query
-        all_images_copy.group_by = ['item_id']
-        result = QuerySet(query=all_images_copy, model=Images)
 
         image_dict = {}
         for image in all_images:
             if image.item_id not in image_dict:
-                image_dict[image.item_id] = [image]
+                image_dict[image.item_id] = {}
+                image_dict[image.item_id]["image"] = [image]
+                image_dict[image.item_id]["post"] = Item.objects.get(pk=image.item_id)
             else:
-                image_dict[image.item_id].append(image)
+                image_dict[image.item_id]["image"].append(image)
         context_data["image_dict"] = image_dict
         context_data["show_left"] = False
         context_data["show_right"] = False
         context_data["show_postbutton"] = True
         context_data["show_plus_button"] = True
         context_data["length"] = len(image_dict)
-        for key, value in image_dict.items():
-            print(key, value)
         return context_data
 
     def post(self, request, *args, **kwargs):
@@ -230,6 +227,10 @@ class CardDetailPageView(DetailView):
         # kwargs['sample'] = 'sample'
 
         context = super().get_context_data(**kwargs)
+
+        images = Images.objects.filter(item_id=context["item"].id).all()
+
+        context["images"] = images
         context["show_postbutton"] = False
         context["show_profile_icon"] = False
         context["show_left"] = False
@@ -242,8 +243,7 @@ class CardDetailPageView(DetailView):
             item_id=context['object'].id).order_by('commented_date').reverse()
         followee_id = Item.objects.get(id=context["object"].id).created_by_id
         follower_id = User.objects.get(id=self.request.user.id).id
-        print('follower:', follower_id)
-        print('followee:', followee_id)
+
         if follower_id != followee_id:
             print("different id")
             context["show_follow_button"] = True
@@ -252,7 +252,6 @@ class CardDetailPageView(DetailView):
         is_following = len(FriendShip.objects.filter(
             followee_id=followee_id, follower_id=follower_id)) > 0
         context["is_following"] = is_following
-        print(is_following)
         return context
 
     def post(self, request, *args, **kwargs):
