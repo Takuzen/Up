@@ -261,13 +261,13 @@
                     // 画像表示
                     var reader = new FileReader();
                     var image_preview_id = '#image_preview_span-' + String(i);
+                    var img_cls = "responsive-img-" + String(i);
                     reader.image_preview_id = image_preview_id;
                     reader.width = 400 / files.length;
+                    reader.img_cls = img_cls;
                     reader.onload = function (e) {
-                        console.log(this.image_preview_id);
-                        console.log(this.width);
                         portfolioImageGroup.append(`
-                            <img class="responsive-img" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
+                            <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
                             `)
                     }
                     $('#close-button').show();
@@ -276,8 +276,11 @@
             });
 
             $('#close-button').click(function () {
-                $('#image_preview_span').html('');
-                $('#post_restaurant_image').val('');
+                $('.responsive-img-0').remove();
+                $('.responsive-img-1').remove();
+                $('.responsive-img-2').remove();
+                $('.responsive-img-3').remove();
+                $('.responsive-img-4').remove();
                 $(this).hide();
                 return;
             });
