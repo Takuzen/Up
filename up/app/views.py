@@ -159,7 +159,7 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
     ビュー：登録画面
     """
     model = Item
-    form_class = ItemForm
+    form_class = PostForm
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
@@ -222,7 +222,6 @@ class CardDetailPageView(DetailView):
     def get(self, request, **kwargs):
         return super().get(request, **kwargs)
 
-
     def get_context_data(self, **kwargs):
         """
         表示データの設定
@@ -236,9 +235,11 @@ class CardDetailPageView(DetailView):
         context["show_left"] = False
         context["show_right"] = False
         context["show_plus_button"] = False
-        form = CommentForm(initial={"item": context["object"].id}) # context["object"].id is the id of the item
+        # context["object"].id is the id of the item
+        form = CommentForm(initial={"item": context["object"].id})
         context["comment_form"] = form
-        context["comments"] = Comment.objects.filter(item_id=context['object'].id).order_by('commented_date').reverse()
+        context["comments"] = Comment.objects.filter(
+            item_id=context['object'].id).order_by('commented_date').reverse()
         followee_id = Item.objects.get(id=context["object"].id).created_by_id
         follower_id = User.objects.get(id=self.request.user.id).id
         print('follower:', follower_id)
@@ -248,18 +249,19 @@ class CardDetailPageView(DetailView):
             context["show_follow_button"] = True
 
         # if is_follow is above 0, it shows that there is a connection between the two
-        is_following = len(FriendShip.objects.filter(followee_id=followee_id, follower_id=follower_id)) > 0
+        is_following = len(FriendShip.objects.filter(
+            followee_id=followee_id, follower_id=follower_id)) > 0
         context["is_following"] = is_following
         print(is_following)
         return context
-
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
             comment_item = form.save(commit=False)
             comment_item.item_id = request.POST['item_id']
-            comment_item.comment_text = regex_format_space(request.POST['comment_text'])
+            comment_item.comment_text = regex_format_space(
+                request.POST['comment_text'])
             comment_item.author = self.request.user
             comment_item.commented_date = timezone.now()
             comment_item.approved_comment = True
@@ -285,6 +287,7 @@ def test_ajax_response(request):
         friendship.save()
         message = "フォロー中"
     else:
-        FriendShip.objects.filter(follower=follower, followee=followee).delete()
+        FriendShip.objects.filter(
+            follower=follower, followee=followee).delete()
         message = "フォロー"
     return HttpResponse(message)

@@ -1,0 +1,67 @@
+.create-card-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-content-container {
+    display: flex;
+    margin: 10px 20px;
+}
+
+#creator-profile-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+#input-content {
+    border: none !important;
+    outline: none;
+    width: 80%;
+    float: right;
+}
+
+#id_restaurant_memo {
+    outline: none;
+    border: none;
+}
+
+#id_restaurant_memo:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#input-title {
+    width: 90%;
+    margin: auto;
+}
+
+#id_restaurant_name {
+    outline: none;
+    border: none;
+}
+
+#id_restaurant_name:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+#save-draft-btn {
+    padding: 10px;
+    background: lightgray;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    margin: 0px 10px 10px 10px;
+}
+
+#post-btn {
+    color: white;
+    background: #ffa76c;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0px 10px 10px 10px;
+}
