@@ -228,6 +228,11 @@ class CardDetailPageView(DetailView):
         # kwargs['sample'] = 'sample'
 
         context = super().get_context_data(**kwargs)
+        print("id")
+        print(context["item"].id)
+        images = Images.objects.filter(item_id=context["item"].id).all()
+        print(images)
+        context["images"] = images
         context["show_postbutton"] = False
         context["show_profile_icon"] = False
         context["show_left"] = False
@@ -247,7 +252,6 @@ class CardDetailPageView(DetailView):
         # if is_follow is above 0, it shows that there is a connection between the two
         is_following = len(FriendShip.objects.filter(followee_id=followee_id, follower_id=follower_id)) > 0
         context["is_following"] = is_following
-        print(is_following)
         return context
 
 
