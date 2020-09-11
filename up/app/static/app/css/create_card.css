@@ -1,6 +1,8 @@
 .create-card-container {
     display: flex;
     flex-direction: column;
+    width: 60vw;
+    margin: auto;
 }
 
 .input-content-container {

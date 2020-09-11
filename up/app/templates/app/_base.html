@@ -124,8 +124,8 @@
     <!-- plus-button-->
     {% if show_plus_button %}
     {% if user.is_authenticated %}
-    <button id="plus-btn" data-toggle="modal" data-target="#post-modal"><img id="plus-btn-img"
-            src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></button>
+    <a id="plus-btn" href="{% url 'create' %}"><img id="plus-btn-img" src="{% static 'images/icons/plus-button.png' %}"
+            alt="plus-btn-img"></a>
     {% else %}
     <a id="plus-btn" href="{% url 'login' %}"><img id="plus-btn-img" src="{% static 'images/icons/plus-button.png' %}"
             alt="plus-btn-img"></a>

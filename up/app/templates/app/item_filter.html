@@ -99,11 +99,11 @@
 
             <div id="card-body-{{ forloop.counter }}">
                 {% for photo in item.image %}
-                    {% if forloop.first %}
-                        <div class="mySlides-{{ forloop.parentloop.counter }}">
-                            <img id="card-img" src="{{ photo.image.url }}">
-                        </div>
-                    {% endif %}
+                {% if forloop.first %}
+                <div class="mySlides-{{ forloop.parentloop.counter }}">
+                    <img id="card-img" src="{{ photo.image.url }}">
+                </div>
+                {% endif %}
                 {% endfor %}
             </div>
             <div id="card-footer">
@@ -128,7 +128,7 @@
                         <i class="far fa-heart LikesIcon-fa-heart"></i>
                     </div>
 
-                    <p id="like-count">12</p>
+                    <p id="like-count"></p>
 
                 </div>
 
