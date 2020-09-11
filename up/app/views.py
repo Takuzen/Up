@@ -88,24 +88,21 @@ class ItemFilterView(FilterView):
         context_data["show_profile_icon"] = True
         context_data["images"] = Images.objects.all().order_by('-id')
         all_images = Images.objects.all().order_by('-id')
-        all_images_copy = all_images.query
-        all_images_copy.group_by = ['item_id']
-        result = QuerySet(query=all_images_copy, model=Images)
 
         image_dict = {}
         for image in all_images:
             if image.item_id not in image_dict:
-                image_dict[image.item_id] = [image]
+                image_dict[image.item_id] = {}
+                image_dict[image.item_id]["image"] = [image]
+                image_dict[image.item_id]["post"] = Item.objects.get(pk=image.item_id)
             else:
-                image_dict[image.item_id].append(image)
+                image_dict[image.item_id]["image"].append(image)
         context_data["image_dict"] = image_dict
         context_data["show_left"] = False
         context_data["show_right"] = False
         context_data["show_postbutton"] = True
         context_data["show_plus_button"] = True
         context_data["length"] = len(image_dict)
-        for key, value in image_dict.items():
-            print(key, value)
         return context_data
 
     def post(self, request, *args, **kwargs):
