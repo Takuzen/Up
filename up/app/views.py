@@ -166,6 +166,9 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
         # 表示データを追加したい場合は、ここでキーを追加しテンプレート上で表示する
         # 例：kwargs['sample'] = 'sample'
         context_data = super().get_context_data(object_list=object_list, **kwargs)
+        if "form" not in context_data:
+            print("no form!")
+            context_data.update({'form': PostForm})
         context_data.update({'imageform': ImageForm})
         return context_data
 
