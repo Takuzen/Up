@@ -43,7 +43,9 @@ def register(response):
 def profile(request):
     user_posts = Item.objects.filter(
         created_by_id=request.user.id).order_by('-created_at')
+    print(user_posts)
     posts_cnt = len(user_posts)
+    print(posts_cnt)
     followees_cnt = len(User.objects.filter(
         id=request.user.id).first().followees.all())
     followers_cnt = len(User.objects.filter(
