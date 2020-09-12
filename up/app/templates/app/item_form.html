@@ -8,6 +8,9 @@
 
         <form method="post" id="myform" enctype="multipart/form-data">
             {% csrf_token %}
+            <div id="input-title">
+                {{ form.restaurant_name }}
+            </div>
             <label>
                 <span class="filelabel" title="ファイルを選択">
                     {% load static %}
@@ -20,8 +23,6 @@
                 <div style="position:relative;" id="removable-div">
                     <span id="image_preview_span"></span>
                     <div>
-                        <img id="close-button" src="{% static '/images/icons/close-button.png' %}"
-                            alt="close-button">
                         <img id="close-button" src="{% static '/images/icons/close-button.png' %}" alt="close-button">
                     </div>
                 </div>
