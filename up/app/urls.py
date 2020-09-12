@@ -11,7 +11,7 @@ from .models import Item
 
 urlpatterns = [
     path('detail/<int:pk>/', ItemDetailView.as_view(), name='detail'),
-    path('create/', ItemCreateView.as_view(), name='create'),
+    path('create/', CampaignPageView.as_view(), name='create'),
     path('update/<int:pk>/', ItemUpdateView.as_view(), name='update'),
     path('delete/<int:pk>/', ItemDeleteView.as_view(), name='delete'),
     path('', ItemFilterView.as_view(), name='index'),
