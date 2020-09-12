@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'up.users.apps.UsersConfig',
     'up.app.apps.AppConfig',
     'up.register.apps.RegisterConfig',
+    'debug_toolbar',
     'storages',
 ]
 
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
