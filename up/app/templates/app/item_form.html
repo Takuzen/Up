@@ -11,11 +11,10 @@
             <div class="input-content-container">
                 <img id="creator-profile-img" class="rounded-circle account-img" src="{{ user.image.url }}">
                 <div id="input-content">
-                    {{ form_for_post.restaurant_memo|as_crispy_field }}
                 </div>
             </div>
             <div id="input-title">
-                {{ form_for_post.restaurant_name|as_crispy_field }}
+                {{ form.restaurant_name|as_crispy_field }}
             </div>
             <label>
                 <span class="filelabel" title="ファイルを選択">
