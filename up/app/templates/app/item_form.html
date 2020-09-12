@@ -8,8 +8,11 @@
 
         <form method="post" id="myform" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="input-content-container">
-                {{ form.restaurant_memo|as_crispy_field }}                
+            {% if user.image.url %}
+                <img id="creator-profile-img" class="rounded-circle account-img" src="{{ user.image.url }}">
+            {% endif %}
+            <div id="input-content">
+                {{ form.restaurant_memo|as_crispy_field }}
             </div>
             <div id="input-title">
                 {{ form.restaurant_name|as_crispy_field }}
