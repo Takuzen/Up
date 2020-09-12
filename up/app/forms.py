@@ -60,7 +60,7 @@ class PostForm(forms.ModelForm):
                                       ))
 
     restaurant_memo = forms.CharField(required=False, label="",
-                                      widget=forms.TextArea(
+                                      widget=forms.Textarea(
                                           attrs={
                                               'placeholder': 'あなたの思いを記録しよう...',
                                           }
