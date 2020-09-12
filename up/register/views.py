@@ -14,7 +14,7 @@ from .forms import LoginForm, UpdateProfile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from ..app.models import Item
+from ..app.models import Item, Images
 from .models import Profile
 from ..users.models import User
 
@@ -44,19 +44,23 @@ def profile(request):
     user_posts = Item.objects.filter(
         created_by_id=request.user.id).order_by('-created_at')
     print(user_posts)
+    img_objects = []
     for post in user_posts:
         print(post.id)
+        img_objects.append(Images.objects.filter(item_id=post.id).first())
     posts_cnt = len(user_posts)
     print(posts_cnt)
     followees_cnt = len(User.objects.filter(
         id=request.user.id).first().followees.all())
     followers_cnt = len(User.objects.filter(
         id=request.user.id).first().followers.all())
+    print(img_objects)
     render_dict = {'user_posts': user_posts,
                    'show_profile_icon': False,
                    'posts_cnt': posts_cnt,
                    'followees_cnt': followees_cnt,
-                   'followers_cnt': followers_cnt}
+                   'followers_cnt': followers_cnt,
+                   'img_obj': img_objects}
     return render(request, 'register/profile.html', render_dict)
 
 
