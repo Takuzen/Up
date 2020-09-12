@@ -9,7 +9,6 @@
         <form method="post" id="myform" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="input-content-container">
-                <img id="creator-profile-img" class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}">
                 <div id="input-content">
                     {{ form.restaurant_memo|as_crispy_field }}
                 </div>

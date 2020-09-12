@@ -44,6 +44,8 @@ def profile(request):
     user_posts = Item.objects.filter(
         created_by_id=request.user.id).order_by('-created_at')
     print(user_posts)
+    for post in user_posts:
+        print(post.id)
     posts_cnt = len(user_posts)
     print(posts_cnt)
     followees_cnt = len(User.objects.filter(
