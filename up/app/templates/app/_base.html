@@ -124,8 +124,7 @@
     <!-- plus-button-->
     {% if show_plus_button %}
     {% if user.is_authenticated %}
-    <a id="plus-btn" href="{% url 'create' %}"><img id="plus-btn-img" src="{% static 'images/icons/plus-button.png' %}"
-            alt="plus-btn-img"></a>
+    <a id="plus-btn" href="{% url 'create' %}"><img id="plus-btn-img" src="{% static 'images/icons/plus-button.png' %}"></a>
     {% else %}
     <a id="plus-btn" href="{% url 'login' %}"><img id="plus-btn-img" src="{% static 'images/icons/plus-button.png' %}"
             alt="plus-btn-img"></a>

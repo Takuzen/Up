@@ -30,3 +30,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
 
 DEFAULT_FILE_STORAGE = 'config.settings.storage_backend.MediaStorage'
+
+SESSION_COOKIE_SAMESITE = 'None'
+
+MIDDLEWARE += ['django_cookies_samesite.middleware.CookiesSameSite',]
