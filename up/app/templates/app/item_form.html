@@ -9,9 +9,7 @@
         <form method="post" id="myform" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="input-content-container">
-                <img id="creator-profile-img" class="rounded-circle account-img" src="{{ user.image.url }}">
-                <div id="input-content">
-                </div>
+                {{ form.restaurant_memo|as_crispy_field }}                
             </div>
             <div id="input-title">
                 {{ form.restaurant_name|as_crispy_field }}
@@ -32,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <a id="save-draft-btn" href="{% url 'index' %}">下書き保存</a>
+            <a id="save-draft-btn" href="{% url 'index' %}">戻る</a>
             <input id="post-btn" type="submit" name="test1" value="投稿する" class="post-button-on-modal">
         </form>
 
