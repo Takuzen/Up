@@ -10,6 +10,8 @@
             {% csrf_token %}
             {% if user.image.url %}
                 <img id="creator-profile-img" class="rounded-circle account-img" src="{{ user.image.url }}">
+            {% else %}
+                <img id="creator-profile-img" class="rounded-circle account-img" src="{{ static 'images/icons/person.svg' }}">
             {% endif %}
             <div id="input-content">
                 {{ form.restaurant_memo|as_crispy_field }}
