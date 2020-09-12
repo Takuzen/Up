@@ -8,13 +8,25 @@
 
         <form method="post" id="myform" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="input-content-container">
-                <img id="creator-profile-img" class="rounded-circle account-img" src="{{ user.image.url }}">
-                <div id="input-content">
-                    {{ form_for_post.restaurant_memo|as_crispy_field }}
+            <label>
+                <span class="filelabel" title="ファイルを選択">
+                    {% load static %}
+                    <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
+                </span>
+                {{ imageform.image }}
+            </label>
+            <div class="form-group col-md-12 mb-0" style="position: relative;
+            top: -3vh;">
+                <div style="position:relative;" id="removable-div">
+                    <span id="image_preview_span"></span>
+                    <div>
+                        <img id="close-button" src="{% static '/images/icons/close-button.png' %}"
+                            alt="close-button">
+                        <img id="close-button" src="{% static '/images/icons/close-button.png' %}" alt="close-button">
+                    </div>
                 </div>
             </div>
-
+            <a id="save-draft-btn" href="{% url 'index' %}">下書き保存</a>
             <input id="post-btn" type="submit" name="test1" value="投稿する" class="post-button-on-modal">
         </form>
 
