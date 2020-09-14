@@ -62,7 +62,7 @@ class PostForm(forms.ModelForm):
     restaurant_memo = forms.CharField(required=False, label="",
                                       widget=forms.Textarea(
                                           attrs={
-                                              'placeholder': 'あなたの思いを記録しよう...',
+                                              'placeholder': '今日なに食べた？',
                                           }
                                       ))
 
@@ -96,7 +96,9 @@ class CommentForm(forms.ModelForm):
 
 class ImageForm(forms.ModelForm):
     image = forms.ImageField(label='Image')
-    image.widget.attrs.update({'name': 'image', 'class': 'clearablefileinput', 'id': 'post_restaurant_image', 'multiple': True, 'required': True, 'accept': "image/*"})
+    image.widget.attrs.update({'name': 'image', 'class': 'clearablefileinput',
+                               'id': 'post_restaurant_image', 'multiple': True, 'required': True, 'accept': "image/*"})
+
     class Meta:
         model = Images
         fields = ('image', )
