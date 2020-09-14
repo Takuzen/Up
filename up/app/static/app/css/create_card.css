@@ -1,8 +1,18 @@
-.create-card-container {
-    display: flex;
-    flex-direction: column;
-    width: 60vw;
-    margin: auto;
+@media screen and (max-width: 479px) {
+    .create-card-container {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .create-card-container {
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        margin: auto;
+    }
 }
 
 .input-content-container {
@@ -40,7 +50,6 @@
 
 #id_restaurant_name {
     outline: none;
-    border: none;
 }
 
 #id_restaurant_name:focus {
@@ -50,20 +59,35 @@
 
 
 #save-draft-btn {
-    padding: 10px;
+    padding: 10px 25px;
     background: lightgray;
-    border-radius: 5px;
+    border-radius: 50px;
     color: white;
     text-align: center;
-    margin: 0px 10px 10px 10px;
+    float: right;
+    text-decoration: none;
+}
+
+#save-draft-btn:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
 }
 
 #post-btn {
+    padding: 10px 25px;
+    background: #ffa76d;
+    border-radius: 50px;
     color: white;
-    background: #ffa76c;
-    padding: 10px;
-    font-weight: bold;
     text-align: center;
-    border-radius: 5px;
     margin: 0px 10px 10px 10px;
+    float: right;
+}
+
+#close-btn-container {
+    margin: 15px 0;
+}
+
+#removable-div {
+    margin: 25px;
 }

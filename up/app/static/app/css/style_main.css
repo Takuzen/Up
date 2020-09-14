@@ -3,6 +3,10 @@
 }
 */
 
+hr {
+    color: #65676B;
+}
+
 .asteriskField {
     display: none;
 }
