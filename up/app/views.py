@@ -166,6 +166,7 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
         # 表示データを追加したい場合は、ここでキーを追加しテンプレート上で表示する
         # 例：kwargs['sample'] = 'sample'
         context_data = super().get_context_data(object_list=object_list, **kwargs)
+        context_data.update({'form_for_post': PostForm})
         context_data.update({'imageform': ImageForm})
         return context_data
 
@@ -281,7 +282,10 @@ class CardDetailPageView(DetailView):
         context["comments"] = Comment.objects.filter(
             item_id=context['object'].id).order_by('commented_date').reverse()
         followee_id = Item.objects.get(id=context["object"].id).created_by_id
-        follower_id = User.objects.get(id=self.request.user.id).id
+        try:
+            follower_id = User.objects.get(id=self.request.user.id).id
+        except:
+            follower_id = followee_id
 
         if follower_id != followee_id:
             print("different id")
