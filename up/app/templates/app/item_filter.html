@@ -101,7 +101,7 @@
                 {% for photo in item.image %}
                 {% if forloop.first %}
                 <div class="mySlides-{{ forloop.parentloop.counter }}">
-                    <img id="card-img" src="{{ photo.image.url }}">
+                    <a href="{% url 'card_detail' item.post.id %}"><img id="card-img" src="{{ photo.image.url }}"></a>
                 </div>
                 {% endif %}
                 {% endfor %}
