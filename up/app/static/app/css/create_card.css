@@ -1,0 +1,93 @@
+@media screen and (max-width: 479px) {
+    .create-card-container {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .create-card-container {
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        margin: auto;
+    }
+}
+
+.input-content-container {
+    display: flex;
+    margin: 10px 20px;
+}
+
+#creator-profile-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+#input-content {
+    border: none !important;
+    outline: none;
+    width: 80%;
+    float: right;
+}
+
+#id_restaurant_memo {
+    outline: none;
+    border: none;
+}
+
+#id_restaurant_memo:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#input-title {
+    width: 90%;
+    margin: auto;
+}
+
+#id_restaurant_name {
+    outline: none;
+}
+
+#id_restaurant_name:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+#save-draft-btn {
+    padding: 10px 25px;
+    background: lightgray;
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    float: right;
+    text-decoration: none;
+}
+
+#save-draft-btn:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+#post-btn {
+    padding: 10px 25px;
+    background: #ffa76d;
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    margin: 0px 10px 10px 10px;
+    float: right;
+}
+
+#close-btn-container {
+    margin: 15px 0;
+}
+
+#removable-div {
+    margin: 25px;
+}

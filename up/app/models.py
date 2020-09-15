@@ -65,9 +65,6 @@ class Item(models.Model):
         null=True,
     )
 
-    image = models.ImageField(
-        upload_to='images/restaurant_posts', blank=True, null=True)
-
     # 価格帯 選択肢
     price_range_choice = (
         (1, '~500'),
@@ -165,3 +162,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.comment_text
+
+
+def user_portfolio_directory_path(instance, filename):
+    return f'images/restaurant_posts/image-{instance.id}/{filename}'
+
+
+class Images(models.Model):
+    item = models.ForeignKey(Item, default=None, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=user_portfolio_directory_path)

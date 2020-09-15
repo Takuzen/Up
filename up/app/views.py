@@ -5,10 +5,13 @@ from django.utils import timezone
 from django.views.generic import DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
+from django.forms import modelformset_factory
+from django.shortcuts import render
+from django.db.models.query import QuerySet
 
 from .filters import ItemFilterSet
-from .forms import ItemForm, PostForm, CommentForm
-from .models import Item, Comment
+from .forms import ItemForm, PostForm, CommentForm, ImageForm
+from .models import Item, Comment, Images
 from ..users.models import User, FriendShip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -81,19 +84,35 @@ class ItemFilterView(FilterView):
         # 例：kwargs['sample'] = 'sample'
         context_data = super().get_context_data(object_list=object_list, **kwargs)
         context_data.update({'form': PostForm})
+        context_data.update({'imageform': ImageForm})
         context_data["show_profile_icon"] = True
+        context_data["images"] = Images.objects.all().order_by('-id')
+        all_images = Images.objects.all().order_by('-id')
+
+        image_dict = {}
+        for image in all_images:
+            if image.item_id not in image_dict:
+                image_dict[image.item_id] = {}
+                image_dict[image.item_id]["image"] = [image]
+                image_dict[image.item_id]["post"] = Item.objects.get(pk=image.item_id)
+            else:
+                image_dict[image.item_id]["image"].append(image)
+        context_data["image_dict"] = image_dict
         context_data["show_left"] = False
         context_data["show_right"] = False
         context_data["show_postbutton"] = True
         context_data["show_plus_button"] = True
+        context_data["length"] = len(image_dict)
         return context_data
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            # <process form cleaned data>
-            item = form.save(commit=False)
-            item.image = request.FILES['image']
+        postForm = PostForm(request.POST)
+        lis = request.FILES.getlist('image')
+        for i in lis:
+            print(i)
+        image_form = ImageForm(request.FILES)
+        if postForm.is_valid():
+            item = postForm.save(commit=False)
             item.restaurant_memo = regex_format_space(
                 request.POST['restaurant_memo'])
             item.restaurant_name = regex_format_space(
@@ -103,10 +122,17 @@ class ItemFilterView(FilterView):
             item.updated_by = self.request.user
             item.updated_at = timezone.now()
             item.save()
+            if image_form.is_valid:
+                for image in lis:
+                    image_instance = Images(
+                        image=image, item=item
+                    )
+                    image_instance.save()
+
             messages.success(request, f'投稿ありがとうございます!')
             return HttpResponseRedirect(self.success_url)
 
-        return render(request, "/", {'form': form})
+        return render(request, "/", {'form': postForm})
 
 
 class ItemDetailView(DetailView):
@@ -129,8 +155,21 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
     ビュー：登録画面
     """
     model = Item
-    form_class = ItemForm
+    form_class = PostForm
     success_url = reverse_lazy('index')
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        """
+        表示データの設定
+        """
+        # 表示データを追加したい場合は、ここでキーを追加しテンプレート上で表示する
+        # 例：kwargs['sample'] = 'sample'
+        context_data = super().get_context_data(object_list=object_list, **kwargs)
+        context_data.update({'form_for_post': PostForm})
+        context_data.update({'imageform': ImageForm})
+        return context_data
+
 
     def form_valid(self, form):
         """
@@ -144,6 +183,34 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
         item.save()
 
         return HttpResponseRedirect(self.success_url)
+
+
+    def post(self, request, *args, **kwargs):
+        postForm = PostForm(request.POST)
+        lis = request.FILES.getlist('image')
+        image_form = ImageForm(request.FILES)
+        if postForm.is_valid():
+            print("valid~~~")
+            item = postForm.save(commit=False)
+            item.restaurant_memo = regex_format_space(
+                request.POST['restaurant_memo'])
+            item.restaurant_name = regex_format_space(
+                request.POST['restaurant_name'])
+            item.created_by = self.request.user
+            item.created_at = timezone.now()
+            item.updated_by = self.request.user
+            item.updated_at = timezone.now()
+            item.save()
+            if image_form.is_valid:
+                for image in lis:
+                    image_instance = Images(
+                        image=image, item=item
+                    )
+                    image_instance.save()
+            messages.success(request, f'投稿ありがとうございます!')
+            return HttpResponseRedirect(self.success_url)
+
+        return render(request, "/", {'form': postForm})
 
 
 class ItemUpdateView(LoginRequiredMixin, UpdateView):
@@ -192,7 +259,6 @@ class CardDetailPageView(DetailView):
     def get(self, request, **kwargs):
         return super().get(request, **kwargs)
 
-
     def get_context_data(self, **kwargs):
         """
         表示データの設定
@@ -201,35 +267,43 @@ class CardDetailPageView(DetailView):
         # kwargs['sample'] = 'sample'
 
         context = super().get_context_data(**kwargs)
+
+        images = Images.objects.filter(item_id=context["item"].id).order_by('id').reverse().all()
+
+        context["images"] = images
         context["show_postbutton"] = False
         context["show_profile_icon"] = False
         context["show_left"] = False
         context["show_right"] = False
         context["show_plus_button"] = False
-        form = CommentForm(initial={"item": context["object"].id}) # context["object"].id is the id of the item
+        # context["object"].id is the id of the item
+        form = CommentForm(initial={"item": context["object"].id})
         context["comment_form"] = form
-        context["comments"] = Comment.objects.filter(item_id=context['object'].id).order_by('commented_date').reverse()
+        context["comments"] = Comment.objects.filter(
+            item_id=context['object'].id).order_by('commented_date').reverse()
         followee_id = Item.objects.get(id=context["object"].id).created_by_id
-        follower_id = User.objects.get(id=self.request.user.id).id
-        print('follower:', follower_id)
-        print('followee:', followee_id)
+        try:
+            follower_id = User.objects.get(id=self.request.user.id).id
+        except:
+            follower_id = followee_id
+
         if follower_id != followee_id:
             print("different id")
             context["show_follow_button"] = True
 
         # if is_follow is above 0, it shows that there is a connection between the two
-        is_following = len(FriendShip.objects.filter(followee_id=followee_id, follower_id=follower_id)) > 0
+        is_following = len(FriendShip.objects.filter(
+            followee_id=followee_id, follower_id=follower_id)) > 0
         context["is_following"] = is_following
-        print(is_following)
         return context
-
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
             comment_item = form.save(commit=False)
             comment_item.item_id = request.POST['item_id']
-            comment_item.comment_text = regex_format_space(request.POST['comment_text'])
+            comment_item.comment_text = regex_format_space(
+                request.POST['comment_text'])
             comment_item.author = self.request.user
             comment_item.commented_date = timezone.now()
             comment_item.approved_comment = True
@@ -255,6 +329,7 @@ def test_ajax_response(request):
         friendship.save()
         message = "フォロー中"
     else:
-        FriendShip.objects.filter(follower=follower, followee=followee).delete()
+        FriendShip.objects.filter(
+            follower=follower, followee=followee).delete()
         message = "フォロー"
     return HttpResponse(message)

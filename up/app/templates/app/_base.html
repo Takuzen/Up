@@ -43,6 +43,7 @@
     <link href="{% static "app/css/register.css" %}" rel="stylesheet">
     <link href="{% static "app/css/campaign.css" %}" rel="stylesheet">
     <link href="{% static "app/css/update_profile.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/create_card.css" %}" rel="stylesheet">
     <!-- Fontawesome (fonts and Icons) -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
@@ -52,7 +53,7 @@
     <!-- css add justify-content: space-between; -->
     <header class="header d-flex flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
         <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}"
-                style="text-decoration: none; color: black;">Up</a></h5>
+                style="font-family: 'Righteous', cursive; text-decoration: none; color: black;">Up</a></h5>
 
         <nav class="my-2 my-md-0 mr-md-3">
             {% if user.is_authenticated %}
@@ -123,8 +124,8 @@
     <!-- plus-button-->
     {% if show_plus_button %}
     {% if user.is_authenticated %}
-    <button id="plus-btn" data-toggle="modal" data-target="#post-modal"><img id="plus-btn-img"
-            src="{% static 'images/icons/plus-button.png' %}" alt="plus-btn-img"></button>
+    <a id="plus-btn" href="{% url 'create' %}"><img id="plus-btn-img" src="{% static 'images/icons/plus-button.png' %}"
+            alt="plus-btn-img"></a>
     {% else %}
     <a id="plus-btn" href="{% url 'login' %}"><img id="plus-btn-img" src="{% static 'images/icons/plus-button.png' %}"
             alt="plus-btn-img"></a>
@@ -140,6 +141,45 @@
     <script src="{% static '/app/js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'app/js/infinite.min.js' %}"></script>
     <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n, m) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+
+            try {
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            } catch (error) {
+                return;
+            }
+        }
+
         $('#myform input[type=file]').on('change invalid', function () {
             var textfield = $(this).get(0);
 
@@ -204,34 +244,44 @@
 
             // アップロードするファイルを選択
             $('#post_restaurant_image').change(function () {
-                var file = $(this).prop('files')[0];
-
-                // 画像以外は処理を停止
-                if (!file.type.match('image.*')) {
-                    // クリア
-                    $(this).val('');
-                    $('#image_preview_span').html('');
-                    return;
+                var files = $(this).prop('files');
+                for (var i = 0; i < files.length; i++) {
+                    // 画像以外は処理を停止
+                    file = files[i];
+                    if (!file.type.match('image.*')) {
+                        // クリア
+                        $(this).val('');
+                        $('#image_preview_span').html('');
+                        return;
+                    }
                 }
-
-                // 画像表示
-                var reader = new FileReader();
-                reader.onload = function () {
-                    var img_src = $('<img>').attr({
-                        'src': reader.result,
-                        'id': "upload_image",
-                        'height': 120,
-                        'object-fit': 'cover'
-                    });
-                    $('#image_preview_span').html(img_src);
+                var portfolioImageGroup = $('#removable-div');
+                for (var i = 0; i < files.length; i++) {
+                    file = files[i];
+                    // 画像表示
+                    var reader = new FileReader();
+                    var image_preview_id = '#image_preview_span-' + String(i);
+                    var img_cls = "responsive-img-" + String(i);
+                    reader.image_preview_id = image_preview_id;
+                    reader.width = 400 / files.length;
+                    reader.img_cls = img_cls;
+                    reader.onload = function (e) {
+                        portfolioImageGroup.append(`
+                            <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
+                            `)
+                    }
+                    $('#close-button').show();
+                    reader.readAsDataURL(file);
                 }
-                $('#close-button').show()
-                reader.readAsDataURL(file);
             });
 
             $('#close-button').click(function () {
-                $('#image_preview_span').html('');
-                $('#post_restaurant_image').val('');
+                $('.responsive-img-0').remove();
+                $('.responsive-img-1').remove();
+                $('.responsive-img-2').remove();
+                $('.responsive-img-3').remove();
+                $('.responsive-img-4').remove();
+                $('input[type="file"]').val(null);
                 $(this).hide();
                 return;
             });

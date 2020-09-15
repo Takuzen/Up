@@ -27,8 +27,7 @@
                             {% load static %}
                             <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
                         </span>
-                        <input type="file" name="image" title=" " accept="image/*" class="clearablefileinput"
-                            id="post_restaurant_image" value="" required>
+                        {{ imageform.image }}
                     </label>
                     <div class="form-group col-md-12 mb-0" style="position: relative;
                     top: -3vh;">
@@ -95,31 +94,27 @@
     </div>
     <!-- feed -->
     <div id="card-infinite-container" class="infinite-container">
-        {% for item in item_list %}
+        {% for key, item in image_dict.items %}
         <div class="infinite-item" id="card">
 
-            <div id="card-body">
-                {% if item.image %}
-                <div>
-                    <a id="card-detail-btn" class="#" href="{% url 'card_detail' item.pk %}"><img id="card-img"
-                            src="{{ item.image.url }}"></a>
-                </div>
-                {% else %}
-                <div>
-                    <img src="{% static '/images/icons/gray.jpg' %}" style="width:100%;height:600px">
+            <div id="card-body-{{ forloop.counter }}">
+                {% for photo in item.image %}
+                {% if forloop.first %}
+                <div class="mySlides-{{ forloop.parentloop.counter }}">
+                    <img id="card-img" src="{{ photo.image.url }}">
                 </div>
                 {% endif %}
+                {% endfor %}
             </div>
-
             <div id="card-footer">
-                <a href="{% url 'card_detail' item.pk %}" id="first-p-link">
-                    <p id="first-p">{{ item.restaurant_name|default_if_none:"未記入" }}</p>
+                <a href="{% url 'card_detail' item.post.id %}" id="first-p-link">
+                    <p id="first-p">{{ item.post.restaurant_name }}</p>
                 </a>
 
                 <div id="card-info">
                     <span id="card-info-profile-img-container">
-                        {% if item.created_by.image %}
-                        <img src="{{ item.created_by.image.url }}" id="card-footer-person-img"
+                        {% if item.post.created_by.image %}
+                        <img src="{{ item.post.created_by.image.url }}" id="card-footer-person-img"
                             class="rounded-circle account-img" alt="person-img">
                         {% else %}
                         <img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img-default"
@@ -127,29 +122,18 @@
                         {% endif %}
                     </span>
 
-                    <span id="card-info-username">{{ item.created_by }}</span>
+                    <span id="card-info-username">{{ item.post.created_by }}</span>
 
                     <div class="like-btn" style="display: flex;">
                         <i class="far fa-heart LikesIcon-fa-heart"></i>
                     </div>
 
-                    <p id="like-count">12</p>
+                    <p id="like-count"></p>
 
                 </div>
 
             </div>
 
-            <!-- 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="float-right">
-                                        <a class="btn btn-outline-dark " href="{% url 'detail' item.pk %}">詳細</a>
-                                        <a class="btn btn-outline-dark " href="{% url 'update' item.pk %}">編集</a>
-                                        <a class="btn btn-outline-dark " href="{% url 'delete' item.pk %}">削除</a>
-                                    </div>
-                                </div>
-                            </div>
-                        -->
         </div>
         {% endfor %}
     </div>

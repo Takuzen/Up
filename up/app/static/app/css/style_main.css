@@ -3,6 +3,14 @@
 }
 */
 
+/* Up Font */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+hr {
+    color: #65676B;
+}
+
+
 .asteriskField {
     display: none;
 }

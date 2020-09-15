@@ -3,46 +3,44 @@
 }
 
 .filelabel {
-    background-color: none;  /* 背景色 */   
-    margin-left: 1vw;  
+    background-color: none;
+    /* 背景色 */
+    margin-left: 1vw;
 }
+
 .filelabel img {
     position: relative;
-    top: -172px;
-    left: 30px;
+    left: 26px;
     width: 20px;
     height: 20px;
 }
-.filelabel:hover {  
-    cursor: pointer;  
+
+.filelabel:hover {
+    cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
 }
 
 .clearablefileinput {
     position: relative;
-    top: -155px;
-    left: 25px;
+    left: 12px;
     width: 0.5px;
     outline: none;
 }
 
 .clearablefileinput::-webkit-file-upload-button {
     visibility: hidden;
-  }
+}
 
 #close-button {
-    display:none;
-    width: 32px;
+    display: none;
+    width: 26px;
     height: 26px;
-    position:absolute;
-    top: 4px;
-    left: 2px;
     object-fit: contain;
 }
 
 #close-button:hover {
-    cursor: pointer;  
+    cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
 }
@@ -65,7 +63,7 @@
 }
 
 .post-button-on-modal:hover {
-    cursor: pointer;  
+    cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
 }
