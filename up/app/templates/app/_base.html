@@ -58,14 +58,11 @@
         <nav class="my-2 my-md-0 mr-md-3">
             {% if user.is_authenticated %}
             {% if show_profile_icon %}
-            {% if user.image %}
-            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img" class="rounded-circle account-img"
-                    src="{{ user.image.url }}" alt="person-icon"></a>
-            {% else %}
+
             <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img-default"
                     class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
                     alt="person-icon"></a>
-            {% endif %}
+
             {% endif %}
 
             <a target="_blank" id="feedback-btn"

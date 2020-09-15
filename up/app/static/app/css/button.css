@@ -209,15 +209,7 @@
 }
 */
 
-  .mypage-btn {
-    position: relative;
-  }
-
-  #mypage-btn-img {
-    width: 30px;
-    object-fit: cover;
-    height: 30px;
-  }
+  .mypage-btn {}
 
   .mypage-btn:hover {
     text-decoration: none;
@@ -225,10 +217,9 @@
     opacity: 0.6;
   }
 
-  .mypage-btn-img-default {
-    position: relative;
-    top: -1px;
-    width: 15px;
+  #mypage-btn-img-default {
+    width: 20px;
+    border: solid 2px black;
   }
 
   .following-button {
