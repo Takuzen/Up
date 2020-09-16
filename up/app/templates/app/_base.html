@@ -174,206 +174,207 @@
             } catch (error) {
                 return;
             }
+        }
 
-            /* クリップボードにコピー */
-            function copyToClipboard(id) {
-                var from = document.getElementById(id);
-                var range = document.createRange();
-                window.getSelection().removeAllRanges();
-                range.selectNode(from);
-                window.getSelection().addRange(range);
-                document.execCommand('copy');
-                window.getSelection().removeAllRanges();
-                var copyBtn = document.getElementById('share-btn-on-card-header');
-                copyBtn.style.display = "none"
-                var copiedMsg = document.getElementById('copied-msg');
-                copiedMsg.style.display = "block"
+        /* クリップボードにコピー */
+        function copyToClipboard(id) {
+            var from = document.getElementById(id);
+            var range = document.createRange();
+            window.getSelection().removeAllRanges();
+            range.selectNode(from);
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            var copyBtn = document.getElementById('share-btn-on-card-header');
+            copyBtn.style.display = "none"
+            var copiedMsg = document.getElementById('copied-msg');
+            copiedMsg.style.display = "block"
 
-                function showCopyBtnAgain() {
-                    copyBtn.style.display = "block";
-                }
-
-                function eraseCopiedMsg() {
-                    copiedMsg.style.display = "none";
-                }
-
-                function restore() {
-                    showCopyBtnAgain();
-                    eraseCopiedMsg();
-                }
-
-                window.setTimeout(restore, 1500)
+            function showCopyBtnAgain() {
+                copyBtn.style.display = "block";
             }
 
-            $('#myform input[type=file]').on('change invalid', function () {
-                var textfield = $(this).get(0);
+            function eraseCopiedMsg() {
+                copiedMsg.style.display = "none";
+            }
 
-                // 'setCustomValidity not only sets the message, but also marks
-                // the field as invalid. In order to see whether the field really is
-                // invalid, we have to remove the message first
-                textfield.setCustomValidity('');
+            function restore() {
+                showCopyBtnAgain();
+                eraseCopiedMsg();
+            }
 
-                if (!textfield.validity.valid) {
-                    textfield.setCustomValidity('画像を添付してね');
-                }
-            });
+            window.setTimeout(restore, 3000)
+        }
 
-            $('#login-form input').on('change invalid', function () {
-                var textfield = $(this).get(0);
+        $('#myform input[type=file]').on('change invalid', function () {
+            var textfield = $(this).get(0);
 
-                // 'setCustomValidity not only sets the message, but also marks
-                // the field as invalid. In order to see whether the field really is
-                // invalid, we have to remove the message first
-                textfield.setCustomValidity('');
+            // 'setCustomValidity not only sets the message, but also marks
+            // the field as invalid. In order to see whether the field really is
+            // invalid, we have to remove the message first
+            textfield.setCustomValidity('');
 
-                if (!textfield.validity.valid) {
-                    textfield.setCustomValidity('こちらの項目は必須です');
-                }
-            });
+            if (!textfield.validity.valid) {
+                textfield.setCustomValidity('画像を添付してね');
+            }
+        });
 
-            $('#register-form input').on('change invalid', function () {
-                var textfield = $(this).get(0);
+        $('#login-form input').on('change invalid', function () {
+            var textfield = $(this).get(0);
 
-                // 'setCustomValidity not only sets the message, but also marks
-                // the field as invalid. In order to see whether the field really is
-                // invalid, we have to remove the message first
-                textfield.setCustomValidity('');
+            // 'setCustomValidity not only sets the message, but also marks
+            // the field as invalid. In order to see whether the field really is
+            // invalid, we have to remove the message first
+            textfield.setCustomValidity('');
 
-                if (!textfield.validity.valid) {
-                    textfield.setCustomValidity('こちらの項目は必須です');
-                }
-            });
+            if (!textfield.validity.valid) {
+                textfield.setCustomValidity('こちらの項目は必須です');
+            }
+        });
 
-            var infinite = new Waypoint.Infinite({
-                element: $('.infinite-container')[0],
-                handler: function (direction) {},
-                offset: 'bottom-in-view',
+        $('#register-form input').on('change invalid', function () {
+            var textfield = $(this).get(0);
 
-                onBeforePageLoad: function () {
-                    $('.spinner-border').show();
-                },
-                onAfterPageLoad: function () {
-                    $('.spinner-border').hide();
-                }
-            });
+            // 'setCustomValidity not only sets the message, but also marks
+            // the field as invalid. In order to see whether the field really is
+            // invalid, we have to remove the message first
+            textfield.setCustomValidity('');
 
-            $(function () {
+            if (!textfield.validity.valid) {
+                textfield.setCustomValidity('こちらの項目は必須です');
+            }
+        });
 
-                // 入力フォームでリターンキー押下時の送信を無効化
-                // ※フィールド１個の時は無効
-                $('#myform').on('sumbit', function (e) {
-                    e.preventDefault();
-                })
+        var infinite = new Waypoint.Infinite({
+            element: $('.infinite-container')[0],
+            handler: function (direction) {},
+            offset: 'bottom-in-view',
 
-                $('#post_restaurant_image').after('<span></span>');
+            onBeforePageLoad: function () {
+                $('.spinner-border').show();
+            },
+            onAfterPageLoad: function () {
+                $('.spinner-border').hide();
+            }
+        });
 
-                // アップロードするファイルを選択
-                $('#post_restaurant_image').change(function () {
-                    var files = $(this).prop('files');
-                    for (var i = 0; i < files.length; i++) {
-                        // 画像以外は処理を停止
-                        file = files[i];
-                        if (!file.type.match('image.*')) {
-                            // クリア
-                            $(this).val('');
-                            $('#image_preview_span').html('');
-                            return;
-                        }
+        $(function () {
+
+            // 入力フォームでリターンキー押下時の送信を無効化
+            // ※フィールド１個の時は無効
+            $('#myform').on('sumbit', function (e) {
+                e.preventDefault();
+            })
+
+            $('#post_restaurant_image').after('<span></span>');
+
+            // アップロードするファイルを選択
+            $('#post_restaurant_image').change(function () {
+                var files = $(this).prop('files');
+                for (var i = 0; i < files.length; i++) {
+                    // 画像以外は処理を停止
+                    file = files[i];
+                    if (!file.type.match('image.*')) {
+                        // クリア
+                        $(this).val('');
+                        $('#image_preview_span').html('');
+                        return;
                     }
-                    var portfolioImageGroup = $('#removable-div');
-                    for (var i = 0; i < files.length; i++) {
-                        file = files[i];
-                        // 画像表示
-                        var reader = new FileReader();
-                        var image_preview_id = '#image_preview_span-' + String(i);
-                        var img_cls = "responsive-img-" + String(i);
-                        reader.image_preview_id = image_preview_id;
-                        reader.width = 400 / files.length;
-                        reader.img_cls = img_cls;
-                        reader.onload = function (e) {
-                            portfolioImageGroup.append(`
+                }
+                var portfolioImageGroup = $('#removable-div');
+                for (var i = 0; i < files.length; i++) {
+                    file = files[i];
+                    // 画像表示
+                    var reader = new FileReader();
+                    var image_preview_id = '#image_preview_span-' + String(i);
+                    var img_cls = "responsive-img-" + String(i);
+                    reader.image_preview_id = image_preview_id;
+                    reader.width = 400 / files.length;
+                    reader.img_cls = img_cls;
+                    reader.onload = function (e) {
+                        portfolioImageGroup.append(`
                             <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
                             `)
-                        }
-                        $('#close-button').show();
-                        reader.readAsDataURL(file);
                     }
-                });
+                    $('#close-button').show();
+                    reader.readAsDataURL(file);
+                }
+            });
 
-                $('#close-button').click(function () {
-                    $('.responsive-img-0').remove();
-                    $('.responsive-img-1').remove();
-                    $('.responsive-img-2').remove();
-                    $('.responsive-img-3').remove();
-                    $('.responsive-img-4').remove();
-                    $('input[type="file"]').val(null);
-                    $(this).hide();
-                    return;
-                });
+            $('#close-button').click(function () {
+                $('.responsive-img-0').remove();
+                $('.responsive-img-1').remove();
+                $('.responsive-img-2').remove();
+                $('.responsive-img-3').remove();
+                $('.responsive-img-4').remove();
+                $('input[type="file"]').val(null);
+                $(this).hide();
+                return;
+            });
 
-                $("#ajax-follow-form").submit(function (event) {
-                    event.preventDefault();
-                    var form = $(this);
-                    $.ajax({
-                            url: form.prop("action"),
-                            method: form.prop("method"),
-                            data: form.serialize(),
-                            timeout: 10000,
-                            dataType: "text",
-                        })
-                        .done(function (data) {
-                            $("#id-div-ajax-response").prop('value', data);
-                            $("#id-div-ajax-response-2").prop('value', data);
-                            if (data == "フォロー") {
-                                $("#follow-boolean").prop("value", "1");
-                                $("#follow-boolean-2").prop("value", "1");
-                                $("#id-div-ajax-response").removeClass("following-button");
-                                $("#id-div-ajax-response").addClass("follow-button");
-                                $("#id-div-ajax-response-2").removeClass("following-button");
-                                $("#id-div-ajax-response-2").addClass("follow-button");
-                            } else {
-                                $("#follow-boolean").prop("value", "0");
-                                $("#follow-boolean-2").prop("value", "0");
-                                $("#id-div-ajax-response").addClass("following-button");
-                                $("#id-div-ajax-response").removeClass("follow-button");
-                                $("#id-div-ajax-response-2").addClass("following-button");
-                                $("#id-div-ajax-response-2").removeClass("follow-button");
-                            }
-                        })
-                });
+            $("#ajax-follow-form").submit(function (event) {
+                event.preventDefault();
+                var form = $(this);
+                $.ajax({
+                        url: form.prop("action"),
+                        method: form.prop("method"),
+                        data: form.serialize(),
+                        timeout: 10000,
+                        dataType: "text",
+                    })
+                    .done(function (data) {
+                        $("#id-div-ajax-response").prop('value', data);
+                        $("#id-div-ajax-response-2").prop('value', data);
+                        if (data == "フォロー") {
+                            $("#follow-boolean").prop("value", "1");
+                            $("#follow-boolean-2").prop("value", "1");
+                            $("#id-div-ajax-response").removeClass("following-button");
+                            $("#id-div-ajax-response").addClass("follow-button");
+                            $("#id-div-ajax-response-2").removeClass("following-button");
+                            $("#id-div-ajax-response-2").addClass("follow-button");
+                        } else {
+                            $("#follow-boolean").prop("value", "0");
+                            $("#follow-boolean-2").prop("value", "0");
+                            $("#id-div-ajax-response").addClass("following-button");
+                            $("#id-div-ajax-response").removeClass("follow-button");
+                            $("#id-div-ajax-response-2").addClass("following-button");
+                            $("#id-div-ajax-response-2").removeClass("follow-button");
+                        }
+                    })
+            });
 
-                $("#ajax-follow-form-2").submit(function (event) {
-                    event.preventDefault();
-                    var form = $(this);
-                    $.ajax({
-                            url: form.prop("action"),
-                            method: form.prop("method"),
-                            data: form.serialize(),
-                            timeout: 10000,
-                            dataType: "text",
-                        })
-                        .done(function (data) {
-                            $("#id-div-ajax-response").prop('value', data);
-                            $("#id-div-ajax-response-2").prop('value', data);
-                            if (data == "フォロー") {
-                                $("#follow-boolean").prop("value", "1");
-                                $("#follow-boolean-2").prop("value", "1");
-                                $("#id-div-ajax-response").removeClass("following-button");
-                                $("#id-div-ajax-response").addClass("follow-button");
-                                $("#id-div-ajax-response-2").removeClass("following-button");
-                                $("#id-div-ajax-response-2").addClass("follow-button");
-                            } else {
-                                $("#follow-boolean").prop("value", "0");
-                                $("#follow-boolean-2").prop("value", "0");
-                                $("#id-div-ajax-response").addClass("following-button");
-                                $("#id-div-ajax-response").removeClass("follow-button");
-                                $("#id-div-ajax-response-2").addClass("following-button");
-                                $("#id-div-ajax-response-2").removeClass("follow-button");
-                            }
-                        })
-                });
+            $("#ajax-follow-form-2").submit(function (event) {
+                event.preventDefault();
+                var form = $(this);
+                $.ajax({
+                        url: form.prop("action"),
+                        method: form.prop("method"),
+                        data: form.serialize(),
+                        timeout: 10000,
+                        dataType: "text",
+                    })
+                    .done(function (data) {
+                        $("#id-div-ajax-response").prop('value', data);
+                        $("#id-div-ajax-response-2").prop('value', data);
+                        if (data == "フォロー") {
+                            $("#follow-boolean").prop("value", "1");
+                            $("#follow-boolean-2").prop("value", "1");
+                            $("#id-div-ajax-response").removeClass("following-button");
+                            $("#id-div-ajax-response").addClass("follow-button");
+                            $("#id-div-ajax-response-2").removeClass("following-button");
+                            $("#id-div-ajax-response-2").addClass("follow-button");
+                        } else {
+                            $("#follow-boolean").prop("value", "0");
+                            $("#follow-boolean-2").prop("value", "0");
+                            $("#id-div-ajax-response").addClass("following-button");
+                            $("#id-div-ajax-response").removeClass("follow-button");
+                            $("#id-div-ajax-response-2").addClass("following-button");
+                            $("#id-div-ajax-response-2").removeClass("follow-button");
+                        }
+                    })
+            });
 
-            })
+        })
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"
