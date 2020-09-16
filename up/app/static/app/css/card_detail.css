@@ -74,7 +74,7 @@
     }
 
     #restaurant-memo {
-        margin: 2vh 3vw 0 3vw;
+        margin: 0 3vw 10px 3vw;
         white-space: pre-wrap;
     }
 
@@ -185,7 +185,7 @@
     }
 
     #restaurant-memo {
-        margin: 2vh 3vw 0 3vw;
+        margin: 0 3vw 10px 3vw;
         white-space: pre-wrap;
     }
 
@@ -279,7 +279,7 @@
     }
 
     #restaurant-memo {
-        margin: 10px 50px 0 50px;
+        margin: 15px 50px 15px 50px;
         white-space: pre-line;
     }
 
