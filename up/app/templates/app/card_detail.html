@@ -34,7 +34,14 @@
         </div>
         {% endif %}
 
-        <i id="share-btn-on-card-header" class="far fa-share-square"></i>
+        <div class="share-btn">
+            <button id="share-btn-on-card-header" onclick="copyToClipboard('absolute-uri')"><i
+                    class="far fa-share-square"></i></button>
+            <p id="absolute-uri" onclick="copyElementText(this.id)">
+                {{ request.build_absolute_uri }}
+            </p>
+            <p id="copied-msg">copied!</p>
+        </div>
 
     </div>
 

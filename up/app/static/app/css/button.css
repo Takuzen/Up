@@ -307,13 +307,35 @@
     }
   }
 
+  .share-btn {
+    margin-left: auto;
+  }
+
+  /* display:noneにすると選択或いはコピーができないので、止むを得ず見えない所へ飛ばしてる（理想的でない） */
+  #absolute-uri {
+    position: absolute;
+    left: 1000px;
+  }
+
   #share-btn-on-card-header {
     margin: 0px 3vw 15px auto;
     font-size: large;
+    border: none;
+    background: none;
+    outline: none;
   }
 
   #share-btn-on-card-header:hover {
     opacity: 0.6;
     transition-duration: 0.3s;
     cursor: pointer;
+  }
+
+  #copied-msg {
+    display: none;
+    color: tomato;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 5px;
+    margin: 0px 3vw 15px auto;
   }
