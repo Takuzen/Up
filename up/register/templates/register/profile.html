@@ -4,15 +4,15 @@
 {% block content %}
 <div class="profile-section">
     {% if user.image %}
-    <a id="profile-photo" href="#"><img id="profile-photo-img" class="rounded-circle account-img"
-            src="{{ user.image.url }}"></a>
+    <div id="profile-photo"><img id="profile-photo-img" class="rounded-circle account-img" src="{{ user.image.url }}">
+    </div>
     {% else %}
-    <a id="profile-photo" href="#"><img id="profile-photo-img-default" class="rounded-circle account-img"
-            src="{% static 'images/icons/person.svg' %}"></a>
+    <div id="profile-photo"><img id="profile-photo-img-default" class="rounded-circle account-img"
+            src="{% static 'images/icons/person.svg' %}"></div>
     {% endif %}
     <div class="profile-textarea">
         <div class="profile-username-row">
-            <h4 class="profile-username">{{ user.username }}</h4>
+            <h5 class="profile-username">{{ user.username }}</h5>
             <a id="setting-btn" href="{% url 'update_profile' %}"><i class="fas fa-cog"
                     style="margin-left: 10px;"></i></a>
         </div>

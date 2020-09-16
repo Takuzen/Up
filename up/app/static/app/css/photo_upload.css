@@ -2,23 +2,42 @@
     margin: -1rem -1rem -1rem 0;
 }
 
-.filelabel {
+.filelabel-modal {
     background-color: none;
     /* 背景色 */
     margin-left: 1vw;
 }
 
-.filelabel img {
+.filelabel-modal img {
     position: relative;
-    left: 26px;
+    left: 15px;
     width: 20px;
     height: 20px;
 }
 
-.filelabel:hover {
+.filelabel-modal:hover {
     cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
+}
+
+.filelabel-page {
+    background-color: none;
+    /* 背景色 */
+    margin-left: 1vw;
+}
+
+.filelabel-page:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+.filelabel-page img {
+    position: relative;
+    left: 35px;
+    width: 20px;
+    height: 20px;
 }
 
 .clearablefileinput {
@@ -57,7 +76,7 @@
     color: white;
     font-size: 16px;
     font-weight: bold;
-    padding: 8px 50px;
+    padding: 10px 25px;
     text-align: center;
     border-radius: 30px;
 }

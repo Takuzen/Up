@@ -209,17 +209,14 @@
 }
 */
 
-  .mypage-btn {}
-
   .mypage-btn:hover {
     text-decoration: none;
     cursor: pointer;
     opacity: 0.6;
   }
 
-  #mypage-btn-img-default {
-    width: 20px;
-    border: solid 2px black;
+  #mypage-btn-img {
+    width: 1rem;
   }
 
   .following-button {

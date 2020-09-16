@@ -27,6 +27,7 @@
         height: 30px;
         object-fit: cover;
         margin-bottom: 12px;
+        margin-left: 5px;
     }
 
     #card-detail-profile-img-default-v {
@@ -137,6 +138,7 @@
         height: 30px;
         object-fit: cover;
         margin-bottom: 12px;
+        margin-left: 5px;
     }
 
     #card-detail-profile-img-default-v {
@@ -376,6 +378,7 @@
     outline: none;
     border: none;
     color: black;
+    background: whitesmoke;
     border-radius: 50px;
     padding: 8px 15px 8px 15px;
     font-size: 0.8rem;
@@ -390,6 +393,7 @@
     outline: none;
     border: none;
     color: black;
+    background: whitesmoke;
     border-radius: 50px;
     padding: 10px 15px 10px 15px;
     font-size: 0.8rem;

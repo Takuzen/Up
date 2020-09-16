@@ -59,9 +59,8 @@
             {% if user.is_authenticated %}
             {% if show_profile_icon %}
 
-            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img-default"
-                    class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"
-                    alt="person-icon"></a>
+            <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img" class="rounded-circle account-img"
+                    src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
 
             {% endif %}
 
@@ -106,9 +105,9 @@
                 <ul class="list-unstyled components" style="margin-left: 25px; margin-top: 25px;">
                     <li id="post_button">
                         {% if user.is_authenticated %}
-                        <button class="btn-square-soft" data-toggle="modal" data-target="#post-modal">投稿する</button>
+                        <button class="btn-square-soft" data-toggle="modal" data-target="#post-modal">アップする</button>
                         {% else %}
-                        <a class="btn-square-soft" href="{% url 'login' %}">投稿する</a>
+                        <a class="btn-square-soft" href="{% url 'login' %}">アップする</a>
                         {% endif %}
                     </li>
                 </ul>
