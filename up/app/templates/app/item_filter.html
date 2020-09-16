@@ -1,6 +1,6 @@
 {% extends "./_base.html" %}
 {% load crispy_forms_tags %}
-
+{% load static %}
 
 {% block content %}
 <!-- 新規投稿モーダル -->
@@ -16,14 +16,22 @@
             <div class="modal-body">
                 <form method="post" id="myform" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="form-group col-md-12 mb-0" style="overflow: hidden;">
-                        {{ form.restaurant_memo|as_crispy_field }}
+                    <div id="post-modal-memo-container">
+                        {% if user.image %}
+                        <img id="instant-post-modal-profile-img" class="rounded-circle account-img"
+                            src="{{ user.image.url }}">
+                        {% else %}
+                        <img id="instant-post-modal-profile-img-default" class="rounded-circle account-img"
+                            src="{% static 'images/icons/person.svg' %}">
+                        {% endif %}
+                        <div>
+                            {{ form.restaurant_memo|as_crispy_field }}
+                        </div>
+
                     </div>
-                    <div class="form-group col-md-12 mb-0" style="overflow: hidden;">
-                        {{ form.restaurant_name|as_crispy_field }}
-                    </div>
+
                     <label>
-                        <span class="filelabel" title="ファイルを選択">
+                        <span class="filelabel-modal" title="ファイルを選択">
                             {% load static %}
                             <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
                         </span>
@@ -39,8 +47,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group col-md-12 mb-0" style="overflow: hidden;">
+                        {{ form.restaurant_name|as_crispy_field }}
+                    </div>
+
                     <div class="modal-footer">
-                        <input type="submit" name="test1" value="投稿する" class="post-button-on-modal">
+                        <input type="submit" name="test1" value="アップする" class="post-button-on-modal">
                     </div>
                 </form>
             </div>
@@ -74,12 +87,12 @@
     </div>
 </div>
 
-<div>　
-    <!-- filter buttons-->
-    <div class="filters">
+<div id="homepage-container">　
+    <!-- フィルタ（非表示）-->
+    <div class="filters" style="display: none;">
 
         <!-- 
-        <a class="btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
+        <a class=" btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
         <button class="btn-vegetarian">ベジタリアン</button>
         <button class="btn-vegan">ヴィーガン</button>
         -->
@@ -92,6 +105,24 @@
             style="display: none;"><img src="{% static '/images/icons/filter-no-circle.png' %}"></a>
 
     </div>
+
+    <!-- Instant Post  -->
+    <div class="instant-post-container">
+        {% if user.image %}
+        <div id="instant-post-profile-frame"><img id="instant-post-profile-img" class="rounded-circle account-img"
+                src="{{ user.image.url }}"></div>
+        {% else %}
+        <div id="instant-post-profile-frame"><img id="instant-post-profile-img-default"
+                class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"></div>
+        {% endif %}
+
+
+        <a id="post-modal-call-btn" data-toggle="modal" data-target="#post-modal">
+            <span style="white-space: nowrap;">今日なに食べた？</span>
+        </a>
+
+
+    </div>
     <!-- feed -->
     <div id="card-infinite-container" class="infinite-container">
         {% for key, item in image_dict.items %}
@@ -101,7 +132,7 @@
                 {% for photo in item.image %}
                 {% if forloop.first %}
                 <div class="mySlides-{{ forloop.parentloop.counter }}">
-                    <img id="card-img" src="{{ photo.image.url }}">
+                    <a href="{% url 'card_detail' item.post.id %}"><img id="card-img" src="{{ photo.image.url }}"></a>
                 </div>
                 {% endif %}
                 {% endfor %}

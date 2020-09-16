@@ -6,15 +6,24 @@
         flex-direction: row;
         text-align: center;
         justify-content: center;
-        margin: 0 3vh 3vh 3vh;
+        margin: 0 1vh 3vh 3vh;
     }
 
     #profile-photo {
         margin: 10px 25px 10px 10px;
     }
 
+    .profile-textarea {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+        width: 60vw;
+    }
+
     .profile-username {
         max-width: 150px;
+        font-weight: bold;
         white-space: nowrap;
         overflow-x: hidden;
         text-overflow: ellipsis;
@@ -36,8 +45,17 @@
         margin: 10px 40px 10px 10px;
     }
 
+    .profile-textarea {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+        width: 60vw;
+    }
+
     .profile-username {
         max-width: 40vw;
+        font-weight: bold;
         white-space: nowrap;
         overflow-x: hidden;
         text-overflow: ellipsis;
@@ -53,22 +71,13 @@
 }
 
 #profile-photo-img-default {
-    width: 50px;
-    border: solid 3px black;
-    object-fit: contain;
-    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    border: solid 2px black;
 }
 
 .profile-username-row {
     display: flex;
-}
-
-.profile-textarea {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 10px;
-    width: 60vw;
 }
 
 #setting-btn {
@@ -84,7 +93,8 @@
 
 #bio {
     text-align: left;
-    padding-right: 20px;
+    padding-right: 10px;
+    font-size: 0.8rem;
 }
 
 .profile-statistics {

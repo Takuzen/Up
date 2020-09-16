@@ -6,6 +6,25 @@
 /* Up Font */
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+@media screen and (max-width: 479px) {
+    #post-modal-call-btn {
+        background: #f0f2f5;
+        border-radius: 50px;
+        padding: 13px 30% 13px 20px;
+        color: #65676B;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    #post-modal-call-btn {
+        background: #f0f2f5;
+        border-radius: 50px;
+        padding: 13px 30% 13px 20px;
+        color: #65676B;
+        margin: 0 10px;
+    }
+}
+
 hr {
     color: #65676B;
 }
@@ -38,6 +57,11 @@ header h5 {
 }
 */
 
+#homepage-container {
+    position: relative;
+    top: -30px;
+}
+
 .filters {
     display: flex;
     justify-content: flex-start;
@@ -45,6 +69,40 @@ header h5 {
     flex-wrap: nowrap;
     margin-left: 5vw;
     margin-bottom: 23px;
+}
+
+.instant-post-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 15px auto;
+    width: 98%;
+}
+
+#instant-post-profile-frame {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+#instant-post-profile-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+#instant-post-profile-img-default {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-top: 4px;
+    border: solid 2px black;
+}
+
+#post-modal-call-btn:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
 }
 
 #content {
@@ -62,10 +120,6 @@ header h5 {
 
 #right {
     width: 400px;
-}
-
-#top-page-container {
-    margin: 0px 0px;
 }
 
 #infinite-link {

@@ -13,7 +13,7 @@
                 {% if user.image %}
                 <img id="creator-profile-img" class="rounded-circle account-img" src="{{ user.image.url }}">
                 {% else %}
-                <img id="creator-profile-img" class="rounded-circle account-img"
+                <img id="creator-profile-img-default" class="rounded-circle account-img"
                     src="{% static 'images/icons/person.svg' %}">
                 {% endif %}
 
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <label>
-                <span class="filelabel" title="ファイルを選択">
+                <span class="filelabel-page" title="ファイルを選択">
                     {% load static %}
                     <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
                 </span>
@@ -36,13 +36,16 @@
                 </div>
             </div>
 
-            <hr style="margin: 20px">
             <div id="input-title">
                 {{ form.restaurant_name|as_crispy_field }}
             </div>
 
-            <input id="post-btn" type="submit" name="test1" value="投稿する" class="post-button-on-modal">
-            <a id="save-draft-btn" href="{% url 'index' %}">戻る</a>
+            <hr style="margin: 20px">
+
+            <div id="create-page-footer">
+                <input id="post-btn" type="submit" name="test1" value="アップする" class="post-button-on-modal">
+                <a id="save-draft-btn" href="{% url 'index' %}">戻る</a>
+            </div>
 
         </form>
 

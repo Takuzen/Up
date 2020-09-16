@@ -4,6 +4,11 @@
         flex-direction: column;
         margin: auto;
     }
+
+    .input-content-container {
+        display: flex;
+        margin: 10px 20px;
+    }
 }
 
 @media screen and (min-width: 480px) {
@@ -13,17 +18,25 @@
         width: 60vw;
         margin: auto;
     }
-}
 
-.input-content-container {
-    display: flex;
-    margin: 10px 20px;
+    .input-content-container {
+        display: flex;
+        margin: 10px 3vw;
+    }
 }
 
 #creator-profile-img {
     width: 40px;
     height: 40px;
     object-fit: cover;
+}
+
+#creator-profile-img-default {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-top: 4px;
+    border: solid 2px black;
 }
 
 #input-content {
@@ -57,6 +70,10 @@
     box-shadow: none;
 }
 
+#create-page-footer {
+    width: 95%;
+    margin: auto;
+}
 
 #save-draft-btn {
     padding: 10px 25px;
@@ -90,4 +107,25 @@
 
 #removable-div {
     margin: 25px;
+}
+
+/* モーダル */
+#post-modal-memo-container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 15px;
+}
+
+#instant-post-modal-profile-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+#instant-post-modal-profile-img-default {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-top: 4px;
+    border: solid 2px black;
 }
