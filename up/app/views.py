@@ -189,7 +189,6 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
         lis = request.FILES.getlist('image')
         image_form = ImageForm(request.FILES)
         if postForm.is_valid():
-            print("valid~~~")
             item = postForm.save(commit=False)
             item.restaurant_memo = regex_format_space(
                 request.POST['restaurant_memo'])
@@ -200,8 +199,13 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
             item.updated_by = self.request.user
             item.updated_at = timezone.now()
             item.save()
+            video_extension_tuple = (".MOV", ".mp4")
             if image_form.is_valid:
                 for image in lis:
+                    if image.name.endswith(video_extension_tuple):
+                        print("is video")
+                    else:
+                        print("is not video")
                     image_instance = Images(
                         image=image, item=item
                     )
