@@ -109,6 +109,8 @@
     </div>
 
     <!-- Instant Post  -->
+    {% if user.is_authenticated %}
+
     <div class="instant-post-container">
         {% if user.image %}
         <div id="instant-post-profile-frame"><img id="instant-post-profile-img" class="rounded-circle account-img"
@@ -123,8 +125,28 @@
             <span style="white-space: nowrap;">今日なに食べた？</span>
         </a>
 
+    </div>
+
+    {% else %}
+
+    <div class="instant-post-container">
+        {% if user.image %}
+        <div id="instant-post-profile-frame"><img id="instant-post-profile-img" class="rounded-circle account-img"
+                src="{{ user.image.url }}"></div>
+        {% else %}
+        <div id="instant-post-profile-frame"><img id="instant-post-profile-img-default"
+                class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"></div>
+        {% endif %}
+
+
+        <a id="post-modal-call-btn" href="{% url 'login' %}">
+            <span style="white-space: nowrap;">今日なに食べた？</span>
+        </a>
 
     </div>
+
+
+    {% endif %}
     <!-- feed -->
     <div id="card-infinite-container" class="infinite-container">
         {% for key, item in image_dict.items %}
