@@ -274,6 +274,13 @@ class CardDetailPageView(DetailView):
         images = Images.objects.filter(
             item_id=context["item"].id).order_by('id').reverse().all()
 
+        video_extension_tuple = (".MOV", ".mp4")
+        image_dict = {}
+        for image in images:
+            if image.image.url.endswith(video_extension_tuple):
+                image.is_video = True
+            else:
+                image.is_video = False
         context["images"] = images
         context["show_postbutton"] = False
         context["show_profile_icon"] = True
