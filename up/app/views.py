@@ -94,7 +94,8 @@ class ItemFilterView(FilterView):
             if image.item_id not in image_dict:
                 image_dict[image.item_id] = {}
                 image_dict[image.item_id]["image"] = [image]
-                image_dict[image.item_id]["post"] = Item.objects.get(pk=image.item_id)
+                image_dict[image.item_id]["post"] = Item.objects.get(
+                    pk=image.item_id)
             else:
                 image_dict[image.item_id]["image"].append(image)
         context_data["image_dict"] = image_dict
@@ -158,7 +159,6 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
     form_class = PostForm
     success_url = reverse_lazy('index')
 
-
     def get_context_data(self, *, object_list=None, **kwargs):
         """
         表示データの設定
@@ -168,8 +168,8 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
         context_data = super().get_context_data(object_list=object_list, **kwargs)
         context_data.update({'form_for_post': PostForm})
         context_data.update({'imageform': ImageForm})
+        context_data["show_profile_icon"] = True
         return context_data
-
 
     def form_valid(self, form):
         """
@@ -183,7 +183,6 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
         item.save()
 
         return HttpResponseRedirect(self.success_url)
-
 
     def post(self, request, *args, **kwargs):
         postForm = PostForm(request.POST)
@@ -268,11 +267,12 @@ class CardDetailPageView(DetailView):
 
         context = super().get_context_data(**kwargs)
 
-        images = Images.objects.filter(item_id=context["item"].id).order_by('id').reverse().all()
+        images = Images.objects.filter(
+            item_id=context["item"].id).order_by('id').reverse().all()
 
         context["images"] = images
         context["show_postbutton"] = False
-        context["show_profile_icon"] = False
+        context["show_profile_icon"] = True
         context["show_left"] = False
         context["show_right"] = False
         context["show_plus_button"] = False

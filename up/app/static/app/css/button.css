@@ -297,7 +297,9 @@
   }
 
   #share-btn-on-card-header {
-    margin: 0px 3vw 15px auto;
+    position: relative;
+    top: -7px;
+    left: -15px;
     font-size: large;
     border: none;
     background: none;
@@ -312,9 +314,12 @@
 
   #copied-msg {
     display: none;
+    position: relative;
+    top: -7px;
+    left: -10px;
+    margin: 0 !important;
     color: tomato;
     font-weight: bold;
     font-size: 0.8rem;
     padding: 5px;
-    margin: 0px 3vw 15px auto;
   }
