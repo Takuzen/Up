@@ -9,6 +9,7 @@ ALLOWED_HOSTS = [
     'up-staging.us-east-1.elasticbeanstalk.com',
     'up-env-a.us-east-1.elasticbeanstalk.com',
     'up-env-b.us-east-1.elasticbeanstalk.com',
+    'up-env-d.us-east-1.elasticbeanstalk.com',
 ]
 
 DATABASES = {
