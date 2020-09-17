@@ -17,13 +17,15 @@
                 <form method="post" id="myform" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div id="post-modal-memo-container">
-                        {% if user.image %}
-                        <img id="instant-post-modal-profile-img" class="rounded-circle account-img"
-                            src="{{ user.image.url }}">
-                        {% else %}
-                        <img id="instant-post-modal-profile-img-default" class="rounded-circle account-img"
-                            src="{% static 'images/icons/person.svg' %}">
-                        {% endif %}
+                        <div id="instant-post-modal-profile-img-container">
+                            {% if user.image %}
+                            <img id="instant-post-modal-profile-img" class="rounded-circle account-img"
+                                src="{{ user.image.url }}">
+                            {% else %}
+                            <img id="instant-post-modal-profile-img-default" class="rounded-circle account-img"
+                                src="{% static 'images/icons/person.svg' %}">
+                            {% endif %}
+                        </div>
                         <div>
                             {{ form.restaurant_memo|as_crispy_field }}
                         </div>

@@ -116,6 +116,11 @@
     margin: 10px 15px;
 }
 
+#instant-post-modal-profile-img-container {
+    display: flex;
+    align-items: flex-start;
+}
+
 #instant-post-modal-profile-img {
     width: 40px;
     height: 40px;
@@ -124,8 +129,6 @@
 
 #instant-post-modal-profile-img-default {
     width: 30px;
-    height: 30px;
-    object-fit: cover;
     margin-top: 4px;
     border: solid 2px black;
 }
