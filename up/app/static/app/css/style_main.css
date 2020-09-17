@@ -10,7 +10,7 @@
     #post-modal-call-btn {
         background: #f0f2f5;
         border-radius: 50px;
-        padding: 13px 30% 13px 20px;
+        padding: 13px 20vw 13px 20px;
         color: #65676B;
     }
 }
@@ -19,7 +19,7 @@
     #post-modal-call-btn {
         background: #f0f2f5;
         border-radius: 50px;
-        padding: 13px 30% 13px 20px;
+        padding: 13px 20vw 13px 20px;
         color: #65676B;
         margin: 0 10px;
     }

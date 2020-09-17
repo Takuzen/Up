@@ -36,8 +36,29 @@
     }
 
     #card-detail-username {
-        margin-left: 15px;
+        margin-left: 10px;
         margin-top: 2px;
+    }
+
+    .follow-button {
+        background-color: white;
+        color: #2CBD3E;
+        border-color: #2CBD3E;
+        font-size: 0.8rem;
+        padding: 5px 15px;
+        margin-left: 20px;
+        position: relative;
+        top: -7px;
+    }
+
+    .following-button {
+        background-color: #2CBD3E;
+        color: white;
+        font-size: 0.8rem;
+        padding: 5px 15px;
+        margin-left: 20px;
+        position: relative;
+        top: -7px;
     }
 
     #card-detail-img {
@@ -48,13 +69,13 @@
 
     .prev {
         position: relative;
-        top: -23vh;
+        top: -27vh;
         left: 3vw;
     }
 
     .next {
         position: relative;
-        top: -23vh;
+        top: -27vh;
         left: 78vw;
     }
 
@@ -151,6 +172,27 @@
         margin-top: 2px;
     }
 
+    .follow-button {
+        background-color: white;
+        color: #2CBD3E;
+        border-color: #2CBD3E;
+        font-size: 0.8rem;
+        padding: 5px 15px;
+        margin-left: 20px;
+        position: relative;
+        top: -7px;
+    }
+
+    .following-button {
+        background-color: #2CBD3E;
+        color: white;
+        font-size: 0.8rem;
+        padding: 5px 15px;
+        margin-left: 20px;
+        position: relative;
+        top: -7px;
+    }
+
     #card-detail-img {
         width: 480px;
         height: 600px;
@@ -159,13 +201,13 @@
 
     .prev {
         position: relative;
-        top: -300px;
+        top: -320px;
         left: 15px;
     }
 
     .next {
         position: relative;
-        top: -300px;
+        top: -320px;
         left: 400px;
     }
 
@@ -232,6 +274,25 @@
         object-fit: contain;
     }
 
+    .follow-button {
+        background-color: white;
+        color: #2CBD3E;
+        border-color: #2CBD3E;
+        font-size: 0.8rem;
+        padding: 5px 15px;
+        position: relative;
+        top: -7px;
+    }
+
+    .following-button {
+        background-color: #2CBD3E;
+        color: white;
+        font-size: 0.8rem;
+        padding: 5px 15px;
+        position: relative;
+        top: -7px;
+    }
+
     #card-detail-img {
         width: 600px;
         height: 600px;
@@ -241,13 +302,13 @@
 
     .prev {
         position: relative;
-        top: -300px;
+        top: -320px;
         left: 15px;
     }
 
     .next {
         position: relative;
-        top: -300px;
+        top: -320px;
         left: 515px;
     }
 

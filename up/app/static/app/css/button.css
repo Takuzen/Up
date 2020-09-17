@@ -219,36 +219,15 @@
     width: 1rem;
   }
 
-  .following-button {
-    background-color: #2CBD3E;
-    color: white;
-    font-size: 0.8rem;
-    padding: 5px 15px;
-    margin-left: 20px;
-    position: relative;
-    top: -7px;
+  .follow-button:focus {
+    outline: none;
+    box-shadow: none;
   }
 
   .following-button:focus {
     outline: none;
     box-shadow: none;
     /* box-shadow: none がないと outline は消えない */
-  }
-
-  .follow-button {
-    background-color: white;
-    color: #2CBD3E;
-    border-color: #2CBD3E;
-    font-size: 0.8rem;
-    padding: 5px 15px;
-    margin-left: 20px;
-    position: relative;
-    top: -7px;
-  }
-
-  .follow-button:focus {
-    outline: none;
-    box-shadow: none;
   }
 
   #id-div-ajax-response-2 {
@@ -314,7 +293,7 @@
   /* display:noneにすると選択或いはコピーができないので、止むを得ず見えない所へ飛ばしてる（理想的でない） */
   #absolute-uri {
     position: absolute;
-    left: 1000px;
+    top: -1000px;
   }
 
   #share-btn-on-card-header {
