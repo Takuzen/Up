@@ -154,11 +154,17 @@
 
             <div id="card-body-{{ forloop.counter }}">
                 {% for photo in item.image %}
-                {% if forloop.first %}
-                <div class="mySlides-{{ forloop.parentloop.counter }}">
-                    <a href="{% url 'card_detail' item.post.id %}"><img id="card-img" src="{{ photo.image.url }}"></a>
-                </div>
-                {% endif %}
+                    {% if forloop.first %}
+                        {% if photo.is_video %}
+                            <video controls autoplay width="240" height="240">
+                                <source src="{{ photo.photo.image.url }}" type="video/mp4">
+                            </video>
+                        {% else %}
+                            <div class="mySlides-{{ forloop.parentloop.counter }}">
+                                <a href="{% url 'card_detail' item.post.id %}"><img id="card-img" src="{{ photo.photo.image.url }}"></a>
+                            </div>
+                        {% endif %}
+                    {% endif %}
                 {% endfor %}
             </div>
             <div id="card-footer">
