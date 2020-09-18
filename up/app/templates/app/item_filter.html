@@ -156,7 +156,7 @@
                 {% for photo in item.image %}
                 {% if forloop.first %}
                 {% if photo.is_video %}
-                <video controls autoplay width="240" height="240">
+                <video width="240" height="240" controls autoplay muted playsinline>
                     <source src="{{ photo.photo.image.url }}" type="video/mp4">
                 </video>
                 {% else %}

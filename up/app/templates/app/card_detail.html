@@ -49,7 +49,7 @@
         {% for image in images %}
         <div class="mySlides">
             {% if image.is_video %}
-            <video controls autoplay width="600" height="600">
+            <video width="600" height="600" controls autoplay muted playsinline>
                 <source src="{{ image.image.url }}" type="video/mp4">
             </video>
             {% else %}
