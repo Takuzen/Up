@@ -7,7 +7,7 @@ ALLOWED_HOSTS = [
     'www.uplife.link',
     'uplife.link',
     'up-staging.us-east-1.elasticbeanstalk.com',
-    'up-https.us-east-1.elasticbeanstalk.com'
+    'Up-dev2.us-east-1.elasticbeanstalk.com'
 ]
 
 DATABASES = {
