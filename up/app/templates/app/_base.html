@@ -301,7 +301,7 @@
                     } else if (file.type.match('video.*')) {
                         reader.onload = function (e) {
                             portfolioImageGroup.append(`
-                                <video class="${this.img_cls}" style="width:${this.width}px;" controls>
+                                <video class="${this.img_cls}" style="width:${this.width}px; height:${this.width}px; vertical-align:middle" controls>
                                     <source src="${e.target.result}" type="video/mp4">
                                 </video>
                                 `)
