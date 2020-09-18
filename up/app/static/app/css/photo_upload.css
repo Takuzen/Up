@@ -51,14 +51,14 @@
     visibility: hidden;
 }
 
-#close-button {
+img[id^='close-'] {
     display: none;
     width: 26px;
     height: 26px;
     object-fit: contain;
 }
 
-#close-button:hover {
+img[id^='close-']:hover {
     cursor: pointer;
     opacity: 0.6;
     transition-duration: 0.3s;
