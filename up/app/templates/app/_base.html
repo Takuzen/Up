@@ -288,25 +288,35 @@
                     var reader = new FileReader();
                     var image_preview_id = '#image_preview_span-' + String(i);
                     var img_cls = "responsive-img-" + String(i);
+                    var button_id = "close-" + String(i);
                     reader.image_preview_id = image_preview_id;
                     reader.width = 400 / files.length;
                     reader.img_cls = img_cls;
+                    reader.button_id = button_id;
                     reader.onload = function (e) {
                         portfolioImageGroup.append(`
-                            <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
+                            <div>
+                                <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
+                                <img id="${this.button_id}" src="{% static '/images/icons/close-button.png' %}"
+                                    alt="close-button" style="display:block;">
+                            </div>
                             `)
                     }
-                    $('#close-button').show();
                     reader.readAsDataURL(file);
                 }
             });
 
-            $('#close-button').click(function () {
+            $(document).on("click", '#close-0', function(){
+                console.log("clear individual");
                 $('.responsive-img-0').remove();
+                $('input[type="file"]').val(null);
+                $(this).hide();
+                return;
+            })
+
+            $(document).on("click", '#close-1', function(){
+                console.log("clear individual");
                 $('.responsive-img-1').remove();
-                $('.responsive-img-2').remove();
-                $('.responsive-img-3').remove();
-                $('.responsive-img-4').remove();
                 $('input[type="file"]').val(null);
                 $(this).hide();
                 return;
