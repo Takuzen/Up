@@ -97,7 +97,7 @@ class CommentForm(forms.ModelForm):
 class ImageForm(forms.ModelForm):
     image = forms.ImageField(label='Image')
     image.widget.attrs.update({'name': 'image', 'class': 'clearablefileinput',
-                               'id': 'post_restaurant_image', 'multiple': True, 'required': True, 'accept': "image/*"})
+                               'id': 'post_restaurant_image', 'multiple': True, 'required': True, 'accept': "image/*, video/*"})
 
     class Meta:
         model = Images

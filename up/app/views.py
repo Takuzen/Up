@@ -27,6 +27,10 @@ def regex_format_space(incl_space_string):
     return re.sub(r"\u3000", " ", incl_space_string)
 
 
+def get_video_extension_tuple():
+    return (".MOV", ".mp4")
+
+
 class ItemFilterView(FilterView):
     """
     ビュー：一覧表示画面
@@ -93,11 +97,12 @@ class ItemFilterView(FilterView):
         for image in all_images:
             if image.item_id not in image_dict:
                 image_dict[image.item_id] = {}
-                image_dict[image.item_id]["image"] = [image]
+                image_dict[image.item_id]["image"] = [{"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())}]
                 image_dict[image.item_id]["post"] = Item.objects.get(
                     pk=image.item_id)
             else:
-                image_dict[image.item_id]["image"].append(image)
+                image_dict[image.item_id]["image"].append({"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())})
+        print(image_dict)
         context_data["image_dict"] = image_dict
         context_data["show_left"] = False
         context_data["show_right"] = False
@@ -189,7 +194,6 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
         lis = request.FILES.getlist('image')
         image_form = ImageForm(request.FILES)
         if postForm.is_valid():
-            print("valid~~~")
             item = postForm.save(commit=False)
             item.restaurant_memo = regex_format_space(
                 request.POST['restaurant_memo'])
@@ -202,6 +206,10 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
             item.save()
             if image_form.is_valid:
                 for image in lis:
+                    if image.name.endswith(get_video_extension_tuple()):
+                        print("is video")
+                    else:
+                        print("is not video")
                     image_instance = Images(
                         image=image, item=item
                     )
@@ -270,6 +278,12 @@ class CardDetailPageView(DetailView):
         images = Images.objects.filter(
             item_id=context["item"].id).order_by('id').reverse().all()
 
+        image_dict = {}
+        for image in images:
+            if image.image.url.endswith(get_video_extension_tuple()):
+                image.is_video = True
+            else:
+                image.is_video = False
         context["images"] = images
         context["show_postbutton"] = False
         context["show_profile_icon"] = True

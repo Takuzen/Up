@@ -274,7 +274,7 @@
                 for (var i = 0; i < files.length; i++) {
                     // 画像以外は処理を停止
                     file = files[i];
-                    if (!file.type.match('image.*')) {
+                    if (!file.type.match('image.*') & !file.type.match('video.*')) {
                         // クリア
                         $(this).val('');
                         $('#image_preview_span').html('');
@@ -285,16 +285,27 @@
                 for (var i = 0; i < files.length; i++) {
                     file = files[i];
                     // 画像表示
+                    var file_info = file;
                     var reader = new FileReader();
                     var image_preview_id = '#image_preview_span-' + String(i);
                     var img_cls = "responsive-img-" + String(i);
                     reader.image_preview_id = image_preview_id;
                     reader.width = 400 / files.length;
                     reader.img_cls = img_cls;
-                    reader.onload = function (e) {
-                        portfolioImageGroup.append(`
-                            <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
-                            `)
+                    if (file.type.match('image.*')) {
+                        reader.onload = function (e) {
+                            portfolioImageGroup.append(`
+                                <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
+                                `)
+                        }
+                    } else if (file.type.match('video.*')) {
+                        reader.onload = function (e) {
+                            portfolioImageGroup.append(`
+                                <video class="${this.img_cls}" style="width:${this.width}px; height:${this.width}px; vertical-align:middle" controls>
+                                    <source src="${e.target.result}" type="video/mp4">
+                                </video>
+                                `)
+                        }
                     }
                     $('#close-button').show();
                     reader.readAsDataURL(file);
