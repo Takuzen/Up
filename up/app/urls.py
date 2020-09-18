@@ -1,6 +1,7 @@
 from ..register import views as register_view
 from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView, test_ajax_response
 from django.urls import path, include
+from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +24,7 @@ urlpatterns = [
     path('card_detail/<int:pk>/', CardDetailPageView.as_view(), name='card_detail'),
     path('campaign/', CampaignPageView.as_view(), name='campaign'),
     path("ajax/", test_ajax_response),
+    url(r'user_portfolio/(?P<id>\d+)', register_view.user_portfolio, name='user_portfolio'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

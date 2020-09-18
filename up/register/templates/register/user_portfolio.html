@@ -1,0 +1,62 @@
+{% extends "app/_base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="profile-section">
+    {% if portfolio_owner.image %}
+    <div id="profile-photo"><img id="profile-photo-img" class="rounded-circle account-img" src="{{ portfolio_owner.image.url }}">
+    </div>
+    {% else %}
+    <div id="profile-photo"><img id="profile-photo-img-default" class="rounded-circle account-img"
+            src="{% static 'images/icons/person.svg' %}"></div>
+    {% endif %}
+    <div class="profile-textarea">
+        <div class="profile-username-row">
+            <h5 class="profile-username">{{ portfolio_owner.username }}</h5>
+            <a id="setting-btn" href="{% url 'update_profile' %}"><i class="fas fa-cog"
+                    style="margin-left: 10px;"></i></a>
+        </div>
+        {% if portfolio_owner.bio %}
+        <p id="bio">{{ portfolio_owner.bio }}</p>
+        {% else %}
+        <p id="bio">このユーザーはまだ自己紹介を書いてないよ〜</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="profile-statistics">
+    <div class="follower-count-section">
+        <p>フォロワー</p>
+        <p id="follower-count">{{ followers_cnt }}</p>
+    </div>
+    <div class="followee-count-section">
+        <p>フォロー中</p>
+        <p id="followee-count">{{ followees_cnt }}</p>
+    </div>
+    <div class="post-count-section">
+        <p>投稿数</p>
+        <p id="post-count">{{ posts_cnt }}</p>
+    </div>
+</div>
+
+<div class="user-post-log">
+    <div class="post-category">
+        <p id="post-category-1">投稿</p>
+    </div>
+    {% for post in img_obj %}
+    <div class="row row-cols-2" style="margin: 3vh;">
+        <div class="col infinite-item">
+            {% if post.image %}
+            <div id="image">
+                <img src="{{ post.image.url }}" style="width: 200px; height:200px; object-fit:cover;">
+            </div>
+            {% else %}
+            <div id="image">
+                <img src="{% static '/images/icons/gray.jpg' %}" style="width: 200px; height:200px">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
