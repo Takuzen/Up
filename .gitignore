@@ -13,6 +13,8 @@ dump.json
 *.jpeg
 *.jpg
 *.png
+*.MOV
+*.mp4
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
