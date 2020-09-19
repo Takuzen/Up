@@ -43,16 +43,18 @@
     <div class="post-category">
         <p id="post-category-1">投稿</p>
     </div>
-    {% for post in img_obj %}
+    {% for post in img_obj_lis %}
     <div class="row row-cols-2" style="margin: 3vh;">
         <div class="col infinite-item">
-            {% if post.image %}
-            <div id="image">
-                <img src="{{ post.image.url }}" style="width: 200px; height:200px; object-fit:cover;">
+            {% if post.is_video %}
+            <div>
+                <video width="200" height="200" controls autoplay muted playsinline>
+                    <source src="{{ post.img.image.url }}" type="video/mp4">
+                </video>
             </div>
             {% else %}
             <div id="image">
-                <img src="{% static '/images/icons/gray.jpg' %}" style="width: 200px; height:200px">
+                <img src="{{ post.img.image.url }}" style="width: 200px; height:200px; object-fit:cover;">
             </div>
             {% endif %}
         </div>
