@@ -173,6 +173,7 @@
                 </a>
 
                 <div id="card-info">
+                    <a href="{% url 'user_portfolio' item.post.created_by.id %}" id="first-p-link">
                     <span id="card-info-profile-img-container">
                         {% if item.post.created_by.image %}
                         <img src="{{ item.post.created_by.image.url }}" id="card-footer-person-img"
@@ -184,6 +185,7 @@
                     </span>
 
                     <span id="card-info-username">{{ item.post.created_by }}</span>
+                    </a>
 
                     <div class="like-btn" style="display: flex;">
                         <i class="far fa-heart LikesIcon-fa-heart"></i>
