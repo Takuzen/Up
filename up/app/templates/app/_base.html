@@ -289,39 +289,49 @@
                     var reader = new FileReader();
                     var image_preview_id = '#image_preview_span-' + String(i);
                     var img_cls = "responsive-img-" + String(i);
+                    var button_id = "close-" + String(i);
                     reader.image_preview_id = image_preview_id;
                     reader.width = 400 / files.length;
                     reader.img_cls = img_cls;
+                    reader.button_id = button_id;
                     if (file.type.match('image.*')) {
                         reader.onload = function (e) {
                             portfolioImageGroup.append(`
-                                <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
+                                <div>
+                                    <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; object-fit:cover">
+                                    <img id="${this.button_id}" src="{% static '/images/icons/close-button.png' %}"
+                                        alt="close-button" style="display:block;" class="clear-button-cls">
+                                </div>
                                 `)
                         }
                     } else if (file.type.match('video.*')) {
                         reader.onload = function (e) {
                             portfolioImageGroup.append(`
-                                <video class="${this.img_cls}" style="width:${this.width}px; height:${this.width}px; vertical-align:middle" controls>
-                                    <source src="${e.target.result}" type="video/mp4">
-                                </video>
-                                `)
+                                <div>
+                                    <video class="${this.img_cls}" style="width:${this.width}px; height:${this.width}px; vertical-align:middle" controls>
+                                        <source src="${e.target.result}" type="video/mp4">
+                                    </video>
+                                    <img id="${this.button_id}" src="{% static '/images/icons/close-button.png' %}"
+                                        alt="close-button" style="display:block;" class="clear-button-cls">
+                                </div>
+
+                            `)
                         }
                     }
-                    $('#close-button').show();
                     reader.readAsDataURL(file);
                 }
             });
 
-            $('#close-button').click(function () {
-                $('.responsive-img-0').remove();
-                $('.responsive-img-1').remove();
-                $('.responsive-img-2').remove();
-                $('.responsive-img-3').remove();
-                $('.responsive-img-4').remove();
+            $(document).on("click", '.clear-button-cls', function () {
+                id_split_lis = this.id.split("-");
+                id_num = id_split_lis[id_split_lis.length - 1];
+                cls_string = '.responsive-img-' + String(id_num);
+                $(cls_string).remove();
                 $('input[type="file"]').val(null);
                 $(this).hide();
                 return;
-            });
+            })
+
 
             $("#ajax-follow-form").submit(function (event) {
                 event.preventDefault();

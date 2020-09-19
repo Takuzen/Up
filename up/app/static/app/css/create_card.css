@@ -106,7 +106,10 @@
 }
 
 #removable-div {
-    margin: 25px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px;
 }
 
 /* モーダル */
