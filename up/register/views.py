@@ -64,6 +64,30 @@ def profile(request):
     return render(request, 'register/profile.html', render_dict)
 
 
+def user_portfolio(request, id):
+    portfolio_owner = User.objects.get(id=id)
+    user_posts = Item.objects.filter(
+        created_by_id=id).order_by('-created_at')
+    img_objects = []
+    for post in user_posts:
+        img_objects.append(Images.objects.filter(item_id=post.id).first())
+    posts_cnt = len(user_posts)
+    followees_cnt = len(User.objects.get(
+        id=id).followees.all())
+    followers_cnt = len(User.objects.get(
+        id=id).followers.all())
+
+    render_dict = {'user_posts': user_posts,
+                   'show_profile_icon': False,
+                   'posts_cnt': posts_cnt,
+                   'followees_cnt': followees_cnt,
+                   'followers_cnt': followers_cnt,
+                   'img_obj': img_objects,
+                   'portfolio_owner': portfolio_owner,}
+    return render(request, 'register/user_portfolio.html', render_dict)
+
+
+
 class Login(LoginView):
     """ログインページ"""
     form_class = LoginForm
