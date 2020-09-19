@@ -35,13 +35,13 @@
                     <label>
                         <span class="filelabel-modal" title="ファイルを選択">
                             {% load static %}
-                            <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
+                            <img style="width: 50px; height: 50px; border-radius: 5px;"
+                                src="{% static '/images/icons/plus-btn.png' %}" alt="plus-btn">
                         </span>
                         {{ imageform.image }}
                     </label>
-                    <div class="form-group col-md-12 mb-0" style="position: relative;
-                    top: -3vh;">
-                        <div style="position:relative;" id="removable-div">
+                    <div>
+                        <div id="removable-div">
                             <span id="image_preview_span"></span>
                             <div>
                                 <img id="close-button" src="{% static '/images/icons/close-button.png' %}"
@@ -50,7 +50,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-12 mb-0" style="overflow: hidden;">
+                    <div id="input-title" style="overflow: hidden;">
                         {{ form.restaurant_name|as_crispy_field }}
                     </div>
 
@@ -175,17 +175,17 @@
 
                 <div id="card-info">
                     <a href="{% url 'user_portfolio' item.post.created_by.id %}" id="first-p-link">
-                    <span id="card-info-profile-img-container">
-                        {% if item.post.created_by.image %}
-                        <img src="{{ item.post.created_by.image.url }}" id="card-footer-person-img"
-                            class="rounded-circle account-img" alt="person-img">
-                        {% else %}
-                        <img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img-default"
-                            class="rounded-circle account-img" alt="person-img">
-                        {% endif %}
-                    </span>
+                        <span id="card-info-profile-img-container">
+                            {% if item.post.created_by.image %}
+                            <img src="{{ item.post.created_by.image.url }}" id="card-footer-person-img"
+                                class="rounded-circle account-img" alt="person-img">
+                            {% else %}
+                            <img src="{% static 'images/icons/person.svg' %}" id="card-footer-person-img-default"
+                                class="rounded-circle account-img" alt="person-img">
+                            {% endif %}
+                        </span>
 
-                    <span id="card-info-username">{{ item.post.created_by }}</span>
+                        <span id="card-info-username">{{ item.post.created_by }}</span>
                     </a>
 
                     <div class="like-btn" style="display: flex;">

@@ -56,6 +56,7 @@ img[id^='close-'] {
     width: 20px;
     height: 20px;
     object-fit: contain;
+    margin-bottom: 5px;
 }
 
 img[id^='close-']:hover {
@@ -88,8 +89,8 @@ img[id^='close-']:hover {
 }
 
 #preview-each-media-container {
-    width: 150px;
-    height: 170px;
+    width: 100px;
+    height: 120px;
     margin: 5px;
 }
 
