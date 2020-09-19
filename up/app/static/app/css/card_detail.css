@@ -67,6 +67,12 @@
         object-fit: cover;
     }
 
+    #card-detail-video {
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+    }
+
     .prev {
         position: relative;
         top: -27vh;
@@ -199,6 +205,12 @@
         object-fit: cover;
     }
 
+    #card-detail-video {
+        width: 480px;
+        height: 600px;
+        object-fit: cover;
+    }
+
     .prev {
         position: relative;
         top: -320px;
@@ -294,6 +306,13 @@
     }
 
     #card-detail-img {
+        width: 600px;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    #card-detail-video {
         width: 600px;
         height: 600px;
         object-fit: cover;

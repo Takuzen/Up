@@ -88,6 +88,14 @@
     border-radius: 2px;
 }
 
+#card-video {
+    width: 100%;
+    min-height: 180px;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
 
 #card-info {
     display: flex;

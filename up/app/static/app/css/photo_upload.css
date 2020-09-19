@@ -53,9 +53,10 @@
 
 img[id^='close-'] {
     display: none;
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
+    margin-bottom: 5px;
 }
 
 img[id^='close-']:hover {
@@ -86,3 +87,12 @@ img[id^='close-']:hover {
     opacity: 0.6;
     transition-duration: 0.3s;
 }
+
+#preview-each-media-container {
+    width: 100px;
+    height: 120px;
+    margin: 5px;
+}
+
+/* ウェブ・レスポンシブる　*/
+/* モバイル表示画像はば調整　*/

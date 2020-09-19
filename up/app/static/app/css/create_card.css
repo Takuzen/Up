@@ -58,7 +58,7 @@
 
 #input-title {
     width: 90%;
-    margin: auto;
+    margin: 30px auto;
 }
 
 #id_restaurant_name {
@@ -107,9 +107,9 @@
 
 #removable-div {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 10px;
 }
 
 /* モーダル */

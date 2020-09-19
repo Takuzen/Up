@@ -24,16 +24,14 @@
             <label>
                 <span class="filelabel-page" title="ファイルを選択">
                     {% load static %}
-                    <img src="{% static '/images/icons/photo-plus.png' %}" alt="photo">
+                    <img style="width: 50px; height: 50px; border-radius: 5px;"
+                        src="{% static '/images/icons/plus-btn.png' %}" alt="plus-btn">
                 </span>
                 {{ imageform.image }}
             </label>
 
             <div id="removable-div">
                 <span id="image_preview_span"></span>
-                <div id="close-btn-container">
-                    <img id="close-button" src="{% static '/images/icons/close-button.png' %}" alt="close-button">
-                </div>
             </div>
 
             <div id="input-title">
