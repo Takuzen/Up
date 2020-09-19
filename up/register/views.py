@@ -43,24 +43,27 @@ def register(response):
 def profile(request):
     user_posts = Item.objects.filter(
         created_by_id=request.user.id).order_by('-created_at')
-    print(user_posts)
-    img_objects = []
+    img_obj_lis = []
     for post in user_posts:
-        print(post.id)
-        img_objects.append(Images.objects.filter(item_id=post.id).first())
+        post_img = Images.objects.filter(item_id=post.id).last()
+        try:
+            is_video = post_img.image.url.endswith(('.MOV', '.mp4'))
+        except:
+            is_video = False
+        img_obj_lis.append({'img': post_img, 'is_video': is_video})
     posts_cnt = len(user_posts)
-    print(posts_cnt)
+
     followees_cnt = len(User.objects.filter(
         id=request.user.id).first().followees.all())
     followers_cnt = len(User.objects.filter(
         id=request.user.id).first().followers.all())
-    print(img_objects)
+
     render_dict = {'user_posts': user_posts,
                    'show_profile_icon': False,
                    'posts_cnt': posts_cnt,
                    'followees_cnt': followees_cnt,
                    'followers_cnt': followers_cnt,
-                   'img_obj': img_objects}
+                   'img_obj_lis': img_obj_lis}
     return render(request, 'register/profile.html', render_dict)
 
 
@@ -68,9 +71,15 @@ def user_portfolio(request, id):
     portfolio_owner = User.objects.get(id=id)
     user_posts = Item.objects.filter(
         created_by_id=id).order_by('-created_at')
-    img_objects = []
+    img_obj_lis = []
     for post in user_posts:
-        img_objects.append(Images.objects.filter(item_id=post.id).first())
+        post_img = Images.objects.filter(item_id=post.id).last()
+        try:
+            is_video = post_img.image.url.endswith(('.MOV', '.mp4'))
+        except:
+            is_video = False
+        img_obj_lis.append({'img': post_img, 'is_video': is_video})
+
     posts_cnt = len(user_posts)
     followees_cnt = len(User.objects.get(
         id=id).followees.all())
@@ -82,7 +91,7 @@ def user_portfolio(request, id):
                    'posts_cnt': posts_cnt,
                    'followees_cnt': followees_cnt,
                    'followers_cnt': followers_cnt,
-                   'img_obj': img_objects,
+                   'img_obj_lis': img_obj_lis,
                    'portfolio_owner': portfolio_owner,}
     return render(request, 'register/user_portfolio.html', render_dict)
 
