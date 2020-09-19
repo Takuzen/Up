@@ -6,7 +6,7 @@ ALLOWED_HOSTS = [
     'up-env.eba-aesibyxa.us-east-1.elasticbeanstalk.com',
     'www.uplife.link',
     'uplife.link',
-    'up-staging.us-east-1.elasticbeanstalk.com',
+    'up-env-b.us-east-1.elasticbeanstalk.com',
 ]
 
 DATABASES = {
