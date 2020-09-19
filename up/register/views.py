@@ -27,7 +27,8 @@ def register(response):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(response, f'{username}さんのアカウントが登録されました!')
+            messages.success(
+                response, f'{username}さんのアカウントが登録されました！ 右上からプロフィールも追加しよう！')
             new_user = authenticate(
                 username=form.cleaned_data['username'],
                 password=form.cleaned_data['password'],
@@ -92,9 +93,8 @@ def user_portfolio(request, id):
                    'followees_cnt': followees_cnt,
                    'followers_cnt': followers_cnt,
                    'img_obj_lis': img_obj_lis,
-                   'portfolio_owner': portfolio_owner,}
+                   'portfolio_owner': portfolio_owner, }
     return render(request, 'register/user_portfolio.html', render_dict)
-
 
 
 class Login(LoginView):

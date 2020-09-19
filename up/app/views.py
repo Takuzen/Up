@@ -97,11 +97,13 @@ class ItemFilterView(FilterView):
         for image in all_images:
             if image.item_id not in image_dict:
                 image_dict[image.item_id] = {}
-                image_dict[image.item_id]["image"] = [{"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())}]
+                image_dict[image.item_id]["image"] = [
+                    {"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())}]
                 image_dict[image.item_id]["post"] = Item.objects.get(
                     pk=image.item_id)
             else:
-                image_dict[image.item_id]["image"].append({"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())})
+                image_dict[image.item_id]["image"].append(
+                    {"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())})
         print(image_dict)
         context_data["image_dict"] = image_dict
         context_data["show_left"] = False
@@ -135,7 +137,7 @@ class ItemFilterView(FilterView):
                     )
                     image_instance.save()
 
-            messages.success(request, f'投稿ありがとうございます!')
+            messages.success(request, f'投稿が完了しました！')
             return HttpResponseRedirect(self.success_url)
 
         return render(request, "/", {'form': postForm})
@@ -214,7 +216,7 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
                         image=image, item=item
                     )
                     image_instance.save()
-            messages.success(request, f'投稿ありがとうございます!')
+            messages.success(request, f'投稿が完了しました！')
             return HttpResponseRedirect(self.success_url)
 
         return render(request, "/", {'form': postForm})
@@ -322,7 +324,7 @@ class CardDetailPageView(DetailView):
             comment_item.commented_date = timezone.now()
             comment_item.approved_comment = True
             comment_item.save()
-            messages.success(request, f'コメント投稿ありがとうございます!')
+            messages.success(request, f'コメントの投稿されました！')
             return HttpResponseRedirect(request.path)
 
         return render(request, "/", {'form': form})
