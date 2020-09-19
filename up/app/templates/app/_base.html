@@ -322,9 +322,9 @@
                 }
             });
 
-            $(document).on("click", '.clear-button-cls', function(){
+            $(document).on("click", '.clear-button-cls', function () {
                 id_split_lis = this.id.split("-");
-                id_num = id_split_lis[id_split_lis.length-1];
+                id_num = id_split_lis[id_split_lis.length - 1];
                 cls_string = '.responsive-img-' + String(id_num);
                 $(cls_string).remove();
                 $('input[type="file"]').val(null);
