@@ -46,13 +46,21 @@
         <div class="col infinite-item">
             {% if post.is_video %}
             <div>
-                <video width="200" height="200" controls autoplay muted playsinline>
-                    <source src="{{ post.img.image.url }}" type="video/mp4">
-                </video>
+                {% if post.img.item_id %}
+                    <a href="{% url 'card_detail' post.img.item_id %}">
+                        <video width="200" height="200" controls autoplay muted playsinline>
+                            <source src="{{ post.img.image.url }}" type="video/mp4">
+                        </video>
+                    </a>
+                {% endif %}
             </div>
             {% else %}
             <div id="image">
-                <img src="{{ post.img.image.url }}" style="width: 200px; height:200px; object-fit:cover;">
+                {% if post.img.item_id %}
+                    <a href="{% url 'card_detail' post.img.item_id %}">
+                        <img src="{{ post.img.image.url }}" style="width: 200px; height:200px; object-fit:cover;">
+                    </a>
+                {% endif %}
             </div>
             {% endif %}
         </div>
