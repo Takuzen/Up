@@ -104,6 +104,7 @@ class ItemFilterView(FilterView):
                     pk=image.item_id)
                 item_obj = Item.objects.get(id=image.item_id)
                 number_of_likes = item_obj.like_set.all().count()
+                image_dict[image.item_id]["number_of_likes"] = number_of_likes
                 # print(image.item_id, ": ", number_of_likes)
             # item_idとitem_idに紐づいている画像が辞書に格納されている場合
             else:
