@@ -15,7 +15,7 @@ from .models import Item, Comment, Images, Like
 from ..users.models import User, FriendShip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-import re
+import re, json
 
 # 未ログインのユーザーにアクセスを許可する場合は、LoginRequiredMixinを継承から外してください。
 #
@@ -357,15 +357,14 @@ def test_ajax_response(request):
 
 
 def like_ajax_response(request):
-    message = "hello"
-    print('post_id')
-    print(request.POST["post-id"])
     new_like, created = Like.objects.get_or_create(user=request.user, picture=Item.objects.get(id=request.POST["post-id"]))
-    print(new_like, created)
     if not created:
         # the user already liked this picture before = unlike
+        print("DELETE OBJECT")
         Like.objects.filter(user=request.user, picture=Item.objects.get(id=request.POST["post-id"])).delete()
+    else:
+        print("CREATED")
     item = Item.objects.get(id=request.POST["post-id"])
     number_of_likes = item.like_set.all().count()
-    print(number_of_likes)
-    return HttpResponse(message)
+    dic_json = {"number_of_likes": number_of_likes, "item_id": request.POST["post-id"]}
+    return HttpResponse(json.dumps(dic_json), content_type="application/json")

@@ -336,8 +336,10 @@
 
 
             $(".ajax-like-form-cls").submit(function (event) {
+                console.log("why not working");
                 event.preventDefault();
                 var form = $(this);
+                console.log("read firnn");
                 $.ajax({
                         url: form.prop("action"),
                         method: form.prop("method"),
@@ -348,6 +350,12 @@
                     .done(function (data) {
                         console.log(data);
                         console.log("liked");
+                        json_data = JSON.parse(data);
+                        console.log(json_data);
+                        console.log(json_data["item_id"]);
+                        selec_id = "#id-number-of-like-" + json_data.item_id;
+                        console.log(selec_id);
+                        $(selec_id).text(json_data["number_of_likes"]);
                     })
             });
 
