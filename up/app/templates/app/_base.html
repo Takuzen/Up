@@ -335,6 +335,24 @@
             })
 
 
+            $(".ajax-like-form-cls").submit(function (event) {
+                event.preventDefault();
+                var form = $(this);
+                $.ajax({
+                        url: form.prop("action"),
+                        method: form.prop("method"),
+                        data: form.serialize(),
+                        timeout: 10000,
+                        dataType: "text",
+                    })
+                    .done(function (data) {
+                        console.log(data);
+                        console.log("liked");
+                    })
+            });
+
+
+
             $("#ajax-follow-form").submit(function (event) {
                 event.preventDefault();
                 var form = $(this);

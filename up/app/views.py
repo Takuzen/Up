@@ -11,7 +11,7 @@ from django.db.models.query import QuerySet
 
 from .filters import ItemFilterSet
 from .forms import ItemForm, PostForm, CommentForm, ImageForm
-from .models import Item, Comment, Images
+from .models import Item, Comment, Images, Like
 from ..users.models import User, FriendShip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -352,4 +352,19 @@ def test_ajax_response(request):
         FriendShip.objects.filter(
             follower=follower, followee=followee).delete()
         message = "フォロー"
+    return HttpResponse(message)
+
+
+def like_ajax_response(request):
+    message = "hello"
+    print('post_id')
+    print(request.POST["post-id"])
+    new_like, created = Like.objects.get_or_create(user=request.user, picture=Item.objects.get(id=request.POST["post-id"]))
+    print(new_like, created)
+    if not created:
+        # the user already liked this picture before = unlike
+        Like.objects.filter(user=request.user, picture=Item.objects.get(id=request.POST["post-id"])).delete()
+    item = Item.objects.get(id=request.POST["post-id"])
+    number_of_likes = item.like_set.all().count()
+    print(number_of_likes)
     return HttpResponse(message)

@@ -1,5 +1,5 @@
 from ..register import views as register_view
-from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView, test_ajax_response
+from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView, test_ajax_response, like_ajax_response
 from django.urls import path, include
 from django.conf.urls import url
 from django.conf import settings
@@ -24,6 +24,7 @@ urlpatterns = [
     path('card_detail/<int:pk>/', CardDetailPageView.as_view(), name='card_detail'),
     path('campaign/', CampaignPageView.as_view(), name='campaign'),
     path("ajax/", test_ajax_response),
+    path("ajax-like/", like_ajax_response),
     url(r'user_portfolio/(?P<id>\d+)', register_view.user_portfolio, name='user_portfolio'),
 ]
 
