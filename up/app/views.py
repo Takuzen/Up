@@ -95,16 +95,20 @@ class ItemFilterView(FilterView):
 
         image_dict = {}
         for image in all_images:
+            # item_idとitem_idに紐づいている画像がまだ辞書に格納されていない場合
             if image.item_id not in image_dict:
                 image_dict[image.item_id] = {}
                 image_dict[image.item_id]["image"] = [
                     {"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())}]
                 image_dict[image.item_id]["post"] = Item.objects.get(
                     pk=image.item_id)
+                item_obj = Item.objects.get(id=image.item_id)
+                number_of_likes = item_obj.like_set.all().count()
+                # print(image.item_id, ": ", number_of_likes)
+            # item_idとitem_idに紐づいている画像が辞書に格納されている場合
             else:
                 image_dict[image.item_id]["image"].append(
                     {"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())})
-        print(image_dict)
         context_data["image_dict"] = image_dict
         context_data["show_left"] = False
         context_data["show_right"] = False
