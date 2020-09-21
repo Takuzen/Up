@@ -151,10 +151,6 @@
     font-weight: bold;
 }
 
-.user-post-log {
-    text-align: center;
-}
-
 .post-category {
     margin-top: 3vh;
     display: flex;
@@ -164,4 +160,23 @@
 
 #post-category-1 {
     border-bottom: solid 5px #2CBD3E;
+}
+
+#my-posts-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 80%;
+    margin: auto;
+}
+
+#my-each-post {
+    margin: 30px;
+}
+
+#my-each-post img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
 }

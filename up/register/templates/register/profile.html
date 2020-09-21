@@ -44,30 +44,32 @@
     <div class="post-category">
         <p id="post-category-1">投稿</p>
     </div>
-    {% for post in img_obj_lis %}
-    <div class="row row-cols-2" style="margin: 3vh;">
-        <div class="col infinite-item">
-            {% if post.is_video %}
-            <div>
-                {% if post.img.item_id %}
-                <a href="{% url 'card_detail' post.img.item_id %}">
-                    <video width="200" height="200" controls muted playsinline>
-                        <source src="{{ post.img.image.url }}" type="video/mp4">
-                    </video>
-                </a>
+    <div id="my-posts-container">
+        {% for post in img_obj_lis %}
+        <div>
+            <div class="infinite-item">
+                {% if post.is_video %}
+                <div id="my-each-post">
+                    {% if post.img.item_id %}
+                    <a href="{% url 'card_detail' post.img.item_id %}">
+                        <video width="240" height="240" controls muted playsinline>
+                            <source src="{{ post.img.image.url }}" type="video/mp4">
+                        </video>
+                    </a>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div id="my-each-post">
+                    {% if post.img.item_id %}
+                    <a href="{% url 'card_detail' post.img.item_id %}">
+                        <img src="{{ post.img.image.url }}">
+                    </a>
+                    {% endif %}
+                </div>
                 {% endif %}
             </div>
-            {% else %}
-            <div id="image">
-                {% if post.img.item_id %}
-                <a href="{% url 'card_detail' post.img.item_id %}">
-                    <img src="{{ post.img.image.url }}" style="width: 200px; height:200px; object-fit:cover;">
-                </a>
-                {% endif %}
-            </div>
-            {% endif %}
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
