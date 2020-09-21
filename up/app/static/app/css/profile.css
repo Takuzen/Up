@@ -91,6 +91,22 @@
     transition-duration: 0.3s;
 }
 
+#profile-menu {
+    position: relative;
+    top: -1px;
+    margin-left: 10px;
+}
+
+#profile-menu img {
+    width: 25px;
+}
+
+#profile-menu:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
 #bio {
     text-align: left;
     padding-right: 10px;
