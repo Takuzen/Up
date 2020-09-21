@@ -105,6 +105,13 @@ class ItemFilterView(FilterView):
                 item_obj = Item.objects.get(id=image.item_id)
                 number_of_likes = item_obj.like_set.all().count()
                 image_dict[image.item_id]["number_of_likes"] = number_of_likes
+                try:
+                    like_obj = Like.objects.get(user=self.request.user, picture=Item.objects.get(id=image.item_id))
+                    already_liked = True
+                except:
+                    already_liked = False
+                image_dict[image.item_id]["already_liked"] = already_liked
+                print("already liked", already_liked)
                 # print(image.item_id, ": ", number_of_likes)
             # item_idとitem_idに紐づいている画像が辞書に格納されている場合
             else:
