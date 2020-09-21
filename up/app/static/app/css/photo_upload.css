@@ -42,7 +42,8 @@
 
 .clearablefileinput {
     position: relative;
-    left: 12px;
+    left: -9px;
+    top: 9px;
     width: 0.5px;
     outline: none;
 }
