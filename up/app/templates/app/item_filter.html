@@ -193,9 +193,10 @@
                             <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
                             {% csrf_token %}
                             <input type="hidden" name="post-id" value="{{ item.post.id }}">
-                            <input class="btn like-button" class="cls-div-like-ajax-response" type="submit" value="いいね">
+                            <button type="submit" class="btn like-button cls-div-like-ajax-response">
+                                <i class="far fa-heart LikesIcon-fa-heart"></i>
+                            </button>
                         </form>
-                        <i class="far fa-heart LikesIcon-fa-heart"></i>
                         <p id="id-number-of-like-{{ item.post.id }}">{{ item.number_of_likes }}</p>
                     </div>
 

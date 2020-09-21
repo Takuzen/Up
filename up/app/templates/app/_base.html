@@ -336,10 +336,8 @@
 
 
             $(".ajax-like-form-cls").submit(function (event) {
-                console.log("why not working");
                 event.preventDefault();
                 var form = $(this);
-                console.log("read firnn");
                 $.ajax({
                         url: form.prop("action"),
                         method: form.prop("method"),
