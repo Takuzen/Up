@@ -14,7 +14,7 @@ from .forms import LoginForm, UpdateProfile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from ..app.models import Item, Images
+from ..app.models import Item, Images, Like
 from .models import Profile
 from ..users.models import User
 
@@ -45,6 +45,9 @@ def profile(request):
     user_posts = Item.objects.filter(
         created_by_id=request.user.id).order_by('-created_at')
     img_obj_lis = []
+    liked_obj_lis = []
+
+    # 自分の投稿
     for post in user_posts:
         post_img = Images.objects.filter(item_id=post.id).last()
         try:
@@ -58,13 +61,26 @@ def profile(request):
         id=request.user.id).first().followees.all())
     followers_cnt = len(User.objects.filter(
         id=request.user.id).first().followers.all())
+    
+    liked_posts = Like.objects.filter(user_id=request.user.id)
+
+    # いいねした投稿
+    for post in liked_posts:
+        print(post.picture_id)
+        post_img = Images.objects.filter(item_id=post.picture_id).last()
+        try:
+            is_video = post_img.image.url.endswith(('.MOV', '.mp4'))
+        except:
+            is_video = False
+        liked_obj_lis.append({'img': post_img, 'is_video': is_video})
 
     render_dict = {'user_posts': user_posts,
                    'show_profile_icon': False,
                    'posts_cnt': posts_cnt,
                    'followees_cnt': followees_cnt,
                    'followers_cnt': followers_cnt,
-                   'img_obj_lis': img_obj_lis}
+                   'img_obj_lis': img_obj_lis,
+                   'liked_obj_lis': liked_obj_lis}
     return render(request, 'register/profile.html', render_dict)
 
 
