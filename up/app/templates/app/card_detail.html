@@ -103,6 +103,7 @@
                 <hr>
 
                 <!-- コメントボタン -->
+                {% if user.is_authenticated %}
                 <div class="comment-input-row">
                     {% if user.image %}
                     <img id="commenter-profile-img" class="rounded-circle account-img" src="{{ user.image.url }}"
@@ -114,7 +115,16 @@
                     {% endif %}
                     <button id="comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
                 </div>
-
+                {% else %}
+                    <div class="comment-input-row">
+                        <img id="commenter-profile-img-default" class="rounded-circle account-img"
+                            style="width: 25px; border: solid 2px black;" src="{% static 'images/icons/person.svg' %}"
+                            alt="person-icon"></a>
+                        <a id="post-modal-call-btn" href="{% url 'login' %}">
+                            <span style="white-space: nowrap;">コメントする</span>
+                        </a>
+                    </div>
+                {% endif %}
                 {% if item.comments.count == 0 %}
                 <p id="comment-none-text">コメントはありません</p>
                 {% else %}
