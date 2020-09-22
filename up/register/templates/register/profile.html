@@ -2,6 +2,17 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+
+<div class="modal" id="settings-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 100%; overflow-y: auto;">
+            <div class="modal-header">
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="profile-section">
     {% if user.image %}
     <div id="profile-photo"><img id="profile-photo-img" class="rounded-circle account-img" src="{{ user.image.url }}">
@@ -15,7 +26,9 @@
             <h5 class="profile-username">{{ user.username }}</h5>
             <a id="setting-btn" href="{% url 'update_profile' %}"><i class="fas fa-cog"
                     style="margin-left: 10px;"></i></a>
-            <a id="profile-menu" href="#"><img src="{% static 'images/icons/dot-menu.png' %}"></a>
+            <a id="profile-menu" data-toggle="modal" data-target="#settings-modal">
+                <img src="{% static 'images/icons/dot-menu.png' %}">
+            </a>
         </div>
         {% if user.bio %}
         <p id="bio">{{ user.bio }}</p>
