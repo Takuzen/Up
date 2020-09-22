@@ -188,11 +188,31 @@
                         <span id="card-info-username">{{ item.post.created_by }}</span>
                     </a>
 
-                    <div class="like-btn" style="display: flex;">
-                        <i class="far fa-heart LikesIcon-fa-heart"></i>
+                    {% if user.is_authenticated %}
+                    <div class="like-btn-container">
+                        <form name="name_form" action="/ajax-like/" method="POST" class='ajax-like-form-cls'>
+                            <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
+                            {% csrf_token %}
+                            <input type="hidden" name="post-id" value="{{ item.post.id }}">
+                            {% if item.already_liked %}
+                            <button type="submit" class='like-btn on'>
+                                <i class="fas fa-heart LikesIcon-fa-heart heart"></i>
+                            </button>
+                            {% else %}
+                            <button type="submit" class='like-btn'>
+                                <i class="far fa-heart LikesIcon-fa-heart"></i>
+                            </button>
+                            {% endif %}
+                        </form>
                     </div>
+                    {% else %}
+                    <div class="like-btn-container">
+                        <a id="like-btn-guest" href="{% url 'login' %}"><i
+                                class="far fa-heart LikesIcon-fa-heart"></i></a>
+                    </div>
+                    {% endif %}
+                    <p class="like-count" id="id-number-of-like-{{ item.post.id }}">{{ item.number_of_likes }}</p>
 
-                    <p id="like-count"></p>
 
                 </div>
 

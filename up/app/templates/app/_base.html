@@ -335,6 +335,25 @@
             })
 
 
+            $(".ajax-like-form-cls").submit(function (event) {
+                event.preventDefault();
+                var form = $(this);
+                $.ajax({
+                        url: form.prop("action"),
+                        method: form.prop("method"),
+                        data: form.serialize(),
+                        timeout: 10000,
+                        dataType: "text",
+                    })
+                    .done(function (data) {
+                        json_data = JSON.parse(data);
+                        selec_id = "#id-number-of-like-" + json_data.item_id;
+                        $(selec_id).text(json_data["number_of_likes"]);
+                    })
+            });
+
+
+
             $("#ajax-follow-form").submit(function (event) {
                 event.preventDefault();
                 var form = $(this);
