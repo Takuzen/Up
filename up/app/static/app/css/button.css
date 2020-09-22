@@ -135,6 +135,17 @@
     cursor: pointer;
   }
 
+  .btn-logout {
+    width: 100%;
+    color: black;
+  }
+
+  .btn-logout:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;    
+  }
+
   .btn-sort img {
     width: 25px;
     object-fit: contain;
