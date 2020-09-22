@@ -137,13 +137,15 @@
 
   .btn-logout {
     width: 100%;
+    padding: 0;
     color: black;
   }
 
   .btn-logout:hover {
     opacity: 0.6;
     transition-duration: 0.3s;
-    cursor: pointer;    
+    cursor: pointer;
+    color: black;
   }
 
   .btn-sort img {
