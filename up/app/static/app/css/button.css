@@ -236,17 +236,33 @@
     margin-top: 5px;
   }
 
-  .like-btn {
+  .like-btn-container {
+    display: flex;
     margin: 0 0 0 auto;
+  }
+
+  .like-btn {
+    border: none;
+    background: white;
+    outline: none;
+  }
+
+  #like-btn-guest {
+    color: black;
+    margin-right: 5px;
+    margin-top: 1px;
   }
 
   .like-btn:hover {
     cursor: pointer;
   }
 
+  .like-btn:focus {
+    outline: none;
+  }
+
   .LikesIcon-fa-heart {
     font-size: 15px;
-    margin: 6px 0 10px 0;
   }
 
   .LikesIcon-fa-heart.heart {
