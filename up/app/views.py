@@ -11,11 +11,11 @@ from django.db.models.query import QuerySet
 
 from .filters import ItemFilterSet
 from .forms import ItemForm, PostForm, CommentForm, ImageForm
-from .models import Item, Comment, Images
+from .models import Item, Comment, Images, Like
 from ..users.models import User, FriendShip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-import re
+import re, json
 
 # 未ログインのユーザーにアクセスを許可する場合は、LoginRequiredMixinを継承から外してください。
 #
@@ -95,16 +95,28 @@ class ItemFilterView(FilterView):
 
         image_dict = {}
         for image in all_images:
+            # item_idとitem_idに紐づいている画像がまだ辞書に格納されていない場合
             if image.item_id not in image_dict:
                 image_dict[image.item_id] = {}
                 image_dict[image.item_id]["image"] = [
                     {"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())}]
                 image_dict[image.item_id]["post"] = Item.objects.get(
                     pk=image.item_id)
+                item_obj = Item.objects.get(id=image.item_id)
+                number_of_likes = item_obj.like_set.all().count()
+                image_dict[image.item_id]["number_of_likes"] = number_of_likes
+                try:
+                    like_obj = Like.objects.get(user=self.request.user, picture=Item.objects.get(id=image.item_id))
+                    already_liked = True
+                except:
+                    already_liked = False
+                image_dict[image.item_id]["already_liked"] = already_liked
+                print("already liked", already_liked)
+                # print(image.item_id, ": ", number_of_likes)
+            # item_idとitem_idに紐づいている画像が辞書に格納されている場合
             else:
                 image_dict[image.item_id]["image"].append(
                     {"photo": image, "is_video": image.image.url.endswith(get_video_extension_tuple())})
-        print(image_dict)
         context_data["image_dict"] = image_dict
         context_data["show_left"] = False
         context_data["show_right"] = False
@@ -349,3 +361,17 @@ def test_ajax_response(request):
             follower=follower, followee=followee).delete()
         message = "フォロー"
     return HttpResponse(message)
+
+
+def like_ajax_response(request):
+    new_like, created = Like.objects.get_or_create(user=request.user, picture=Item.objects.get(id=request.POST["post-id"]))
+    if not created:
+        # the user already liked this picture before = unlike
+        print("DELETE OBJECT")
+        Like.objects.filter(user=request.user, picture=Item.objects.get(id=request.POST["post-id"])).delete()
+    else:
+        print("CREATED")
+    item = Item.objects.get(id=request.POST["post-id"])
+    number_of_likes = item.like_set.all().count()
+    dic_json = {"number_of_likes": number_of_likes, "item_id": request.POST["post-id"]}
+    return HttpResponse(json.dumps(dic_json), content_type="application/json")

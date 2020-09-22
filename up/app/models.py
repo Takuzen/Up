@@ -171,3 +171,9 @@ def user_portfolio_directory_path(instance, filename):
 class Images(models.Model):
     item = models.ForeignKey(Item, default=None, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=user_portfolio_directory_path)
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    picture = models.ForeignKey(Item, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
