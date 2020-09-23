@@ -102,12 +102,12 @@
             {% endif %}
 
             <div class="share-btn-container-on-wide-card">
-                <button id="share-btn" onclick="copyToClipboard('absolute-uri')"><i
+                <button id="share-btn-on-wide-card" onclick="copyToClipboardOnWideCard('absolute-uri-on-wide-card')"><i
                         class="far fa-share-square"></i></button>
-                <p id="absolute-uri" onclick="copyElementText(this.id)">
+                <p id="absolute-uri-on-wide-card" onclick="copyElementText(this.id)">
                     {{ request.build_absolute_uri }}
                 </p>
-                <p id="copied-msg">copied!</p>
+                <p id="copied-msg-on-wide-card">copied!</p>
             </div>
 
             <a id="card-detail-setting-btn-on-wide-card" data-toggle="modal" data-target="#">

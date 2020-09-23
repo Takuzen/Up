@@ -238,6 +238,35 @@
             window.setTimeout(restore, 3000)
         }
 
+        function copyToClipboardOnWideCard(id) {
+            var from = document.getElementById(id);
+            var range = document.createRange();
+            window.getSelection().removeAllRanges();
+            range.selectNode(from);
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            var copyBtn = document.getElementById('share-btn-on-wide-card');
+            copyBtn.style.display = "none"
+            var copiedMsg = document.getElementById('copied-msg-on-wide-card');
+            copiedMsg.style.display = "block"
+
+            function showCopyBtnAgain() {
+                copyBtn.style.display = "block";
+            }
+
+            function eraseCopiedMsg() {
+                copiedMsg.style.display = "none";
+            }
+
+            function restore() {
+                showCopyBtnAgain();
+                eraseCopiedMsg();
+            }
+
+            window.setTimeout(restore, 3000)
+        }
+
         $('#myform input[type=file]').on('change invalid', function () {
             var textfield = $(this).get(0);
 

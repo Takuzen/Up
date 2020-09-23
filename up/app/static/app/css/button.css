@@ -331,6 +331,11 @@
     top: -1000px;
   }
 
+  #absolute-uri-on-wide-card {
+    position: absolute;
+    top: -1000px;
+  }
+
   #share-btn {
     position: relative;
     top: -6px;
@@ -339,7 +344,21 @@
     outline: none;
   }
 
+  #share-btn-on-wide-card {
+    position: relative;
+    top: -6px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+
   #share-btn:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+
+  #share-btn-on-wide-card:hover {
     opacity: 0.6;
     transition-duration: 0.3s;
     cursor: pointer;
@@ -355,6 +374,18 @@
     font-size: 0.8rem;
     padding: 5px;
   }
+
+  #copied-msg-on-wide-card {
+    display: none;
+    position: relative;
+    top: -6px;
+    margin: 0 !important;
+    color: tomato;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+
 
   #card-detail-setting-btn {
     margin-right: 15px;
