@@ -2,6 +2,19 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+
+<div class="modal" id="settings-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border: none;">
+            <div class="modal-header" style="border: none;">
+                <a href="{% url 'logout' %}" class="btn btn-logout">
+                    <p style="margin-bottom: 0;">ログアウト</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="profile-section">
     {% if user.image %}
     <div id="profile-photo"><img id="profile-photo-img" class="rounded-circle account-img" src="{{ user.image.url }}">
@@ -15,6 +28,9 @@
             <h5 class="profile-username">{{ user.username }}</h5>
             <a id="setting-btn" href="{% url 'update_profile' %}"><i class="fas fa-cog"
                     style="margin-left: 10px;"></i></a>
+            <a id="profile-menu" data-toggle="modal" data-target="#settings-modal">
+                <img src="{% static 'images/icons/dot-menu.png' %}">
+            </a>
         </div>
         {% if user.bio %}
         <p id="bio">{{ user.bio }}</p>
@@ -43,30 +59,32 @@
     <div class="post-category">
         <p id="post-category-1">投稿</p>
     </div>
-    {% for post in img_obj_lis %}
-    <div class="row row-cols-2" style="margin: 3vh;">
-        <div class="col infinite-item">
-            {% if post.is_video %}
-            <div>
-                {% if post.img.item_id %}
-                <a href="{% url 'card_detail' post.img.item_id %}">
-                    <video width="200" height="200" controls muted playsinline>
-                        <source src="{{ post.img.image.url }}" type="video/mp4">
-                    </video>
-                </a>
+    <div id="my-posts-container">
+        {% for post in img_obj_lis %}
+        <div>
+            <div class="infinite-item">
+                {% if post.is_video %}
+                <div id="my-each-post">
+                    {% if post.img.item_id %}
+                    <a href="{% url 'card_detail' post.img.item_id %}">
+                        <video width="240" height="240" controls muted playsinline>
+                            <source src="{{ post.img.image.url }}" type="video/mp4">
+                        </video>
+                    </a>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div id="my-each-post">
+                    {% if post.img.item_id %}
+                    <a href="{% url 'card_detail' post.img.item_id %}">
+                        <img src="{{ post.img.image.url }}">
+                    </a>
+                    {% endif %}
+                </div>
                 {% endif %}
             </div>
-            {% else %}
-            <div id="image">
-                {% if post.img.item_id %}
-                <a href="{% url 'card_detail' post.img.item_id %}">
-                    <img src="{{ post.img.image.url }}" style="width: 200px; height:200px; object-fit:cover;">
-                </a>
-                {% endif %}
-            </div>
-            {% endif %}
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
