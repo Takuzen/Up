@@ -19,3 +19,19 @@
 #update-profile-img {
     margin-bottom: 1.5rem;
 }
+
+#return-btn {
+    margin-top: 10px;
+    background: lightgray;
+    color: white;
+    text-align: center;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+#return-btn:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background: #C3C3C3;
+}
