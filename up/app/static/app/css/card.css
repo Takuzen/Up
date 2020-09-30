@@ -10,13 +10,6 @@
     cursor: default;
 }
 
-.like-count {
-    cursor: default;
-    margin: 1px 10px 10px 0px;
-    position: relative;
-    left: -2px;
-}
-
 /* モバイル */
 @media only screen and (max-width:479px) {
     #card-infinite-container {
@@ -179,4 +172,11 @@
     margin-left: 5px;
     color: black;
     font-weight: 200;
+}
+
+.like-count {
+    cursor: default;
+    margin: 1px 10px 10px 0px;
+    position: relative;
+    left: -2px;
 }
