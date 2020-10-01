@@ -302,19 +302,23 @@
                     if (file.type.match('image.*')) {
                         reader.onload = function (e) {
                             portfolioImageGroup.append(`
+                            <div id="each-preview-container">
                                 <img id="${this.button_id}" src="{% static '/images/icons/close-button.png' %}"
                                     alt="close-button" style="display: block;" class="clear-button-cls">
                                 <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; height:${this.height}px; object-fit:cover">
+                            </div>
                                 `)
                         }
                     } else if (file.type.match('video.*')) {
                         reader.onload = function (e) {
                             portfolioImageGroup.append(`
+                            <div id="each-preview-container">
                                 <img id="${this.button_id}" src="{% static '/images/icons/close-button.png' %}"
                                     alt="close-button" style="display: block;" class="clear-button-cls">
                                 <video class="${this.img_cls}" style="width:${this.width}px; height:${this.height}px; vertical-align:middle;" controls>
                                     <source src="${e.target.result}" type="video/mp4">
                                 </video>
+                            </div>
                             `)
                         }
                     }
