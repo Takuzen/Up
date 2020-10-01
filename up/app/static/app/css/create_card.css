@@ -11,6 +11,7 @@
     }
 
     .removable-div-form {
+        /** preview画像が2列になるように **/
         margin: 0 10vw;
     }
 }
