@@ -247,19 +247,6 @@
             }
         });
 
-        var infinite = new Waypoint.Infinite({
-            element: $('.infinite-container')[0],
-            handler: function (direction) {},
-            offset: 'bottom-in-view',
-
-            onBeforePageLoad: function () {
-                $('.spinner-border').show();
-            },
-            onAfterPageLoad: function () {
-                $('.spinner-border').hide();
-            }
-        });
-
         $(function () {
 
             // 入力フォームでリターンキー押下時の送信を無効化
@@ -425,8 +412,6 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js">
     </script>
     <script src="{% static 'app/js/app.js' %}"></script>
-    <script src="{% static 'app/js/infinite.min.js' %}"></script>
-    <script src="{% static 'app/js/jquery.waypoints.min.js' %}"></script>
 
 </body>
 
