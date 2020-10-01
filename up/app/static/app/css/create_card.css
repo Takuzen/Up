@@ -9,6 +9,11 @@
         display: flex;
         margin: 10px 20px;
     }
+
+    .removable-div-form {
+        /** preview画像が2列になるように **/
+        margin: 0 10vw;
+    }
 }
 
 @media screen and (min-width: 480px) {
@@ -113,6 +118,7 @@
 }
 
 /* モーダル */
+
 #post-modal-memo-container {
     display: flex;
     flex-direction: row;
@@ -134,4 +140,8 @@
     width: 30px;
     margin-top: 4px;
     border: solid 2px black;
+}
+
+#each-preview-container {
+    margin: 10px;
 }
