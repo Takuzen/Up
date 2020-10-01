@@ -40,15 +40,13 @@
                         </span>
                         {{ imageform.image }}
                     </label>
-                    <div>
-                        <div id="removable-div">
+
+                    <div id="removable-div">
+                        <div id="preview-images-container-modal">
                             <span id="image_preview_span"></span>
-                            <div>
-                                <img id="close-button" src="{% static '/images/icons/close-button.png' %}"
-                                    alt="close-button">
-                            </div>
                         </div>
                     </div>
+
 
                     <div id="input-title" style="overflow: hidden;">
                         {{ form.restaurant_name|as_crispy_field }}

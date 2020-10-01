@@ -53,11 +53,14 @@
 }
 
 img[id^='close-'] {
-    display: none;
     width: 20px;
     height: 20px;
     object-fit: contain;
-    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+    left: -10px;
+    z-index: 3;
+    /** ボタンが画像の上に置かれるように（3は適当） **/
 }
 
 img[id^='close-']:hover {
