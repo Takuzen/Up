@@ -111,7 +111,7 @@ class ItemFilterView(FilterView):
                 except:
                     already_liked = False
                 image_dict[image.item_id]["already_liked"] = already_liked
-                print("already liked", already_liked)
+                # print("already liked", already_liked)
                 # print(image.item_id, ": ", number_of_likes)
             # item_idとitem_idに紐づいている画像が辞書に格納されている場合
             else:
