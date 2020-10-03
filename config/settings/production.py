@@ -31,6 +31,8 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',  # 1日はそのキャッシュを使う
 }
 
+STATIC_URL = 'http://d33o4cv5i0ucgd.cloudfront.net/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
 
 DEFAULT_FILE_STORAGE = 'config.settings.storage_backend.MediaStorage'
