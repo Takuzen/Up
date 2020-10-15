@@ -8,13 +8,13 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="border: none;">
             <div class="modal-header" style="border: none;">
-                <a href="{% url 'logout' %}" class="btn btn-logout">
-                    <p style="margin-bottom: 0;">削除</p>
+                <a href="{% url 'update' item.pk %}" class="btn btn-logout">
+                    <p style="margin-bottom: 0;">編集</p>
                 </a>
             </div>
             <div class="modal-header" style="border: none;">
-                <a href="{% url 'logout' %}" class="btn btn-logout">
-                    <p style="margin-bottom: 0;">編集</p>
+                <a href="{% url 'delete' item.pk %}" class="btn btn-logout">
+                    <p style="margin-bottom: 0;">削除</p>
                 </a>
             </div>
         </div>
@@ -60,10 +60,11 @@
             </p>
             <p id="copied-msg">copied!</p>
         </div>
-
+        {% if is_own_post %}
         <a id="card-detail-setting-btn" data-toggle="modal" data-target="#card-detail-modal">
             <img src="{% static 'images/icons/dot-menu.png' %}">
         </a>
+        {% endif %}
 
     </div>
 
@@ -127,10 +128,11 @@
                 </p>
                 <p id="copied-msg-on-wide-card">copied!</p>
             </div>
-
-            <a id="card-detail-setting-btn-on-wide-card" data-toggle="modal" data-target="#">
+            {% if is_own_post %}
+            <a id="card-detail-setting-btn-on-wide-card" data-toggle="modal" data-target="#card-detail-modal">
                 <img src="{% static 'images/icons/dot-menu.png' %}">
             </a>
+            {% endif %}
 
         </div>
 
