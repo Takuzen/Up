@@ -3,14 +3,10 @@
 }
 */
 
-/* Up Font */
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-
 video {
     outline: none;
     object-fit: cover;
 }
-
 
 /* モバイル */
 @media screen and (max-width: 479px) {
@@ -66,11 +62,6 @@ header h5 {
     margin-left: 395px;
 }
 */
-
-#homepage-container {
-    position: relative;
-    top: -30px;
-}
 
 .filters {
     display: flex;
