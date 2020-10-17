@@ -1,0 +1,61 @@
+/* Up Font */
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+/* Kosugi Maru Font*/
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+header {
+    height: 60px;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.header-group {
+    height: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 20% 60% 10% 10%;
+}
+
+.service-logo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#login-link-on-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    text-decoration: none;
+    padding-top: 2px;
+}
+
+#login-text-on-header {
+    color: black;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+#login-text-on-header:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+#start-diary-link {
+    text-decoration: none;
+}
+
+#start-diary-text {
+    color: black;
+    background-image: linear-gradient(120deg, #fa7099 0%, #fedf41 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.3em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+}
+
+#start-diary-text:hover {
+    background-size: 100% 88%;
+}
