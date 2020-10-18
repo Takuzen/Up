@@ -55,18 +55,30 @@
     <!-- css add justify-content: space-between; -->
     <header>
         <div class="header-group">
-            <div class="service-logo">
+
+            <img id="up-arrow-on-header" src="{% static 'images/icons/up-arrow.png' %}" alt="up-arrow" width="80">
+
+            <h5 id="project-name-on-header"><a href=" {% url 'index' %}"
+                    style="font-family: 'Fugaz One', cursive; color: black; text-decoration: none;">Up</a>
+            </h5>
+
+            <div id="service-logo-on-header-left">
                 <h6 style="align-self: flex-end; margin-bottom: 0;"><a href="{% url 'index' %}"
-                        style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none;">みんなの </a>
+                        style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none; margin-right: 2px;">みんなの</a>
                 </h6>
                 <h5 style="margin-bottom: 0;"><a href="{% url 'index' %}"
                         style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none;">飲食日誌</a>
                 </h5>
             </div>
 
-            <h5 style="text-align: center; margin-bottom: 0;"><a href=" {% url 'index' %}"
-                    style="font-family: 'Fugaz One', cursive; color: black; text-decoration: none;">Up</a>
-            </h5>
+            <div id="service-logo-on-header-center">
+                <h6 style="align-self: flex-end; margin-bottom: 0;"><a href="{% url 'index' %}"
+                        style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none; margin-right: 2px;">みんなの</a>
+                </h6>
+                <h5 style="margin-bottom: 0;"><a href="{% url 'index' %}"
+                        style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none;">飲食日誌</a>
+                </h5>
+            </div>
 
 
             {% if user.is_authenticated %}
@@ -84,7 +96,12 @@
             {% else %}
 
             <a id="login-link-on-header" href="{% url 'login' %}"><span id="login-text-on-header">ログイン</span></a>
-            <a id="start-diary-link" href="{% url 'register' %}"><span id="start-diary-text">日誌を始める</span></a>
+            <a id="login-icon-on-header" href="{% url 'login' %}"><img src="{% static 'images/icons/login-btn.png' %}"
+                    width="20">
+            </a>
+            <a id="start-diary-link-text" href="{% url 'register' %}"><span id="start-diary-text">日誌を始める</span></a>
+            <a id="start-diary-link-icon" href="{% url 'register' %}"><span><img id="start-diary-icon"
+                        src="{% static 'images/icons/start-diary-btn.png' %}" width="20"></span></a>
 
             {% endif %}
 

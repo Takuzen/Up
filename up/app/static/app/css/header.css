@@ -1,61 +1,197 @@
 /* Up Font */
-@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 
 /* Kosugi Maru Font*/
-@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap");
 
 header {
-    height: 60px;
-    border-bottom: 1px solid whitesmoke;
+  height: 60px;
+  border-bottom: 1px solid whitesmoke;
 }
 
 .header-group {
-    height: 100%;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: 20% 60% 10% 10%;
-}
-
-.service-logo {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+  height: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 20% 60% 10% 10%;
 }
 
 #login-link-on-header {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
-    text-decoration: none;
-    padding-top: 2px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  text-decoration: none;
+  padding-top: 1px;
+  text-align: right;
 }
 
 #login-text-on-header {
-    color: black;
-    font-size: 13px;
-    text-decoration: none;
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
 }
 
 #login-text-on-header:hover {
-    opacity: 0.6;
-    cursor: pointer;
+  opacity: 0.6;
+  cursor: pointer;
 }
 
-#start-diary-link {
-    text-decoration: none;
+#login-icon-on-header:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 #start-diary-text {
-    color: black;
-    background-image: linear-gradient(120deg, #fa7099 0%, #fedf41 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 0.3em;
-    background-position: 0 88%;
-    transition: background-size 0.25s ease-in;
+  color: black;
+  background-image: linear-gradient(120deg, #fa7099 0%, #fedf41 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+
+#start-diary-icon {
+  background-image: linear-gradient(120deg, #fa7099 0%, #fedf41 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
 }
 
 #start-diary-text:hover {
-    background-size: 100% 88%;
+  background-size: 100% 88%;
+}
+
+#start-diary-icon:hover {
+  background-size: 100% 88%;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 735px) {
+  #up-arrow-on-header {
+    display: block;
+    margin-top: 5px;
+  }
+
+  #service-logo-on-header-left {
+    display: none;
+  }
+
+  #service-logo-on-header-center {
+    display: block;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #project-name-on-header {
+    display: none;
+  }
+
+  #login-link-on-header {
+    display: none;
+  }
+
+  #login-icon-on-header {
+    display: block;
+    padding-top: 2px;
+    text-align: right;
+    margin-right: 25px;
+  }
+
+  #start-diary-link-text {
+    display: none;
+  }
+
+  #start-diary-icon-icon {
+    display: block;
+    text-emphasis: none;
+  }
+}
+
+@media screen and (min-width: 736px) and (max-width: 967px) {
+  #up-arrow-on-header {
+    display: block;
+    margin-top: 5px;
+  }
+
+  #service-logo-on-header-left {
+    display: none;
+  }
+
+  #service-logo-on-header-center {
+    display: block;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #project-name-on-header {
+    display: none;
+  }
+
+  #login-link-on-header {
+    display: none;
+  }
+
+  #login-icon-on-header {
+    display: block;
+    padding-top: 2px;
+    text-align: right;
+    margin-right: 25px;
+  }
+
+  #start-diary-link-text {
+    display: none;
+  }
+
+  #start-diary-text {
+    display: none;
+  }
+
+  #start-diary-icon-icon {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 968px) {
+  #up-arrow-on-header {
+    display: none;
+  }
+
+  #service-logo-on-header-left {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #service-logo-on-header-center {
+    display: none;
+  }
+
+  #project-name-on-header {
+    display: block;
+    text-align: left;
+    margin-bottom: 0;
+    margin-left: 3vw;
+  }
+
+  #login-link-on-header {
+    display: block;
+  }
+
+  #login-icon-on-header {
+    display: none;
+  }
+
+  #start-diary-link-text {
+    display: block;
+    text-decoration: none;
+  }
+
+  #start-diary-link-icon {
+    display: none;
+  }
 }

@@ -1,522 +1,523 @@
 /* モバイル */
 @media only screen and (max-width: 479px) {
-    .card-detail-header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: nowrap;
-    }
+  .card-detail-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 15px;
+  }
 
-    #back-btn {
-        border: none;
-        background: white;
-        position: relative;
-        top: -6px;
-        margin: 0 10px;
-    }
+  #back-btn {
+    border: none;
+    background: white;
+    position: relative;
+    top: -6px;
+    margin: 0 10px;
+  }
 
-    #card-detail-back-arrow-img {
-        width: 15px;
-        object-fit: contain;
-    }
+  #card-detail-back-arrow-img {
+    width: 15px;
+    object-fit: contain;
+  }
 
-    #card-detail-profile-img {
-        border: none;
-        width: 30px;
-        height: 30px;
-        object-fit: cover;
-        margin-bottom: 12px;
-        margin-left: 5px;
-    }
+  #card-detail-profile-img {
+    border: none;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-bottom: 12px;
+    margin-left: 5px;
+  }
 
-    #card-detail-profile-img-default-v {
-        border: solid 1px black;
-        margin: 0 3px 13px 3px;
-    }
+  #card-detail-profile-img-default-v {
+    border: solid 1px black;
+    margin: 0 3px 13px 3px;
+  }
 
-    #card-detail-username {
-        margin-left: 5px;
-        margin-top: 2px;
-    }
+  #card-detail-username {
+    margin-left: 5px;
+    margin-top: 2px;
+  }
 
-    .follow-button {
-        background-color: white;
-        color: #2CBD3E;
-        border-color: #2CBD3E;
-        font-size: 0.8rem;
-        padding: 5px 15px;
-        margin-left: 20px;
-        position: relative;
-        top: -7px;
-    }
+  .follow-button {
+    background-color: white;
+    color: #2cbd3e;
+    border-color: #2cbd3e;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin-left: 20px;
+    position: relative;
+    top: -7px;
+  }
 
-    .following-button {
-        background-color: #2CBD3E;
-        color: white;
-        font-size: 0.8rem;
-        padding: 5px 15px;
-        margin-left: 20px;
-        position: relative;
-        top: -7px;
-    }
+  .following-button {
+    background-color: #2cbd3e;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin-left: 20px;
+    position: relative;
+    top: -7px;
+  }
 
-    #card-detail-img {
-        width: 100%;
-        height: 50vh;
-        object-fit: cover;
-    }
+  #card-detail-img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+  }
 
-    #card-detail-video {
-        width: 100%;
-        height: 50vh;
-        object-fit: cover;
-    }
+  #card-detail-video {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+  }
 
-    .prev {
-        position: relative;
-        top: -27vh;
-        left: 3vw;
-    }
+  .prev {
+    position: relative;
+    top: -27vh;
+    left: 3vw;
+  }
 
-    .next {
-        position: relative;
-        top: -27vh;
-        left: 78vw;
-    }
+  .next {
+    position: relative;
+    top: -27vh;
+    left: 78vw;
+  }
 
-    .card-detail-footer {
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
+  .card-detail-footer {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 
-    #user-info-on-card-detail {
-        display: none;
-    }
+  #user-info-on-card-detail {
+    display: none;
+  }
 
-    #back-btn-on-card-detail-footer {
-        display: none;
-    }
+  #back-btn-on-card-detail-footer {
+    display: none;
+  }
 
-    #restaurant-memo {
-        margin: 0 3vw 10px 3vw;
-        white-space: pre-wrap;
-    }
+  #restaurant-memo {
+    margin: 0 3vw 10px 3vw;
+    white-space: pre-wrap;
+  }
 
-    #location {
-        border: solid 1px lightgray;
-        border-radius: 5px;
-        margin: 1vh 2vw;
-        padding: 10px;
-    }
+  #location {
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    margin: 1vh 2vw;
+    padding: 10px;
+  }
 
-    #restaurant-name-on-card-footer {
-        margin-left: 5px;
-        position: relative;
-        top: 2px;
-    }
+  #restaurant-name-on-card-footer {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+  }
 
-    .card-sized-comment-section {
-        display: flex;
-    }
+  .card-sized-comment-section {
+    display: flex;
+  }
 
-    .full-sized-comment-section {
-        display: none;
-    }
-
+  .full-sized-comment-section {
+    display: none;
+  }
 }
 
 /* デスクトップ(~1036px) */
 @media only screen and (min-width: 480px) and (max-width: 1036px) {
-    #card-detail-container {
-        width: 480px;
-        margin: auto;
-        border-radius: 5px;
-        box-shadow: 1px 1px 1px 1px lightgray;
-    }
+  #card-detail-container {
+    width: 480px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px lightgray;
+  }
 
-    .card-detail-header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        padding-top: 15px;
-    }
+  .card-detail-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-top: 15px;
+    margin-top: 35px;
+  }
 
-    #back-btn {
-        border: none;
-        background: white;
-        position: relative;
-        top: -6px;
-        margin: 0 10px;
-    }
+  #back-btn {
+    border: none;
+    background: white;
+    position: relative;
+    top: -6px;
+    margin: 0 10px;
+  }
 
-    #card-detail-back-arrow-img {
-        width: 15px;
-        object-fit: contain;
-    }
+  #card-detail-back-arrow-img {
+    width: 15px;
+    object-fit: contain;
+  }
 
-    #card-detail-profile-img {
-        border: none;
-        width: 30px;
-        height: 30px;
-        object-fit: cover;
-        margin-bottom: 12px;
-        margin-left: 5px;
-    }
+  #card-detail-profile-img {
+    border: none;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-bottom: 12px;
+    margin-left: 5px;
+  }
 
-    #card-detail-profile-img-default-v {
-        border: solid 1px black;
-        margin: 0 3px 13px 3px;
-    }
+  #card-detail-profile-img-default-v {
+    border: solid 1px black;
+    margin: 0 3px 13px 3px;
+  }
 
-    #card-detail-username {
-        margin-left: 5px;
-        margin-top: 2px;
-    }
+  #card-detail-username {
+    margin-left: 10px;
+    margin-top: 2px;
+  }
 
-    .follow-button {
-        background-color: white;
-        color: #2CBD3E;
-        border-color: #2CBD3E;
-        font-size: 0.8rem;
-        padding: 5px 15px;
-        margin-left: 20px;
-        position: relative;
-        top: -7px;
-    }
+  .follow-button {
+    background-color: white;
+    color: #2cbd3e;
+    border-color: #2cbd3e;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin-left: 20px;
+    position: relative;
+    top: -7px;
+  }
 
-    .following-button {
-        background-color: #2CBD3E;
-        color: white;
-        font-size: 0.8rem;
-        padding: 5px 15px;
-        margin-left: 20px;
-        position: relative;
-        top: -7px;
-    }
+  .following-button {
+    background-color: #2cbd3e;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin-left: 20px;
+    position: relative;
+    top: -7px;
+  }
 
-    #card-detail-img {
-        width: 480px;
-        height: 600px;
-        object-fit: cover;
-    }
+  #card-detail-img {
+    width: 480px;
+    height: 600px;
+    object-fit: cover;
+  }
 
-    #card-detail-video {
-        width: 480px;
-        height: 600px;
-        object-fit: cover;
-    }
+  #card-detail-video {
+    width: 480px;
+    height: 600px;
+    object-fit: cover;
+  }
 
-    .prev {
-        position: relative;
-        top: -320px;
-        left: 15px;
-    }
+  .prev {
+    position: relative;
+    top: -320px;
+    left: 15px;
+  }
 
-    .next {
-        position: relative;
-        top: -320px;
-        left: 400px;
-    }
+  .next {
+    position: relative;
+    top: -320px;
+    left: 400px;
+  }
 
-    #user-info-on-card-detail {
-        display: none;
-    }
+  #user-info-on-card-detail {
+    display: none;
+  }
 
-    #back-btn-on-card-detail-footer {
-        display: none;
-    }
+  #back-btn-on-card-detail-footer {
+    display: none;
+  }
 
-    .card-detail-footer {
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
+  .card-detail-footer {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 
-    #restaurant-memo {
-        margin: 0 3vw 10px 3vw;
-        white-space: pre-wrap;
-    }
+  #restaurant-memo {
+    margin: 0 3vw 10px 3vw;
+    white-space: pre-wrap;
+  }
 
-    #location {
-        border: solid 1px lightgray;
-        border-radius: 5px;
-        margin: 15px auto;
-        width: 460px;
-        padding: 10px;
-    }
+  #location {
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    margin: 15px auto;
+    width: 460px;
+    padding: 10px;
+  }
 
-    #restaurant-name-on-card-footer {
-        margin-left: 5px;
-        position: relative;
-        top: 2px;
-    }
+  #restaurant-name-on-card-footer {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+  }
 
-    .card-sized-comment-section {
-        display: flex;
-    }
+  .card-sized-comment-section {
+    display: flex;
+  }
 
-    .full-sized-comment-section {
-        display: none;
-    }
+  .full-sized-comment-section {
+    display: none;
+  }
 }
 
 /* デスクトップ(1037px~) */
 @media only screen and (min-width: 1037px) {
-    #card-detail-container {
-        display: flex;
-        flex-direction: row;
-        width: 1017px;
-        margin: 35px auto;
-        box-shadow: 1px 1px 1px 1px lightgray;
-        border-radius: 5px;
-    }
+  #card-detail-container {
+    display: flex;
+    flex-direction: row;
+    width: 1017px;
+    margin: 35px auto;
+    box-shadow: 1px 1px 1px 1px lightgray;
+    border-radius: 5px;
+  }
 
-    .card-detail-header {
-        display: none;
-    }
+  .card-detail-header {
+    display: none;
+  }
 
-    #card-detail-back-arrow-img {
-        width: 15px;
-        object-fit: contain;
-    }
+  #card-detail-back-arrow-img {
+    width: 15px;
+    object-fit: contain;
+  }
 
-    .follow-button {
-        background-color: white;
-        color: #2CBD3E;
-        border-color: #2CBD3E;
-        font-size: 0.8rem;
-        padding: 5px 15px;
-        position: relative;
-        top: -7px;
-    }
+  .follow-button {
+    background-color: white;
+    color: #2cbd3e;
+    border-color: #2cbd3e;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    position: relative;
+    top: -7px;
+  }
 
-    .following-button {
-        background-color: #2CBD3E;
-        color: white;
-        font-size: 0.8rem;
-        padding: 5px 15px;
-        position: relative;
-        top: -7px;
-    }
+  .following-button {
+    background-color: #2cbd3e;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    position: relative;
+    top: -7px;
+  }
 
-    #card-detail-img {
-        width: 600px;
-        height: 600px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
+  #card-detail-img {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 
-    #card-detail-video {
-        width: 600px;
-        height: 600px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
+  #card-detail-video {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 
-    .prev {
-        position: relative;
-        top: -320px;
-        left: 15px;
-    }
+  .prev {
+    position: relative;
+    top: -320px;
+    left: 15px;
+  }
 
-    .next {
-        position: relative;
-        top: -320px;
-        left: 515px;
-    }
+  .next {
+    position: relative;
+    top: -320px;
+    left: 515px;
+  }
 
-    #back-btn-on-card-detail-footer {
-        position: relative;
-        left: -760px;
-    }
+  #back-btn-on-card-detail-footer {
+    position: relative;
+    left: -760px;
+  }
 
-    #user-info-on-card-detail {
-        display: flex;
-        margin: 0 50px;
-    }
+  #user-info-on-card-detail {
+    display: flex;
+    margin: 0 50px;
+  }
 
-    #card-detail-profile-img {
-        border: none;
-        width: 30px;
-        height: 30px;
-        object-fit: cover;
-        margin-top: 5px;
-    }
+  #card-detail-profile-img {
+    border: none;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-top: 5px;
+  }
 
-    #card-detail-profile-img-default-h {
-        border: solid 1px black;
-        margin: 13px;
-    }
+  #card-detail-profile-img-default-h {
+    border: solid 1px black;
+    margin: 13px;
+  }
 
-    #card-detail-username {
-        margin: 8px 15px 8px 5px;
-    }
+  #card-detail-username {
+    margin: 8px 15px 8px 10px;
+  }
 
-    #restaurant-memo {
-        margin: 15px 50px 15px 50px;
-        white-space: pre-line;
-    }
+  #restaurant-memo {
+    margin: 15px 50px 15px 50px;
+    white-space: pre-line;
+  }
 
-    #restaurant-name-on-card-footer {
-        margin-left: 5px;
-        position: relative;
-        top: 2px;
-    }
+  #restaurant-name-on-card-footer {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+  }
 
-    .card-sized-comment-section {
-        display: none;
-    }
+  .card-sized-comment-section {
+    display: none;
+  }
 }
 
 /* 共通 */
 
 #hr-above-comment {
-    color: #65676B;
-    margin: none;
+  color: #65676b;
+  margin: none;
 }
 
 .comments {
-    width: 100%;
-    margin: 0 20px 20px 20px;
+  width: 100%;
+  margin: 0 20px 20px 20px;
 }
 
 .comment-input-row {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #commenter-profile-img {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-    margin-right: 3px;
-    margin-bottom: 2px;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-right: 3px;
+  margin-bottom: 2px;
 }
 
 #commenter-profile-img-default {
-    width: 25px;
-    border: solid 2px black;
-    margin-right: 3px;
-    margin-bottom: 1px;
+  width: 25px;
+  border: solid 2px black;
+  margin-right: 3px;
+  margin-bottom: 1px;
 }
 
 #comment-none-text,
 #comment-count-text {
-    font-size: 0.8rem;
-    color: #65676B;
+  font-size: 0.8rem;
+  color: #65676b;
 }
 
 .prev:hover {
-    cursor: pointer;
-    opacity: 0.6;
-    transition-duration: 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+  transition-duration: 0.3s;
 }
 
 #arrow-left {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
 .next:hover {
-    cursor: pointer;
-    opacity: 0.6;
-    transition-duration: 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+  transition-duration: 0.3s;
 }
 
 #arrow-right {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
 .full-sized-comments {
-    width: 1017px;
-    margin: 0 auto;
+  width: 1017px;
+  margin: 0 auto;
 }
 
 #comment-trigger-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 30px;
 }
 
 #comment-profile-img {
-    border: solid 2px;
-    position: relative;
-    top: -7px;
-    margin: 0 5px;
+  border: solid 2px;
+  position: relative;
+  top: -7px;
+  margin: 0 5px;
 }
 
 #comment-btn {
-    outline: none;
-    border: none;
-    color: black;
-    background: whitesmoke;
-    border-radius: 50px;
-    padding: 8px 15px 8px 15px;
-    font-size: 0.8rem;
+  outline: none;
+  border: none;
+  color: black;
+  background: whitesmoke;
+  border-radius: 50px;
+  padding: 8px 15px 8px 15px;
+  font-size: 0.8rem;
 }
 
 #full-sized-comment-btn-container {
-    width: 1017px;
-    margin: 0 auto;
+  width: 1017px;
+  margin: 0 auto;
 }
 
 #full-sized-comment-btn {
-    outline: none;
-    border: none;
-    color: black;
-    background: whitesmoke;
-    border-radius: 50px;
-    padding: 10px 15px 10px 15px;
-    font-size: 0.8rem;
-    margin-bottom: 29px;
+  outline: none;
+  border: none;
+  color: black;
+  background: whitesmoke;
+  border-radius: 50px;
+  padding: 10px 15px 10px 15px;
+  font-size: 0.8rem;
+  margin-bottom: 29px;
 }
 
 #comment-btn:hover {
-    cursor: pointer;
-    opacity: 0.6;
-    transition-duration: 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+  transition-duration: 0.3s;
 }
 
 #full-sized-comment-btn:hover {
-    cursor: pointer;
-    opacity: 0.6;
-    transition-duration: 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+  transition-duration: 0.3s;
 }
 
 .submit-comment-btn {
-    position: relative;
-    left: 10px;
-    top: 2px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    background-color: #ffa76c;
-    color: white;
-    border-radius: 50px;
-    border: none;
-    padding: 10px 20px 10px 20px;
+  position: relative;
+  left: 10px;
+  top: 2px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: #ffa76c;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  padding: 10px 20px 10px 20px;
 }
 
 .submit-comment-btn:hover {
-    cursor: pointer;
-    opacity: 0.6;
-    transition-duration: 0.3s;
+  cursor: pointer;
+  opacity: 0.6;
+  transition-duration: 0.3s;
 }
 
 .comment-date {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .commenter-username {
-    position: relative;
-    top: -3px;
-    font-size: 0.8em;
+  position: relative;
+  top: -3px;
+  font-size: 0.8em;
 }
