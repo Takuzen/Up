@@ -14,7 +14,6 @@ from .forms import ItemForm, PostForm, CommentForm, ImageForm
 from .models import Item, Comment, Images, Like
 from ..users.models import User, FriendShip
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 import re, json
 
 # 未ログインのユーザーにアクセスを許可する場合は、LoginRequiredMixinを継承から外してください。
@@ -320,7 +319,12 @@ class CardDetailPageView(DetailView):
             context["show_follow_button"] = True
             context["is_own_post"] = False
         else:
-            context["is_own_post"] = True
+            # if follower_id is not same as followee_id
+            # AND if user is logged in
+            if self.request.user.id is None:
+                context["is_own_post"] = False
+            else:
+                context["is_own_post"] = True
 
         # if is_follow is above 0, it shows that there is a connection between the two
         is_following = len(FriendShip.objects.filter(
