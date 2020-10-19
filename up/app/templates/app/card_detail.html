@@ -26,6 +26,7 @@
     <div class="card-detail-header">
         <a id="back-btn" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
                 src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
+        <a href="{% url 'user_portfolio' item.created_by.id %}">
         {% if item.created_by.image %}
         <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img" class="rounded-circle account-img"
             alt="person-img">
@@ -33,7 +34,10 @@
         <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img-default-v"
             class="rounded-circle account-img" alt="person-img">
         {% endif %}
+        </a>
+        <a href="{% url 'user_portfolio' item.created_by.id %}" style="color: black; text-decoration: none; margin-right: 2px;">
         <p id="card-detail-username">{{ item.created_by }}</p>
+        </a>
 
         {% if show_follow_button %}
         <div>
@@ -91,6 +95,7 @@
         <a id="back-btn-on-card-detail-footer" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
                 src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
         <div id="user-info-on-card-detail">
+            <a href="{% url 'user_portfolio' item.created_by.id %}">
             {% if item.created_by.image %}
             <div id="card-detail-profile-img-container">
                 <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img"
@@ -102,7 +107,10 @@
                     class="rounded-circle account-img" alt="person-img">
             </div>
             {% endif %}
+            </a>
+            <a href="{% url 'user_portfolio' item.created_by.id %}" style="color: black; text-decoration: none; margin-right: 2px;">
             <p id="card-detail-username">{{ item.created_by }}</p>
+            </a>
             {% if show_follow_button %}
             <div>
                 <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form-2'>
