@@ -45,6 +45,7 @@
     <link href="{% static "app/css/campaign.css" %}" rel="stylesheet">
     <link href="{% static "app/css/update_profile.css" %}" rel="stylesheet">
     <link href="{% static "app/css/create_card.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/header.css" %}" rel="stylesheet">
     <!-- Fontawesome (fonts and Icons) -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
@@ -52,11 +53,34 @@
 <body>
     <!-- header -->
     <!-- css add justify-content: space-between; -->
-    <header class="header d-flex flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url 'index' %}"
-                style="font-family: 'Righteous', cursive; text-decoration: none; color: black;">Up</a></h5>
+    <header>
+        <div class="header-group">
 
-        <nav class="my-2 my-md-0 mr-md-3">
+            <img id="up-arrow-on-header" src="{% static 'images/icons/up-arrow.png' %}" alt="up-arrow" width="80">
+
+            <h5 id="project-name-on-header"><a href=" {% url 'index' %}"
+                    style="font-family: 'Fugaz One', cursive; color: black; text-decoration: none;">Up</a>
+            </h5>
+
+            <div id="service-logo-on-header-left">
+                <h6 style="align-self: flex-end; margin-bottom: 0;"><a href="{% url 'index' %}"
+                        style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none; margin-right: 2px;">みんなの</a>
+                </h6>
+                <h5 style="margin-bottom: 0;"><a href="{% url 'index' %}"
+                        style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none;">飲食日誌</a>
+                </h5>
+            </div>
+
+            <div id="service-logo-on-header-center">
+                <h6 style="align-self: flex-end; margin-bottom: 0;"><a href="{% url 'index' %}"
+                        style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none; margin-right: 2px;">みんなの</a>
+                </h6>
+                <h5 style="margin-bottom: 0;"><a href="{% url 'index' %}"
+                        style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none;">飲食日誌</a>
+                </h5>
+            </div>
+
+
             {% if user.is_authenticated %}
             {% if show_profile_icon %}
 
@@ -71,11 +95,17 @@
 
             {% else %}
 
-            <a class="btn btn-outline-primary btn-sm mr-2" href="{% url 'login' %}">ログイン</a>
-            <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">無料登録</a>
+            <a id="login-link-on-header" href="{% url 'login' %}"><span id="login-text-on-header">ログイン</span></a>
+            <a id="login-icon-on-header" href="{% url 'login' %}"><img src="{% static 'images/icons/login-btn.png' %}"
+                    width="20">
+            </a>
+            <a id="start-diary-link-text" href="{% url 'register' %}"><span id="start-diary-text">日誌を始める</span></a>
+            <a id="start-diary-link-icon" href="{% url 'register' %}"><span><img id="start-diary-icon"
+                        src="{% static 'images/icons/start-diary-btn.png' %}" width="20"></span></a>
 
             {% endif %}
-        </nav>
+
+        </div>
     </header>
 
     <!-- content-->
