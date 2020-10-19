@@ -14,6 +14,7 @@
     <div class="profile-textarea">
         <div class="profile-username-row">
             <h5 class="profile-username">{{ portfolio_owner.username }}</h5>
+            {% if show_follow_button %}
             <div>
                 <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form'>
                     <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
@@ -28,6 +29,7 @@
                     {% endif %}
                 </form>
             </div>
+            {% endif %}
         </div>
         {% if portfolio_owner.bio %}
         <p id="bio">{{ portfolio_owner.bio }}</p>
