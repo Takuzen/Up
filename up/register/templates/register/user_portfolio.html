@@ -29,6 +29,10 @@
                     {% endif %}
                 </form>
             </div>
+            {% else %}
+                <a href="{% url 'login' %}">
+                    <button class="btn follow-button">フォロー</button>
+                </a>
             {% endif %}
         </div>
         {% if portfolio_owner.bio %}
