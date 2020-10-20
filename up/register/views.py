@@ -16,7 +16,7 @@ from django.contrib import messages
 
 from ..app.models import Item, Images
 from .models import Profile
-from ..users.models import User
+from ..users.models import User, FriendShip
 
 
 # Create your views here.
@@ -87,13 +87,33 @@ def user_portfolio(request, id):
     followers_cnt = len(User.objects.get(
         id=id).followers.all())
 
+    followee_id = User.objects.get(id=id).id
+    print("me", request.user.id)
+    print("other", id)
+    try:
+        follower_id = User.objects.get(id=request.user.id).id
+    except:
+        follower_id = followee_id
+    print("follwoerids", follower_id, followee_id)
+    if follower_id != followee_id:
+        show_follow_button = True
+    else:
+        show_follow_button = False
+
+    # if is_follow is above 0, it shows that there is a connection between the two
+    is_following = len(FriendShip.objects.filter(
+        followee_id=followee_id, follower_id=follower_id)) > 0
+    print("isfollowing:", is_following)
+
     render_dict = {'user_posts': user_posts,
                    'show_profile_icon': False,
                    'posts_cnt': posts_cnt,
                    'followees_cnt': followees_cnt,
                    'followers_cnt': followers_cnt,
                    'img_obj_lis': img_obj_lis,
-                   'portfolio_owner': portfolio_owner, }
+                   'portfolio_owner': portfolio_owner, 
+                   'is_following': is_following,
+                   'show_follow_button': show_follow_button}
     return render(request, 'register/user_portfolio.html', render_dict)
 
 
