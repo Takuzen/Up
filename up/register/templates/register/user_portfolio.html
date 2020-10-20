@@ -14,6 +14,26 @@
     <div class="profile-textarea">
         <div class="profile-username-row">
             <h5 class="profile-username">{{ portfolio_owner.username }}</h5>
+            {% if show_follow_button %}
+            <div>
+                <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form'>
+                    <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
+                    {% csrf_token %}
+                    <input type="hidden" name="followee-name" value="{{ portfolio_owner.username }}">
+                    {% if is_following %}
+                    <input type="hidden" id="follow-boolean" name="is-follow" value="0">
+                    <input class="btn following-button" id="id-div-ajax-response" type="submit" value="フォロー中">
+                    {% else %}
+                    <input type="hidden" id="follow-boolean" name="is-follow" value="1">
+                    <input class="btn follow-button" id="id-div-ajax-response" type="submit" value="フォロー">
+                    {% endif %}
+                </form>
+            </div>
+            {% else %}
+                <a href="{% url 'login' %}">
+                    <button class="btn follow-button">フォロー</button>
+                </a>
+            {% endif %}
         </div>
         {% if portfolio_owner.bio %}
         <p id="bio">{{ portfolio_owner.bio }}</p>
