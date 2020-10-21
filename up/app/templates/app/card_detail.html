@@ -73,11 +73,15 @@
                 src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
         <div id="user-info-on-card-detail">
             {% if item.created_by.image %}
-            <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img" class="rounded-circle account-img"
-                alt="person-img">
+            <div id="card-detail-profile-img-container">
+                <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img"
+                    class="rounded-circle account-img" alt="person-img">
+            </div>
             {% else %}
-            <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img-default-h"
-                class="rounded-circle account-img" alt="person-img">
+            <div id="card-detail-profile-img-default-h-container">
+                <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img-default-h"
+                    class="rounded-circle account-img" alt="person-img">
+            </div>
             {% endif %}
             <p id="card-detail-username">{{ item.created_by }}</p>
             {% if show_follow_button %}
