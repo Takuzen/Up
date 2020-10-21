@@ -23,6 +23,7 @@ DATABASES = {
     }
 }
 
+STATIC_URL = '/static/'
 
 def show_toolbar(request):
     return True

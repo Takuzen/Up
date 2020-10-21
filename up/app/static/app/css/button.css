@@ -86,7 +86,7 @@
   }
 
   #feedback-btn {
-    margin-left: 10px;
+    margin-left: 15px;
   }
 
   #feedback-btn:hover {
@@ -315,7 +315,13 @@
     }
   }
 
-  .share-btn {
+  .share-btn-container {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .share-btn-container-on-wide-card {
+    margin-top: 13px;
     margin-left: auto;
   }
 
@@ -325,17 +331,34 @@
     top: -1000px;
   }
 
-  #share-btn-on-card-header {
+  #absolute-uri-on-wide-card {
+    position: absolute;
+    top: -1000px;
+  }
+
+  #share-btn {
     position: relative;
-    top: -7px;
-    left: -15px;
-    font-size: large;
+    top: -6px;
     border: none;
     background: none;
     outline: none;
   }
 
-  #share-btn-on-card-header:hover {
+  #share-btn-on-wide-card {
+    position: relative;
+    top: -6px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+
+  #share-btn:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+
+  #share-btn-on-wide-card:hover {
     opacity: 0.6;
     transition-duration: 0.3s;
     cursor: pointer;
@@ -344,11 +367,52 @@
   #copied-msg {
     display: none;
     position: relative;
-    top: -7px;
-    left: -10px;
+    top: -6px;
     margin: 0 !important;
     color: tomato;
     font-weight: bold;
     font-size: 0.8rem;
     padding: 5px;
+  }
+
+  #copied-msg-on-wide-card {
+    display: none;
+    position: relative;
+    top: -6px;
+    margin: 0 !important;
+    color: tomato;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+
+
+  #card-detail-setting-btn {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+
+  #card-detail-setting-btn img {
+    width: 25px;
+  }
+
+  #card-detail-setting-btn-on-wide-card {
+    margin-top: 5px;
+    margin-left: 4px;
+  }
+
+  #card-detail-setting-btn-on-wide-card img {
+    width: 25px;
+  }
+
+  #card-detail-setting-btn:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+
+  #card-detail-setting-btn-on-wide-card:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
   }

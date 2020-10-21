@@ -3,11 +3,30 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
+<div class="modal" id="card-detail-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border: none;">
+            <div class="modal-header" style="border: none;">
+                <a href="{% url 'update' item.pk %}" class="btn btn-logout">
+                    <p style="margin-bottom: 0;">編集</p>
+                </a>
+            </div>
+            <div class="modal-header" style="border: none;">
+                <a href="{% url 'delete' item.pk %}" class="btn btn-logout">
+                    <p style="margin-bottom: 0;">削除</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="card-detail-container">
 
     <div class="card-detail-header">
         <a id="back-btn" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
                 src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
+        <a href="{% url 'user_portfolio' item.created_by.id %}">
         {% if item.created_by.image %}
         <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img" class="rounded-circle account-img"
             alt="person-img">
@@ -15,7 +34,10 @@
         <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img-default-v"
             class="rounded-circle account-img" alt="person-img">
         {% endif %}
+        </a>
+        <a href="{% url 'user_portfolio' item.created_by.id %}" style="color: black; text-decoration: none; margin-right: 2px;">
         <p id="card-detail-username">{{ item.created_by }}</p>
+        </a>
 
         {% if show_follow_button %}
         <div>
@@ -34,14 +56,19 @@
         </div>
         {% endif %}
 
-        <div class="share-btn">
-            <button id="share-btn-on-card-header" onclick="copyToClipboard('absolute-uri')"><i
+        <div class="share-btn-container">
+            <button id="share-btn" onclick="copyToClipboard('absolute-uri')"><i
                     class="far fa-share-square"></i></button>
             <p id="absolute-uri" onclick="copyElementText(this.id)">
                 {{ request.build_absolute_uri }}
             </p>
             <p id="copied-msg">copied!</p>
         </div>
+        {% if is_own_post %}
+        <a id="card-detail-setting-btn" data-toggle="modal" data-target="#card-detail-modal">
+            <img src="{% static 'images/icons/dot-menu.png' %}">
+        </a>
+        {% endif %}
 
     </div>
 
@@ -68,14 +95,22 @@
         <a id="back-btn-on-card-detail-footer" href="{% url 'index' %}"><img id="card-detail-back-arrow-img"
                 src="{% static '/images/icons/back-arrow.png' %}" alt="back-arrow"></a>
         <div id="user-info-on-card-detail">
+            <a href="{% url 'user_portfolio' item.created_by.id %}">
             {% if item.created_by.image %}
-            <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img" class="rounded-circle account-img"
-                alt="person-img">
+            <div id="card-detail-profile-img-container">
+                <img src="{{ item.created_by.image.url }}" id="card-detail-profile-img"
+                    class="rounded-circle account-img" alt="person-img">
+            </div>
             {% else %}
-            <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img-default-h"
-                class="rounded-circle account-img" alt="person-img">
+            <div id="card-detail-profile-img-default-h-container">
+                <img src="{% static 'images/icons/person.svg' %}" id="card-detail-profile-img-default-h"
+                    class="rounded-circle account-img" alt="person-img">
+            </div>
             {% endif %}
+            </a>
+            <a href="{% url 'user_portfolio' item.created_by.id %}" style="color: black; text-decoration: none; margin-right: 2px;">
             <p id="card-detail-username">{{ item.created_by }}</p>
+            </a>
             {% if show_follow_button %}
             <div>
                 <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form-2'>
@@ -92,7 +127,23 @@
                 </form>
             </div>
             {% endif %}
+
+            <div class="share-btn-container-on-wide-card">
+                <button id="share-btn-on-wide-card" onclick="copyToClipboardOnWideCard('absolute-uri-on-wide-card')"><i
+                        class="far fa-share-square"></i></button>
+                <p id="absolute-uri-on-wide-card" onclick="copyElementText(this.id)">
+                    {{ request.build_absolute_uri }}
+                </p>
+                <p id="copied-msg-on-wide-card">copied!</p>
+            </div>
+            {% if is_own_post %}
+            <a id="card-detail-setting-btn-on-wide-card" data-toggle="modal" data-target="#card-detail-modal">
+                <img src="{% static 'images/icons/dot-menu.png' %}">
+            </a>
+            {% endif %}
+
         </div>
+
         <p id="restaurant-memo">{{ item.restaurant_memo|default_if_none:"未記入" }}</p>
 
         <!-- コメント -->
@@ -116,14 +167,14 @@
                     <button id="comment-btn" data-toggle="modal" data-target="#comment-modal">コメントする...</button>
                 </div>
                 {% else %}
-                    <div class="comment-input-row">
-                        <img id="commenter-profile-img-default" class="rounded-circle account-img"
-                            style="width: 25px; border: solid 2px black;" src="{% static 'images/icons/person.svg' %}"
-                            alt="person-icon"></a>
-                        <a id="post-modal-call-btn" href="{% url 'login' %}">
-                            <span style="white-space: nowrap;">コメントする</span>
-                        </a>
-                    </div>
+                <div class="comment-input-row">
+                    <img id="commenter-profile-img-default" class="rounded-circle account-img"
+                        style="width: 25px; border: solid 2px black;" src="{% static 'images/icons/person.svg' %}"
+                        alt="person-icon"></a>
+                    <a id="post-modal-call-btn" href="{% url 'login' %}">
+                        <span style="white-space: nowrap;">コメントする</span>
+                    </a>
+                </div>
                 {% endif %}
                 {% if item.comments.count == 0 %}
                 <p id="comment-none-text">コメントはありません</p>

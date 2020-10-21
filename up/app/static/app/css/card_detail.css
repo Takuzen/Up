@@ -1,5 +1,6 @@
 /* モバイル */
 @media only screen and (max-width: 479px) {
+
   .card-detail-header {
     display: flex;
     justify-content: flex-start;
@@ -144,7 +145,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     padding-top: 15px;
-    margin-top: 35px;
+    margin-top: 30px;
   }
 
   #back-btn {
@@ -269,111 +270,122 @@
 
 /* デスクトップ(1037px~) */
 @media only screen and (min-width: 1037px) {
-  #card-detail-container {
-    display: flex;
-    flex-direction: row;
-    width: 1017px;
-    margin: 35px auto;
-    box-shadow: 1px 1px 1px 1px lightgray;
-    border-radius: 5px;
-  }
+    #card-detail-container {
+        display: flex;
+        flex-direction: row;
+        width: 1017px;
+        margin: 35px auto;
+        box-shadow: 1px 1px 1px 1px lightgray;
+        border-radius: 5px;
+    }
 
-  .card-detail-header {
-    display: none;
-  }
+    .card-detail-header {
+        display: none;
+    }
 
-  #card-detail-back-arrow-img {
-    width: 15px;
-    object-fit: contain;
-  }
+    .card-detail-footer {
+        width: 100%;
+    }
 
-  .follow-button {
-    background-color: white;
-    color: #2cbd3e;
-    border-color: #2cbd3e;
-    font-size: 0.8rem;
-    padding: 5px 15px;
-    position: relative;
-    top: -7px;
-  }
+    #card-detail-back-arrow-img {
+        width: 15px;
+        object-fit: contain;
+    }
 
-  .following-button {
-    background-color: #2cbd3e;
-    color: white;
-    font-size: 0.8rem;
-    padding: 5px 15px;
-    position: relative;
-    top: -7px;
-  }
+    .follow-button {
+        background-color: white;
+        color: #2CBD3E;
+        border-color: #2CBD3E;
+        font-size: 0.8rem;
+        padding: 5px 15px;
+        position: relative;
+        top: -7px;
+    }
 
-  #card-detail-img {
-    width: 600px;
-    height: 600px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
+    .following-button {
+        background-color: #2CBD3E;
+        color: white;
+        font-size: 0.8rem;
+        padding: 5px 15px;
+        position: relative;
+        top: -7px;
+    }
 
-  #card-detail-video {
-    width: 600px;
-    height: 600px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
+    #card-detail-img {
+        width: 600px;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
 
-  .prev {
-    position: relative;
-    top: -320px;
-    left: 15px;
-  }
+    #card-detail-video {
+        width: 600px;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
 
-  .next {
-    position: relative;
-    top: -320px;
-    left: 515px;
-  }
+    .prev {
+        position: relative;
+        top: -320px;
+        left: 15px;
+    }
 
-  #back-btn-on-card-detail-footer {
-    position: relative;
-    left: -760px;
-  }
+    .next {
+        position: relative;
+        top: -320px;
+        left: 515px;
+    }
 
-  #user-info-on-card-detail {
-    display: flex;
-    margin: 0 50px;
-  }
+    #back-btn-on-card-detail-footer {
+        position: relative;
+        left: -760px;
+    }
 
-  #card-detail-profile-img {
-    border: none;
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-    margin-top: 5px;
-  }
+    #user-info-on-card-detail {
+        display: flex;
+        width: 100%;
+        padding: 0 15px 0 25px;
+    }
 
-  #card-detail-profile-img-default-h {
-    border: solid 1px black;
-    margin: 13px;
-  }
+    #card-detail-profile-img-container {
+        padding: 7px;
+    }
 
-  #card-detail-username {
-    margin: 8px 15px 8px 10px;
-  }
+    #card-detail-profile-img {
+        border: none;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+    }
 
-  #restaurant-memo {
-    margin: 15px 50px 15px 50px;
-    white-space: pre-line;
-  }
+    #card-detail-profile-img-default-h-container {
+        padding: 7px;
+    }
 
-  #restaurant-name-on-card-footer {
-    margin-left: 5px;
-    position: relative;
-    top: 2px;
-  }
+    #card-detail-profile-img-default-h {
+        border: solid 1px black;
+    }
 
-  .card-sized-comment-section {
-    display: none;
+    #card-detail-username {
+        margin: 8px 15px 8px 5px;
+    }
+
+    #restaurant-memo {
+        margin: 15px 50px 15px 50px;
+        white-space: pre-line;
+    }
+
+    #restaurant-name-on-card-footer {
+        margin-left: 5px;
+        position: relative;
+        top: 2px;
+    }
+
+    .card-sized-comment-section {
+        display: none;
+    }
   }
-}
 
 /* 共通 */
 

@@ -56,7 +56,7 @@
     <header>
         <div class="header-group">
 
-            <img id="up-arrow-on-header" src="{% static 'images/icons/up-arrow.png' %}" alt="up-arrow" width="80">
+            <a id="up-arrow-on-header-link" href="{% url 'index' %}"><img id="up-arrow-on-header-img" src="{% static 'images/icons/up-arrow.png' %}" alt="up-arrow" width="80"></a>
 
             <h5 id="project-name-on-header"><a href=" {% url 'index' %}"
                     style="font-family: 'Fugaz One', cursive; color: black; text-decoration: none;">Up</a>
@@ -80,6 +80,7 @@
                 </h5>
             </div>
 
+            <div id="header-right-btns">
 
             {% if user.is_authenticated %}
             {% if show_profile_icon %}
@@ -94,7 +95,7 @@
                     id="feedback-img" src="{% static 'images/icons/feedback-mono.png' %}" alt="feedback-img"></a>
 
             {% else %}
-
+            
             <a id="login-link-on-header" href="{% url 'login' %}"><span id="login-text-on-header">ログイン</span></a>
             <a id="login-icon-on-header" href="{% url 'login' %}"><img src="{% static 'images/icons/login-btn.png' %}"
                     width="20">
@@ -104,6 +105,8 @@
                         src="{% static 'images/icons/start-diary-btn.png' %}" width="20"></span></a>
 
             {% endif %}
+
+            </div>
 
         </div>
     </header>
@@ -217,9 +220,38 @@
             window.getSelection().addRange(range);
             document.execCommand('copy');
             window.getSelection().removeAllRanges();
-            var copyBtn = document.getElementById('share-btn-on-card-header');
+            var copyBtn = document.getElementById('share-btn');
             copyBtn.style.display = "none"
             var copiedMsg = document.getElementById('copied-msg');
+            copiedMsg.style.display = "block"
+
+            function showCopyBtnAgain() {
+                copyBtn.style.display = "block";
+            }
+
+            function eraseCopiedMsg() {
+                copiedMsg.style.display = "none";
+            }
+
+            function restore() {
+                showCopyBtnAgain();
+                eraseCopiedMsg();
+            }
+
+            window.setTimeout(restore, 3000)
+        }
+
+        function copyToClipboardOnWideCard(id) {
+            var from = document.getElementById(id);
+            var range = document.createRange();
+            window.getSelection().removeAllRanges();
+            range.selectNode(from);
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            var copyBtn = document.getElementById('share-btn-on-wide-card');
+            copyBtn.style.display = "none"
+            var copiedMsg = document.getElementById('copied-msg-on-wide-card');
             copiedMsg.style.display = "block"
 
             function showCopyBtnAgain() {
