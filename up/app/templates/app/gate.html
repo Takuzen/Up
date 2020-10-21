@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Title -->
+    <title>Up</title>
+    <!-- CSS Files -->
+    <link href="{% static "app/css/gate.css" %}" rel="stylesheet">
+</head>
+
+<body style="margin: 0; height: 100%;">
+    <div class="gate-page-container">
+        <img src="{% static 'images/Planes8.png' %}" alt="gate-page-background-img" style="width: 100%;">
+    
+        <div class="wrapper">
+            <div class="content-wrapper">
+                <h2 id="title-for-gate">ユースの<span style="font-size: 40px; margin: 0 3px;">密な</span>フード・コミュニティ</h2>
+                <h1 id="are-you-foodie">Are you foodie?</h1>
+                <h1 id="are-you-creator">Are you creator?</h1>
+                <div class="card">
+                    <h3 style="margin-top: 90px">秘密鍵</h3>
+                    <input type="text" id="secret-key-input">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>

@@ -352,6 +352,9 @@ class CardDetailPageView(DetailView):
 class CampaignPageView(TemplateView):
     template_name = "app/campaign.html"
 
+class GatePageView(TemplateView):
+    template_name = "app/gate.html"
+
 
 def test_ajax_response(request):
     follower_username = request.user

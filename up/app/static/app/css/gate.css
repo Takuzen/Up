@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+.gate-page-container {
+    object-fit: fill;
+    width: 100%;
+}
+
+#title-for-gate {
+    position: fixed;
+    top: 5%;
+    left: 33%;
+    color: white;
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 35px;
+}
+
+#are-you-foodie {
+    color: white;
+    position: fixed;
+    top: 37%;
+    left: 5vw;
+    margin: 0;
+    font-size: 50px;
+}
+
+#are-you-creator {
+    color: white;
+    position: fixed;
+    top: 47%;
+    left: 15vw;
+    margin: 0;
+    font-size: 50px;
+}
+
+.card {
+    position: fixed;
+    top: 27%;
+    right: 5vw;
+    width: 600px;
+    height: 300px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+#secret-key-input {
+    width: 300px;
+    height: 30px;
+    border: none;
+    background: tomato;
+    border-radius: 5px;
+    box-shadow: whitesmoke 5px 5px 5px 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#secret-key-input:focus {
+    outline: none;
+}
