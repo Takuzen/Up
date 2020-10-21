@@ -64,6 +64,18 @@
 
 /* 共通 */
 
+.profile-page-container {
+    margin-top: 30px;
+}
+
+.portfolio-page-container {
+    margin-top: 30px;
+}
+
+#follow-btn-on-portfolio {
+    margin: 3px 0 0 15px;
+}
+
 #profile-photo-img {
     width: 100px;
     height: 100px;

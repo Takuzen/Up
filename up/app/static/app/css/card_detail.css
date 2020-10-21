@@ -457,7 +457,8 @@
 
   #user-info-on-card-detail {
     display: flex;
-    margin: 0 50px;
+    width: 350px;
+    margin: 0 0 0 50px;
   }
 
   #card-detail-profile-img {

@@ -15,7 +15,17 @@ header {
   justify-content: center;
   align-items: center;
   display: grid;
-  grid-template-columns: 20% 60% 10% 10%;
+  grid-template-columns: 20% 60% 20%;
+}
+
+#up-arrow-on-header-link {
+
+}
+
+#header-right-btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3vw;
 }
 
 #login-link-on-header {
@@ -23,7 +33,6 @@ header {
   justify-content: flex-end;
   margin-right: 20px;
   text-decoration: none;
-  padding-top: 1px;
   text-align: right;
 }
 
@@ -71,7 +80,7 @@ header {
 /* Media Query */
 
 @media screen and (max-width: 735px) {
-  #up-arrow-on-header {
+  #up-arrow-on-header-img {
     display: block;
     margin-top: 5px;
   }
@@ -112,7 +121,7 @@ header {
 }
 
 @media screen and (min-width: 736px) and (max-width: 967px) {
-  #up-arrow-on-header {
+  #up-arrow-on-header-img {
     display: block;
     margin-top: 5px;
   }
@@ -157,7 +166,7 @@ header {
 }
 
 @media screen and (min-width: 968px) {
-  #up-arrow-on-header {
+  #up-arrow-on-header-link {
     display: none;
   }
 

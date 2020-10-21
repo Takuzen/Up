@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+<div class="portfolio-page-container">
 <div class="profile-section">
     {% if portfolio_owner.image %}
     <div id="profile-photo"><img id="profile-photo-img" class="rounded-circle account-img"
@@ -22,15 +23,15 @@
                     <input type="hidden" name="followee-name" value="{{ portfolio_owner.username }}">
                     {% if is_following %}
                     <input type="hidden" id="follow-boolean" name="is-follow" value="0">
-                    <input class="btn following-button" id="id-div-ajax-response" type="submit" value="フォロー中">
+                    <input class="btn following-button" id="id-div-ajax-response" type="submit" value="フォロー中" style="margin: 3px 0 0 15px;">
                     {% else %}
                     <input type="hidden" id="follow-boolean" name="is-follow" value="1">
-                    <input class="btn follow-button" id="id-div-ajax-response" type="submit" value="フォロー">
+                    <input class="btn follow-button" id="id-div-ajax-response" type="submit" value="フォロー" style="margin: 3px 0 0 15px;">
                     {% endif %}
                 </form>
             </div>
             {% else %}
-                <a href="{% url 'login' %}">
+                <a id="follow-btn-on-portfolio" href="{% url 'login' %}">
                     <button class="btn follow-button">フォロー</button>
                 </a>
             {% endif %}
@@ -89,6 +90,7 @@
         </div>
         {% endfor %}
     </div>
+</div>
 </div>
 
 {% endblock %}
