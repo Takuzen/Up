@@ -1,6 +1,7 @@
 /* モバイル */
 @media only screen and (max-width: 479px) {
-<<<<<<< HEAD
+
+
   .card-detail-header {
     display: flex;
     justify-content: flex-start;
@@ -9,79 +10,6 @@
     flex-wrap: nowrap;
     margin-top: 15px;
   }
-=======
-    .card-detail-header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: nowrap;
-    }
-
-    #back-btn {
-        border: none;
-        background: white;
-        position: relative;
-        top: -6px;
-        margin: 0 10px;
-    }
-
-    #card-detail-back-arrow-img {
-        width: 15px;
-        object-fit: contain;
-    }
-
-    #card-detail-profile-img {
-        border: none;
-        width: 30px;
-        height: 30px;
-        object-fit: cover;
-        margin: 0 5px 12px 5px;
-    }
-
-    #card-detail-profile-img-default-v {
-        border: solid 1px black;
-        margin: 0 3px 13px 3px;
-    }
-
-    #card-detail-username {
-        margin-left: 5px;
-        margin-top: 2px;
-    }
-
-    .follow-button {
-        background-color: white;
-        color: #2CBD3E;
-        border-color: #2CBD3E;
-        font-size: 0.8rem;
-        padding: 5px 15px;
-        margin-left: 20px;
-        position: relative;
-        top: -7px;
-    }
-
-    .following-button {
-        background-color: #2CBD3E;
-        color: white;
-        font-size: 0.8rem;
-        padding: 5px 15px;
-        margin-left: 20px;
-        position: relative;
-        top: -7px;
-    }
-
-    #card-detail-img {
-        width: 100%;
-        height: 50vh;
-        object-fit: cover;
-    }
-
-    #card-detail-video {
-        width: 100%;
-        height: 50vh;
-        object-fit: cover;
-    }
->>>>>>> edd0d00... レイアウトの微調整
 
   #back-btn {
     border: none;
@@ -458,6 +386,111 @@
     .card-sized-comment-section {
         display: none;
     }
+
+  #card-detail-container {
+    display: flex;
+    flex-direction: row;
+    width: 1017px;
+    margin: 35px auto;
+    box-shadow: 1px 1px 1px 1px lightgray;
+    border-radius: 5px;
+  }
+
+  .card-detail-header {
+    display: none;
+  }
+
+  #card-detail-back-arrow-img {
+    width: 15px;
+    object-fit: contain;
+  }
+
+  .follow-button {
+    background-color: white;
+    color: #2cbd3e;
+    border-color: #2cbd3e;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    position: relative;
+    top: -7px;
+  }
+
+  .following-button {
+    background-color: #2cbd3e;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    position: relative;
+    top: -7px;
+  }
+
+  #card-detail-img {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  #card-detail-video {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .prev {
+    position: relative;
+    top: -320px;
+    left: 15px;
+  }
+
+  .next {
+    position: relative;
+    top: -320px;
+    left: 515px;
+  }
+
+  #back-btn-on-card-detail-footer {
+    position: relative;
+    left: -760px;
+  }
+
+  #user-info-on-card-detail {
+    display: flex;
+    margin: 0 50px;
+  }
+
+  #card-detail-profile-img {
+    border: none;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-top: 5px;
+  }
+
+  #card-detail-profile-img-default-h {
+    border: solid 1px black;
+    margin: 13px;
+  }
+
+  #card-detail-username {
+    margin: 8px 15px 8px 10px;
+  }
+
+  #restaurant-memo {
+    margin: 15px 50px 15px 50px;
+    white-space: pre-line;
+  }
+
+  #restaurant-name-on-card-footer {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+  }
+
+  .card-sized-comment-section {
+    display: none;
+  }
 }
 
 /* 共通 */
