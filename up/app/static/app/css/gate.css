@@ -1,60 +1,147 @@
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .gate-page-container {
-    object-fit: fill;
-    width: 100%;
-}
-
-#title-for-gate {
-    position: fixed;
-    top: 5%;
-    left: 33%;
-    color: white;
-    font-family: 'Kosugi Maru', sans-serif;
-    font-size: 35px;
-}
-
-#are-you-foodie {
-    color: white;
-    position: fixed;
-    top: 37%;
-    left: 5vw;
+    background-image: url("../../images/Planes8.png");
+    background-size: cover;
     margin: 0;
-    font-size: 50px;
 }
 
-#are-you-creator {
-    color: white;
-    position: fixed;
-    top: 47%;
-    left: 15vw;
-    margin: 0;
-    font-size: 50px;
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
 }
 
-.card {
-    position: fixed;
-    top: 27%;
-    right: 5vw;
-    width: 600px;
-    height: 300px;
-    background: white;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
+.wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+.content-wrapper {
+    display: grid;
+}
+
+@media screen and (max-width:644px) {
+    #title-for-gate {
+        margin: 0;
+        color: white;
+        font-size: 25px;
+        content: "東京ユースの<br>密なフード・コミュニティ";
+        font-family: 'Noto Serif JP', serif;
+        place-self: center center;
+    }
+
+    #eye-catch {
+        justify-self: center;
+    }
+
+    #mitsuna-text {
+        font-size: 30px;
+        margin: 0 3px;
+    }
+
+    #are-you-foodie {
+        color: black;
+        margin: 0;
+        font-size: 40px;
+    }
+    
+    #are-you-creator {
+        color: black;
+        margin: 0;
+        font-size: 40px;
+    }
+
+    .card {
+        width: 80vw;
+        height: 40vh;
+        background: white;
+        border-radius: 5px;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        place-self: center center;
+        animation: float 6s ease-in-out infinite;
+        margin-top: 10vh;
+    }
+}
+@media screen and (min-width:645px) {
+    #title-for-gate {
+        margin: 0;
+        color: white;
+        font-size: 35px;
+        font-family: 'Noto Serif JP', serif;
+        place-self: center center;
+    }
+
+    #eye-catch {
+        place-self: center center;
+    }
+
+    #mitsuna-text {
+        font-size: 40px;
+        margin: 0 3px;
+    }
+
+    #are-you-foodie {
+        color: black;
+        margin: 0;
+        font-size: 60px;
+        font-family: 'Bebas Neue', cursive;
+        text-align: left;
+    }
+    
+    #are-you-creator {
+        color: black;
+        margin: 0;
+        font-size: 60px;
+        font-family: 'Bebas Neue', cursive;
+        text-align: right;
+    }
+
+    .card {
+        width: 600px;
+        height: 300px;
+        background: white;
+        border-radius: 5px;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        place-self: center center;
+        animation: float 6s ease-in-out infinite;
+        margin-top: 10vh;
+    }
+}
+
+#lock-img {
+    width: 40px;
+    grid-row: 2;
+    justify-self: center;
 }
 
 #secret-key-input {
     width: 300px;
     height: 30px;
     border: none;
-    background: tomato;
+    background: gainsboro;
     border-radius: 5px;
     box-shadow: whitesmoke 5px 5px 5px 5px;
     text-decoration: none;
     text-align: center;
+    justify-self: center;
+    align-self: start;
+    grid-row: 3;
 }
 
 #secret-key-input:focus {
