@@ -298,7 +298,7 @@ class CardDetailPageView(DetailView):
             else:
                 image.is_video = False
         context["images"] = images
-        print("len of images:", len(images))
+        context["images_cnt"] = len(images)
 
         if len(images) >= 2:
             context["is_multiple_photos"] = True

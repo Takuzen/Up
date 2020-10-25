@@ -76,10 +76,16 @@
         {% for image in images %}
         <div class="mySlides">
             {% if image.is_video %}
+                {% if is_multiple_photos %}
+                    <div class="numbertext">{{ forloop.counter }} / {{ images_cnt }}</div>
+                {% endif %}
             <video id="card-detail-video" controls autoplay muted playsinline>
                 <source src="{{ image.image.url }}" type="video/mp4">
             </video>
             {% else %}
+                {% if is_multiple_photos %}
+                    <div class="numbertext">{{ forloop.counter }} / {{ images_cnt }}</div>
+                {% endif %}
             <img class="demo" id="card-detail-img" src="{{ image.image.url }}">
             {% endif %}
         </div>
