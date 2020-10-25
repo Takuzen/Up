@@ -76,19 +76,27 @@
         {% for image in images %}
         <div class="mySlides">
             {% if image.is_video %}
+                {% if is_multiple_photos %}
+                    <div class="numbertext">{{ forloop.counter }} / {{ images_cnt }}</div>
+                {% endif %}
             <video id="card-detail-video" controls autoplay muted playsinline>
                 <source src="{{ image.image.url }}" type="video/mp4">
             </video>
             {% else %}
+                {% if is_multiple_photos %}
+                    <div class="numbertext">{{ forloop.counter }} / {{ images_cnt }}</div>
+                {% endif %}
             <img class="demo" id="card-detail-img" src="{{ image.image.url }}">
             {% endif %}
         </div>
         {% endfor %}
         <!-- Next and previous buttons -->
+        {% if is_multiple_photos %}
         <a class="prev rounded-circle account-img" onclick="plusSlides(-1)"><img id="arrow-left"
                 src="{% static '/images/icons/arrow-left.png' %}" alt="arrow-left"></a>
         <a class="next rounded-circle account-img" onclick="plusSlides(1)"><img id="arrow-right"
                 src="{% static '/images/icons/arrow-right.png' %}" alt="arrow-right"></a>
+        {% endif %}
     </div>
 
     <div class="card-detail-footer">
