@@ -145,3 +145,8 @@
 #each-preview-container {
     margin: 10px;
 }
+
+input[type='file'] {
+    opacity:0    
+  }
+  
