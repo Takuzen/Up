@@ -171,6 +171,7 @@
     <script src="{% static '/app/js/jquery-2.2.4.min.js' %}"></script>
     <script src="{% static '/app/js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'app/js/infinite.min.js' %}"></script>
+    <script src ="{% static 'app/js/npo.src.js' %}"></script>
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);
@@ -270,6 +271,33 @@
             window.setTimeout(restore, 3000)
         }
 
+        // 非同期でファイルを読み込む
+        function getAsynchroFile(file, i) {  
+
+            return new Promise(function(resolve, reject) {
+                var reader = new FileReader();  
+                var img_cls = "responsive-img-" + String(i);
+                var button_id = "close-" + String(i); 
+                var image_preview_id = '#image_preview_span-' + String(i);
+                console.log(file)
+                if (file.type.match('image.*')) {
+                    reader.onload = function (e) {
+                        resolve({"button_id": button_id, "img_class": img_cls, "result": this.result});
+                    }
+                } else if (file.type.match('video.*')) {
+                    reader.onload = function (e) {
+                        resolve({"button_id": button_id, "img_class": img_cls, "result": this.result});
+                    }
+                }
+                
+                reader.onerror = function (event) {   
+                    reject('ファイルの読み込みに失敗しました');       
+                }
+                
+                reader.readAsDataURL(file);     
+            });
+        }
+
         $('#myform input[type=file]').on('change invalid', function () {
             var textfield = $(this).get(0);
 
@@ -320,6 +348,8 @@
             $('#post_restaurant_image').after('<span></span>');
 
             // アップロードするファイルを選択
+            // 参考：
+            // https://qiita.com/gakinchoy7/items/f52577d0c5f6b2edff89
             $('#post_restaurant_image').change(function () {
                 var files = $(this).prop('files');
                 for (var i = 0; i < files.length; i++) {
@@ -347,15 +377,16 @@
                     reader.img_cls = img_cls;
                     reader.button_id = button_id;
                     if (file.type.match('image.*')) {
-                        reader.onload = function (e) {
+                        getAsynchroFile(file, i).then(function(response) {
+                            var portfolioImageGroup = $('#removable-div');
                             portfolioImageGroup.append(`
-                            <div id="each-preview-container">
-                                <img id="${this.button_id}" src="{% static '/images/icons/close-button.png' %}"
-                                    alt="close-button" style="display: block;" class="clear-button-cls">
-                                <img class="${this.img_cls}" src="${e.target.result}" style="width:${this.width}px; height:${this.height}px; object-fit:cover">
-                            </div>
-                                `)
-                        }
+                                <div id="each-preview-container">
+                                    <img id="${response.button_id}" src="{% static '/images/icons/close-button.png' %}"
+                                        alt="close-button" style="display: block;" class="clear-button-cls">
+                                    <img class="${response.img_class}" src="${response.result}" style="width:100px; height:100px; object-fit:cover">
+                                </div>
+                            `)
+                        })
                     } else if (file.type.match('video.*')) {
                         reader.onload = function (e) {
                             portfolioImageGroup.append(`
