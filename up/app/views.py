@@ -298,6 +298,13 @@ class CardDetailPageView(DetailView):
             else:
                 image.is_video = False
         context["images"] = images
+        print("len of images:", len(images))
+
+        if len(images) >= 2:
+            context["is_multiple_photos"] = True
+        else:
+            context["is_multiple_photos"] = False
+
         context["show_postbutton"] = False
         context["show_profile_icon"] = True
         context["show_left"] = False
@@ -315,7 +322,6 @@ class CardDetailPageView(DetailView):
             follower_id = followee_id
 
         if follower_id != followee_id:
-            print("different id")
             context["show_follow_button"] = True
             context["is_own_post"] = False
         else:
