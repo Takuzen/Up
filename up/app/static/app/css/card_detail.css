@@ -389,6 +389,18 @@
 
 /* 共通 */
 
+.numbertext {
+  text-align: right;
+  margin: 5px 15px 0 0;
+}
+
+#numbertext-span {
+  background: lightgrey;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
 #hr-above-comment {
   color: #65676b;
   margin: none;
