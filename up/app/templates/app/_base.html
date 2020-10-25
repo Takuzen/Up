@@ -282,11 +282,7 @@
                 console.log(file)
                 if (file.type.match('image.*')) {
                     reader.onload = function (e) {
-                        resolve({"button_id": button_id, "img_class": img_cls, "result": this.result});
-                    }
-                } else if (file.type.match('video.*')) {
-                    reader.onload = function (e) {
-                        resolve({"button_id": button_id, "img_class": img_cls, "result": this.result});
+                        resolve({"button_id": button_id, "img_class": img_cls, "result": this.result, "height": 100, "width": 100});
                     }
                 }
                 
@@ -383,7 +379,7 @@
                                 <div id="each-preview-container">
                                     <img id="${response.button_id}" src="{% static '/images/icons/close-button.png' %}"
                                         alt="close-button" style="display: block;" class="clear-button-cls">
-                                    <img class="${response.img_class}" src="${response.result}" style="width:100px; height:100px; object-fit:cover">
+                                    <img class="${response.img_class}" src="${response.result}" style="width:${response.width}px; height:${response.height}px; object-fit:cover">
                                 </div>
                             `)
                         })
