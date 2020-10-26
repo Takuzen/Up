@@ -395,8 +395,9 @@
 }
 
 #numbertext-span {
-  background: lightgrey;
+  background: #65676b;
   color: white;
+  font-weight: 300;
   padding: 5px 15px;
   border-radius: 20px;
 }
