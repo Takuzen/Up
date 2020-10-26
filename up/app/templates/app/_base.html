@@ -18,9 +18,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Paypal -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
     <!-- Favicon -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
+
     <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/icons/favicon/apple-touch-icon.png" %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/icons/favicon/favicon-32x32.png" %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/icons/favicon/favicon-16x16.png" %}">
@@ -51,6 +55,10 @@
 </head>
 
 <body>
+    <!-- Paypal ①; place this later does render button; IDK why-->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AYr0spA83iuv7E4cmHv7M4Hby_OcPse_B6hKM4dhf5rJSCmfNH5Sy5KGXJ1WLLcmHn4z_8MlIRhao69f" async> 
+    </script>
     <!-- header -->
     <!-- css add justify-content: space-between; -->
     <header>
@@ -474,6 +482,12 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js">
     </script>
     <script src="{% static 'app/js/app.js' %}"></script>
+
+    <!-- Paypal -->
+    <script>
+        paypal.Buttons().render('#paypal-button-container');
+        // This function displays Smart Payment Buttons on your web page.
+    </script>
 
 </body>
 
