@@ -317,7 +317,7 @@
 
   .share-btn-container {
     margin-left: auto;
-    margin-right: 15px;
+    margin-right: 5px;
   }
 
   .share-btn-container-on-wide-card {
@@ -397,8 +397,7 @@
   }
 
   #card-detail-setting-btn-on-wide-card {
-    margin-top: 5px;
-    margin-left: 4px;
+    margin-left: 5px;
   }
 
   #card-detail-setting-btn-on-wide-card img {

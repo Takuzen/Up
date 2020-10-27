@@ -346,6 +346,7 @@
         display: flex;
         width: 100%;
         padding: 0 15px 0 25px;
+        align-items: center;
     }
 
     #card-detail-profile-img-container {
@@ -388,6 +389,53 @@
   }
 
 /* 共通 */
+
+#support-btn-on-vertical-card {
+  border: whitesmoke 1px solid;
+  border-radius: 10px;
+  background: #f4f9fc;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px -2px rgba(100,110,167,.2);
+  padding: 10px;
+  margin-left: 10px;
+  position: relative;
+  top: -5px;
+}
+
+#support-btn-on-vertical-card:hover {
+  background: #edf2f7;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+#support-btn-on-vertical-card:focus {
+  outline: none;
+}
+
+#support-btn-on-horizontal-card {
+  border: whitesmoke 1px solid;
+  border-radius: 10px;
+  background: #f4f9fc;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px -2px rgba(100,110,167,.2);
+  padding: 10px;
+}
+
+#support-btn-on-horizontal-card:hover {
+  background: #edf2f7;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+#support-btn-on-horizontal-card:focus {
+  outline: none;
+}
 
 #hr-above-comment {
   color: #65676b;

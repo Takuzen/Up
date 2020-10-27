@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="paypal-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="paypalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -60,25 +60,10 @@
         <p id="card-detail-username">{{ item.created_by }}</p>
         </a>
 
-        {% if show_follow_button %}
-        <div>
-            <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form'>
-                <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
-                {% csrf_token %}
-                <input type="hidden" name="followee-name" value="{{ item.created_by }}">
-                {% if is_following %}
-                <input type="hidden" id="follow-boolean" name="is-follow" value="0">
-                <input class="btn following-button" id="id-div-ajax-response" type="submit" value="フォロー中">
-                {% else %}
-                <input type="hidden" id="follow-boolean" name="is-follow" value="1">
-                <input class="btn follow-button" id="id-div-ajax-response" type="submit" value="フォロー">
-                {% endif %}
-            </form>
-            <button type="button" data-toggle="modal" data-target="#paypal-modal">
-                paypal-demo
-            </button>
-        </div>
-        {% endif %}
+        <button id="support-btn-on-vertical-card" data-toggle="modal" data-target="#paypalModal">
+            <img src="{% static 'images/icons/yen-mark.png' %}" alt="yen-mark" width="20">
+            <p style="margin: 0; margin-left: 10px;">著者を応援する</p>
+        </button>
 
         <div class="share-btn-container">
             <button id="share-btn" onclick="copyToClipboard('absolute-uri')"><i
@@ -143,25 +128,11 @@
             <a href="{% url 'user_portfolio' item.created_by.id %}" style="color: black; text-decoration: none; margin-right: 2px;">
             <p id="card-detail-username">{{ item.created_by }}</p>
             </a>
-            {% if show_follow_button %}
-            <div>
-                <form name="name_form" action="/ajax/" method="POST" id='ajax-follow-form-2'>
-                    <!-- <form name="name_form" action="/test_ajax_app/" method="POST"> -->
-                    {% csrf_token %}
-                    <input type="hidden" name="followee-name" value="{{ item.created_by }}">
-                    {% if is_following %}
-                    <input type="hidden" id="follow-boolean-2" name="is-follow" value="0">
-                    <input class="btn following-button" id="id-div-ajax-response-2" type="submit" value="フォロー中">
-                    {% else %}
-                    <input type="hidden" id="follow-boolean-2" name="is-follow" value="1">
-                    <input class="btn follow-button" id="id-div-ajax-response-2" type="submit" value="フォロー">
-                    {% endif %}
-                </form>
-                <button type="button" data-toggle="modal" data-target="#paypal-modal">
-                    paypal-demo
-                </button>
-            </div>
-            {% endif %}
+            
+            <button id="support-btn-on-horizontal-card" data-toggle="modal" data-target="#paypalModal">
+                <img src="{% static 'images/icons/yen-mark.png' %}" alt="yen-mark" width="20">
+                <p style="margin: 0; margin-left: 10px;">著者を応援する</p>
+            </button>
 
             <div class="share-btn-container-on-wide-card">
                 <button id="share-btn-on-wide-card" onclick="copyToClipboardOnWideCard('absolute-uri-on-wide-card')"><i
