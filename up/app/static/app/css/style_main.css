@@ -8,6 +8,10 @@ video {
     object-fit: cover;
 }
 
+body {
+    height: 100vh;
+}
+
 /* モバイル */
 @media screen and (max-width: 479px) {
     #post-modal-call-btn {

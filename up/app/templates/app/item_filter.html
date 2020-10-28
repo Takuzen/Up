@@ -5,23 +5,6 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-{% else %}
-<section id="about-section">
-    <div id="left-side">
-        <h1 id="about-title">食で、人と繋がろう</h1>
-        <p id="about-descr">「アップ」は食の新しい情報共有コミュニティです。<br>グル友や人気フード・クリエイターをフォローして、<br>日々の食をアップデートしよう。</p>
-        <div id="start-and-detail-btn-container">
-            <a id="start-btn" href="{% url 'register' %}">はじめる</a>
-            <a id="detail-btn" >もっと詳しく</a>
-        </div>
-    </div>
-    <div id="right-side">
-        <img id="about-main-img" src="#" alt="food-img">
-        <a id="food-creator-btn">フード・クリエイターの方</a>
-    </div>
-</section>
-{% endif %}
-
 <div id="homepage-container">　
     <!-- フィルタ（非表示）-->
     <div class="filters" style="display: none;">
@@ -209,17 +192,27 @@
         {% endfor %}
     </div>
 </div>
-
-<div class="row mt-3" style="width: 100%;">
-    <div class="col-10 mx-auto">
-        {% if page_obj.has_next %}
-        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
-        {% endif %}
-        <div class="d-flex justify-content-center" style="display:none;">
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+{% else %} <!-- ゲスト画面 -->
+<section id="about-section">
+    <div id="left-side">
+        <div class="text-container">
+            <h1 id="about-title">食で、人と繋がろう</h1>
+            <p id="about-descr">「アップ」は食の新しい情報共有コミュニティです。<br>グル友や人気フード・クリエイターをフォローして、<br>日々の食をアップデートしよう。</p>
+            <div id="start-and-detail-btn-container">
+                <a id="start-btn" href="{% url 'register' %}">今すぐはじめる</a>
+                <a id="detail-btn" >もっと詳しく</a>
             </div>
         </div>
+        <p></p>
     </div>
+    <div id="right-side">
+        <img id="about-main-img" src="{% static 'images/eat-food-illust.png' %}" alt="food-img">
+        <a id="food-creator-btn">フード・クリエイターの方</a>
+    </div>
+</section>
+<section id="recent-posts-section">
+</section>
 </div>
+{% endif %}
+
 {% endblock %}
