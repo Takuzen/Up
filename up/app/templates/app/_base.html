@@ -46,6 +46,7 @@
     <link href="{% static "app/css/update_profile.css" %}" rel="stylesheet">
     <link href="{% static "app/css/create_card.css" %}" rel="stylesheet">
     <link href="{% static "app/css/header.css" %}" rel="stylesheet">
+    <link href="{% static "app/css/about.css" %}" rel="stylesheet">
     <!-- Fontawesome (fonts and Icons) -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
@@ -62,7 +63,7 @@
                     style="font-family: 'Fugaz One', cursive; color: black; text-decoration: none;">Up</a>
             </h5>
 
-            <div id="service-logo-on-header-left">
+            <div id="service-logo-on-header-left" style="opacity: 0;">
                 <h6 style="align-self: flex-end; margin-bottom: 0;"><a href="{% url 'index' %}"
                         style="font-family: 'Kosugi Maru', sans-serif; color: black; text-decoration: none; margin-right: 2px;">私たちの</a>
                 </h6>
@@ -113,10 +114,6 @@
 
     <!-- content-->
     <div id="content">
-        {% if show_left %}
-        <nav id="left">
-        </nav>
-        {% endif %}
 
         <main id="center" style="width: 100%;">
             {% if messages %}

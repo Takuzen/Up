@@ -6,7 +6,6 @@
 
 header {
   height: 60px;
-  border-bottom: 1px solid whitesmoke;
 }
 
 .header-group {
@@ -16,10 +15,6 @@ header {
   align-items: center;
   display: grid;
   grid-template-columns: 20% 60% 20%;
-}
-
-#up-arrow-on-header-link {
-
 }
 
 #header-right-btns {

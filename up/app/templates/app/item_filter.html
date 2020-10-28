@@ -3,6 +3,75 @@
 {% load static %}
 
 {% block content %}
+
+{% if user.is_authenticated %}
+{% else %}
+<section id="about-section">
+    <div id="left-side">
+        <h1 id="about-title">食で、人と繋がろう</h1>
+        <p id="about-descr">「アップ」は食の新しい情報共有コミュニティです。<br>グル友や人気フード・クリエイターをフォローして、<br>日々の食をアップデートしよう。</p>
+        <div id="start-and-detail-btn-container">
+            <a id="start-btn" href="{% url 'register' %}">はじめる</a>
+            <a id="detail-btn" >もっと詳しく</a>
+        </div>
+    </div>
+    <div id="right-side">
+        <img id="about-main-img" src="#" alt="food-img">
+        <a id="food-creator-btn">フード・クリエイターの方</a>
+    </div>
+</section>
+{% endif %}
+
+<div id="homepage-container">　
+    <!-- フィルタ（非表示）-->
+    <div class="filters" style="display: none;">
+
+        <!-- キャンペーンボタン -->
+        <a id="campaign-banner" href="{% url 'campaign' %}">野菜自炊チャレンジ開催中！</a>
+
+        <!-- modal修正完了したら　display:none を消す -->
+        <a class="btn-sort rounded-circle account-img" data-toggle="modal" data-target="#myModal"
+            style="display: none;"><img src="{% static '/images/icons/filter-no-circle.png' %}"></a>
+
+    </div>
+
+    <!-- Instant Post  -->
+    {% if user.is_authenticated %}
+
+    <div class="instant-post-container">
+        {% if user.image %}
+        <div id="instant-post-profile-frame"><img id="instant-post-profile-img" class="rounded-circle account-img"
+                src="{{ user.image.url }}"></div>
+        {% else %}
+        <div id="instant-post-profile-frame"><img id="instant-post-profile-img-default"
+                class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"></div>
+        {% endif %}
+
+
+        <a id="post-modal-call-btn" data-toggle="modal" data-target="#post-modal">
+            <span style="white-space: nowrap;">今日なに食べた？</span>
+        </a>
+
+    </div>
+
+    {% else %}
+
+    <div class="instant-post-container">
+        {% if user.image %}
+        <div id="instant-post-profile-frame"><img id="instant-post-profile-img" class="rounded-circle account-img"
+                src="{{ user.image.url }}"></div>
+        {% else %}
+        <div id="instant-post-profile-frame"><img id="instant-post-profile-img-default"
+                class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"></div>
+        {% endif %}
+
+
+        <a id="post-modal-call-btn" href="{% url 'login' %}">
+            <span style="white-space: nowrap;">今日なに食べた？</span>
+        </a>
+
+    </div>
+
 <!-- 新規投稿モーダル -->
 {{ form.certifications.errors }}
 <div class="modal" id="post-modal" tabindex="-1">
@@ -62,88 +131,6 @@
     </div>
 </div>
 
-<!-- 絞り込みモーダル 
-<div class="top-page-container" id="top-page-container">
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"
-        data-backdrop="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">絞り込み条件</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="filter" method="get">
-                    <div class="modal-body">
-                        {{ filter.form|crispy }}
-                    </div>
-                </form>
-                <div class="modal-footer">
-                    <a class="btn btn-outline-dark" data-dismiss="modal">戻る</a>
-                    <button type="submit" class="btn btn-outline-dark" form="filter">絞り込む</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-<div id="homepage-container">　
-    <!-- フィルタ（非表示）-->
-    <div class="filters" style="display: none;">
-
-        <!-- 
-        <a class=" btn btn-outline-dark" style="visibility:hidden" href="/">絞り込みを解除</a>
-        <button class="btn-vegetarian">ベジタリアン</button>
-        <button class="btn-vegan">ヴィーガン</button>
-        -->
-
-        <!-- キャンペーンボタン -->
-        <a id="campaign-banner" href="{% url 'campaign' %}">野菜自炊チャレンジ開催中！</a>
-
-        <!-- modal修正完了したら　display:none を消す -->
-        <a class="btn-sort rounded-circle account-img" data-toggle="modal" data-target="#myModal"
-            style="display: none;"><img src="{% static '/images/icons/filter-no-circle.png' %}"></a>
-
-    </div>
-
-    <!-- Instant Post  -->
-    {% if user.is_authenticated %}
-
-    <div class="instant-post-container">
-        {% if user.image %}
-        <div id="instant-post-profile-frame"><img id="instant-post-profile-img" class="rounded-circle account-img"
-                src="{{ user.image.url }}"></div>
-        {% else %}
-        <div id="instant-post-profile-frame"><img id="instant-post-profile-img-default"
-                class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"></div>
-        {% endif %}
-
-
-        <a id="post-modal-call-btn" data-toggle="modal" data-target="#post-modal">
-            <span style="white-space: nowrap;">今日なに食べた？</span>
-        </a>
-
-    </div>
-
-    {% else %}
-
-    <div class="instant-post-container">
-        {% if user.image %}
-        <div id="instant-post-profile-frame"><img id="instant-post-profile-img" class="rounded-circle account-img"
-                src="{{ user.image.url }}"></div>
-        {% else %}
-        <div id="instant-post-profile-frame"><img id="instant-post-profile-img-default"
-                class="rounded-circle account-img" src="{% static 'images/icons/person.svg' %}"></div>
-        {% endif %}
-
-
-        <a id="post-modal-call-btn" href="{% url 'login' %}">
-            <span style="white-space: nowrap;">今日なに食べた？</span>
-        </a>
-
-    </div>
 
 
     {% endif %}
