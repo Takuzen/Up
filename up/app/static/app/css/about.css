@@ -1,0 +1,134 @@
+#about-section {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+#about-section > #left-side {
+  display: grid;
+  grid-template-rows: 80% 20%;
+  place-items: center center;
+}
+
+#about-section > #right-side {
+  display: grid;
+  grid-template-rows: 85% 15%;
+}
+
+.text-container {
+  display: grid;
+  gap: 15px;
+}
+
+#about-title {
+  text-align: center;
+}
+
+#about-descr {
+  margin-bottom: 0;
+  line-height: 1.7;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#start-and-detail-btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#start-btn {
+  font-size: 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  width: 135px;
+  height: 39px;
+  border: none;
+  line-height: 37px;
+  border-radius: 0.45em;
+  box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+  background: #ffa76c;
+  padding: 0.65em 1.6em;
+  white-space: nowrap;
+  text-decoration: none;
+  justify-self: end;
+}
+
+#start-btn:hover {
+  background: #ff8b3d;
+  box-shadow: 0 0 2px -1px rgba(100, 110, 167, 0.2);
+  cursor: pointer;
+}
+
+#start-btn:focus {
+  outline: none;
+}
+
+#detail-btn {
+  font-size: 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: black;
+  height: 39px;
+  border: none;
+  line-height: 37px;
+  border-radius: 0.45em;
+  box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+  background: whitesmoke;
+  padding: 0.65em 1.6em;
+  white-space: nowrap;
+  text-decoration: none;
+  justify-self: start;
+}
+
+#detail-btn:hover {
+  background: #e3e4e5;
+  box-shadow: 0 0 2px -1px rgba(100, 110, 167, 0.2);
+  cursor: pointer;
+}
+
+#detail-btn:focus {
+  outline: none;
+}
+
+#about-main-img {
+  place-self: center center;
+  width: 300px;
+  margin: 0px 90px 30px 0;
+}
+
+#food-creator-btn {
+  place-self: center end;
+  white-space: nowrap;
+  margin-right: 15px;
+  font-size: 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: black;
+  height: 39px;
+  border: none;
+  line-height: 37px;
+  border-radius: 0.45em;
+  box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+  background: #f4f9fc;
+  padding: 0.65em 1.6em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+#food-creator-btn:hover {
+  background: #edf2f7;
+  box-shadow: 0 0 2px -1px rgba(100, 110, 167, 0.2);
+  cursor: pointer;
+}
+
+#food-creator-btn:focus {
+  outline: none;
+}
