@@ -358,6 +358,12 @@ class CardDetailPageView(DetailView):
 class CampaignPageView(TemplateView):
     template_name = "app/campaign.html"
 
+class AboutPageForFoodie(TemplateView):
+    template_name = "app/about-for-foodie.html"
+
+class AboutPageForCreator(TemplateView):
+    template_name = "app/about-for-creator.html"
+
 
 def test_ajax_response(request):
     follower_username = request.user

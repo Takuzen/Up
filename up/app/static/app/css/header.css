@@ -8,13 +8,51 @@ header {
   height: 60px;
 }
 
-.header-group {
-  height: 100%;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
+@media screen and (max-width: 789px) {
+  .header-group {
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #header-left-side {
+    display: grid;
+    place-items: center start;
+  }
+  #header-right-side {
+    display: grid;
+    place-items: center end;
+    background: white;
+  }
+}
+
+@media screen and (min-width: 790px) {
+  .header-group {
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  #header-left-side {
+    display: grid;
+    place-items: center start;
+  }
+
+  #header-right-side {
+    display: grid;
+    place-items: center end;
+    background: #ffa76d;
+  }
+}
+
+#project-name-on-header {
+  margin-left: 3vw;
+}
+
+#project-name-on-header:focus {
+  outline: none;
 }
 
 #header-right-btns {
@@ -23,179 +61,18 @@ header {
   margin-right: 3vw;
 }
 
-#login-link-on-header {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
+#login-link-on-header{
   text-decoration: none;
-  text-align: right;
 }
 
-#login-text-on-header {
-  color: black;
+#login-text-on-header{
   font-size: 13px;
+  color: black;
   text-decoration: none;
 }
 
 #login-text-on-header:hover {
-  opacity: 0.6;
   cursor: pointer;
-}
-
-#login-icon-on-header:hover {
   opacity: 0.6;
-  cursor: pointer;
 }
 
-#start-diary-text {
-  color: black;
-  background-image: linear-gradient(120deg, #fa7099 0%, #fedf41 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 0.3em;
-  background-position: 0 88%;
-  transition: background-size 0.25s ease-in;
-}
-
-#start-diary-icon {
-  background-image: linear-gradient(120deg, #fa7099 0%, #fedf41 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 0.3em;
-  background-position: 0 88%;
-  transition: background-size 0.25s ease-in;
-}
-
-#start-diary-text:hover {
-  background-size: 100% 88%;
-}
-
-#start-diary-icon:hover {
-  background-size: 100% 88%;
-}
-
-/* Media Query */
-
-@media screen and (max-width: 735px) {
-  #up-arrow-on-header-img {
-    display: block;
-    margin-top: 5px;
-  }
-
-  #service-logo-on-header-left {
-    display: none;
-  }
-
-  #service-logo-on-header-center {
-    display: block;
-    justify-content: center;
-    text-align: center;
-  }
-
-  #project-name-on-header {
-    display: none;
-  }
-
-  #login-link-on-header {
-    display: none;
-  }
-
-  #login-icon-on-header {
-    display: block;
-    padding-top: 2px;
-    text-align: right;
-    margin-right: 25px;
-  }
-
-  #start-diary-link-text {
-    display: none;
-  }
-
-  #start-diary-icon-icon {
-    display: block;
-    text-emphasis: none;
-  }
-}
-
-@media screen and (min-width: 736px) and (max-width: 967px) {
-  #up-arrow-on-header-img {
-    display: block;
-    margin-top: 5px;
-  }
-
-  #service-logo-on-header-left {
-    display: none;
-  }
-
-  #service-logo-on-header-center {
-    display: block;
-    justify-content: center;
-    text-align: center;
-  }
-
-  #project-name-on-header {
-    display: none;
-  }
-
-  #login-link-on-header {
-    display: none;
-  }
-
-  #login-icon-on-header {
-    display: block;
-    padding-top: 2px;
-    text-align: right;
-    margin-right: 25px;
-  }
-
-  #start-diary-link-text {
-    display: none;
-  }
-
-  #start-diary-text {
-    display: none;
-  }
-
-  #start-diary-icon-icon {
-    display: block;
-    text-decoration: none;
-  }
-}
-
-@media screen and (min-width: 968px) {
-  #up-arrow-on-header-link {
-    display: none;
-  }
-
-  #service-logo-on-header-left {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-  }
-
-  #service-logo-on-header-center {
-    display: none;
-  }
-
-  #project-name-on-header {
-    display: block;
-    text-align: left;
-    margin-bottom: 0;
-    margin-left: 3vw;
-  }
-
-  #login-link-on-header {
-    display: block;
-  }
-
-  #login-icon-on-header {
-    display: none;
-  }
-
-  #start-diary-link-text {
-    display: block;
-    text-decoration: none;
-  }
-
-  #start-diary-link-icon {
-    display: none;
-  }
-}

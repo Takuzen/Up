@@ -1,5 +1,5 @@
 from ..register import views as register_view
-from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView, test_ajax_response, like_ajax_response
+from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView, AboutPageForFoodie, AboutPageForCreator, test_ajax_response, like_ajax_response
 from django.urls import path, include
 from django.conf.urls import url
 from django.conf import settings
@@ -11,6 +11,8 @@ from .models import Item
 # アプリケーションのルーティング設定
 
 urlpatterns = [
+    path('about/foodie/', AboutPageForFoodie.as_view(), name='about_foodie'),
+    path('about/creator/', AboutPageForCreator.as_view(), name='about_creator'),
     path('detail/<int:pk>/', ItemDetailView.as_view(), name='detail'),
     path('create/', ItemCreateView.as_view(), name='create'),
     path('update/<int:pk>/', ItemUpdateView.as_view(), name='update'),
