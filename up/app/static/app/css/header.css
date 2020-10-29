@@ -14,16 +14,36 @@ header {
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background: #ffa76d;
   }
 
   #header-left-side {
     display: grid;
     place-items: center start;
   }
+  
   #header-right-side {
     display: grid;
     place-items: center end;
-    background: white;
+  }
+
+  #project-name-on-header {
+    margin-left: 30px;
+    margin-top: 7px;
+  }
+  
+  #project-name-on-header:focus {
+    outline: none;
+  }
+
+  #project-name-on-header-link {
+    color: white;
+  }
+
+  #header-right-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
   }
 }
 
@@ -45,20 +65,25 @@ header {
     place-items: center end;
     background: #ffa76d;
   }
-}
 
-#project-name-on-header {
-  margin-left: 3vw;
-}
+  #project-name-on-header {
+    margin-left: 3vw;
+    margin-top: 7px;
+  }
+  
+  #project-name-on-header:focus {
+    outline: none;
+  }
 
-#project-name-on-header:focus {
-  outline: none;
-}
+  #project-name-on-header-link {
+    color: black;
+  }
 
-#header-right-btns {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 3vw;
+  #header-right-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3vw;
+  }
 }
 
 #login-link-on-header{

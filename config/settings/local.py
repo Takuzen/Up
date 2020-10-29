@@ -3,7 +3,7 @@ from .common import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "localhost"]
+ALLOWED_HOSTS = ["0.0.0.0", "localhost", "192.168.86.166"]
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
