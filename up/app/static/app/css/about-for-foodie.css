@@ -1,0 +1,18 @@
+.about-for-foodie-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+#working-img {
+    justify-self: end;
+}
+
+#seisakutyu-text {
+    justify-self: start;
+    margin-left: 50px;
+    text-align: center;
+    line-height: 2;
+    font-weight: bold;
+}
