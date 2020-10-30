@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+.about-for-foodie-wrapper {
+    margin-top: 50px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    place-content: center center;
+}
+
+#seisakutyu-text {
+    line-height: 2;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
