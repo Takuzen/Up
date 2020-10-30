@@ -34,6 +34,7 @@
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
   }
 
   #about-descr {
@@ -175,6 +176,7 @@
   #about-title-small {
     text-align: center;
     font-weight: bold;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
   }
 
   #about-descr {
@@ -314,6 +316,7 @@
   #about-title {
     text-align: center;
     font-weight: bold;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
   }
 
   #about-title-small {
