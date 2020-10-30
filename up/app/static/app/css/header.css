@@ -8,13 +8,67 @@ header {
   height: 60px;
 }
 
-@media screen and (max-width: 789px) {
+@media screen and (max-width: 370px) {
   .header-group {
     height: 100%;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background: #ffa76d;
+  }
+
+  #header-left-side {
+    display: grid;
+    place-items: center start;
+  }
+  
+  #header-right-side {
+    display: grid;
+    place-items: center end;
+  }
+
+  #project-name-on-header {
+    margin-left: 30px;
+    margin-top: 7px;
+    font-size:  1.1em;
+  }
+  
+  #project-name-on-header:focus {
+    outline: none;
+  }
+
+  #project-name-on-header-link {
+    color: black;
+  }
+
+  #header-right-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+  }
+
+  #login-link-on-header{
+    text-decoration: none;
+    z-index: 3;
+  }
+  
+  #login-text-on-header{
+    font-size: 11px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  #login-text-on-header:hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+}
+
+@media screen and (min-width: 371px) and (max-width: 789px) {
+  .header-group {
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   #header-left-side {
@@ -37,13 +91,29 @@ header {
   }
 
   #project-name-on-header-link {
-    color: white;
+    color: black;
   }
 
   #header-right-btns {
     display: flex;
     justify-content: flex-end;
     margin-right: 30px;
+  }
+
+  #login-link-on-header{
+    text-decoration: none;
+    z-index: 3;
+  }
+  
+  #login-text-on-header{
+    font-size: 13px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  #login-text-on-header:hover {
+    cursor: pointer;
+    opacity: 0.6;
   }
 }
 
@@ -63,7 +133,6 @@ header {
   #header-right-side {
     display: grid;
     place-items: center end;
-    background: #ffa76d;
   }
 
   #project-name-on-header {
@@ -84,20 +153,22 @@ header {
     justify-content: flex-end;
     margin-right: 3vw;
   }
+
+  #login-link-on-header {
+    text-decoration: none;
+    z-index: 3;
+  }
+  
+  #login-text-on-header {
+    font-size: 13px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  #login-text-on-header:hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
 }
 
-#login-link-on-header{
-  text-decoration: none;
-}
-
-#login-text-on-header{
-  font-size: 13px;
-  color: black;
-  text-decoration: none;
-}
-
-#login-text-on-header:hover {
-  cursor: pointer;
-  opacity: 0.6;
-}
 

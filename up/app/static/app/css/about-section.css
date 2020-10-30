@@ -45,6 +45,7 @@
     text-align: center;
     margin-bottom: 10px;
     font-size: 12px;
+    white-space: nowrap;
   }
 
   #food-creator-btn-mobile {
@@ -62,8 +63,8 @@
     border: none;
     line-height: 37px;
     border-radius: 0.45em;
-    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
-    background: #96d9ff;
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);
+    background: #dbf2ff;
     padding: 0.65em 1.6em;
     white-space: nowrap;
     text-decoration: none;
@@ -91,7 +92,7 @@
     border: none;
     line-height: 37px;
     border-radius: 0.45em;
-    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);;
     background: #ffa76c;
     padding: 0.65em 1.6em;
     white-space: nowrap;
@@ -121,7 +122,7 @@
     border: none;
     line-height: 37px;
     border-radius: 0.45em;
-    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);;
     background: whitesmoke;
     padding: 0.65em 1.6em;
     white-space: nowrap;
@@ -199,7 +200,7 @@
     border: none;
     line-height: 37px;
     border-radius: 0.45em;
-    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);;
     background: #ffa76c;
     padding: 0.65em 1.6em;
     white-space: nowrap;
@@ -229,7 +230,7 @@
     border: none;
     line-height: 37px;
     border-radius: 0.45em;
-    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);;
     background: whitesmoke;
     padding: 0.65em 1.6em;
     white-space: nowrap;
@@ -261,7 +262,7 @@
     border: none;
     line-height: 37px;
     border-radius: 0.45em;
-    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);
     background: #dbf2ff;
     padding: 0.65em 1.6em;
     white-space: nowrap;
@@ -293,9 +294,12 @@
   }
   
   #about-section > #about-right-side {
+    height: calc(100% + 60px);
     display: grid;
     grid-template-rows: 80% 20%;
     background: #ffa76d;
+    position: relative;
+    top: -60px;
   }
 
   #about-main-img-small {
@@ -339,7 +343,7 @@
     border: none;
     line-height: 37px;
     border-radius: 0.45em;
-    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);;
     background: #ffa76c;
     padding: 0.65em 1.6em;
     white-space: nowrap;
@@ -369,7 +373,7 @@
     border: none;
     line-height: 37px;
     border-radius: 0.45em;
-    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);;
     background: whitesmoke;
     padding: 0.65em 1.6em;
     white-space: nowrap;
@@ -403,6 +407,8 @@
 #about-main-img {
   place-self: center center;
   width: 250px;
+  position: relative;
+  top: 38.4px;
 }
 
 #food-creator-btn {
@@ -419,11 +425,13 @@
   border: none;
   line-height: 37px;
   border-radius: 0.45em;
-  box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+  box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2), inset 0 0 0 0.5px rgba(255, 255, 255, 0.6);
   background: #dbf2ff;
   padding: 0.65em 1.6em;
   white-space: nowrap;
   text-decoration: none;
+  position: relative;
+  top: 9.6px;
 }
 
 #food-creator-btn:hover {
