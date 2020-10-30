@@ -70,7 +70,6 @@
                 <div id="header-right-btns">
                     <a class="mypage-btn" href="{% url 'profile' %}"><img id="mypage-btn-img" class="rounded-circle account-img"
                     src="{% static 'images/icons/person.svg' %}" alt="person-icon"></a>
-            {% endif %}
                     <a target="_blank" id="feedback-btn"
                         href="https://docs.google.com/forms/d/e/1FAIpQLSeWFaXBtDHuyPljR8jLjVLOowi1FdbpN64n7iEoARf2ThF8rg/viewform?usp=sf_link"><img
                         id="feedback-img" src="{% static 'images/icons/feedback-mono.png' %}" alt="feedback-img"></a>
@@ -79,10 +78,18 @@
             {% else %}
             <div id="header-right-side">
                 <div id="header-right-btns">
+                    <a target="_blank" id="feedback-btn"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSeWFaXBtDHuyPljR8jLjVLOowi1FdbpN64n7iEoARf2ThF8rg/viewform?usp=sf_link"><img
+                        id="feedback-img" src="{% static 'images/icons/feedback-mono.png' %}" alt="feedback-img"></a>
+                </div>
+            </div>
+            {% endif %}
+            {% else %}
+            <div id="header-right-side">
+                <div id="header-right-btns">
                     <a id="login-link-on-header" href="{% url 'login' %}"><span id="login-text-on-header">ログイン</span></a>
                 </div>
             </div>
-
             {% endif %}
 
         </div>
