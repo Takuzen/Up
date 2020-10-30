@@ -69,12 +69,14 @@
     padding: 0.65em 1.6em;
     white-space: nowrap;
     text-decoration: none;
+    transition: 0.3s cubic-bezier(.17,.67,.83,.67);
   }
   
   #food-creator-btn-mobile:hover {
     background: #edf2f7;
     box-shadow: 0 0 2px -1px rgba(100, 110, 167, 0.2);
     cursor: pointer;
+    transform: translateY(-3px);
   }
   
   #food-creator-btn-mobile:focus {
@@ -269,12 +271,14 @@
     padding: 0.65em 1.6em;
     white-space: nowrap;
     text-decoration: none;
+    transition: 0.3s cubic-bezier(.17,.67,.83,.67);
   }
   
   #food-creator-btn-mobile:hover {
     background: #96d9ff;
     box-shadow: 0 0 2px -1px rgba(100, 110, 167, 0.2);
     cursor: pointer;
+    transform: translateY(-3px);
   }
   
   #food-creator-btn-mobile:focus {
@@ -435,12 +439,14 @@
   text-decoration: none;
   position: relative;
   top: 9.6px;
+  transition: 0.3s cubic-bezier(.17,.67,.83,.67);
 }
 
 #food-creator-btn:hover {
   background: #96d9ff;
   box-shadow: 0 0 2px -1px rgba(100, 110, 167, 0.2);
   cursor: pointer;
+  transform: translateY(-3px);
 }
 
 #food-creator-btn:focus {
