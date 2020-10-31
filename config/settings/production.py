@@ -3,13 +3,8 @@ from .common import *
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'up-env.eba-aesibyxa.us-east-1.elasticbeanstalk.com',
-    'www.uplife.link',
-    'uplife.link',
-    'up-env-b.us-east-1.elasticbeanstalk.com',
-    'Up-dev4.us-east-1.elasticbeanstalk.com',
-    'hello.uplife.link',
-    'up-env-2.eba-aesibyxa.us-east-1.elasticbeanstalk.com'
+    'up-env-2.eba-aesibyxa.us-east-1.elasticbeanstalk.com',
+    'up-staging.eba-aesibyxa.us-east-1.elasticbeanstalk.com'
 ]
 
 DATABASES = {
