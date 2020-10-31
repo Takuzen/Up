@@ -50,11 +50,10 @@
   }
 
   #food-creator-btn-mobile {
-    place-self: end end;
-    white-space: nowrap;
+    justify-self: end;
+    align-self: center;
     margin-right: 15px;
-    margin-bottom: 30px;
-    font-size: 13px;
+    font-size: 15px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -253,8 +252,8 @@
   }
 
   #food-creator-btn-mobile {
-    place-self: center end;
-    white-space: nowrap;
+    justify-self: end;
+    align-self: center;
     margin-right: 15px;
     font-size: 15px;
     display: inline-flex;
@@ -419,8 +418,8 @@
 }
 
 #food-creator-btn {
-  place-self: center end;
-  white-space: nowrap;
+  justify-self: end;
+  align-self: center;
   margin-right: 15px;
   font-size: 15px;
   display: inline-flex;
