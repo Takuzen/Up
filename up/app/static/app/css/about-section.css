@@ -1,7 +1,8 @@
 @media screen and (max-width: 370px) { /* iPhone 12 mini → 375px wide */
   #about-section {
     display: grid;
-    height: 100%;
+    height: calc(100vh - 60px);
+    width: 100%;
   }
 
   #about-section > #about-left-side {
@@ -49,9 +50,13 @@
     white-space: nowrap;
   }
 
+  #food-creator-btn-mobile-container {
+    display: grid;
+    justify-content: end;
+    align-content: start;
+  }
+
   #food-creator-btn-mobile {
-    justify-self: end;
-    align-self: center;
     margin-right: 15px;
     font-size: 15px;
     display: inline-flex;
@@ -251,9 +256,13 @@
     outline: none;
   }
 
+  #food-creator-btn-mobile-container {
+    display: grid;
+    justify-content: end;
+    align-content: start;
+  }
+  
   #food-creator-btn-mobile {
-    justify-self: end;
-    align-self: center;
     margin-right: 15px;
     font-size: 15px;
     display: inline-flex;
@@ -417,9 +426,13 @@
   top: 38.4px;
 }
 
+#food-creator-btn-container {
+  display: grid;
+  justify-content: end;
+  align-content: center;
+}
+
 #food-creator-btn {
-  justify-self: end;
-  align-self: center;
   margin-right: 15px;
   font-size: 15px;
   display: inline-flex;
