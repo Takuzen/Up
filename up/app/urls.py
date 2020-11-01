@@ -1,9 +1,10 @@
 from ..register import views as register_view
-from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView, AboutPageForFoodie, AboutPageForCreator, test_ajax_response, like_ajax_response
+from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, CardDetailPageView, CampaignPageView, AboutPageForFoodie, AboutPageForCreator, test_ajax_response, like_ajax_response, home
 from django.urls import path, include
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views
 
 from .models import Item
 
@@ -27,6 +28,10 @@ urlpatterns = [
     path('campaign/', CampaignPageView.as_view(), name='campaign'),
     path("ajax/", test_ajax_response),
     path("ajax-like/", like_ajax_response),
+    path('home/', home, name='home'),
+    path('auth/', include('social_django.urls', namespace='social')),
+    path('login-auth/', views.LoginView.as_view(), name='login'),
+    path('logout-auth/', views.LogoutView.as_view(), name='logout'),
     url(r'user_portfolio/(?P<id>\d+)', register_view.user_portfolio, name='user_portfolio'),
 ]
 

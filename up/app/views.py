@@ -394,3 +394,7 @@ def like_ajax_response(request):
     number_of_likes = item.like_set.all().count()
     dic_json = {"number_of_likes": number_of_likes, "item_id": request.POST["post-id"]}
     return HttpResponse(json.dumps(dic_json), content_type="application/json")
+
+
+def home(request):
+    return render(request, 'app/home.html')
