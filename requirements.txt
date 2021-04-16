@@ -1,6 +1,6 @@
 Django>=2.2.13
 django-crispy-forms==1.9.2
-django-debug-toolbar==2.2
+django-debug-toolbar==2.2.1
 django-filter==2.3.0
 djangorestframework==3.11.0
 Markdown==3.2.1
